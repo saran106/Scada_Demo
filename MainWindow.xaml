@@ -15,7 +15,32 @@
         <local:BoolToColorConverter x:Key="BoolToColorConverter"/>
         <local:GateStatusToColorConverter x:Key="GateStatusToColorConverter"/>
         <local:GateStatusToForegroundConverter x:Key="GateStatusToForegroundConverter"/>
+
+        <Storyboard x:Key="VanMoveAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <!-- Animate horizontal movement -->
+            <DoubleAnimation 
+Storyboard.TargetName="CargoVanCanvas" 
+Storyboard.TargetProperty="(Canvas.Left)"
+From="250" 
+To="1069" 
+Duration="0:0:4"/>
+
+            <!-- Animate vertical movement -->
+            <DoubleAnimation 
+Storyboard.TargetName="CargoVanCanvas" 
+Storyboard.TargetProperty="(Canvas.Top)"
+From="75" 
+To="472" 
+Duration="0:0:4"/>
+        </Storyboard>
+
     </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard Storyboard="{StaticResource VanMoveAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
 
     <Window.DataContext>
         <viewModels:PlantViewModel/>
@@ -551,10 +576,12 @@ BorderThickness="1">
 
 
 
-                            <!-- Aggregate Carrying Cargo Van - Realistic Colors -->
-                            <Canvas Canvas.Top="75" Canvas.Left="250" Width="64" Height="87" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <!-- Give a name to your cargo van canvas for animation -->
+                            <Canvas x:Name="CargoVanCanvas" Canvas.Top="75" Canvas.Left="250" Width="64" Height="87" 
+        HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <!-- Van Body (cargo area) - Realistic metallic silver/gray -->
-                                <Rectangle Width="110" Height="45" Fill="#C0C0C0" Stroke="#4A4A4A" StrokeThickness="2" Canvas.Top="-35" Canvas.Left="568" RadiusX="5" RadiusY="5" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Width="110" Height="45" Fill="#C0C0C0" Stroke="#4A4A4A" StrokeThickness="2" 
+               Canvas.Top="-35" Canvas.Left="568" RadiusX="5" RadiusY="5" RenderTransformOrigin="0.5,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -572,46 +599,27 @@ BorderThickness="1">
                                 <Ellipse Width="13" Height="8" Fill="#8B7355" Canvas.Top="20" Canvas.Left="613"/>
                                 <Ellipse Width="11" Height="7" Fill="#7A6A52" Canvas.Top="-15" Canvas.Left="640"/>
                                 <Ellipse Width="9" Height="6" Fill="#5D4F3E" Canvas.Top="-10" Canvas.Left="655"/>
-
-                                <!-- Van Cabin - Realistic white/commercial van color -->
-
-                                <!-- Windows - Tinted realistic -->
-
-                                <!-- Wheels - Realistic rubber with highlight -->
-
-                                <!-- Tire highlights -->
-
-                                <!-- Wheel rims - Chrome/alloy -->
-
-                                <!-- Van roof light - Realistic amber -->
-
-                                <!-- Door lines/panel details -->
-
-                                <!-- Headlight -->
-
-                                <!-- Taillight -->
                             </Canvas>
-                            <Rectangle
-           Canvas.Top="472" 
-           Canvas.Left="1069" 
-           HorizontalAlignment="Left" 
-           VerticalAlignment="Top" 
-           Width="515" StrokeThickness="1" Stroke="#3A4A3A" Height="61" Fill="#6A7A5A">
-                                <Rectangle.RenderTransform
-                            >
-                                    <TransformGroup
-                            >
-                                        <ScaleTransform
-                            />
-                                        <SkewTransform
-                            />
-                                        <RotateTransform
-                            Angle="593.312"/>
-                                        <TranslateTransform
-                            />
+
+                            <!-- Bottom rectangle -->
+                            <Rectangle Canvas.Top="472" Canvas.Left="1069" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" Width="515" StrokeThickness="1" 
+           Stroke="#3A4A3A" Height="61" Fill="#6A7A5A">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="593.312"/>
+                                        <TranslateTransform/>
                                     </TransformGroup>
                                 </Rectangle.RenderTransform>
                             </Rectangle>
+
+                          
+
+                            <!-- Button to start the animation -->
+                            <Button Content="Move Van" Canvas.Left="800" Canvas.Top="550" 
+        Width="100" Height="30" Click="StartVanAnimation_Click"/>
                             <!-- ========== SILO LEGS ========== -->
                             <Line X1="45" Y1="300" X2="45" Y2="440" Stroke="#4A5A6A" StrokeThickness="10"/>
 
