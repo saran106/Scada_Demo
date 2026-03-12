@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using Scada_Demo.ViewModels;
 using System.Windows.Media.Animation;
-
 namespace Scada_Demo
 {
     public partial class MainWindow : Window

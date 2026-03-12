@@ -566,6 +566,9 @@ BorderThickness="1">
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
+                            <Polygon Points="730,250 770,250 790,280 710,280" Fill="#B87333" Stroke="#8B4513" StrokeThickness="2" Canvas.Left="-13" Canvas.Top="-118"/>
+
+                            <!-- ========== CONTROL ROOM ========== -->
                             <Rectangle Canvas.Left="800" Canvas.Top="48" Width="150" Height="100" Fill="#4A6A8A" Stroke="#2A3A4A" StrokeThickness="2"/>
 
                             <TextBlock Text="CONTROL" Canvas.Left="848" Canvas.Top="58" Foreground="White" FontSize="12" RenderTransformOrigin="0.236,-2.148"/>
@@ -1414,11 +1417,10 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                             </Ellipse>
 
                             <!-- Discharge Chute with Gate -->
-                            <Polygon Points="730,250 770,250 790,280 710,280" Fill="#B87333" Stroke="#8B4513" StrokeThickness="2" Canvas.Left="-13" Canvas.Top="-118"/>
                             <Rectangle Canvas.Left="722" Canvas.Top="139" Width="30" Height="15" Fill="#DC143C" Stroke="#8B0000" StrokeThickness="1"/>
                             <TextBlock Text="GATE" Canvas.Left="726" Canvas.Top="141" Foreground="White" FontSize="8" FontWeight="Bold"/>
 
-
+                            <!--  fan start -->
 
                             <!-- First fan -->
                             <Ellipse Canvas.Left="686" Canvas.Top="75" Width="45" Height="34" Fill="#404040" Stroke="#202020" StrokeThickness="2"/>
@@ -1452,14 +1454,15 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
 
                             </Canvas>
 
+
                             <!-- Fan center cap -->
                             <Ellipse Canvas.Left="704" Canvas.Top="88" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1"/>
 
                             <!-- Second fan -->
-                            <Ellipse Canvas.Left="736" Canvas.Top="75" Width="43" Height="36" Fill="#404040" Stroke="#202020" StrokeThickness="2"/>
+                            <Ellipse Canvas.Left="736" Canvas.Top="71" Width="44" Height="45" Fill="#404040" Stroke="#202020" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                             <!-- Container for second fan blades -->
-                            <Canvas x:Name="Fan2_Blades" Canvas.Left="736" Canvas.Top="75" Width="43" Height="36">
+                            <Canvas x:Name="Fan2_Blades" Canvas.Left="736" Canvas.Top="75" Width="49" Height="37" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <Canvas.RenderTransform>
                                     <RotateTransform CenterX="21" CenterY="18"/>
                                 </Canvas.RenderTransform>
@@ -1475,20 +1478,116 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                                         </BeginStoryboard>
                                     </EventTrigger>
                                 </Canvas.Triggers>
+                                <!-- Central hub -->
 
-                                <!-- Triangle blade 1 (top-right) -->
-                                <Polygon Points="21,18 39,8 39,18" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1"/>
-                                <!-- Triangle blade 2 (bottom-right) -->
-                                <Polygon Points="21,18 39,28 39,18" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1"/>
-                                <!-- Triangle blade 3 (top-left) -->
-                                <Polygon Points="21,18 3,8 3,18" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1"/>
-                                <!-- Triangle blade 4 (bottom-left) -->
-                                <Polygon Points="21,18 3,28 3,18" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1"/>
+                                <!-- Top blade (rectangle) -->
+                                <Rectangle Canvas.Left="20" Canvas.Top="4" Width="4" Height="12" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+
+                                <!-- Top blade (rectangle) -->
+                                <Rectangle Canvas.Left="12" Canvas.Top="12.8" Width="4" Height="12" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90.719"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+
+
+
+                                <!-- Top blade (rectangle) -->
+                                <Rectangle Canvas.Left="28" Canvas.Top="13" Width="4" Height="12" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="91.135"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+
+
+
+
+                                <!-- Top blade (rectangle) -->
+                                <Rectangle Canvas.Left="20" Canvas.Top="21" Width="4" Height="12" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+                                <!-- Right blade (rectangle) -->
+
+
+
+                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10" Canvas.Top="2" Height="12" Width="37">
+                                    <Polygon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="91.135"/>
+                                            <TranslateTransform X="2" Y="-2"/>
+                                        </TransformGroup>
+                                    </Polygon.RenderTransform>
+                                </Polygon>
+
+                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="13" Canvas.Top="25.5" Height="12" Width="37">
+                                    <Polygon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="269.02"/>
+                                            <TranslateTransform X="2" Y="-2"/>
+                                        </TransformGroup>
+                                    </Polygon.RenderTransform>
+                                </Polygon>
+
+
+                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10" Canvas.Top="24" Height="12" Width="37">
+                                    <Polygon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="1.349"/>
+                                            <TranslateTransform X="2" Y="-2"/>
+                                        </TransformGroup>
+                                    </Polygon.RenderTransform>
+                                </Polygon>
+
+
+                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="13" Height="12" Width="37" Canvas.Top="4">
+                                    <Polygon.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="180.116"/>
+                                            <TranslateTransform X="2" Y="-2"/>
+                                        </TransformGroup>
+                                    </Polygon.RenderTransform>
+                                </Polygon>
+                                <Ellipse Canvas.Left="19" Canvas.Top="15" Width="6" Height="6" Fill="#404040" Stroke="#202020" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
 
                             </Canvas>
 
+
                             <!-- Fan center cap -->
-                            <Ellipse Canvas.Left="754" Canvas.Top="89" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1"/>
+                            <Ellipse Canvas.Left="747" Canvas.Top="82" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.959,0.961">
+                                <Ellipse.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="180.89"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+
+
+                            <!--  fan End -->
+
 
                             <!-- Mixer Motor/Drive Unit -->
                             <Ellipse Canvas.Left="620" Canvas.Top="204" Width="15" Height="15" Fill="#404040" Stroke="#202020" HorizontalAlignment="Center" VerticalAlignment="Top"/>
