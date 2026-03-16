@@ -567,120 +567,13 @@ BorderThickness="1">
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- Mixer Motor/Drive Unit -->
-                            <Ellipse Canvas.Left="762" Canvas.Top="219" Width="23" Height="47" Fill="#404040" Stroke="#202020" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="8.509,1.528"/>
-                            <!-- ========== CONTROL ROOM ========== -->
-                            <Polygon Points="730,250 770,250 790,280 710,280" Fill="#B87333" Stroke="#8B4513" StrokeThickness="2" Canvas.Left="-13" Canvas.Top="-118"/>
+                            <!--
+                            <Rectangle Canvas.Left="636" Canvas.Top="50" Width="200" Height="90" Fill="#CCCCCC" Stroke="#333333" StrokeThickness="3" RadiusX="10" RadiusY="10" RenderTransformOrigin="0.521,0.509"/>-->
 
                             <!-- ========== CONTROL ROOM ========== -->
                             <Rectangle Canvas.Left="800" Canvas.Top="48" Width="150" Height="100" Fill="#4A6A8A" Stroke="#2A3A4A" StrokeThickness="2" RadiusX="10"
            RadiusY="10"/>
 
-                            <TextBlock Text="CONTROL" Canvas.Left="848" Canvas.Top="58" Foreground="White" FontSize="12" RenderTransformOrigin="0.236,-2.148"/>
-
-                            <Rectangle Canvas.Left="910" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" RenderTransformOrigin="0.762,0.609" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Rectangle Canvas.Left="863" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-
-
-
-
-                            <!-- Give a name to your cargo van canvas for animation -->
-                            <Canvas x:Name="CargoVanCanvas" Canvas.Top="75" Canvas.Left="250" Width="64" Height="87" 
-        HorizontalAlignment="Left" VerticalAlignment="Top">
-                                <!-- Main Cart Body - Wooden look (instead of silver/gray) -->
-                                <!-- Coal/Cargo inside (dark colors instead of stone colors) -->
-                                <!-- Metal Corner Brackets -->
-                                <!-- Front Wheel (large, vintage style) -->
-
-                                <!-- Metal Corner Brackets -->
-                                <Ellipse Width="12" Height="8" Fill="#202020" Canvas.Top="-45" Canvas.Left="624" Stroke="#1A1A1A" StrokeThickness="1"/>
-                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-45" Canvas.Left="622" RadiusX="2" RadiusY="2" RenderTransformOrigin="0.971,0.832"/>
-
-                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-7" Canvas.Left="650" RadiusX="2" RadiusY="2" RenderTransformOrigin="0.971,0.832"/>
-
-                                <Rectangle Width="10" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-19" Canvas.Left="638" RadiusX="2" RadiusY="2" RenderTransformOrigin="-1.354,2.44" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                <Ellipse Width="7" Height="7" Fill="#AAA" Canvas.Top="-31" Canvas.Left="638" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-41" Canvas.Left="630" RadiusX="2" RadiusY="2"/>
-                                <Ellipse Width="8" Height="8" Fill="#C0C0C0" Canvas.Top="-52" Canvas.Left="619" Stroke="#888" StrokeThickness="1"/>
-                                <Ellipse Width="13" Height="7" Fill="#353535" Canvas.Top="-26" Canvas.Left="632" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                <Ellipse Width="13" Height="5" Fill="#353535" Canvas.Top="-16" Canvas.Left="642" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.064,0.408"/>
-
-                                <Ellipse Width="15" Height="6" Fill="#303030" Canvas.Top="-32" Canvas.Left="627" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                <!-- Coal/Cargo inside (dark colors instead of stone colors) -->
-                                <Ellipse Width="20" Height="4" Fill="#2D2D2D" Canvas.Top="-39" Canvas.Left="620" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                                    <Ellipse.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="-39.614"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Ellipse.RenderTransform>
-                                </Ellipse>
-                                <Ellipse Width="12" Height="8" Fill="#252525" Canvas.Top="-51" Canvas.Left="614" Stroke="#1A1A1A" StrokeThickness="1"/>
-                                <Ellipse Width="16" Height="11" Fill="#3A3A3A" Canvas.Top="-61" Canvas.Left="608" Stroke="#1A1A1A" StrokeThickness="1"/>
-                                <Ellipse Width="16" Height="11" Fill="#3A3A3A" Canvas.Top="-14" Canvas.Left="642" Stroke="#1A1A1A" StrokeThickness="1"/>
-                                <!-- Metal Corner Brackets -->
-
-                                <!--  Cart Body  start-->
-
-                                <Rectangle Width="100" Height="40" Fill="#9AAD73" Stroke="#6A7A5A" StrokeThickness="5" 
-           Canvas.Top="-35" Canvas.Left="568" RadiusX="8" RadiusY="8" RenderTransformOrigin="0.5,0.5">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="54.44"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                    <Rectangle.Effect>
-                                        <DropShadowEffect BlurRadius="5" Opacity="0.3" ShadowDepth="2" Color="#8B4513"/>
-                                    </Rectangle.Effect>
-                                </Rectangle>
-
-                                <!-- Rust spots (just a few small ones) -->
-                                <Ellipse Width="8" Height="4" Fill="#8B4513" Canvas.Top="-30" Canvas.Left="580" Opacity="0.4"/>
-                                <Ellipse Width="6" Height="3" Fill="#8B4513" Canvas.Top="-20" Canvas.Left="610" Opacity="0.3"/>
-                                <Ellipse Width="7" Height="4" Fill="#8B4513" Canvas.Top="-25" Canvas.Left="635" Opacity="0.3"/>
-                                <Ellipse Width="5" Height="3" Fill="#A0522D" Canvas.Top="-15" Canvas.Left="595" Opacity="0.4"/>
-
-                                <!--  Cart Body  end-->
-
-                                <!-- Coal Highlights (small shiny dots) -->
-                                <Ellipse Width="3" Height="2" Fill="#E0E0E0" Canvas.Top="-20" Canvas.Left="585" Opacity="0.4"/>
-                                <Ellipse Width="2" Height="2" Fill="#E0E0E0" Canvas.Top="-19" Canvas.Left="642" Opacity="0.4"/>
-
-                                <!--  Wheel start -->
-
-                                <!-- Front Wheel (correctly arranged) -->
-                                <Ellipse Width="31" Height="26" Fill="#2A2A2A" Canvas.Top="-42" Canvas.Left="568" Stroke="#666" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                <Ellipse Width="10" Height="8" Fill="#CD7F32" Canvas.Top="-33" Canvas.Left="578" Opacity="0.7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                <!-- Back Wheel (correctly arranged) -->
-                                <Ellipse Width="34" Height="28" Fill="#2A2A2A" Canvas.Top="7" Canvas.Left="603" Stroke="#666" StrokeThickness="2"/>
-                                <Ellipse Width="10" Height="10" Fill="#CD7F32" Canvas.Top="16" Canvas.Left="614" Opacity="0.7" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
-                                    <Ellipse.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="-19.747"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Ellipse.RenderTransform>
-                                </Ellipse>
-                                <!-- Back Wheel -->
-
-                                <!--  Wheel end -->
-
-                                <!-- Wheel Axles -->
-                                <Line X1="563" Y1="-3" X2="678" Y2="20" Stroke="#8B4513" StrokeThickness="3" Canvas.Top="-35" Canvas.Left="568"/>
-
-                                <!-- Cart Handle -->
-                                <Line X1="560" Y1="-45" X2="580" Y2="-55" Stroke="#5D3E1F" StrokeThickness="4" Canvas.Top="-35" Canvas.Left="568"/>
-                                <!-- Rust/Dirt effects -->
-                                <Ellipse Width="7" Height="4" Fill="#8B4513" Canvas.Top="10" Canvas.Left="650" Opacity="0.3"/>
-                                <Ellipse Width="11" Height="14" Fill="#8B4513" Canvas.Top="-12" Canvas.Left="626" Opacity="0.3"/>
-                            </Canvas>
                             <Rectangle Canvas.Top="472"
            Canvas.Left="1069"
            HorizontalAlignment="Left"
@@ -711,6 +604,137 @@ BorderThickness="1">
                             </Rectangle>
 
 
+                            <!--
+                            <Rectangle Canvas.Left="636" Canvas.Top="50" Width="200" Height="90" Fill="#CCCCCC" Stroke="#333333" StrokeThickness="3" RadiusX="10" RadiusY="10" RenderTransformOrigin="0.521,0.509"/>-->
+
+                            <Ellipse Canvas.Left="715"
+Width="140"
+Height="121"
+ Fill="#CCCCCC" Stroke="#333333"
+StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+                            <Ellipse Canvas.Left="620"
+Width="140"
+Height="121"
+ Fill="#CCCCCC" Stroke="#333333"
+StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+                            <!-- Mixer Motor/Drive Unit -->
+                            <Ellipse Canvas.Left="762" Canvas.Top="219" Width="23" Height="47" Fill="#404040" Stroke="#202020" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="8.509,1.528"/>
+                            <!-- ========== CONTROL ROOM ========== -->
+                            <Polygon Points="730,250 770,250 790,280 710,280" Fill="#B87333" Stroke="#8B4513" StrokeThickness="2" Canvas.Left="-13" Canvas.Top="-118"/>
+
+                            <TextBlock Text="CONTROL" Canvas.Left="848" Canvas.Top="58" Foreground="White" FontSize="12" RenderTransformOrigin="0.236,-2.148"/>
+
+                            <Rectangle Canvas.Left="910" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" RenderTransformOrigin="0.762,0.609" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Rectangle Canvas.Left="863" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+
+
+                            <!-- Give a name to your cargo van canvas for animation -->
+                            <Canvas x:Name="CargoVanCanvas" Canvas.Top="75" Canvas.Left="250" Width="64" Height="87" 
+        HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <!-- Main Cart Body - Wooden look (instead of silver/gray) -->
+
+                                <!-- Coal/Cargo inside (dark colors instead of stone colors) -->
+
+                                <!-- Metal Corner Brackets -->
+
+                                <!-- Front Wheel (large, vintage style) -->
+
+                                <!-- Metal Corner Brackets -->
+
+                                <!--  Cart Body  end-->
+
+                                <!--  Wheel start -->
+
+                                <!-- Back Wheel -->
+
+                                <!--  Wheel end -->
+
+                                <!-- Metal Corner Brackets -->
+                                <Ellipse Width="12" Height="8" Fill="#202020" Canvas.Top="-45" Canvas.Left="624" Stroke="#1A1A1A" StrokeThickness="1"/>
+                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-45" Canvas.Left="622" RadiusX="2" RadiusY="2" RenderTransformOrigin="0.971,0.832"/>
+
+                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-7" Canvas.Left="650" RadiusX="2" RadiusY="2" RenderTransformOrigin="0.971,0.832"/>
+
+                                <Rectangle Width="10" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-19" Canvas.Left="638" RadiusX="2" RadiusY="2" RenderTransformOrigin="-1.354,2.44" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Ellipse Width="7" Height="7" Fill="#AAA" Canvas.Top="-31" Canvas.Left="638" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-41" Canvas.Left="630" RadiusX="2" RadiusY="2"/>
+                                <Ellipse Width="8" Height="8" Fill="#C0C0C0" Canvas.Top="-52" Canvas.Left="619" Stroke="#888" StrokeThickness="1"/>
+                                <Ellipse Width="13" Height="7" Fill="#353535" Canvas.Top="-26" Canvas.Left="632" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Ellipse Width="13" Height="5" Fill="#353535" Canvas.Top="-16" Canvas.Left="642" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.064,0.408"/>
+
+                                <Ellipse Width="15" Height="6" Fill="#303030" Canvas.Top="-32" Canvas.Left="627" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <!-- Coal/Cargo inside (dark colors instead of stone colors) -->
+                                <Ellipse Width="20" Height="4" Fill="#2D2D2D" Canvas.Top="-39" Canvas.Left="620" Stroke="#1A1A1A" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-39.614"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                                <Ellipse Width="12" Height="8" Fill="#252525" Canvas.Top="-51" Canvas.Left="614" Stroke="#1A1A1A" StrokeThickness="1"/>
+                                <Ellipse Width="16" Height="11" Fill="#3A3A3A" Canvas.Top="-61" Canvas.Left="608" Stroke="#1A1A1A" StrokeThickness="1"/>
+                                <Ellipse Width="16" Height="11" Fill="#3A3A3A" Canvas.Top="-14" Canvas.Left="642" Stroke="#1A1A1A" StrokeThickness="1"/>
+                                <!--  Cart Body  start-->
+
+                                <Rectangle Width="100" Height="40" Fill="#9AAD73" Stroke="#6A7A5A" StrokeThickness="5" 
+           Canvas.Top="-35" Canvas.Left="568" RadiusX="8" RadiusY="8" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="54.44"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                    <Rectangle.Effect>
+                                        <DropShadowEffect BlurRadius="5" Opacity="0.3" ShadowDepth="2" Color="#8B4513"/>
+                                    </Rectangle.Effect>
+                                </Rectangle>
+
+                                <!-- Rust spots (just a few small ones) -->
+                                <Ellipse Width="8" Height="4" Fill="#8B4513" Canvas.Top="-30" Canvas.Left="580" Opacity="0.4"/>
+                                <Ellipse Width="6" Height="3" Fill="#8B4513" Canvas.Top="-20" Canvas.Left="610" Opacity="0.3"/>
+                                <Ellipse Width="7" Height="4" Fill="#8B4513" Canvas.Top="-25" Canvas.Left="635" Opacity="0.3"/>
+                                <Ellipse Width="5" Height="3" Fill="#A0522D" Canvas.Top="-15" Canvas.Left="595" Opacity="0.4"/>
+
+                                <!-- Coal Highlights (small shiny dots) -->
+                                <Ellipse Width="3" Height="2" Fill="#E0E0E0" Canvas.Top="-20" Canvas.Left="585" Opacity="0.4"/>
+                                <Ellipse Width="2" Height="2" Fill="#E0E0E0" Canvas.Top="-19" Canvas.Left="642" Opacity="0.4"/>
+
+                                <!-- Front Wheel (correctly arranged) -->
+                                <Ellipse Width="31" Height="26" Fill="#2A2A2A" Canvas.Top="-42" Canvas.Left="568" Stroke="#666" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Ellipse Width="10" Height="8" Fill="#CD7F32" Canvas.Top="-33" Canvas.Left="578" Opacity="0.7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                <!-- Back Wheel (correctly arranged) -->
+                                <Ellipse Width="34" Height="28" Fill="#2A2A2A" Canvas.Top="7" Canvas.Left="603" Stroke="#666" StrokeThickness="2"/>
+                                <Ellipse Width="10" Height="10" Fill="#CD7F32" Canvas.Top="16" Canvas.Left="614" Opacity="0.7" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-19.747"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                                <!-- Wheel Axles -->
+                                <Line X1="563" Y1="-3" X2="678" Y2="20" Stroke="#8B4513" StrokeThickness="3" Canvas.Top="-35" Canvas.Left="568"/>
+
+                                <!-- Cart Handle -->
+                                <Line X1="560" Y1="-45" X2="580" Y2="-55" Stroke="#5D3E1F" StrokeThickness="4" Canvas.Top="-35" Canvas.Left="568"/>
+                                <!-- Rust/Dirt effects -->
+                                <Ellipse Width="7" Height="4" Fill="#8B4513" Canvas.Top="10" Canvas.Left="650" Opacity="0.3"/>
+                                <Ellipse Width="11" Height="14" Fill="#8B4513" Canvas.Top="-12" Canvas.Left="626" Opacity="0.3"/>
+                            </Canvas>
                             <!-- Button to start the animation -->
                             <Button Content="Move Van" Canvas.Left="800" Canvas.Top="550" 
         Width="100" Height="30" Click="StartVanAnimation_Click"/>
@@ -1453,10 +1477,6 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Line X1="765" Y1="440" X2="765" Y2="460" Stroke="#666666" StrokeThickness="3" Canvas.Left="485" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-5"/>
                             <Line X1="1015" Y1="440" X2="1015" Y2="460" Stroke="#666666" StrokeThickness="3" Canvas.Left="-27" Canvas.Top="-5"/>
 
-                            <!-- Mixer Drum (Main cylindrical shape) 111-->
-                            <Rectangle Canvas.Left="636" Canvas.Top="50" Width="200" Height="90" Fill="#CCCCCC" Stroke="#333333" StrokeThickness="3" RadiusX="10" RadiusY="10" RenderTransformOrigin="0.521,0.509"/>
-
-
                             <!-- Green Signal - Black Square Background (Smaller) -->
                             <Rectangle Width="20" Height="20" Fill="Black" Stroke="#333" StrokeThickness="1" 
            Canvas.Left="652" Canvas.Top="82" RadiusX="2" RadiusY="2"/>
@@ -1479,16 +1499,21 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Canvas>
 
                                 <!-- Left Ellipse -->
+
                                 <!-- Bridge Rectangle -->
+
                                 <!-- Left Ellipse -->
+
+                                <!-- Right Ellipse -->
+
                                 <!-- Right Ellipse -->
                                 <Ellipse Canvas.Left="736"
-             Canvas.Top="71"
+             Canvas.Top="70"
              Width="44"
              Height="45"
              Fill="#404040"
              Stroke="#202020"
-             StrokeThickness="2"/>
+             StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                                 <!-- Left Ellipse -->
                                 <Ellipse Canvas.Left="687"
@@ -1505,8 +1530,6 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                Height="33"
                 Fill="#404040"
  HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-                                <!-- Right Ellipse -->
 
                             </Canvas>
 
@@ -2256,7 +2279,7 @@ Canvas.Left="724" Canvas.Top="53" HorizontalAlignment="Left" VerticalAlignment="
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
-                            <Ellipse Canvas.Left="636" Canvas.Top="124" Width="200" Height="20" Stroke="#333333" StrokeThickness="2" Fill="#AAAAAA"/>
+                            <!--<Ellipse Canvas.Left="636" Canvas.Top="124" Width="200" Height="20" Stroke="#333333" StrokeThickness="2" Fill="#AAAAAA"/>-->
                             <Rectangle Canvas.Left="650" Canvas.Top="114" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                             <!-- Mixer Drum Rings (Reinforcement) -->
                             <Rectangle Canvas.Left="650" Canvas.Top="70" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
