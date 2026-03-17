@@ -583,6 +583,8 @@ BorderThickness="1">
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
+                            <Rectangle Canvas.Left="652" Canvas.Top="140" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            <!-- ========== CONTROL ROOM ========== -->
                             <Rectangle Canvas.Left="800" Canvas.Top="48" Width="150" Height="100" Fill="#4A6A8A" Stroke="#2A3A4A" StrokeThickness="2" RadiusX="10"
            RadiusY="10"/>
                             <Rectangle Canvas.Left="863" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -625,7 +627,7 @@ Height="120"
  Fill="#CCCCCC" 
 StrokeThickness="2" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-                            <Rectangle Canvas.Left="659" Canvas.Top="22" Width="154" Height="43"  Fill="#CCCCCC"   StrokeThickness="2" RenderTransformOrigin="0.371,0.496" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Rectangle Canvas.Left="663" Canvas.Top="22" Width="154" Height="43"  Fill="#CCCCCC"   StrokeThickness="2" RenderTransformOrigin="0.371,0.496" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBlock Text="ROOM" Canvas.Left="906" Canvas.Top="58" Foreground="White" FontSize="12" HorizontalAlignment="Left" Height="14" VerticalAlignment="Center" Width="34"/>
 
                             <!--
@@ -1510,39 +1512,55 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
                                 </Ellipse.Effect>
                             </Ellipse>
 
-                            <!-- Discharge Chute with Gate -->
-                            <Rectangle Canvas.Left="722" Canvas.Top="139" Width="30" Height="15" Fill="#DC143C" Stroke="#8B0000" StrokeThickness="1"/>
-                            <TextBlock Text="GATE" Canvas.Left="726" Canvas.Top="141" Foreground="White" FontSize="8" FontWeight="Bold"/>
+
+
 
                             <Canvas Canvas.Left="675" Canvas.Top="65">
 
                                 <Ellipse
-        Width="78"
-        Height="76"
+        Width="122"
+        Height="108"
         Fill="#404040"
         Stroke="#202020"
-        StrokeThickness="2"/>
+        StrokeThickness="2" HorizontalAlignment="Left" Canvas.Left="-44" Canvas.Top="-10" VerticalAlignment="Center"/>
 
                                 <Ellipse
-        Canvas.Left="54"
-        Width="78"
-        Height="75"
+Width="78"
+Height="76"
+Fill="#404040"
+Stroke="#202020"
+StrokeThickness="2" Canvas.Left="350" Canvas.Top="-1"/>
+
+                                <Ellipse
+Width="78"
+Height="76"
+Fill="#404040"
+Stroke="#202020"
+StrokeThickness="2" Canvas.Left="411" Canvas.Top="-1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                                <Ellipse
+        Canvas.Left="50"
+        Width="122"
+        Height="108"
         Fill="#404040"
         Stroke="#202020"
-        StrokeThickness="2"/>
+        StrokeThickness="2" Canvas.Top="-8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                                 <Rectangle
         Canvas.Left="47"
         Width="42"
-        Height="61"
-        Fill="#404040" Canvas.Top="7"/>
+        Height="77"
+        Fill="#404040" Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                             </Canvas>
+                            <!-- Discharge Chute with Gate -->
+                            <Rectangle Canvas.Left="727" Canvas.Top="143" Width="30" Height="15" Fill="#DC143C" Stroke="#8B0000" StrokeThickness="1"/>
 
 
                             <Canvas x:Name="Fan1_Blades" Canvas.Left="690" Canvas.Top="80" Width="47" Height="41" HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Canvas.RenderTransform>
-                                    <RotateTransform CenterX="23.5" CenterY="20.5"/>
+                                    <RotateTransform CenterX="-2" CenterY="28"/>
                                 </Canvas.RenderTransform>
 
                                 <Canvas.Triggers>
@@ -1559,18 +1577,18 @@ From="0" To="360" Duration="0:0:0.8"/>
                                 <!-- Central hub -->
 
                                 <!-- Top blade (rectangle) -->
-                                <Rectangle Canvas.Left="20" Canvas.Top="3" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Rectangle Canvas.Left="-5.5" Canvas.Top="1" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
 
                                 <!-- Top blade (rectangle) -->
-                                <Rectangle Canvas.Left="12" Canvas.Top="11" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Canvas.Left="-35" Canvas.Top="02" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.597,2.356">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
                                             <SkewTransform/>
                                             <RotateTransform Angle="90.719"/>
-                                            <TranslateTransform/>
+                                            <TranslateTransform X="-41.56" Y="-33.199"/>
                                         </TransformGroup>
                                     </Rectangle.RenderTransform>
                                 </Rectangle>
@@ -1578,7 +1596,7 @@ From="0" To="360" Duration="0:0:0.8"/>
 
 
                                 <!-- Top blade (rectangle) -->
-                                <Rectangle Canvas.Left="27" Canvas.Top="11" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Canvas.Left="7" Canvas.Top="14" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -1593,64 +1611,95 @@ From="0" To="360" Duration="0:0:0.8"/>
 
 
                                 <!-- Top blade (rectangle) -->
-                                <Rectangle Canvas.Left="20" Canvas.Top="18" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Canvas.Left="-5.5" Canvas.Top="26" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
                                 <!-- Right blade (rectangle) -->
 
 
 
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="-17" Height="12" Width="37" Canvas.Top="4">
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+         Fill="#E0E0E0" 
+         Stroke="#A0A0A0" 
+         StrokeThickness="1" 
+         HorizontalAlignment="Left" 
+         VerticalAlignment="Top" 
+         RenderTransformOrigin="0.5,0.5" 
+         Canvas.Left="-46" 
+         Canvas.Top="08">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="91.135"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="90"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
 
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="19" Canvas.Top="27" Height="12" Width="37">
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+         Fill="#E0E0E0" 
+         Stroke="#A0A0A0" 
+         StrokeThickness="1" 
+         HorizontalAlignment="Left" 
+         VerticalAlignment="Top" 
+         RenderTransformOrigin="0.5,0.5" 
+         Canvas.Left="5" 
+         Canvas.Top="32">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="269.02"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="270"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
 
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+         Fill="#E0E0E0" 
+         Stroke="#A0A0A0" 
+         StrokeThickness="1" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Top" 
+         RenderTransformOrigin="0.5,0.5" 
+         Canvas.Left="-34" 
+         Canvas.Top="47">
 
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10" Canvas.Top="33" Height="12" Width="37">
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="1.349"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="0"/>
+                                            <!-- clean top -->
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
 
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+         Fill="#E0E0E0" 
+         Stroke="#A0A0A0" 
+         StrokeThickness="1" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Top" 
+         RenderTransformOrigin="0.5,0.5" 
+         Canvas.Left="-10" 
+         Canvas.Top="-4">
 
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="13" Height="12" Width="37">
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="180.116"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="180"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
-                                <Ellipse Canvas.Left="19" Canvas.Top="17" Width="6" Height="6" Fill="#404040" Stroke="#202020" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Ellipse Canvas.Left="-5" Canvas.Top="25" Width="6" Height="6" Fill="#404040" Stroke="#202020" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
 
                             </Canvas>
 
-                            <Ellipse Canvas.Left="701" Canvas.Top="89" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.959,0.961">
+                            <Ellipse Canvas.Left="677" Canvas.Top="96" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.959,0.961">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -1661,9 +1710,9 @@ From="0" To="360" Duration="0:0:0.8"/>
                                 </Ellipse.RenderTransform>
                             </Ellipse>
 
-                            <Canvas x:Name="Fan2_Blades" Canvas.Left="736" Canvas.Top="84" Width="49" Height="36" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Canvas x:Name="Fan2_Blades" Canvas.Left="756" Canvas.Top="92" Width="48" Height="36" HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Canvas.RenderTransform>
-                                    <RotateTransform CenterX="36" CenterY="17"/>
+                                    <RotateTransform CenterX="37.5" CenterY="17.5"/>
                                 </Canvas.RenderTransform>
 
                                 <Canvas.Triggers>
@@ -1688,7 +1737,7 @@ From="0" To="360" Duration="0:0:0.8"/>
                                 <!-- Top blade (rectangle) -->
 
                                 <!-- Right blade (rectangle) -->
-                                <Rectangle Canvas.Left="45" Canvas.Top="6" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Canvas.Left="45" Canvas.Top="3" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -1698,19 +1747,30 @@ From="0" To="360" Duration="0:0:0.8"/>
                                         </TransformGroup>
                                     </Rectangle.RenderTransform>
                                 </Rectangle>
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="34" Canvas.Top="22" Height="12" Width="37">
+
+
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+Fill="#E0E0E0" 
+Stroke="#A0A0A0" 
+StrokeThickness="1" 
+HorizontalAlignment="Left" 
+VerticalAlignment="Top" 
+RenderTransformOrigin="0.5,0.5" 
+Canvas.Left="45" 
+Canvas.Top="22">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="269.02"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="270"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
-                                <Rectangle Canvas.Left="35" Canvas.Top="17" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.98,0.243"/>
-                                <Rectangle Canvas.Left="35" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                <Rectangle Canvas.Left="25" Canvas.Top="6" Width="4" Height="20" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+
+                                <Rectangle Canvas.Left="34" Canvas.Top="17" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.98,0.243"/>
+                                <Rectangle Canvas.Left="34" Canvas.Top="-10" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Rectangle Canvas.Left="22" Canvas.Top="2.5" Width="7" Height="28" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -1720,35 +1780,60 @@ From="0" To="360" Duration="0:0:0.8"/>
                                         </TransformGroup>
                                     </Rectangle.RenderTransform>
                                 </Rectangle>
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Left="-2" Canvas.Top="-1" Height="12" Width="37">
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+Fill="#E0E0E0" 
+Stroke="#A0A0A0" 
+StrokeThickness="1" 
+HorizontalAlignment="Left" 
+VerticalAlignment="Top" 
+RenderTransformOrigin="0.5,0.5" 
+Canvas.Left="-9" 
+Canvas.Top="-3">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="91.135"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="90"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Canvas.Top="30" Height="12" Width="37" Canvas.Left="5">
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+Fill="#E0E0E0" 
+Stroke="#A0A0A0" 
+StrokeThickness="1" 
+HorizontalAlignment="Left" 
+VerticalAlignment="Top" 
+RenderTransformOrigin="0.5,0.5" 
+Canvas.Left="6.5" 
+Canvas.Top="35">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="1.349"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="0"/>
+                                            <!-- clean top -->
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
-                                <Polygon Points="26,6 34,6 36,13 24,13" Fill="#E0E0E0" Stroke="#A0A0A0" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="23" Height="12" Width="42" Canvas.Top="-5">
+                                <Polygon Points="24,5 36,5 39,15 21,15" 
+Fill="#E0E0E0" 
+Stroke="#A0A0A0" 
+StrokeThickness="1" 
+HorizontalAlignment="Center" 
+VerticalAlignment="Top" 
+RenderTransformOrigin="0.5,0.5" 
+Canvas.Left="29.5" 
+Canvas.Top="-15">
+
                                     <Polygon.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="180.116"/>
-                                            <TranslateTransform X="2" Y="-2"/>
+                                            <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
+                                            <RotateTransform Angle="180"/>
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
+
                                 </Polygon>
                                 <!-- Right blade (rectangle) -->
                                 <Ellipse Canvas.Left="34" Canvas.Top="14" Width="6" Height="6" Fill="#404040" Stroke="#202020" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-2.305,-0.347"/>
@@ -1759,7 +1844,7 @@ From="0" To="360" Duration="0:0:0.8"/>
 
 
                             <!-- Fan center cap -->
-                            <Ellipse Canvas.Left="762" Canvas.Top="89" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.959,0.961">
+                            <Ellipse Canvas.Left="782" Canvas.Top="97" Width="8" Height="8" Fill="#FFD700" Stroke="#B8860B" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.959,0.961">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -2280,35 +2365,6 @@ Canvas.Left="777">
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
-                            <Polygon Points="540,550 760,550 560,260 540,240"
-         Stroke="#5A3A2A"
-         StrokeThickness="2"
-         RenderTransformOrigin="0.5,0.5"
-         Canvas.Left="448"
-         Canvas.Top="-256"
-         Width="561"
-         HorizontalAlignment="Center"
-         VerticalAlignment="Top">
-
-                                <Polygon.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#5A3A1A" Offset="0.0"/>
-                                        <GradientStop Color="#8B5A2B" Offset="0.3"/>
-                                        <GradientStop Color="#A67B4B" Offset="0.6"/>
-                                        <GradientStop Color="#6B3E1F" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Polygon.Fill>
-
-                                <Polygon.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform AngleY="0.212"/>
-                                        <RotateTransform Angle="90.205"/>
-                                        <TranslateTransform X="-0.385" Y="0.964"/>
-                                    </TransformGroup>
-                                </Polygon.RenderTransform>
-
-                            </Polygon>
                             <Line X1="565" Y1="450" X2="565" Y2="155" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="340" Canvas.Top="206" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <Line.RenderTransform>
                                     <TransformGroup>
@@ -2319,7 +2375,6 @@ Canvas.Left="777">
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
-                            <Rectangle Canvas.Left="652" Canvas.Top="140" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                             <Line X1="565" Y1="450" X2="565" Y2="150" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="350" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Center" Height="470" Width="566">
                                 <Line.RenderTransform>
                                     <TransformGroup>
@@ -2389,6 +2444,36 @@ Canvas.Left="712">
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
+                            <TextBlock Text="GATE" Canvas.Left="732" Canvas.Top="144" Foreground="White" FontSize="8" FontWeight="Bold"/>
+                            <Polygon Points="540,550 760,550 560,260 540,240"
+         Stroke="#5A3A2A"
+         StrokeThickness="2"
+         RenderTransformOrigin="0.5,0.5"
+         Canvas.Left="448"
+         Canvas.Top="-256"
+         Width="561"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Top">
+
+                                <Polygon.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#5A3A1A" Offset="0.0"/>
+                                        <GradientStop Color="#8B5A2B" Offset="0.3"/>
+                                        <GradientStop Color="#A67B4B" Offset="0.6"/>
+                                        <GradientStop Color="#6B3E1F" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Polygon.Fill>
+
+                                <Polygon.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleY="0.212"/>
+                                        <RotateTransform Angle="90.205"/>
+                                        <TranslateTransform X="-0.385" Y="0.964"/>
+                                    </TransformGroup>
+                                </Polygon.RenderTransform>
+
+                            </Polygon>
 
                             <!-- ========== GATE CLICK TEXT ========== -->
 
