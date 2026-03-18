@@ -583,14 +583,15 @@ BorderThickness="1">
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
-                            <Rectangle Canvas.Left="652" Canvas.Top="140" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            <!-- Mirror Line 3 -->
+                            <!-- ========== CONTROL ROOM ========== -->
+                            <!-- Mirror Line 3 -->
+                            <!-- Base Sand -->
+                            <!-- ========== CONTROL ROOM ========== -->
                             <!-- ========== CONTROL ROOM ========== -->
                             <Rectangle Canvas.Left="800" Canvas.Top="48" Width="150" Height="100" Fill="#4A6A8A" Stroke="#2A3A4A" StrokeThickness="2" RadiusX="10"
            RadiusY="10"/>
                             <Rectangle Canvas.Left="863" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-
-
-
 
                             <Rectangle Canvas.Top="472"
            Canvas.Left="1069"
@@ -621,6 +622,43 @@ BorderThickness="1">
 
                             </Rectangle>
 
+                            <!-- Base Sand -->
+                            <Polygon Points="730,250 770,250 790,280 710,280"
+         Stroke="#8B0000"
+         StrokeThickness="2"
+         Canvas.Left="-12"
+         Canvas.Top="-44" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                                <Polygon.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#FF0033" Offset="0"/>
+                                        <!-- Danger Red -->
+
+                                        <!-- Pink -->
+                                        <GradientStop Color="#FF0033" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Polygon.Fill>
+
+                            </Polygon>
+                            <!-- Base Sand -->
+                            <!-- Mirror Line 3 -->
+                            <Line X1="645" Y1="222" X2="659" Y2="95"
+      Stroke="#8B6B4A" StrokeThickness="3"
+      Canvas.Left="770" Canvas.Top="-8"
+      RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Height="219" Width="659">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="145.862"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+                            <!-- ========== CONTROL ROOM ========== -->
+                            <Rectangle Canvas.Left="652" Canvas.Top="140" Width="180" Height="3" Fill="#444444" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
                             <Ellipse Canvas.Left="717"
 Width="133"
 Height="120"
@@ -641,59 +679,15 @@ Height="121"
 StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
 
-                            <Polygon Points="730,250 770,250 790,280 710,280"
-         Stroke="#8B0000"
-         StrokeThickness="2"
-         Canvas.Left="-5"
-         Canvas.Top="-44">
-
-                                <Polygon.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#FF0033" Offset="0"/>
-                                        <!-- Pink -->
-                                        <GradientStop Color="#FF0033" Offset="1"/>
-                                        <!-- Danger Red -->
-                                    </LinearGradientBrush>
-                                </Polygon.Fill>
-
-                            </Polygon>
                             <TextBlock Text="CONTROL" Canvas.Left="848" Canvas.Top="58" Foreground="White" FontSize="12" RenderTransformOrigin="0.236,-2.148"/>
 
                             <Rectangle Canvas.Left="910" Canvas.Top="80" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" RenderTransformOrigin="0.762,0.609" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <!-- Give a name to your cargo van canvas for animation -->
                             <Canvas x:Name="CargoVanCanvas" Canvas.Top="75" Canvas.Left="250" Width="64" Height="87" 
         HorizontalAlignment="Left" VerticalAlignment="Top">
-                                <Ellipse Width="34" Height="28" Fill="#2A2A2A" Canvas.Top="89" Canvas.Left="662" Stroke="#666" StrokeThickness="2"/>
-                                <!-- Main Cart Body - Wooden look (instead of silver/gray) -->
-
-                                <!-- Coal/Cargo inside (dark colors instead of stone colors) -->
-
-                                <!-- Metal Corner Brackets -->
-
-                                <!-- Front Wheel (large, vintage style) -->
-
-                                <!-- Metal Corner Brackets -->
-
-                                <!--  Cart Body  end-->
-
-                                <!--  Wheel start -->
-
-                                <!-- Back Wheel -->
-
-                                <!--  Wheel end -->
-
-                                <!-- Back Wheel (correctly arranged) -->
-
                                 <!-- Front Wheel (correctly arranged) -->
-
-                                <!-- Back Wheel (correctly arranged) -->
-
-                                <!-- Front Wheel (correctly arranged) -->
-
-                                <!-- Back Wheel (correctly arranged) -->
-
-                                <!-- Front Wheel (correctly arranged) -->
-                                <Ellipse Width="30" Height="26" Fill="#2A2A2A" Canvas.Top="-72" Canvas.Left="628" Stroke="#666" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Ellipse Width="30" Height="26" Fill="#2A2A2A" Canvas.Top="-43" Canvas.Left="570" Stroke="#666" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Ellipse Width="34" Height="28" Fill="#2A2A2A" Canvas.Top="2" Canvas.Left="602" Stroke="#666" StrokeThickness="2"/>
                                 <!-- Metal Corner Brackets -->
                                 <Ellipse Width="12" Height="8" Fill="#202020" Canvas.Top="-45" Canvas.Left="624" Stroke="#1A1A1A" StrokeThickness="1"/>
                                 <Rectangle Width="8" Height="8" Fill="#C0C0C0" Stroke="#888888" Canvas.Top="-45" Canvas.Left="622" RadiusX="2" RadiusY="2" RenderTransformOrigin="0.971,0.832"/>
@@ -749,15 +743,15 @@ StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignme
                                 <Ellipse Width="3" Height="2" Fill="#E0E0E0" Canvas.Top="-20" Canvas.Left="585" Opacity="0.4"/>
                                 <Ellipse Width="2" Height="2" Fill="#E0E0E0" Canvas.Top="-19" Canvas.Left="642" Opacity="0.4"/>
 
-                                <Ellipse Width="10" Height="8" Fill="#CD7F32" Canvas.Top="-61" Canvas.Left="636" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="9.917,-1.798"/>
+                                <Ellipse Width="10" Height="8" Fill="#CD7F32" Canvas.Top="12" Canvas.Left="614" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="9.917,-1.798"/>
 
-                                <Ellipse Width="10" Height="10" Fill="#CD7F32" Canvas.Top="-56" Canvas.Left="673" Opacity="0.7" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Ellipse Width="10" Height="10" Fill="#CD7F32" Canvas.Top="-38" Canvas.Left="578" Opacity="0.7" RenderTransformOrigin="0.588,1.153" HorizontalAlignment="Center" VerticalAlignment="Top">
                                     <Ellipse.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
                                             <SkewTransform/>
                                             <RotateTransform Angle="-19.747"/>
-                                            <TranslateTransform/>
+                                            <TranslateTransform X="2.154" Y="-0.681"/>
                                         </TransformGroup>
                                     </Ellipse.RenderTransform>
                                 </Ellipse>
@@ -769,6 +763,7 @@ StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignme
                                 <!-- Rust/Dirt effects -->
                                 <Ellipse Width="7" Height="4" Fill="#8B4513" Canvas.Top="10" Canvas.Left="650" Opacity="0.3"/>
                                 <Ellipse Width="11" Height="14" Fill="#8B4513" Canvas.Top="-12" Canvas.Left="626" Opacity="0.3"/>
+                                <!-- Front Wheel (correctly arranged) -->
                             </Canvas>
                             <!-- Button to start the animation -->
                             <Button Content="Move Van" Canvas.Left="800" Canvas.Top="550" 
@@ -777,34 +772,6 @@ StrokeThickness="2" Canvas.Top="48" HorizontalAlignment="Center" VerticalAlignme
                             <Line X1="45" Y1="300" X2="45" Y2="440" Stroke="#4A5A6A" StrokeThickness="10"/>
 
                             <Line X1="155" Y1="300" X2="155" Y2="440" Stroke="#4A5A6A" StrokeThickness="10"/>
-                            <!-- Base Sand -->
-                            <Rectangle Canvas.Left="640" Canvas.Top="163"
-           Width="200" Height="50"
-           Stroke="#C4A962"
-           StrokeThickness="1.5"
-           RadiusX="3"
-           RadiusY="3"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Top">
-
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#F2E4B8" Offset="0.0"/>
-                                        <GradientStop Color="#E6D5A8" Offset="0.4"/>
-                                        <GradientStop Color="#D6C08E" Offset="0.7"/>
-                                        <GradientStop Color="#C4A962" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-
-                                <Rectangle.Effect>
-                                    <DropShadowEffect ShadowDepth="4"
-                          Direction="315"
-                          BlurRadius="6"
-                          Opacity="0.4"
-                          Color="#000000"/>
-                                </Rectangle.Effect>
-
-                            </Rectangle>
                             <!-- Base Sand -->
                             <Rectangle Canvas.Left="0" Canvas.Top="450" Width="1300" Height="200" Fill="#E0C9A0" Stroke="#B99E6B" StrokeThickness="1"/>
 
@@ -1523,22 +1490,6 @@ HorizontalAlignment="Left" VerticalAlignment="Center">
         Fill="#404040"
         Stroke="#202020"
         StrokeThickness="2" HorizontalAlignment="Left" Canvas.Left="-44" Canvas.Top="-10" VerticalAlignment="Center"/>
-
-                                <Ellipse
-Width="78"
-Height="76"
-Fill="#404040"
-Stroke="#202020"
-StrokeThickness="2" Canvas.Left="350" Canvas.Top="-1"/>
-
-                                <Ellipse
-Width="78"
-Height="76"
-Fill="#404040"
-Stroke="#202020"
-StrokeThickness="2" Canvas.Left="411" Canvas.Top="-1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-
                                 <Ellipse
         Canvas.Left="50"
         Width="122"
@@ -1546,7 +1497,6 @@ StrokeThickness="2" Canvas.Left="411" Canvas.Top="-1" HorizontalAlignment="Left"
         Fill="#404040"
         Stroke="#202020"
         StrokeThickness="2" Canvas.Top="-8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
                                 <Rectangle
         Canvas.Left="47"
         Width="42"
@@ -1670,6 +1620,7 @@ From="0" To="360" Duration="0:0:0.8"/>
                                             <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
                                             <RotateTransform Angle="0"/>
                                             <!-- clean top -->
+
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
 
@@ -1813,6 +1764,7 @@ Canvas.Top="35">
                                             <ScaleTransform ScaleX="1.15" ScaleY="1.15"/>
                                             <RotateTransform Angle="0"/>
                                             <!-- clean top -->
+
                                         </TransformGroup>
                                     </Polygon.RenderTransform>
 
@@ -2107,13 +2059,133 @@ Canvas.Top="-15">
                             </Line>
 
 
-                            <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="620" Canvas.Top="-75" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <Line X1="645" Y1="219" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="395" Canvas.Top="-188" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Line.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
                                         <SkewTransform/>
-                                        <RotateTransform Angle="130.634"/>
+                                        <RotateTransform Angle="84.709"/>
                                         <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+                            <Line X1="645" Y1="222" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="760" Canvas.Top="308" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="197.623"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+                            <Line X1="645" Y1="222" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="760" Canvas.Top="308" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="197.623"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+                            <Line X1="645" Y1="222" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="770" Canvas.Top="330" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="197.623"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+                            <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="620" Canvas.Top="-75" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="130.995"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+                            <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="610" Canvas.Top="-51" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="130.995"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+                            <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="805" Canvas.Top="186" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="177.444"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+                            <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="815" Canvas.Top="209" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="177.444"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+                            <Line X1="645" Y1="222" X2="660" Y2="95" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="621" Canvas.Top="300" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="200.73"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+
+
+                            <!-- Mirror Line 1 -->
+                            <Line X1="645" Y1="222" X2="660" Y2="200"
+      Stroke="#8B6B4A" StrokeThickness="3"
+      Canvas.Left="900" Canvas.Top="-212"
+      RenderTransformOrigin="0.5,0.5">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-84.709"/>
+                                    </TransformGroup>
+                                </Line.RenderTransform>
+                            </Line>
+
+                            <!-- Mirror Line 2 -->
+                            <Line X1="645" Y1="222" X2="660" Y2="190"
+      Stroke="#8B6B4A" StrokeThickness="3"
+      Canvas.Left="1100" Canvas.Top="-75"
+      RenderTransformOrigin="0.5,0.5">
+                                <Line.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-130.634"/>
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
@@ -2157,10 +2229,10 @@ StrokeLineJoin="Round"
 StrokeStartLineCap="Round" 
 StrokeEndLineCap="Round"
 RenderTransformOrigin="0.5,0.5" 
-Canvas.Top="98" 
-Canvas.Left="195" 
-HorizontalAlignment="Center" 
-VerticalAlignment="Top">
+Canvas.Top="73" 
+Canvas.Left="185" 
+HorizontalAlignment="Left" 
+VerticalAlignment="Center">
                                 <Line.Effect>
                                     <DropShadowEffect ShadowDepth="5" Direction="315" BlurRadius="8" Opacity="0.45" Color="#3A2A1A"/>
                                 </Line.Effect>
@@ -2168,7 +2240,7 @@ VerticalAlignment="Top">
                                     <TransformGroup>
                                         <ScaleTransform/>
                                         <SkewTransform/>
-                                        <RotateTransform Angle="-16.331"/>
+                                        <RotateTransform Angle="-11.663"/>
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Line.RenderTransform>
@@ -2394,6 +2466,34 @@ Canvas.Left="780" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment
                             <!-- Orange Rectangle -->
                             <Rectangle Width="26" Height="8" Fill="#FFA500" Stroke="#CC5500" StrokeThickness="1.5" 
            Canvas.Left="670" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Text="GATE" Canvas.Left="732" Canvas.Top="144" Foreground="White" FontSize="8" FontWeight="Bold"/>
+                            <Rectangle Canvas.Left="640" Canvas.Top="163"
+           Width="200" Height="50"
+           Stroke="#C4A962"
+           StrokeThickness="1.5"
+           RadiusX="3"
+           RadiusY="3"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top">
+
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#F2E4B8" Offset="0.0"/>
+                                        <GradientStop Color="#E6D5A8" Offset="0.4"/>
+                                        <GradientStop Color="#D6C08E" Offset="0.7"/>
+                                        <GradientStop Color="#C4A962" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+
+                                <Rectangle.Effect>
+                                    <DropShadowEffect ShadowDepth="4"
+                          Direction="315"
+                          BlurRadius="6"
+                          Opacity="0.4"
+                          Color="#000000"/>
+                                </Rectangle.Effect>
+
+                            </Rectangle>
                             <Line X1="480" Y1="430" X2="570" Y2="430" 
       StrokeThickness="4" 
       RenderTransformOrigin="0.5,0.5" 
@@ -2444,7 +2544,6 @@ Canvas.Left="712">
                                     </TransformGroup>
                                 </Line.RenderTransform>
                             </Line>
-                            <TextBlock Text="GATE" Canvas.Left="732" Canvas.Top="144" Foreground="White" FontSize="8" FontWeight="Bold"/>
                             <Polygon Points="540,550 760,550 560,260 540,240"
          Stroke="#5A3A2A"
          StrokeThickness="2"
