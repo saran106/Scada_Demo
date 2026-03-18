@@ -626,7 +626,7 @@ BorderThickness="1">
                             <Polygon Points="730,250 770,250 790,280 710,280"
          Stroke="#8B0000"
          StrokeThickness="2"
-         Canvas.Left="-12"
+         Canvas.Left="-10"
          Canvas.Top="-44" HorizontalAlignment="Left" VerticalAlignment="Center">
 
                                 <Polygon.Fill>
@@ -664,6 +664,8 @@ Width="133"
 Height="120"
  Fill="#CCCCCC" 
 StrokeThickness="2" Canvas.Top="51" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
 
                             <Rectangle Canvas.Left="663" Canvas.Top="22" Width="154" Height="43"  Fill="#CCCCCC"   StrokeThickness="2" RenderTransformOrigin="0.371,0.496" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBlock Text="ROOM" Canvas.Left="906" Canvas.Top="58" Foreground="White" FontSize="12" HorizontalAlignment="Left" Height="14" VerticalAlignment="Center" Width="34"/>
@@ -2458,14 +2460,8 @@ Canvas.Left="777">
                                 </Line.RenderTransform>
                             </Line>
                             <!-- Orange Rectangle -->
-                            <Rectangle Width="26" Height="8"  Fill="#DC143C" Stroke="#8B0000" StrokeThickness="1.5" 
-Canvas.Left="726" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <!-- Orange Rectangle -->
-                            <Rectangle Width="24" Height="8" Fill="#FFA500" Stroke="#CC5500" StrokeThickness="1.5" 
-Canvas.Left="780" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.968,-1.427"/>
                             <!-- Orange Rectangle -->
-                            <Rectangle Width="26" Height="8" Fill="#FFA500" Stroke="#CC5500" StrokeThickness="1.5" 
-           Canvas.Left="670" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             <TextBlock Text="GATE" Canvas.Left="732" Canvas.Top="144" Foreground="White" FontSize="8" FontWeight="Bold"/>
                             <Rectangle Canvas.Left="640" Canvas.Top="163"
            Width="200" Height="50"
@@ -2573,6 +2569,13 @@ Canvas.Left="712">
                                 </Polygon.RenderTransform>
 
                             </Polygon>
+                            <Rectangle Canvas.Left="666" Canvas.Top="26" Width="148" Height="46"  Fill="#444444"   StrokeThickness="2" RenderTransformOrigin="0.371,0.496" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Rectangle Width="26" Height="8"  Fill="#DC143C" Stroke="#8B0000" StrokeThickness="1.5" 
+Canvas.Left="729" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Rectangle Width="26" Height="8" Fill="#FFA500" Stroke="#CC5500" StrokeThickness="1.5" 
+           Canvas.Left="670" Canvas.Top="36" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Rectangle Width="24" Height="8" Fill="#FFA500" Stroke="#CC5500" StrokeThickness="1.5" 
+Canvas.Left="787" Canvas.Top="35" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.968,-1.427"/>
 
                             <!-- ========== GATE CLICK TEXT ========== -->
 
