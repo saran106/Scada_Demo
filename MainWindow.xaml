@@ -17,19 +17,19 @@
         <local:GateStatusToColorConverter x:Key="GateStatusToColorConverter"/>
         <local:GateStatusToForegroundConverter x:Key="GateStatusToForegroundConverter"/>
         <Storyboard x:Key="VanMoveAnimation" RepeatBehavior="Forever" AutoReverse="True">
-            <!-- Adjust these To values based on where rectangle is -->
-            <DoubleAnimation 
-    Storyboard.TargetName="CargoVanCanvas" 
-    Storyboard.TargetProperty="(Canvas.Left)" 
-    From="250" 
-    To="580"
-    Duration="0:0:10"/>
 
             <DoubleAnimation 
-    Storyboard.TargetName="CargoVanCanvas" 
-    Storyboard.TargetProperty="(Canvas.Top)"  
-    From="230" To="180"  
-    Duration="0:0:10"/>
+        Storyboard.TargetName="CargoVanCanvas" 
+        Storyboard.TargetProperty="(Canvas.Left)" 
+        From="360" To="160"
+        Duration="0:0:6"/>
+
+            <DoubleAnimation 
+        Storyboard.TargetName="CargoVanCanvas" 
+        Storyboard.TargetProperty="(Canvas.Top)"  
+        From="75" To="410"
+        Duration="0:0:6"/>
+
         </Storyboard>
 
 
@@ -1365,7 +1365,7 @@ HorizontalAlignment="Left" VerticalAlignment="Top">
 
 
 
-                            <Canvas Canvas.Left="520" Canvas.Top="10">
+                            <Canvas Canvas.Left="525" Canvas.Top="10">
 
                                 <!-- CANVAS FOR SILO -->
                                 <!-- RAILWAY SLEEPERS (Wooden cross ties) - MIRRORED: now higher on left, lower on right -->
@@ -1468,7 +1468,6 @@ HorizontalAlignment="Left" VerticalAlignment="Top">
                                 </Rectangle>
 
                                 <!-- RAIL BOLTS - positions adjusted for mirrored layout -->
-                                <Ellipse Canvas.Left="644" Canvas.Top="91" Width="3" Height="3" Fill="#C0C0C0" Stroke="#808080"/>
 
                                 <!-- CONVEYOR BELT - MIRRORED: left side higher, right side lower (reverse slope) -->
                                 <Polyline Points="115,100 175,130 235,160 295,190 355,220 415,250 475,280 535,310 595,340 640,360" 
@@ -1500,22 +1499,29 @@ HorizontalAlignment="Left" VerticalAlignment="Top">
                                         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                                             <BeginStoryboard>
                                                 <Storyboard RepeatBehavior="Forever">
-                                                    <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset" From="20" To="0" Duration="0:0:0.8" RepeatBehavior="Forever"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset" From="0" To="15" Duration="0:0:1.0" RepeatBehavior="Forever"/>
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </EventTrigger>
                                     </Polyline.Triggers>
                                 </Polyline>
 
-                                <!-- ADDITIONAL DOTS - UPWARD MOVEMENT (mirrored) -->
                                 <Polyline Points="120,105 175,135 235,165 295,195 355,225 415,255 475,285 535,315 595,345 640,365" 
-    Stroke="#FFFFFF" StrokeThickness="8"
-    StrokeLineJoin="Round"
-    Fill="Transparent" 
-    StrokeDashArray="5 5" 
-    Opacity="0.6" 
-    Canvas.Top="-37" 
-    RenderTransformOrigin="0.5,0.5" Canvas.Left="-28" HorizontalAlignment="Left" VerticalAlignment="Top">
+Stroke="#FFFFFF" 
+StrokeThickness="6"  
+                                    StrokeLineJoin="Round"
+Fill="Transparent" 
+
+StrokeDashArray="8 6"
+                                   
+
+                                    Opacity="0.6" 
+Canvas.Top="-35" 
+Canvas.Left="-24"
+HorizontalAlignment="Left" 
+VerticalAlignment="Top"
+RenderTransformOrigin="0.5,0.5">
+
                                     <Polyline.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -1524,16 +1530,21 @@ HorizontalAlignment="Left" VerticalAlignment="Top">
                                             <TranslateTransform/>
                                         </TransformGroup>
                                     </Polyline.RenderTransform>
+
                                     <Polyline.Triggers>
                                         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                                             <BeginStoryboard>
                                                 <Storyboard RepeatBehavior="Forever">
-                                                    <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset" From="5" To="0" Duration="0:0:0.8" RepeatBehavior="Forever"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset"
+                                     From="0" To="5"
+                                     Duration="0:0:1"
+                                     RepeatBehavior="Forever"/>
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </EventTrigger>
                                     </Polyline.Triggers>
                                 </Polyline>
+
 
                                 <Polyline Points="115,100 175,130 235,160 295,190 355,220 415,250 475,280 535,310 595,340 640,360" 
     Stroke="#1A1A1A" StrokeThickness="8" StrokeLineJoin="Round" Fill="Transparent" 
@@ -1657,6 +1668,34 @@ HorizontalAlignment="Left" VerticalAlignment="Top">
 
 
 
+                                <Line X1="480" Y1="430" X2="570" Y2="430" 
+StrokeThickness="4" 
+RenderTransformOrigin="0.5,0.5" 
+HorizontalAlignment="Left" 
+Height="430" 
+Canvas.Top="-301" 
+VerticalAlignment="Center" 
+Width="560" 
+Canvas.Left="749">
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#A9A9A9" Offset="0"/>
+                                            <GradientStop Color="#696969" Offset="0.5"/>
+                                            <GradientStop Color="#808080" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+                                    <Line.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="91.423"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Line.RenderTransform>
+                                </Line>
+
+
+
                                 <Canvas Panel.ZIndex="-5">
                                     <Rectangle Canvas.Left="483" Canvas.Top="29" Width="150" Height="100" Fill="#4A6A8A" Stroke="#2A3A4A" StrokeThickness="2" RadiusX="10"
 RadiusY="10" />
@@ -1666,23 +1705,6 @@ RadiusY="10" />
                                     <TextBlock Text="ROOM" Canvas.Left="579" Canvas.Top="38" Foreground="White" FontSize="12" HorizontalAlignment="Left" Height="14" VerticalAlignment="Center" Width="40"/>
                                     <Rectangle Canvas.Left="585" Canvas.Top="59" Width="30" Height="25" Fill="#ADD8E6" Stroke="#2A3A4A" RenderTransformOrigin="0.762,0.609" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                                 </Canvas>
-
-
-
-                                <!-- ========== CONTROL ROOM ========== -->
-                                <Line X1="645" Y1="222" X2="659" Y2="95"
-Stroke="#8B6B4A" StrokeThickness="3"
-Canvas.Left="770" Canvas.Top="-8"
-RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Height="219" Width="659">
-                                    <Line.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="145.862"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Line.RenderTransform>
-                                </Line>
 
 
                                 <Canvas x:Name="conveyer_mixer" Canvas.Left="10" Panel.ZIndex="-1" >
@@ -2072,18 +2094,30 @@ From="0" To="360" Duration="0:0:0.8"/>
                                     </Line.RenderTransform>
                                 </Line>
 
-                                <Line X1="645" Y1="222" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="760" Canvas.Top="308" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
-                                    <Line.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="197.623"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Line.RenderTransform>
-                                </Line>
+                                <Line X1="645" Y1="222" X2="660" Y2="200"
+StrokeThickness="3"
+Canvas.Left="760"
+Canvas.Top="308"
+RenderTransformOrigin="0.5,0.5"
+HorizontalAlignment="Center"
+VerticalAlignment="Top">
 
-                                <Line X1="645" Y1="222" X2="660" Y2="200" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="770" Canvas.Top="330" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <!-- Bright highlight -->
+                                            <GradientStop Color="#F0F0F0" Offset="0.0"/>
+
+                                            <!-- Light steel -->
+                                            <GradientStop Color="#C8C8C8" Offset="0.3"/>
+
+                                            <!-- Neutral gray -->
+                                            <GradientStop Color="#9A9A9A" Offset="0.6"/>
+
+                                            <!-- Dark edge -->
+                                            <GradientStop Color="#4A4A4A" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+
                                     <Line.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -2092,6 +2126,43 @@ From="0" To="360" Duration="0:0:0.8"/>
                                             <TranslateTransform/>
                                         </TransformGroup>
                                     </Line.RenderTransform>
+
+                                </Line>
+                                <Line X1="645" Y1="222" X2="660" Y2="200"
+StrokeThickness="3"
+Canvas.Left="770"
+Canvas.Top="330"
+RenderTransformOrigin="0.5,0.5"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+StrokeStartLineCap="Round"
+StrokeEndLineCap="Round">
+
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <!-- Metallic highlight -->
+                                            <GradientStop Color="#CFCFCF" Offset="0.0"/>
+
+                                            <!-- Steel mid -->
+                                            <GradientStop Color="#8A8A8A" Offset="0.4"/>
+
+                                            <!-- Slight rust tint -->
+                                            <GradientStop Color="#7A5A3A" Offset="0.7"/>
+
+                                            <!-- Dark edge -->
+                                            <GradientStop Color="#3A3A3A" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+
+                                    <Line.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="197.623"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Line.RenderTransform>
+
                                 </Line>
 
 
@@ -2118,8 +2189,30 @@ From="0" To="360" Duration="0:0:0.8"/>
                                     </Line.RenderTransform>
                                 </Line>
 
+                                <Line X1="645" Y1="222" X2="660" Y2="190"
+StrokeThickness="3"
+Canvas.Left="805"
+Canvas.Top="186"
+RenderTransformOrigin="0.5,0.5"
+HorizontalAlignment="Center"
+VerticalAlignment="Top">
 
-                                <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="805" Canvas.Top="186" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <!-- Metallic highlight -->
+                                            <GradientStop Color="#CFCFCF" Offset="0.0"/>
+
+                                            <!-- Steel mid -->
+                                            <GradientStop Color="#8A8A8A" Offset="0.4"/>
+
+                                            <!-- Slight rust tint -->
+                                            <GradientStop Color="#7A5A3A" Offset="0.7"/>
+
+                                            <!-- Dark edge -->
+                                            <GradientStop Color="#3A3A3A" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+
                                     <Line.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -2128,10 +2221,32 @@ From="0" To="360" Duration="0:0:0.8"/>
                                             <TranslateTransform/>
                                         </TransformGroup>
                                     </Line.RenderTransform>
+
                                 </Line>
+                                <Line X1="645" Y1="222" X2="660" Y2="190"
+StrokeThickness="3"
+Canvas.Left="815"
+Canvas.Top="209"
+RenderTransformOrigin="0.5,0.5"
+HorizontalAlignment="Center"
+VerticalAlignment="Top">
 
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <!-- Metallic highlight -->
+                                            <GradientStop Color="#CFCFCF" Offset="0.0"/>
 
-                                <Line X1="645" Y1="222" X2="660" Y2="190" Stroke="#8B6B4A" StrokeThickness="3" Canvas.Left="815" Canvas.Top="209" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                            <!-- Steel mid -->
+                                            <GradientStop Color="#8A8A8A" Offset="0.4"/>
+
+                                            <!-- Slight rust tint -->
+                                            <GradientStop Color="#7A5A3A" Offset="0.7"/>
+
+                                            <!-- Dark edge -->
+                                            <GradientStop Color="#3A3A3A" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+
                                     <Line.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -2140,6 +2255,7 @@ From="0" To="360" Duration="0:0:0.8"/>
                                             <TranslateTransform/>
                                         </TransformGroup>
                                     </Line.RenderTransform>
+
                                 </Line>
 
 
@@ -2224,6 +2340,23 @@ From="0" To="360" Duration="0:0:0.8"/>
 
                                 </Line>
 
+                                <Line X1="490" Y1="430" X2="570" Y2="430"  StrokeThickness="3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Height="430" Canvas.Top="-307" VerticalAlignment="Top" Width="560" Canvas.Left="590">
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#A9A9A9" Offset="0"/>
+                                            <GradientStop Color="#696969" Offset="0.5"/>
+                                            <GradientStop Color="#808080" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+                                    <Line.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="91.423"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Line.RenderTransform>
+                                </Line>
                                 <Rectangle Canvas.Left="630" Canvas.Top="163"
 Width="210" Height="50"
 Stroke="#5E6F4A"  
@@ -2261,6 +2394,47 @@ VerticalAlignment="Center">
                                     </Rectangle.Effect>
 
                                 </Rectangle>
+                                <Line X1="645" Y1="222" X2="659" Y2="95"
+StrokeThickness="3"
+Canvas.Left="770"
+Canvas.Top="-8"
+RenderTransformOrigin="0.5,0.5"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"
+Height="219"
+Width="659"
+StrokeStartLineCap="Round"
+StrokeEndLineCap="Round">
+
+                                    <Line.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <!-- Bright highlight -->
+                                            <GradientStop Color="#F5F5F5" Offset="0.0"/>
+
+                                            <!-- Light metal -->
+                                            <GradientStop Color="#CFCFCF" Offset="0.25"/>
+
+                                            <!-- Mid steel -->
+                                            <GradientStop Color="#8A8A8A" Offset="0.5"/>
+
+                                            <!-- Slight warm/rust tint -->
+                                            <GradientStop Color="#6F5A45" Offset="0.75"/>
+
+                                            <!-- Deep shadow -->
+                                            <GradientStop Color="#2F2F2F" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Line.Stroke>
+
+                                    <Line.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="145.862"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Line.RenderTransform>
+
+                                </Line>
                             </Canvas>
 
 
@@ -2290,6 +2464,12 @@ VerticalAlignment="Center">
 
                             <!-- ========== canvas for stairs full set ========== -->
                             <Canvas Canvas.Left="-140" Canvas.Top="50">
+
+
+                                <!-- Main stairs structure - side view (facing left) -->
+
+
+                                <!-- Main stairs structure - side view (facing left) -->
 
 
                                 <!-- Main stairs structure - side view (facing left) -->
@@ -2407,42 +2587,6 @@ Canvas.Left="782">
                                             <ScaleTransform/>
                                             <SkewTransform/>
                                             <RotateTransform Angle="91.423"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Line.RenderTransform>
-                                </Line>
-                                <Line X1="480" Y1="430" X2="570" Y2="430" 
-StrokeThickness="4" 
-RenderTransformOrigin="0.5,0.5" 
-HorizontalAlignment="Left" 
-Height="430" 
-Canvas.Top="-286" 
-VerticalAlignment="Top" 
-Width="560" 
-Canvas.Left="711">
-                                    <Line.Stroke>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                            <GradientStop Color="#A9A9A9" Offset="0"/>
-                                            <GradientStop Color="#696969" Offset="0.5"/>
-                                            <GradientStop Color="#808080" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Line.Stroke>
-                                    <Line.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="91.423"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Line.RenderTransform>
-                                </Line>
-
-                                <Line X1="565" Y1="450" X2="565" Y2="150" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="350" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Center" Height="470" Width="566">
-                                    <Line.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform Angle="270.337"/>
                                             <TranslateTransform/>
                                         </TransformGroup>
                                     </Line.RenderTransform>
@@ -3018,6 +3162,16 @@ Width="561">
                                         </TransformGroup>
                                     </Line.RenderTransform>
                                 </Line>
+                                <Line X1="565" Y1="450" X2="565" Y2="150" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="350" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Center" Height="470" Width="566">
+                                    <Line.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="270.337"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Line.RenderTransform>
+                                </Line>
 
 
 
@@ -3063,7 +3217,21 @@ Width="561">
          Canvas.Left="350"
          Stroke="#2A3A2A"
          StrokeThickness="1.2"
-         Panel.ZIndex="-1" Height="251" Width="252" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center">
+         Panel.ZIndex="-1"
+         Height="251"
+         Width="252"
+         Canvas.Top="15"
+         HorizontalAlignment="Left"
+         VerticalAlignment="Center">
+
+                                    <Polygon.Effect>
+                                        <DropShadowEffect 
+            Color="Black"
+            BlurRadius="15"
+            ShadowDepth="8"
+            Direction="315"
+            Opacity="0.5"/>
+                                    </Polygon.Effect>
 
                                     <Polygon.Fill>
                                         <LinearGradientBrush StartPoint="0.3,0" EndPoint="0.7,1">
@@ -3111,10 +3279,28 @@ Width="561">
 
                                     <!-- FRONT WHEEL -->
                                     <Ellipse Width="20" Height="20"
-             Fill="#2A2A2A"
-             Stroke="#666"
-             StrokeThickness="2"
-             Canvas.Left="50" Canvas.Top="55"/>
+Canvas.Left="50"
+Canvas.Top="55"
+Stroke="#4A4A4A"
+StrokeThickness="2">
+
+                                        <Ellipse.Fill>
+                                            <RadialGradientBrush GradientOrigin="0.3,0.3">
+                                                <!-- Bright highlight -->
+                                                <GradientStop Color="#E0E0E0" Offset="0.0"/>
+
+                                                <!-- Light steel -->
+                                                <GradientStop Color="#B8B8B8" Offset="0.3"/>
+
+                                                <!-- Mid metal -->
+                                                <GradientStop Color="#8A8A8A" Offset="0.6"/>
+
+                                                <!-- Dark edge -->
+                                                <GradientStop Color="#3A3A3A" Offset="1.0"/>
+                                            </RadialGradientBrush>
+                                        </Ellipse.Fill>
+
+                                    </Ellipse>
 
                                     <!-- BACK WHEEL -->
                                     <Ellipse Width="20" Height="20"
