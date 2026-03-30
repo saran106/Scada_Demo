@@ -59,8 +59,8 @@
 
             <!-- LEFT + RIGHT -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7.5*"/>
+                <ColumnDefinition Width="2.5*"/>
             </Grid.ColumnDefinitions>
 
             <!--<ColumnDefinition Width="*"/>
@@ -2472,10 +2472,10 @@ StrokeEndLineCap="Round">
                             <!-- ========== FLY LOGO ========== -->
                             <Image Source="C:\Users\ADMIN\Downloads\download-removebg-preview.png"
            Width="150"
-           Height="50"
+           Height="40"
            Opacity="1"
-           Canvas.Left="1140"
-           Canvas.Top="-90"
+           Canvas.Left="1150"
+           Canvas.Top="-70"
            Panel.ZIndex="-1"/>
 
 
