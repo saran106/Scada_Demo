@@ -1,14 +1,20 @@
-﻿using System.Windows;
-using Scada_Demo.ViewModels;
+﻿using System;
+using System.Windows;
 using System.Windows.Media.Animation;
+using System.Windows.Input;
+using Scada_Demo.ViewModels;
+using System.Windows.Controls;
+using System.Windows.Media;
+
 namespace Scada_Demo
 {
     public partial class MainWindow : Window
     {
         private PlantViewModel _viewModel;
-
+        private bool isMenuOpen = false;
+   
         public MainWindow()
-            {
+        {
             InitializeComponent();
 
             // Set ViewModel as DataContext
@@ -19,6 +25,68 @@ namespace Scada_Demo
             _ = _viewModel.StartPlcSimulation();
         }
 
+        bool isOpen = false;
+        private void MenuToggle_Clicks(object sender, RoutedEventArgs e)
+        {
+            if (!isOpen)
+            {
+                isOpen = true;
+
+                // Sidebar expand
+                SideMenuColumn.Width = new GridLength(220);
+
+                TxtDashboard.Visibility = Visibility.Visible;
+                TxtUser.Visibility = Visibility.Visible;
+
+                // ✅ ENABLE scroll ONLY NOW
+                MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            }
+            else
+            {
+                isOpen = false;
+
+                // Sidebar collapse
+                SideMenuColumn.Width = new GridLength(60);
+
+                TxtDashboard.Visibility = Visibility.Collapsed;
+                TxtUser.Visibility = Visibility.Collapsed;
+
+                // ✅ DISABLE scroll again
+                MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
+            }
+        }
+
+        private void MenuToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isOpen)
+            {
+                isOpen = true;
+
+                // Sidebar expand
+                SideMenuColumn.Width = new GridLength(220);
+
+                TxtDashboard.Visibility = Visibility.Visible;
+                TxtUser.Visibility = Visibility.Visible;
+
+                // Enable scroll
+                MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            }
+            else
+            {
+                isOpen = false;
+
+                // Sidebar collapse
+                SideMenuColumn.Width = new GridLength(60);
+
+                TxtDashboard.Visibility = Visibility.Collapsed;
+                TxtUser.Visibility = Visibility.Collapsed;
+
+                // Disable scroll
+                MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
+            }
+
+            
+        }
         private void StartVanAnimation_Click(object sender, RoutedEventArgs e)
         {
             // Method 1: Using Storyboard from Resources
@@ -27,26 +95,6 @@ namespace Scada_Demo
             {
                 storyboard.Begin();
             }
-
-            // OR Method 2: Direct animation in code (simpler)
-            // DoubleAnimation moveLeftAnimation = new DoubleAnimation();
-            // moveLeftAnimation.From = 250;
-            // moveLeftAnimation.To = 1069;
-            // moveLeftAnimation.Duration = TimeSpan.FromSeconds(4);
-            // moveLeftAnimation.AutoReverse = true;
-            // moveLeftAnimation.RepeatBehavior = RepeatBehavior.Forever;
-
-            // DoubleAnimation moveTopAnimation = new DoubleAnimation();
-            // moveTopAnimation.From = 75;
-            // moveTopAnimation.To = 472;
-            // moveTopAnimation.Duration = TimeSpan.FromSeconds(4);
-            // moveTopAnimation.AutoReverse = true;
-            // moveTopAnimation.RepeatBehavior = RepeatBehavior.Forever;
-
-            // CargoVanCanvas.BeginAnimation(Canvas.LeftProperty, moveLeftAnimation);
-            // CargoVanCanvas.BeginAnimation(Canvas.TopProperty, moveTopAnimation);
         }
-
-
     }
 }
