@@ -1,0 +1,147 @@
+﻿<Window x:Class="Scada_Demo.Calibration.Water_Calib"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Calibration"
+        mc:Ignorable="d"
+        Title="Water_Calib" 
+        SizeToContent="WidthAndHeight"
+  
+MaxWidth="400"
+        Background="{StaticResource PrimaryBgBrush}"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+
+        <Border Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                Padding="12"
+                CornerRadius="10">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <TextBlock Text="Water calibration"
+           Style="{StaticResource HeaderTextStyle}"/>
+
+                <!-- FORM -->
+
+                <Grid Grid.Row="1">
+
+                    <!-- 🔥 LOCAL COMPACT STYLES -->
+                    <Grid.Resources>
+
+                        <Style x:Key="CompactTextBox" TargetType="TextBox" BasedOn="{StaticResource SystemFieldTextBox}">
+                            <Setter Property="Height" Value="26"/>
+                            <Setter Property="Margin" Value="2"/>
+                            <Setter Property="Padding" Value="4"/>
+                        </Style>
+
+                        <Style x:Key="CompactComboBox" TargetType="ComboBox" BasedOn="{StaticResource SystemFieldComboBox}">
+                            <Setter Property="Height" Value="26"/>
+                            <Setter Property="Margin" Value="2"/>
+                        </Style>
+
+                        <Style x:Key="CompactLabel" TargetType="TextBlock" BasedOn="{StaticResource LabelStyle}">
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="Margin" Value="0,2"/>
+                        </Style>
+
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <!-- label -->
+                        <ColumnDefinition Width="2*"/>
+                        <!-- input -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 🔥 PERFECT HEIGHT -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                        <RowDefinition Height="Auto" MinHeight="42"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- LABELS -->
+                    <TextBlock Text="Characteristic value" Grid.Row="0" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Filter / Frequency threshold" Grid.Row="1" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Weight in kilograms" Grid.Row="2" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Gross weight in kilograms" Grid.Row="3" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Weigher offset mV" Grid.Row="4" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Weigher full scale mV" Grid.Row="5" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Module address" Grid.Row="6" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Channel assignment" Grid.Row="7" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Least Count" Grid.Row="8" Style="{StaticResource CompactLabel}"/>
+                    <TextBlock Text="Calibration mode" Grid.Row="9" Style="{StaticResource CompactLabel}"/>
+
+                    <!-- INPUTS -->
+                    <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
+
+                    <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="7" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+
+                    <TextBox Grid.Row="8" Grid.Column="1"
+                             Style="{StaticResource CompactTextBox}"
+                             Text="1"/>
+
+                    <CheckBox Grid.Row="9" Grid.Column="1"
+                              Content="Mean Value"
+                              FontSize="12"
+                              VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- BUTTONS -->
+                <StackPanel Grid.Row="2"
+            Orientation="Vertical"
+            HorizontalAlignment="Center"
+            Margin="0,8">
+
+                    <!-- 🔥 TOP ROW (3 buttons) -->
+                    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+                        <Button Content="Theoretical Adjust" Width="105"/>
+                        <Button Content="Move Zero" Width="100"/>
+                        <Button Content="Set Zero" Width="100"/>
+
+                    </StackPanel>
+
+                    <!-- 🔥 BOTTOM ROW (2 buttons CENTER) -->
+                    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0,6,0,0">
+
+                        <Button Content="Adjust" Width="85"/>
+                        <Button Content="Send" Width="85"
+                Style="{StaticResource GreenButton}"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

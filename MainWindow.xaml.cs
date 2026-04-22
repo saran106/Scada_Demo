@@ -5,6 +5,8 @@ using System.Windows.Input;
 using Scada_Demo.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Scada_Demo.Views;
+using Scada_Demo.Calibration;
 
 namespace Scada_Demo
 {
@@ -54,6 +56,19 @@ namespace Scada_Demo
                 // ✅ DISABLE scroll again
                 MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             }
+        }
+
+
+        private void Dashboard_Click(object sender, MouseButtonEventArgs e)
+        {
+            Customer_Master obj = new Customer_Master();
+            obj.Show();   // open window
+        }
+
+        private void Dashboard_Click1(object sender, MouseButtonEventArgs e)
+        {
+            Mixer obj = new Mixer();
+            obj.Show();   // open window
         }
 
         private void MenuToggle_Click(object sender, RoutedEventArgs e)

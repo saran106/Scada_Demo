@@ -1,0 +1,116 @@
+﻿<Window x:Class="Scada_Demo.Views.Customer_Master"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Customer Master"
+        Height="620" Width="900"
+        Background="{StaticResource PrimaryBgBrush}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="15">
+
+        <Border Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                Padding="20"
+                CornerRadius="10">
+
+            <Grid>
+
+                <!-- LAYOUT -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- TITLE -->
+                <TextBlock Text="Customer Master"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Margin="0,0,0,15"/>
+
+                <!-- FORM -->
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ROWS -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- LABELS -->
+                    <TextBlock Text="Customer ID" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Name" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Address" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="City" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Pincode" Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Phone" Grid.Row="5" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Contact" Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="Reg. No." Grid.Row="7" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="VAT/GST No." Grid.Row="8" Style="{StaticResource LabelStyle}"/>
+
+                    <!-- INPUTS -->
+
+                    <!-- 🔥 BLACK (SYSTEM FIELD) -->
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                              Style="{StaticResource SystemFieldComboBox}"/>
+
+                    <!-- 🔥 ALL BLACK FIELDS -->
+
+                    <TextBox Grid.Row="1" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="2" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"
+         AcceptsReturn="True"/>
+
+                    <TextBox Grid.Row="3" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="4" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="5" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="6" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="7" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                    <TextBox Grid.Row="8" Grid.Column="1"
+         Style="{StaticResource SystemFieldTextBox}"/>
+
+                </Grid>
+
+                <!-- BUTTONS -->
+                <!-- BUTTONS -->
+                <StackPanel Grid.Row="2"
+                 Orientation="Horizontal"
+                 HorizontalAlignment="Center"
+                 Margin="0,15">
+
+                    <Button Content="SAVE" Width="90"/>
+                    <Button Content="DELETE" Width="90"/>
+                    <Button Content="EXIT" Width="90"/>
+
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

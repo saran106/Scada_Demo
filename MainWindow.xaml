@@ -5,7 +5,7 @@
             xmlns:viewModels="clr-namespace:Scada_Demo.ViewModels"
             Title="SCADA Demo"
             Icon="C:\Users\ADMIN\Downloads\download-removebg-preview.png"
-            Background="#0F2A2A"
+            Background="{StaticResource PrimaryBgBrush}"
             WindowStartupLocation="CenterScreen"
             WindowState="Maximized">
 
@@ -152,7 +152,7 @@
                         </StackPanel.Resources>
 
                         <!-- DASHBOARD -->
-                        <Border>
+                        <Border MouseLeftButtonDown="Dashboard_Click">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 
                                 <TextBlock Text="🏠"
@@ -172,7 +172,7 @@
                         </Border>
 
                         <!-- USER -->
-                        <Border>
+                        <Border MouseLeftButtonDown="Dashboard_Click1">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 
                                 <TextBlock Text="👤"
@@ -190,6 +190,8 @@
                                    x:Name="TxtUser"/>
                             </StackPanel>
                         </Border>
+                        
+                        
 
                     </StackPanel>
 
@@ -4190,16 +4192,14 @@ VerticalAlignment="Center" Canvas.Top="-33">
                 Grid.Row="0" Grid.Column="9" Margin="5"/>
 
                     <!-- Fault Button -->
-                    <Button Content="Fault"
-               Grid.Row="0"
-               Grid.Column="10"
-               Margin="5"
-               Background="#B22222"
-               Foreground="White"
-               FontWeight="Bold"
-               HorizontalAlignment="Stretch"/>
+                                <Button Content="Fault"
+        Grid.Row="0"
+        Grid.Column="10"
+        Margin="5"
+        Style="{StaticResource RedButton}"
+        HorizontalAlignment="Stretch"/>
 
-                    <!-- Tolerance Ack Button -->
+                                <!-- Tolerance Ack Button -->
                     <Button Content="Tolerance Ack"
                Grid.Row="0"
                Grid.Column="11"
