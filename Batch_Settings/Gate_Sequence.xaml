@@ -1,0 +1,110 @@
+﻿<Window x:Class="Scada_Demo.Batch_Settings.Gate_Sequence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MC460 Gate Sequence Settings"
+        
+        Width="650"
+        Height="380"
+        
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        
+        Background="{StaticResource PrimaryBgBrush}">
+
+    <Border Margin="10"
+            BorderBrush="{StaticResource BorderBrushColor}"
+            BorderThickness="2"
+            CornerRadius="8"
+            Background="{StaticResource PanelBrush}">
+
+        <Grid Margin="10">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- HEADER -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Current Gate Sequence"
+                           Style="{StaticResource HeaderTextStyle}"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Column="2"
+                           Text="Preferred Gate Sequence"
+                           Style="{StaticResource HeaderTextStyle}"
+                           HorizontalAlignment="Center"/>
+            </Grid>
+
+            <!-- MAIN CONTENT -->
+            <Grid Grid.Row="1" Margin="10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- LEFT LIST -->
+                <StackPanel>
+                    <ListBox x:Name="CurrentList"
+                             Height="250"
+                             Background="White"
+                             Foreground="Black">
+
+                        <ListBoxItem Content="Agg1 : 1"/>
+                        <ListBoxItem Content="Agg2 : 2"/>
+                        <ListBoxItem Content="Agg3 : 3"/>
+                        <ListBoxItem Content="Agg4 : 4"/>
+                        <ListBoxItem Content="Agg5 : 5"/>
+                        <ListBoxItem Content="Agg6 : 6"/>
+
+                    </ListBox>
+                </StackPanel>
+
+                <!-- MIDDLE BUTTONS -->
+                <StackPanel Grid.Column="1"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+
+                    <Button Content="&gt;" Width="50" Height="40"/>
+
+                    <Button Content="Refresh"
+                            Width="80"
+                            Height="40"
+                            Margin="0,20,0,0"/>
+                </StackPanel>
+
+                <!-- RIGHT LIST -->
+                <StackPanel Grid.Column="2">
+                    <ListBox x:Name="PreferredList"
+                             Height="250"
+                             Background="White"
+                             Foreground="Black"/>
+                </StackPanel>
+
+            </Grid>
+
+            <!-- BOTTOM BUTTONS -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="10">
+
+                <Button Content="Read from PLC" Width="140"/>
+                <Button Content="Write to PLC / DB" Width="170"/>
+                <Button Content="Exit" Width="120"
+                        Style="{StaticResource RedButton}"/>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

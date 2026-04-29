@@ -1,0 +1,248 @@
+﻿<Window x:Class="Scada_Demo.User.Register_New_User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Register_New_User"
+        Height="750" Width="765"
+        Background="#0D3A3A"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+
+        <!-- 🔥 MAIN ROW STRUCTURE -->
+        <Grid.RowDefinitions>
+           
+            <RowDefinition Height="*"/>
+            <!-- CONTENT -->
+            <RowDefinition Height="Auto"/>
+            <!-- BUTTONS -->
+        </Grid.RowDefinitions>
+
+       
+
+        <!-- ================= CONTENT ================= -->
+        <Grid Grid.Row="0">
+
+            <!-- MAIN 2 COLUMNS -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ================= LEFT SIDE ================= -->
+            <Grid Grid.Column="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.2*"/>
+                    <RowDefinition Height="2.8*"/>
+                </Grid.RowDefinitions>
+
+                <!-- USER PARAMETERS -->
+                <Border Grid.Row="0"
+                    Margin="5"
+                    Padding="10"
+                    Background="{StaticResource PanelBrush}"
+                    BorderBrush="{StaticResource BorderBrushColor}"
+                    BorderThickness="2"
+                    CornerRadius="6">
+
+                    <Grid>
+
+                        <!-- 2 COLUMNS -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="3.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- 6 ROWS -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- 0 HEADER -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- 1 USERNAME -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- 2 PASSWORD -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- 3 CONFIRM -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- 4 AUTHORITY -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- 5 CHECKBOX -->
+                        </Grid.RowDefinitions>
+
+                        <!-- 🔷 HEADER -->
+                        <TextBlock Text="User parameters"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Style="{StaticResource HeaderTextStyle}"
+               Margin="0,0,0,8"/>
+
+                        <!-- USER NAME -->
+                        <TextBlock Text="User name"
+               Grid.Row="1"
+               Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="1" Grid.Column="1"
+             Style="{StaticResource JogTextBoxStyle}"  MinWidth="0" Width="250" Height="30"/>
+
+                        <!-- PASSWORD -->
+                        <TextBlock Text="Password"
+               Grid.Row="2"
+               Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="2" Grid.Column="1"
+                 Style="{StaticResource JogTextBoxStyle}"  MinWidth="0" Width="250" Height="30"/>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <TextBlock Text="Confirm password"
+               Grid.Row="3"
+               Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="3" Grid.Column="1"
+                 Style="{StaticResource JogTextBoxStyle}" MinWidth="0" Width="250" Height="30"/>
+
+                        <!-- AUTHORITY -->
+                        <TextBlock Text="Authority level"
+               Grid.Row="4"
+               Style="{StaticResource CompactLabel}"/>
+
+                        <ComboBox Grid.Row="4" Grid.Column="1"
+              Style="{StaticResource CompactComboBoxSmall}"  MinWidth="0" Width="250" Margin="0,10,0,6" HorizontalAlignment="Center"/>
+
+                        <!-- 🔥 CHECKBOX (separate row) -->
+                        <CheckBox Content="Select (or) Deselect all options"
+              Grid.Row="5"
+              Grid.ColumnSpan="2"
+              Margin="0,10,0,0"/>
+
+                    </Grid>
+                </Border>
+
+                <!-- MASTER + TRANSACTION -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- MASTER -->
+                    <Border Grid.Column="0" Margin="5" Padding="10"
+                        Background="{StaticResource PanelBrush}"
+                        BorderBrush="{StaticResource BorderBrushColor}"
+                        BorderThickness="2" CornerRadius="6">
+
+                        <StackPanel>
+                            <TextBlock Text="Master Segment"
+                                   Style="{StaticResource HeaderTextStyle}"/>
+
+                            <CheckBox Content="Customer" Margin="0.8"/>
+                            <CheckBox Content="Site" Margin="0.8"/>
+                            <CheckBox Content="Recipe" Margin="0.8"/>
+                            <CheckBox Content="Truck" Margin="0.8"/>
+                            <CheckBox Content="Order" Margin="0.8"/>
+                            <CheckBox Content="Schedule" Margin="0.8"/>
+                            <CheckBox Content="Inward" Margin="0.8"/>
+                            <CheckBox Content="Alarm" Margin="0.8"/>
+                            <CheckBox Content="Maintenance" Margin="0.8"/>
+
+                            <Separator Margin="8"/>
+
+                            <CheckBox Content="Credit limit" Margin="0.8"/>
+                            <CheckBox Content="Import &amp; export" Margin="0.8"/>
+                            <CheckBox Content="Restore deleted records" Margin="0.8"/>
+                            <CheckBox Content="Recover batch data" Margin="0.8"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- TRANSACTION -->
+                    <Border Grid.Column="1" Margin="5" Padding="10"
+                        Background="{StaticResource PanelBrush}"
+                        BorderBrush="{StaticResource BorderBrushColor}"
+                        BorderThickness="2" CornerRadius="6">
+
+                        <StackPanel>
+                            <TextBlock Text="Transaction / Options"
+                                   Style="{StaticResource HeaderTextStyle}"/>
+
+                            <CheckBox Content="Start batch"  Margin="0.8"/>
+                            <CheckBox Content="Print batch data"  Margin="0.8"/>
+                            <CheckBox Content="Print docket"  Margin="0.8"/>
+                            <CheckBox Content="Alarm history view"  Margin="0.8"/>
+                            <CheckBox Content="Divert concrete"  Margin="0.8"/>
+                            <CheckBox Content="Report view"  Margin="0.8"/>
+
+                            <Separator Margin="5"/>
+
+                            <CheckBox Content="Reconciliation adjustment"  Margin="0.8"/>
+                            <CheckBox Content="Cement silo level"  Margin="0.8"/>
+                            <CheckBox Content="Generic interface"  Margin="0.8"/>
+                            <CheckBox Content="SMS facilities"  Margin="0.8"/>
+                            <CheckBox Content="Database handling"  Margin="0.8"/>
+                            <CheckBox Content="Analog config"  Margin="0.8"/>
+                            <CheckBox Content="Weighbridge config"  Margin="0.8"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+            </Grid>
+
+            <!-- ================= RIGHT SIDE ================= -->
+            <Border Grid.Column="1"
+                Margin="5,5,5,17"
+                Padding="10"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6">
+
+                <StackPanel>
+                    <TextBlock Text="Plant Settings Segment"
+                           Style="{StaticResource HeaderTextStyle}"/>
+
+                  
+                        <StackPanel>
+                        <CheckBox Content="Gate sequence" Margin="2"/>
+                        <CheckBox Content="Jog time" Margin="2"/>
+                        <CheckBox Content="Empty valve" Margin="2"/>
+                        <CheckBox Content="Tolerance" Margin="2"/>
+                        <CheckBox Content="Discharge sequence" Margin="2"/>
+                        <CheckBox Content="Step time" Margin="2"/>
+                        <CheckBox Content="Batch mode" Margin="2"/>
+                        <CheckBox Content="Material in air" Margin="2"/>
+                        <CheckBox Content="Coarse to fine" Margin="2"/>
+                        <CheckBox Content="Calibration" Margin="2"/>
+                        <CheckBox Content="Bin setup" Margin="2"/>
+                        <CheckBox Content="Mixer Grease Pump" Margin="2"/>
+                        <CheckBox Content="Mixer parameter" Margin="2"/>
+                        <CheckBox Content="Skip parameter" Margin="2"/>
+                        <CheckBox Content="Conveyor parameter" Margin="2"/>
+                        <CheckBox Content="Moisture parameter" Margin="2"/>
+                        <CheckBox Content="Vibrator parameter" Margin="2"/>
+                        <CheckBox Content="Capacity" Margin="2"/>
+                        <CheckBox Content="Enable / disable / other setup" Margin="2"/>
+                        <CheckBox Content="Batch / discharge time" Margin="2"/>
+                        <CheckBox Content="In air / inflow mode" Margin="2"/>
+                        <CheckBox Content="Plant profile" Margin="2"/>
+                        <CheckBox Content="Plant profile" Margin="2"/>
+                        </StackPanel>
+                   
+
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+
+        <!-- ================= BUTTONS ================= -->
+        <StackPanel Grid.Row="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+
+            <Button Content="Register" Width="150" Margin="10"/>
+            <Button Content="Exit" Width="120" Margin="10"
+                Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

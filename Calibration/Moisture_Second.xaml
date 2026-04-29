@@ -1,0 +1,96 @@
+﻿<Window x:Class="Scada_Demo.Calibration.Moisture_Second"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Calibration"
+        mc:Ignorable="d"
+         Title="MC460 Moisture Calibration"
+ SizeToContent="WidthAndHeight"
+ MaxWidth="420"
+ Background="{StaticResource PrimaryBgBrush}"
+ WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+
+        <Border Background="{StaticResource PanelBrush}"
+            BorderBrush="{StaticResource BorderBrushColor}"
+            BorderThickness="2"
+            CornerRadius="10"
+            Padding="20">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Title -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Raw -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Offset -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Span -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Buttons -->
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 🔹 Title -->
+                <TextBlock Text="Moisture Calibration"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Margin="0,0,0,15"/>
+
+                <!-- 🔹 Labels -->
+                <TextBlock Text="Moisture raw value"
+                       Grid.Row="1"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource LabelStyle}"/>
+
+                <TextBlock Text="Moisture offset"
+                       Grid.Row="2"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource LabelStyle}"/>
+
+                <TextBlock Text="Moisture span"
+                       Grid.Row="3"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource LabelStyle}"/>
+
+                <!-- 🔹 Inputs -->
+                <TextBox Grid.Row="1" Grid.Column="1"
+                     Style="{StaticResource SystemFieldTextBox}"
+                     Height="30" Margin="5"/>
+
+                <TextBox Grid.Row="2" Grid.Column="1"
+                     Style="{StaticResource SystemFieldTextBox}"
+                     Height="30" Margin="5"/>
+
+                <TextBox Grid.Row="3" Grid.Column="1"
+                     Style="{StaticResource SystemFieldTextBox}"
+                     Height="30" Margin="5"/>
+
+                <!-- 🔹 Buttons -->
+                <StackPanel Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+
+                    <Button Content="Calibrate"
+                        Width="120"
+                        Margin="10"/>
+                    <Button Content="Exit"
+    Width="120"
+    Margin="10"
+    Style="{StaticResource RedButton}"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

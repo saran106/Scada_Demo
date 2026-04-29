@@ -7,6 +7,10 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Scada_Demo.Views;
 using Scada_Demo.Calibration;
+using Scada_Demo.Batch_Settings;
+using Scada_Demo.Set_Parameters;
+using Scada_Demo.Other_Settings;
+using Scada_Demo.User;
 
 namespace Scada_Demo
 {
@@ -61,13 +65,14 @@ namespace Scada_Demo
 
         private void Dashboard_Click(object sender, MouseButtonEventArgs e)
         {
-            Customer_Master obj = new Customer_Master();
+            Enable_Disable_OtherModes obj = new Enable_Disable_OtherModes();
             obj.Show();   // open window
         }
 
         private void Dashboard_Click1(object sender, MouseButtonEventArgs e)
         {
-            Mixer obj = new Mixer();
+            Register_New_User obj = new Register_New_User();
+            //Conveyor_Settings obj = new Conveyor_Settings();
             obj.Show();   // open window
         }
 

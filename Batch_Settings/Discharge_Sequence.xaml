@@ -1,0 +1,106 @@
+﻿<Window x:Class="Scada_Demo.Batch_Settings.Discharge_Sequence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MC460 Discharge Sequence Settings"
+        Height="420" Width="650"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource PrimaryBgBrush}">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="Discharge delay sequence in terms of seconds"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="5,5,5,10"/>
+
+        <!-- MAIN PANEL -->
+        <Border Grid.Row="1"
+                Padding="15"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6" Margin="0,0,0,36">
+
+            <Grid>
+
+                <!-- PERFECT GRID ALIGNMENT -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- LEFT SIDE -->
+                <TextBlock Text="Cement" Grid.Row="0" Grid.Column="0" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <TextBlock Text="Water" Grid.Row="1" Grid.Column="0" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <TextBlock Text="Wtr2" Grid.Row="2" Grid.Column="0" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <!-- RIGHT SIDE -->
+                <TextBlock Text="Admixture 1 &amp; 2" Grid.Row="0" Grid.Column="3" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <TextBlock Text="Admixture 3 &amp; 4" Grid.Row="1" Grid.Column="3" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <TextBlock Text="Silica" Grid.Row="2" Grid.Column="3" Style="{StaticResource CompactLabel}"/>
+                <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"/>
+
+                <!-- EXTRA -->
+                <TextBlock Text="Water pump cutoff in kg"
+                           Grid.Row="4" Grid.Column="0"
+                           Grid.ColumnSpan="3"
+                           Style="{StaticResource CompactLabel}"/>
+
+                <TextBox Grid.Row="4" Grid.Column="3"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource JogTextBoxStyle}"/>
+
+                <TextBlock Text="Waiting hopper instant open delay in sec"
+                           Grid.Row="5" Grid.Column="0"
+                           Grid.ColumnSpan="3"
+                           Style="{StaticResource CompactLabel}"/>
+
+                <TextBox Grid.Row="5" Grid.Column="3"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource JogTextBoxStyle}"/>
+
+            </Grid>
+        </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,15,0,0">
+
+            <Button Content="Read from PLC" Width="140"/>
+            <Button Content="Write to PLC / DB" Width="170" Style="{StaticResource GreenButton}"/>
+            <Button Content="Exit" Width="110" Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

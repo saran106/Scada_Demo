@@ -57,12 +57,12 @@ MaxWidth="400"
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
-                        <!-- label -->
+                     
                         <ColumnDefinition Width="2*"/>
-                        <!-- input -->
+                     
                     </Grid.ColumnDefinitions>
 
-                    <!-- 🔥 PERFECT HEIGHT -->
+                  
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" MinHeight="42"/>
                         <RowDefinition Height="Auto" MinHeight="42"/>

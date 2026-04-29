@@ -1,0 +1,110 @@
+﻿<Window x:Class="Scada_Demo.Batch_Settings.Coarse_to_Fine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Coarse_to_Fine"
+        Height="420" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PrimaryBgBrush}">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="Coarse to fine in terms of kilograms"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="5"/>
+
+        <!-- CONTENT -->
+        <Border Grid.Row="1"
+                Margin="5"
+                Padding="20"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- LEFT SIDE -->
+
+                <!-- Agg1 -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Agg1" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+                <!-- Agg2 -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Agg2" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+                <!-- Agg3 -->
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Agg3" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+                <!-- Agg4 -->
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Agg4" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+
+                <!-- RIGHT SIDE -->
+
+                <!-- Agg5 -->
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Agg5" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+                <!-- Agg6 -->
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Agg6" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+                <!-- Wtr1 -->
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Wtr1" Width="80" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10">
+
+            <Button Content="Read from PLC" Width="140" Margin="10"/>
+            <Button Content="Write to PLC / DB" Width="180" Margin="10"/>
+            <Button Content="Exit" Width="100" Margin="10"
+                    Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

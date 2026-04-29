@@ -1,0 +1,108 @@
+﻿<Window x:Class="Scada_Demo.Batch_Settings.Empty_Value"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource PrimaryBgBrush}">
+    <Grid Margin="8">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="Empty value in kilograms"
+               Margin="5"
+               Style="{StaticResource HeaderTextStyle}"/>
+
+        <!-- CONTENT BOX -->
+        <Border Grid.Row="1"
+            Margin="5"
+            Padding="20"
+            Background="{StaticResource PanelBrush}"
+            BorderBrush="{StaticResource BorderBrushColor}"
+            BorderThickness="2"
+            CornerRadius="6">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- LEFT SIDE -->
+
+                <!-- Aggregate -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Aggregate" Width="120" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+                <!-- Cement -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Cement" Width="120" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+                <!-- Water -->
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Water" Width="120" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+                <!-- Wtr2 -->
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Wtr2" Width="120" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+
+                <!-- RIGHT SIDE -->
+
+                <!-- Admix 1&2 -->
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Admixture 1 &amp; 2" Width="150" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+                <!-- Admix 3&4 -->
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Admixture 3 &amp; 4" Width="150" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+                <!-- Silica -->
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <TextBlock Text="Silica" Width="150" Style="{StaticResource CompactLabel}"/>
+                    <TextBox Style="{StaticResource JogTextBoxStyle}" Width="180"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0,10">
+
+            <Button Content="Read from PLC" Width="130"/>
+            <Button Content="Write to PLC / DB" Width="160"/>
+            <Button Content="Exit" Width="100" Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,87 @@
+﻿<Window x:Class="Scada_Demo.Batch_Settings.Batch_OutputMode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Batch_Settings"
+        mc:Ignorable="d"
+        Title="Batch Output Mode"
+        Height="260" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PrimaryBgBrush}">
+
+    <Border Margin="10" Padding="10">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- 🔥 HEADER -->
+            <TextBlock Text="Batch Output Mode"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Grid.Row="0"/>
+
+            <!-- 🔹 INPUT SECTION -->
+            <Grid Grid.Row="1" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Agg2 -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Agg2 Batch Mode"
+                               Style="{StaticResource CompactLabel}"/>
+
+                    <ComboBox x:Name="cmbBatchMode"
+                              Style="{StaticResource CompactComboBoxSmall}">
+                        <ComboBoxItem Content="Auto"/>
+                        <ComboBoxItem Content="Manual"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Full Open -->
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Gate Full Open"
+                               Style="{StaticResource CompactLabel}"/>
+
+                    <TextBox x:Name="txtFullOpen"
+                             Style="{StaticResource CompactTextBox}"/>
+                </StackPanel>
+
+                <!-- Half Open -->
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Gate Half Open"
+                               Style="{StaticResource CompactLabel}"/>
+
+                    <TextBox x:Name="txtHalfOpen"
+                             Style="{StaticResource CompactTextBox}"/>
+                </StackPanel>
+
+            </Grid>
+
+            <!-- 🔹 BUTTONS -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0">
+
+                <Button Content="Read from PLC"
+                        Width="110"/>
+
+                <Button Content="Write to PLC/DB"
+                        Width="130"/>
+
+                <Button Content="Exit"
+                        Width="90"
+                        Style="{StaticResource RedButton}"/>
+            </StackPanel>
+
+        </Grid>
+
+    </Border>
+</Window>
