@@ -1,0 +1,104 @@
+﻿<Window x:Class="Scada_Demo.Transactions.Alarm_History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Alarm History"
+        Height="450" Width="850"
+        Background="#0D3A3A"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ================= TABLE ================= -->
+        <Border Grid.Row="0"
+                Margin="5"
+                Padding="5"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6">
+
+            <DataGrid AutoGenerateColumns="False"
+          Background="Transparent"
+          Foreground="White"
+          BorderThickness="0"
+          RowHeight="32"
+
+          ColumnHeaderStyle="{StaticResource DarkDataGridHeaderStyle}"
+          CellStyle="{StaticResource DarkDataGridCellStyle}"
+          RowStyle="{StaticResource DarkDataGridRowStyle}">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Alarm ID" Width="100" Binding="{Binding AlarmId}"/>
+                    <DataGridTextColumn Header="Alarm Description" Width="*" Binding="{Binding Description}"/>
+                    <DataGridTextColumn Header="Alarm Date" Width="130" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="User" Width="100" Binding="{Binding User}"/>
+                    <DataGridTextColumn Header="Status" Width="100" Binding="{Binding Status}"/>
+                    <DataGridTextColumn Header="Acknowledge Date" Width="150" Binding="{Binding AckDate}"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Border>
+
+        <!-- ================= BOTTOM ================= -->
+        <Grid Grid.Row="1" Margin="5">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT SIDE (DATES) -->
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="10">
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="From Date"
+                               Width="90"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource CompactLabel}"/>
+
+                    <DatePicker Width="140"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="To Date"
+                               Width="90"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource CompactLabel}"/>
+
+                    <DatePicker Width="140"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- RIGHT SIDE (BUTTONS) -->
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <Button Content="View"
+                        Width="120"
+                        Margin="10"
+                        />
+
+                <Button Content="Exit"
+                        Width="120"
+                        Margin="10"
+                        Style="{StaticResource RedButton}"/>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

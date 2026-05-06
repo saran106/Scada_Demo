@@ -1,0 +1,184 @@
+﻿<Window x:Class="Scada_Demo.Transactions.Start_Production"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Start Production"
+        Height="900" Width="900"
+        Background="#0D3A3A"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="Start Production"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="5"/>
+
+        <!-- CONTENT -->
+        <Border Grid.Row="1"
+                Margin="5"
+                Padding="20"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ================= LEFT TOP ================= -->
+                <TextBlock Text="Schedule ID"
+                           Style="{StaticResource CompactLabel}"/>
+
+                <ComboBox Grid.Column="0"
+                          Margin="140,0,0,0"
+                          Width="200"/>
+
+                <!-- ================= RIGHT TOP ================= -->
+                <Grid Grid.Column="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Customer ID" Grid.Row="0"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Site" Grid.Row="1"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Recipe ID" Grid.Row="2"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Recipe Name" Grid.Row="3"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Truck No" Grid.Row="4"
+                               Style="{StaticResource CompactLabel}"/>
+                    <ComboBox Grid.Row="4" Grid.Column="1"/>
+
+                    <TextBlock Text="Driver" Grid.Row="5"
+                               Style="{StaticResource CompactLabel}"/>
+                    <ComboBox Grid.Row="5" Grid.Column="1"/>
+
+                    <TextBlock Text="Production Qty" Grid.Row="6"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="6" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Returned Qty" Grid.Row="7"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="7" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Mixer Capacity" Grid.Row="8"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="8" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                    <TextBlock Text="Mixing Time" Grid.Row="9"
+                               Style="{StaticResource CompactLabel}"/>
+                    <TextBox Grid.Row="9" Grid.Column="1"
+                             Style="{StaticResource JogTextBoxStyle}"/>
+
+                </Grid>
+
+                <!-- ================= LEFT MIDDLE ================= -->
+                <TextBlock Text="Available order"
+                           Grid.Row="1"
+                           Style="{StaticResource CompactLabel}"/>
+
+                <ListBox Grid.Row="1"
+                         Margin="140,0,0,0"
+                         Height="200"/>
+
+                <!-- ================= BOTTOM PROD GRID ================= -->
+                <UniformGrid Grid.Row="2"
+                             Grid.ColumnSpan="2"
+                             Columns="4"
+                             Margin="0,15,0,0">
+
+                    <!-- ⚡ repeat pattern -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Prod1" Width="60"
+                                   Style="{StaticResource CompactLabel}"/>
+                        <TextBox Width="80" Style="{StaticResource JogTextBoxStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Prod2" Width="60"
+                                   Style="{StaticResource CompactLabel}"/>
+                        <TextBox Width="80" Style="{StaticResource JogTextBoxStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Prod3" Width="60"
+                                   Style="{StaticResource CompactLabel}"/>
+                        <TextBox Width="80" Style="{StaticResource JogTextBoxStyle}"/>
+                    </StackPanel>
+
+                    <!-- 👉 Copy till Prod20 -->
+
+                </UniformGrid>
+
+            </Grid>
+
+        </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10">
+
+            <Button Content="Start"
+                    Width="140"
+                    Margin="10"
+                    />
+
+            <Button Content="Exit"
+                    Width="120"
+                    Margin="10"
+                    Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scada_Demo.User"
         mc:Ignorable="d"
-        Title="Delete_User" Height="300" Width="500"
+        Title="Delete_User" Height="270" Width="480"
 Background="#0D3A3A"
 WindowStartupLocation="CenterScreen">
 
@@ -46,8 +46,9 @@ WindowStartupLocation="CenterScreen">
 
                 <!-- COMBO -->
                 <ComboBox Grid.Column="1"
-                          Width="220"
-                          Height="34"
+                          Width="200"
+                          Height="24"
+                          
                           Style="{StaticResource CompactComboBoxSmall}"/>
 
             </Grid>

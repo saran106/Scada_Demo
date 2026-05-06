@@ -46,9 +46,9 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewModels:PlantViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Grid>
 
@@ -70,43 +70,62 @@
 
                     <!-- 🔥 HAMBURGER -->
                     <ToggleButton x:Name="MenuToggle"
-                          Content="☰"
-                          Width="45"
-                          Height="45"
-                          Margin="10"
-                          FontSize="20"
-                          Foreground="#00FFFF"
-                          Background="Transparent"
-                          BorderBrush="Transparent"
-                          Cursor="Hand"
-                          Click="MenuToggle_Click">
+              Width="38"
+              Height="38"
+              Margin="10"
+              FontSize="20"
+              Foreground="#008080"
+              Background="Transparent"
+              BorderBrush="Transparent"
+              Cursor="Hand"
+              Click="MenuToggle_Click">
+
+                        <ToggleButton.Content>
+                            <TextBlock x:Name="MenuIcon"
+                   Text="☰"
+                   FontSize="20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+                        </ToggleButton.Content>
 
                         <ToggleButton.Style>
                             <Style TargetType="ToggleButton">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="ToggleButton">
+
                                             <Border x:Name="bg"
-                                            CornerRadius="6"
-                                            Background="Transparent">
+                                CornerRadius="8"
+                                Background="Transparent"
+                                BorderBrush="#008080"
+                                BorderThickness="1">
+
                                                 <ContentPresenter HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center"/>
+                                              VerticalAlignment="Center"/>
                                             </Border>
 
                                             <ControlTemplate.Triggers>
+
+                                                <!-- HOVER -->
                                                 <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter TargetName="bg" Property="Background" Value="#123F3F"/>
+                                                    <Setter TargetName="bg" Property="Background" Value="#E6F7F7"/>
+                                                    <Setter TargetName="bg" Property="BorderBrush" Value="#008080"/>
                                                 </Trigger>
 
+                                                <!-- WHEN OPEN -->
                                                 <Trigger Property="IsChecked" Value="True">
-                                                    <Setter TargetName="bg" Property="Background" Value="#1F5F5F"/>
+                                                    <Setter TargetName="bg" Property="Background" Value="#008080"/>
+                                                    <Setter Property="Foreground" Value="White"/>
                                                 </Trigger>
+
                                             </ControlTemplate.Triggers>
+
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                             </Style>
                         </ToggleButton.Style>
+
                     </ToggleButton>
 
 
@@ -151,47 +170,544 @@
 
                         </StackPanel.Resources>
 
-                        <!-- DASHBOARD -->
-                        <Border MouseLeftButtonDown="Dashboard_Click">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel>
 
-                                <TextBlock Text="🏠"
-                                   FontSize="18"
-                                   Foreground="#00FFFF"
-                                   VerticalAlignment="Center"/>
+                            <!-- 🔷 MASTER -->
+                            <Grid>
 
-                                <TextBlock Text="Dashboard"
-                                   Margin="12,0,0,0"
-                                   Foreground="White"
-                                   FontWeight="SemiBold"
-                                   FontSize="14"
-                                   VerticalAlignment="Center"
-                                   Visibility="Collapsed"
-                                   x:Name="TxtDashboard"/>
-                            </StackPanel>
-                        </Border>
+                                <!-- MASTER BUTTON -->
+                                <Border x:Name="MasterBorder"
+                ToolTip="Master"
+                MouseLeftButtonDown="Master_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <TextBlock Text="⚙️" FontSize="18" Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Master"
+                           x:Name="TxtMaster"
+                           Margin="12,0,0,0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 🔥 POPUP (IMPORTANT: same level as Border) -->
+                                <Popup x:Name="MasterPopup"
+       Placement="Right"
+       PlacementTarget="{Binding ElementName=MasterBorder}"
+       AllowsTransparency="True"
+       PopupAnimation="Fade"
+       StaysOpen="False"
+       HorizontalOffset="20"
+       VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+            Padding="10"
+            CornerRadius="6"
+            BorderBrush="#444"
+            BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding MasterMenuItems}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource PopupSubMenuTextStyle}"
+                                                               />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </Border>
+                                </Popup>
+
+                            </Grid>
+
+
+                            <!-- 🔽 SUB MODULES (INLINE - ONLY WHEN MENU OPEN) -->
+                            <ItemsControl x:Name="MasterSubMenu"
+                  Margin="20,5,0,5"
+                  Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"  MouseLeftButtonDown="SubMenu_Click">
+                                            <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource SubMenuTextStyle}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+                        </StackPanel>
+                        <!-- CALIBRATION -->
+                        <StackPanel>
+                            <!-- CALIBRATION -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="CalibrationBorder"
+            ToolTip="Calibration"
+            MouseLeftButtonDown="Calibration_Click"
+            Padding="6"
+            Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <TextBlock Text="🎯" FontSize="18" Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Calibration"
+                       x:Name="TxtCalibration"
+                       Margin="10,0,0,0"
+                       Foreground="White"
+                       Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- POPUP -->
+                                <Popup x:Name="CalibrationPopup"
+           Placement="Right"
+           PlacementTarget="{Binding ElementName=CalibrationBorder}"
+           AllowsTransparency="True"
+           PopupAnimation="Fade"
+           StaysOpen="False"
+           HorizontalOffset="20"
+           VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                Padding="10"
+                CornerRadius="6"
+                BorderBrush="#444"
+                BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding CalibrationMenuItems}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Name}"
+                                   Style="{StaticResource PopupSubMenuTextStyle}"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </Border>
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- INLINE SUB MENU -->
+                            <ItemsControl x:Name="CalibrationSubMenu"
+              Margin="20,5,0,5"
+              Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                    MouseLeftButtonDown="CalibrationSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                           Style="{StaticResource SubMenuTextStyle}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+                        </StackPanel>
+                        <!-- BATCH SETTINGS -->
+                        <StackPanel>
+                            <!-- 🧪 BATCH SETTINGS -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="BatchBorder"
+            ToolTip="Batch Settings"
+            MouseLeftButtonDown="Batch_Click"
+            Padding="6"
+            Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                                        <TextBlock Text="🧪"
+                       FontSize="18"
+                       Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Batch Settings"
+                       x:Name="TxtBatch"
+                       Margin="12,0,0,0"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 🔥 POPUP -->
+                                <Popup x:Name="BatchPopup"
+           Placement="Right"
+           PlacementTarget="{Binding ElementName=BatchBorder}"
+           AllowsTransparency="True"
+           PopupAnimation="Fade"
+           StaysOpen="False"
+           HorizontalOffset="20"
+           VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                Padding="10"
+                CornerRadius="6"
+                BorderBrush="#444"
+                BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding BatchMenuItems}">
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <TextBlock Text="{Binding Name}"
+                                   Style="{StaticResource PopupSubMenuTextStyle}"/>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
+                                    </Border>
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- 🔽 INLINE SUBMENU -->
+                            <ItemsControl x:Name="BatchSubMenu"
+              Margin="20,5,0,5"
+              Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                    MouseLeftButtonDown="BatchSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                           Style="{StaticResource SubMenuTextStyle}"/>
+
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+                        </StackPanel>
+                         <!-- SET PARAMETERS -->
+                        <StackPanel>
+
+                            <!-- 📊 SET PARAMETERS -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="ParamBorder"
+                ToolTip="Set Parameters"
+                MouseLeftButtonDown="Param_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                        <TextBlock Text="📊"
+                           FontSize="18"
+                           Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Set Parameters"
+                           x:Name="TxtParam"
+                           Margin="12,0,0,0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- 🔥 POPUP -->
+                                <Popup x:Name="ParamPopup"
+               Placement="Right"
+               PlacementTarget="{Binding ElementName=ParamBorder}"
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               StaysOpen="False"
+               HorizontalOffset="20"
+               VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                    Padding="10"
+                    CornerRadius="6"
+                    BorderBrush="#444"
+                    BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding ParameterMenuItems}">
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <TextBlock Text="{Binding Name}"
+                                       Style="{StaticResource PopupSubMenuTextStyle}"/>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
+                                    </Border>
+
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- 🔽 INLINE SUBMENU -->
+                            <ItemsControl x:Name="ParamSubMenu"
+                  Margin="20,5,0,5"
+                  Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                        MouseLeftButtonDown="ParamSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource SubMenuTextStyle}"/>
+
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+                        </StackPanel>
+
+                        <!-- OTHER SETTINGS -->
+                        <StackPanel>
+
+                            <!-- 🔧 OTHER SETTINGS -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="OtherBorder"
+                ToolTip="Other Settings"
+                MouseLeftButtonDown="Other_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                        <TextBlock Text="🔧"
+                           FontSize="18"
+                           Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Other Settings"
+                           x:Name="TxtOther"
+                           Margin="12,0,0,0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- 🔥 POPUP -->
+                                <Popup x:Name="OtherPopup"
+               Placement="Right"
+               PlacementTarget="{Binding ElementName=OtherBorder}"
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               StaysOpen="False"
+               HorizontalOffset="20"
+               VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                    Padding="10"
+                    CornerRadius="6"
+                    BorderBrush="#444"
+                    BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding OtherMenuItems}">
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <TextBlock Text="{Binding Name}"
+                                       Style="{StaticResource PopupSubMenuTextStyle}"/>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
+                                    </Border>
+
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- 🔽 INLINE SUBMENU -->
+                            <ItemsControl x:Name="OtherSubMenu"
+                  Margin="20,5,0,5"
+                  Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                        MouseLeftButtonDown="OtherSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource SubMenuTextStyle}"/>
+
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+                        </StackPanel>
 
                         <!-- USER -->
-                        <Border MouseLeftButtonDown="Dashboard_Click1">
+                        <StackPanel>
+
+                            <!-- 👤 USER -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="UserBorder"
+                ToolTip="User"
+                MouseLeftButtonDown="User_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                        <TextBlock Text="👤"
+                           FontSize="18"
+                           Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="User"
+                           x:Name="TxtUser"
+                           Margin="12,0,0,0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- 🔥 POPUP -->
+                                <Popup x:Name="UserPopup"
+               Placement="Right"
+               PlacementTarget="{Binding ElementName=UserBorder}"
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               StaysOpen="False"
+               HorizontalOffset="20"
+               VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                    Padding="10"
+                    CornerRadius="6"
+                    BorderBrush="#444"
+                    BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding UserMenuItems}">
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <TextBlock Text="{Binding Name}"
+                                       Style="{StaticResource PopupSubMenuTextStyle}"/>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
+                                    </Border>
+
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- 🔽 INLINE SUBMENU -->
+                            <ItemsControl x:Name="UserSubMenu"
+                  Margin="20,5,0,5"
+                  Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                        MouseLeftButtonDown="UserSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource SubMenuTextStyle}"/>
+
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+                        </StackPanel>
+
+                        <!-- TRANSACTIONS -->
+                        <Border ToolTip="Transactions" MouseLeftButtonDown="Trans_Click">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-
-                                <TextBlock Text="👤"
-                                   FontSize="18"
-                                   Foreground="#00FFFF"
-                                   VerticalAlignment="Center"/>
-
-                                <TextBlock Text="User"
-                                   Margin="12,0,0,0"
-                                   Foreground="White"
-                                   FontWeight="SemiBold"
-                                   FontSize="14"
-                                   VerticalAlignment="Center"
-                                   Visibility="Collapsed"
-                                   x:Name="TxtUser"/>
+                                <TextBlock Text="🔄" FontSize="18" Foreground="#00FFFF"/>
+                                <TextBlock Text="Transactions" x:Name="TxtTrans"
+                   Margin="12,0,0,0"
+                   Foreground="White"
+                   Visibility="Collapsed"/>
                             </StackPanel>
                         </Border>
-                        
-                        
+
+                        <!-- OPTIONS -->
+                        <Border ToolTip="Options" MouseLeftButtonDown="Options_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="⚡" FontSize="18" Foreground="#00FFFF"/>
+                                <TextBlock Text="Options" x:Name="TxtOptions"
+                   Margin="12,0,0,0"
+                   Foreground="White"
+                   Visibility="Collapsed"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- DATABASE -->
+                        <Border ToolTip="Database Handling" MouseLeftButtonDown="DB_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="🗄️" FontSize="18" Foreground="#00FFFF"/>
+                                <TextBlock Text="Database Handling" x:Name="TxtDB"
+                   Margin="12,0,0,0"
+                   Foreground="White"
+                   Visibility="Collapsed"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- REPORTS -->
+                        <Border ToolTip="Reports" MouseLeftButtonDown="Reports_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="📄" FontSize="18" Foreground="#00FFFF"/>
+                                <TextBlock Text="Reports" x:Name="TxtReports"
+                   Margin="12,0,0,0"
+                   Foreground="White"
+                   Visibility="Collapsed"/>
+                            </StackPanel>
+                        </Border>
+
+
 
                     </StackPanel>
 
@@ -4094,40 +4610,41 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     </Border>
 
                     <!-- ================= BATCH SCHEDULE STAT ================= -->
-                    <Border Grid.Row="2"
-                Background="#0E3F3F"
-                CornerRadius="6"
-                Padding="10"
-                BorderBrush="#2AA198"
-                BorderThickness="1">
+                                <Border Grid.Row="2"
+        Background="{StaticResource PanelBrush}"
+        CornerRadius="6"
+        Padding="10"
+        BorderBrush="{StaticResource BorderBrushColor}"
+        BorderThickness="1">
 
-                        <StackPanel>
+                                    <StackPanel>
 
-                            <TextBlock Text="Batch Schedule Stat"
-                           Foreground="#00FFFF"
-                           FontWeight="Bold"
-                           Margin="0,0,0,8"/>
+                                        <TextBlock Text="Batch Schedule Stat"
+                   Style="{StaticResource HeaderTextStyle}"/>
 
-                            <DataGrid AutoGenerateColumns="False"
-                          HeadersVisibility="Column"
-                     
-                          Background="#0A2C2C"
-                          Foreground="White">
+                                        <DataGrid AutoGenerateColumns="False"
+                  HeadersVisibility="Column"
+                  Background="Transparent"
+                  Foreground="White"
 
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Order" Binding="{Binding Order}" Width="*"/>
-                                    <DataGridTextColumn Header="O Qty" Binding="{Binding OQty}" Width="*"/>
-                                    <DataGridTextColumn Header="P Qty" Binding="{Binding PQty}" Width="*"/>
-                                    <DataGridTextColumn Header="L Sent" Binding="{Binding LSent}" Width="*"/>
-                                    <DataGridTextColumn Header="Stat" Binding="{Binding Status}" Width="*"/>
-                                </DataGrid.Columns>
+                  ColumnHeaderStyle="{StaticResource DarkDataGridHeaderStyle}"
+                  CellStyle="{StaticResource DarkDataGridCellStyle}"
+                  RowStyle="{StaticResource DarkDataGridRowStyle}">
 
-                            </DataGrid>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Order" Binding="{Binding Order}" Width="*"/>
+                                                <DataGridTextColumn Header="O Qty" Binding="{Binding OQty}" Width="*"/>
+                                                <DataGridTextColumn Header="P Qty" Binding="{Binding PQty}" Width="*"/>
+                                                <DataGridTextColumn Header="L Sent" Binding="{Binding LSent}" Width="*"/>
+                                                <DataGridTextColumn Header="Stat" Binding="{Binding Status}" Width="*"/>
+                                            </DataGrid.Columns>
 
-                        </StackPanel>
-                    </Border>
+                                        </DataGrid>
 
-                </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                            </Grid>
 
 
 

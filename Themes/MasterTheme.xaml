@@ -7,6 +7,8 @@
     <SolidColorBrush x:Key="PanelBrush" Color="#155555"/>
     <SolidColorBrush x:Key="BorderBrushColor" Color="#00CCCC"/>
 
+    <!-- TEXT --><!--
+    <SolidColorBrush x:Key="PrimaryText" Color="#00FFFF"/>-->
     <!-- TEXT -->
     <SolidColorBrush x:Key="PrimaryText" Color="#00FFFF"/>
 
@@ -696,5 +698,145 @@
                 <Setter Property="Background" Value="#555555"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+
+
+    <!-- ================= 🔥 DATAGRID THEME ================= -->
+
+    <!-- HEADER -->
+    <Style x:Key="DarkDataGridHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="#2A2A2A"/>
+        <Setter Property="Foreground" Value="#00E5FF"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="#444"/>
+        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <!-- CELL -->
+    <Style x:Key="DarkDataGridCellStyle" TargetType="DataGridCell">
+        <Setter Property="Background" Value="#1E1E1E"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="#333"/>
+        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <!-- ROW -->
+    <Style x:Key="DarkDataGridRowStyle" TargetType="DataGridRow">
+        <Setter Property="Background" Value="#1E1E1E"/>
+
+        <Style.Triggers>
+
+            <!-- Hover -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#2C2C2C"/>
+            </Trigger>
+
+            <!-- Selected -->
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#004D40"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SubMenuContainerStyle" TargetType="Border">
+
+        <!-- Base -->
+        <Setter Property="Margin" Value="0,3"/>
+        <Setter Property="Padding" Value="0.6"/>
+        <Setter Property="CornerRadius" Value="9"/>
+        <Setter Property="Background" Value="#102626"/>
+        <Setter Property="BorderBrush" Value="#244444"/>
+        <Setter Property="BorderThickness" Value="1.2"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <!-- Soft Shadow -->
+        <Setter Property="Effect">
+            <Setter.Value>
+
+                <DropShadowEffect BlurRadius="6"
+                              ShadowDepth="0"
+                              Opacity="0.15"/>
+
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+
+            <!-- 🔥 Hover -->
+            <Trigger Property="IsMouseOver" Value="True">
+
+                <!-- Background -->
+                <Setter Property="Background" Value="#173D3D"/>
+
+                <!-- Border Glow -->
+                <Setter Property="BorderBrush" Value="#00FFFF"/>
+                <Setter Property="BorderThickness" Value="5.5"/>
+
+                <!-- Cyan Left Highlight Feel -->
+                <Setter Property="Padding" Value="4,1,2,2"/>
+
+                <!-- Glow -->
+                <Setter Property="Effect">
+                    <Setter.Value>
+
+                        <DropShadowEffect Color="#00FFFF"
+                                      BlurRadius="12"
+                                      ShadowDepth="0"
+                                      Opacity="0.35"/>
+
+                    </Setter.Value>
+                </Setter>
+
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+
+    <Style x:Key="SubMenuTextStyle" TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="#F2F2F2"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Padding" Value="10,7"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+
+        <Style.Triggers>
+
+            <Trigger Property="IsMouseOver" Value="True">
+
+                <Setter Property="Foreground" Value="#00FFFF"/>
+
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+
+    <Style x:Key="PopupSubMenuTextStyle" TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Padding" Value="8,5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Style.Triggers>
+
+            <Trigger Property="IsMouseOver" Value="True">
+
+                <Setter Property="Foreground" Value="#00FFFF"/>
+
+            </Trigger>
+
+        </Style.Triggers>
+
     </Style>
 </ResourceDictionary>
