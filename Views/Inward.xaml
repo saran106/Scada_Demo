@@ -1,0 +1,145 @@
+﻿<Window x:Class="Scada_Demo.Views.Inward"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Views"
+        mc:Ignorable="d"
+        Title="MCI460 Material Inward Master"
+        Height="430"
+        Width="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource PrimaryBgBrush}">
+
+    <Grid Margin="15">
+
+        <Border Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6"
+                Padding="15">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+
+                <!-- HEADER -->
+                <TextBlock Text="Schedule Configuration"
+             FontSize="24"
+             FontWeight="Bold"
+             Margin="0,0,0,15"/>
+
+                <!-- FORM -->
+                <Grid Grid.Row="1"
+                     >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Product -->
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Product Name"
+                              Style="{StaticResource LabelStyle}"
+                               
+                               
+                               />
+
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="2"
+                             
+                              Style="{StaticResource CompactComboBoxSmall}"
+                               Width="180" Height="34"/>
+
+                    <!-- Inward Date -->
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Inward Date"
+                               Style="{StaticResource LabelStyle}"
+                               />
+
+                    <DatePicker Grid.Row="1"
+                                Grid.Column="2"
+                                Width="180" Height="34"
+                                
+                                FontSize="16" />
+
+                    <!-- Quantity -->
+                    <TextBlock Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Quantity"
+                               Style="{StaticResource LabelStyle}"
+                              />
+
+                    <TextBox Grid.Row="2"
+                             Grid.Column="2"
+                             
+                             Text="0"
+                             Style="{StaticResource JogTextBoxStyle}"
+                             Width="180" Height="34" 
+                            />
+
+                    <!-- UOM -->
+                    <TextBlock Grid.Row="3"
+                               Grid.Column="0"
+                               Text="UOM"
+                               Style="{StaticResource LabelStyle}"
+                               />
+
+                    <ComboBox Grid.Row="3"
+                              Grid.Column="2"
+                              Width="180" Height="34"
+                              Style="{StaticResource CompactComboBoxSmall}">
+
+                        <ComboBoxItem Content="kg"/>
+                        <ComboBoxItem Content="Ton"/>
+                        <ComboBoxItem Content="Litre"/>
+
+                    </ComboBox>
+
+                </Grid>
+
+                <!-- BUTTONS -->
+                <StackPanel Grid.Row="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <Button Content="Add"
+                            
+                          Width="100"
+                Style="{StaticResource GreenButton}" />
+
+                    <Button Content="Del"
+                           
+                           Width="100"
+                />
+
+                    <Button Content="eXit"
+                            
+                         Width="100"
+                Style="{StaticResource RedButton}" />
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+</Window>

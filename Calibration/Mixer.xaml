@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MC460 Mixer Calibration"
         SizeToContent="WidthAndHeight"
-        MaxWidth="380"
+        MaxWidth="450"
+        MaxHeight="500"
         Background="{StaticResource PrimaryBgBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -33,9 +34,9 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
 
                     <!-- LABELS -->
@@ -55,22 +56,22 @@
 
                     <!-- INPUTS -->
                     <TextBox Grid.Column="1"
-                             Width="140"
-                             Height="28"
+                             
                              Margin="5"
-                             Style="{StaticResource SystemFieldTextBox}"/>
+                             Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
 
                     <TextBox Grid.Row="1" Grid.Column="1"
-                             Width="140"
-                             Height="28"
+                             
                              Margin="5"
-                             Style="{StaticResource SystemFieldTextBox}"/>
+                             Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
 
                     <TextBox Grid.Row="2" Grid.Column="1"
-                             Width="140"
-                             Height="28"
+                           
                              Margin="5"
-                             Style="{StaticResource SystemFieldTextBox}"/>
+                            Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
 
                 </Grid>
 

@@ -1,0 +1,230 @@
+﻿<Window x:Class="Scada_Demo.Views.Order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Views"
+        mc:Ignorable="d"
+        Title="MCI460 Order Master"
+        Height="800"
+        Width="980"
+        Background="{StaticResource PrimaryBgBrush}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="15">
+
+        <!-- MAIN BORDER -->
+        <Border Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6"
+                Padding="15"
+                Margin="0,0,0,90">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- HEADER -->
+                <TextBlock Text="Configure order"
+                           Style="{StaticResource HeaderTextStyle}"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           
+                           Margin="5"/>
+
+                <!-- MAIN FORM -->
+                <Grid Grid.Row="1"
+                      Margin="10,20,10,10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- LEFT -->
+                    <Grid Grid.Column="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- LABELS -->
+                        <TextBlock Text="Order Id" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Order Date" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Customer Id" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Recipe ID" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Site" Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Truck ID" Grid.Row="5" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Ordered qty in M³" Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Production qty in M³" Grid.Row="7" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Adjust qty in M³" Grid.Row="8" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Load sent in M³" Grid.Row="9" Style="{StaticResource LabelStyle}"/>
+
+                        <!-- INPUTS -->
+                        <ComboBox Grid.Row="0" Grid.Column="1" 
+                                  Height="34" Width="250"
+                                  Style="{StaticResource CompactComboBoxSmall}"/>
+
+                        <DatePicker Grid.Row="1" Grid.Column="1"
+                                    Height="34"
+                                    Margin="5,11,23,10"
+                                    FontSize="16"
+                                    Width="250"/>
+
+                        <ComboBox Grid.Row="2" Grid.Column="1" Height="34" Width="250"
+                                  Style="{StaticResource CompactComboBoxSmall}"/>
+
+                        <ComboBox Grid.Row="3" Grid.Column="1" Height="34" Width="250"
+                                  Style="{StaticResource CompactComboBoxSmall}"/>
+                        <ComboBox Grid.Row="4" Grid.Column="1" Height="34" Width="250"
+                                  Style="{StaticResource CompactComboBoxSmall}"/>
+                        <ComboBox Grid.Row="5" Grid.Column="1" Height="34" Width="250"
+                                  Style="{StaticResource CompactComboBoxSmall}"/>
+
+                        <TextBox Grid.Row="6"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}" Margin="146,11,12,10" Grid.ColumnSpan="2"/>
+
+                        <TextBox Grid.Row="7"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}" Margin="145,11,13,10" Grid.ColumnSpan="2"/>
+
+                        <TextBox Grid.Row="8"
+                                 Height="34"
+                                 Text="0"
+                                 Style="{StaticResource JogTextBoxStyle}" Grid.ColumnSpan="2" Margin="146,10,12,11"/>
+
+                        <TextBox Grid.Row="9"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}" Grid.ColumnSpan="2" Margin="145,11,13,10"/>
+
+                    </Grid>
+
+                    <!-- RIGHT -->
+                    <Grid Grid.Column="2">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- LABELS -->
+                        <TextBlock Text="Aggregate used" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Cement used" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Water used" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Admixture used" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Special note" Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Order type" Grid.Row="5" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Job number" Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Account number" Grid.Row="7" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Max Cement used" Grid.Row="8" Style="{StaticResource LabelStyle}"/>
+                        <TextBlock Text="Cement water ratio" Grid.Row="9" Style="{StaticResource LabelStyle}"/>
+
+                        <!-- INPUTS -->
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="5" Grid.Column="1" Text="NA"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="6" Grid.Column="1" Text="1"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="7" Grid.Column="1" Text="1"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="8" Grid.Column="1" Text="5"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBox Grid.Row="9" Grid.Column="1" Text="0.5"
+                                 Height="34"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+        <!-- BUTTON AREA -->
+
+
+        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                       >
+
+            <Button Content="SAVE"
+                        Width="220"
+                        />
+
+            <Button Content="DELETE"
+                         Width="220"
+                        Style="{StaticResource RedButton}"/>
+
+            <Button Content="EXIT"
+                         Width="220"
+                        />
+
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

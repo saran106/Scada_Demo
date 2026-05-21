@@ -73,7 +73,7 @@
               Width="38"
               Height="38"
               Margin="10"
-              FontSize="20"
+              FontSize="18"
               Foreground="#008080"
               Background="Transparent"
               BorderBrush="Transparent"
@@ -83,7 +83,7 @@
                         <ToggleButton.Content>
                             <TextBlock x:Name="MenuIcon"
                    Text="☰"
-                   FontSize="20"
+                   FontSize="18"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
                         </ToggleButton.Content>
@@ -664,16 +664,93 @@
                         </StackPanel>
 
                         <!-- TRANSACTIONS -->
-                        <Border ToolTip="Transactions" MouseLeftButtonDown="Trans_Click">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="🔄" FontSize="18" Foreground="#00FFFF"/>
-                                <TextBlock Text="Transactions" x:Name="TxtTrans"
-                   Margin="12,0,0,0"
-                   Foreground="White"
-                   Visibility="Collapsed"/>
-                            </StackPanel>
-                        </Border>
+                        <StackPanel>
 
+                            <!-- 🔄 TRANSACTIONS -->
+                            <Grid>
+
+                                <!-- MAIN BUTTON -->
+                                <Border x:Name="TransBorder"
+                ToolTip="Transactions"
+                MouseLeftButtonDown="Trans_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                        <TextBlock Text="🔄"
+                           FontSize="18"
+                           Foreground="#00FFFF"/>
+
+                                        <TextBlock Text="Transactions"
+                           x:Name="TxtTrans"
+                           Margin="12,0,0,0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- 🔥 POPUP -->
+                                <Popup x:Name="TransPopup"
+               Placement="Right"
+               PlacementTarget="{Binding ElementName=TransBorder}"
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               StaysOpen="False"
+               HorizontalOffset="20"
+               VerticalOffset="5">
+
+                                    <Border Background="#1F2F2F"
+                    Padding="10"
+                    CornerRadius="6"
+                    BorderBrush="#444"
+                    BorderThickness="1">
+
+                                        <ItemsControl ItemsSource="{Binding TransactionsMenuItems}">
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <TextBlock Text="{Binding Name}"
+                                       Style="{StaticResource PopupSubMenuTextStyle}"/>
+
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
+                                    </Border>
+
+                                </Popup>
+
+                            </Grid>
+
+                            <!-- 🔽 INLINE SUBMENU -->
+                            <ItemsControl x:Name="TransSubMenu"
+                  Margin="20,5,0,5"
+                  Visibility="Collapsed">
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Border Style="{StaticResource SubMenuContainerStyle}"
+                        MouseLeftButtonDown="TransSubMenu_Click">
+
+                                            <TextBlock Text="{Binding Name}"
+                               Style="{StaticResource SubMenuTextStyle}"/>
+
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+                        </StackPanel>
                         <!-- OPTIONS -->
                         <Border ToolTip="Options" MouseLeftButtonDown="Options_Click">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -688,7 +765,7 @@
                         <!-- DATABASE -->
                         <Border ToolTip="Database Handling" MouseLeftButtonDown="DB_Click">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="🗄️" FontSize="18" Foreground="#00FFFF"/>
+                                <TextBlock Text="🛢"     FontSize="18"  Foreground="#00FFFF"/>
                                 <TextBlock Text="Database Handling" x:Name="TxtDB"
                    Margin="12,0,0,0"
                    Foreground="White"
@@ -803,6 +880,7 @@
                    Foreground="#00FFFF"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
+                                       Style="{StaticResource CompactLabel}"
                    Margin="0,0,0,8"/>
 
                             <Grid>
@@ -876,6 +954,7 @@
                    Foreground="#00FFFF"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
+                                       Style="{StaticResource CompactLabel}"
                    Margin="0,0,0,8"/>
 
                             <Grid>
@@ -932,6 +1011,7 @@
 
                             <TextBlock Text="WATER"
                    Foreground="#00FFFF"
+                                       Style="{StaticResource CompactLabel}"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    Margin="0,0,0,8"/>
@@ -975,6 +1055,7 @@
                         <StackPanel Grid.Column="6" >
 
                             <TextBlock Text="ADMIXTURE1"
+                                       Style="{StaticResource CompactLabel}"
                    Foreground="#00FFFF"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
@@ -1019,6 +1100,7 @@
                         <StackPanel Grid.Column="8" >
 
                             <TextBlock Text="ADMIXTURE2"
+                                       Style="{StaticResource CompactLabel}"
                    Foreground="#00FFFF"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
@@ -1067,6 +1149,7 @@
                             <!-- ================= SILICA ================= -->
                             <TextBlock Text="SILICA"
                    Foreground="#00FFFF"
+                                       Style="{StaticResource CompactLabel}"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    Margin="0,0,0,8"/>
@@ -1103,6 +1186,7 @@
                             <TextBlock Text="ICE"
                    Foreground="#00FFFF"
                    FontWeight="Bold"
+                                       Style="{StaticResource CompactLabel}"
                    HorizontalAlignment="Center"
                    Margin="0,2,0,6"/>
 
@@ -1179,11 +1263,12 @@
                            Foreground="White"
                            FontWeight="Bold"
                            FontSize="18"
+                                       Style="{StaticResource CompactLabel}"
                            Margin="0,0,0,18"/>
 
-                            <TextBlock Text="Cement: 0 kg" Foreground="White" FontSize="14" Margin="0,6"/>
-                            <TextBlock Text="Water: 0 L" Foreground="White" FontSize="14" Margin="0,6"/>
-                            <TextBlock Text="Aggregate: 0 kg" Foreground="White" FontSize="14" Margin="0,6"/>
+                                        <TextBlock Text="Cement: 0 kg" Foreground="White" FontSize="14" Margin="0,6"  Style="{StaticResource CompactLabel}"/>
+                                        <TextBlock Text="Water: 0 L" Foreground="White" FontSize="14" Margin="0,6"  Style="{StaticResource CompactLabel}"/>
+                                        <TextBlock Text="Aggregate: 0 kg" Foreground="White" FontSize="14" Margin="0,6"  Style="{StaticResource CompactLabel}"/>
 
                             <Separator Margin="0,25,0,25" Background="#00FFFF" Height="1"/>
 
@@ -1192,6 +1277,7 @@
                            Foreground="#00FFFF"
                            FontWeight="Bold"
                            FontSize="17"
+                           Style="{StaticResource CompactLabel}"
                            Margin="0,0,0,18"/>
 
                             <Grid>
@@ -1208,19 +1294,19 @@
                                     <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="Mixer Mid Discharge" Foreground="#00FFFF" Grid.Row="0"/>
+                                            <TextBlock Text="Mixer Mid Discharge" Foreground="#00FFFF" Grid.Row="0"  Style="{StaticResource CompactLabel}"/>
                                 <TextBox Text="0" Grid.Row="0" Grid.Column="1"/>
 
-                                <TextBlock Text="Mixer Full Discharge" Foreground="#00FFFF" Grid.Row="1"/>
+                                            <TextBlock Text="Mixer Full Discharge" Foreground="#00FFFF" Grid.Row="1"  Style="{StaticResource CompactLabel}"/>
                                 <TextBox Text="0" Grid.Row="1" Grid.Column="1"/>
 
-                                <TextBlock Text="Mixer Mixing Time" Foreground="#00FFFF" Grid.Row="2"/>
+                                            <TextBlock Text="Mixer Mixing Time" Foreground="#00FFFF" Grid.Row="2"  Style="{StaticResource CompactLabel}"/>
                                 <TextBox Text="0" Grid.Row="2" Grid.Column="1"/>
 
-                                <TextBlock Text="Mixer Pre Mixing Time" Foreground="#00FFFF" Grid.Row="3"/>
+                                            <TextBlock Text="Mixer Pre Mixing Time" Foreground="#00FFFF" Grid.Row="3"  Style="{StaticResource CompactLabel}"/>
                                 <TextBox Text="0" Grid.Row="3" Grid.Column="1"/>
 
-                                <TextBlock Text="Mixer Running Hours" Foreground="#00FFFF" Grid.Row="4"/>
+                                            <TextBlock Text="Mixer Running Hours" Foreground="#00FFFF" Grid.Row="4"  Style="{StaticResource CompactLabel}"/>
                                 <TextBox Text="6441" Grid.Row="4" Grid.Column="1"/>
                             </Grid>
 
@@ -4562,6 +4648,7 @@ VerticalAlignment="Center" Canvas.Top="-33">
 
                         <StackPanel>
                             <TextBlock Text="ALARMS"
+                                       Style="{StaticResource CompactLabel}"
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="0,0,0,8"/>
@@ -4620,7 +4707,7 @@ VerticalAlignment="Center" Canvas.Top="-33">
                                     <StackPanel>
 
                                         <TextBlock Text="Batch Schedule Stat"
-                   Style="{StaticResource HeaderTextStyle}"/>
+                   Style="{StaticResource HeaderTextStyle}" />
 
                                         <DataGrid AutoGenerateColumns="False"
                   HeadersVisibility="Column"
@@ -4656,7 +4743,10 @@ VerticalAlignment="Center" Canvas.Top="-33">
                CornerRadius="5"
                Padding="10">
 
-                <Grid>
+                            <Viewbox Stretch="Uniform">
+                                <Grid Width="1600"
+          Height="100">
+
 
                     <!-- Fully Flexible Columns -->
                     <Grid.ColumnDefinitions>
@@ -4684,27 +4774,27 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     <!-- ================= ROW 1 ================= -->
 
                     <TextBlock Text="Recipe Name" Foreground="White"
-                  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="M 45 SMC G"
                 Grid.Row="0" Grid.Column="1" Margin="5"/>
 
                     <TextBlock Text="Ordered Qty" Foreground="White"
-                  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"/>
+                  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="230"
                 Grid.Row="0" Grid.Column="3" Margin="5"/>
 
                     <TextBlock Text="Adjusted Qty" Foreground="White"
-                  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"/>
+                  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="0"
                 Grid.Row="0" Grid.Column="5" Margin="5"/>
 
                     <TextBlock Text="Customer ID" Foreground="White"
-                  Grid.Row="0" Grid.Column="6" VerticalAlignment="Center"/>
+                  Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="SMC Infra"
                 Grid.Row="0" Grid.Column="7" Margin="5"/>
 
                     <TextBlock Text="Moisture Actual 1 %" Foreground="White"
-                  Grid.Row="0" Grid.Column="8" VerticalAlignment="Center"/>
+                  Grid.Row="0" Grid.Column="8" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="0"
                 Grid.Row="0" Grid.Column="9" Margin="5"/>
 
@@ -4729,59 +4819,59 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     <!-- ================= ROW 2 ================= -->
 
                     <TextBlock Text="Customer Name" Foreground="White"
-                  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="SMC Infra"
                 Grid.Row="1" Grid.Column="1" Margin="5"/>
 
                     <TextBlock Text="Production Qty" Foreground="White"
-                  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="5"
                 Grid.Row="1" Grid.Column="3" Margin="5"/>
 
                     <TextBlock Text="Truck ID" Foreground="White"
-                  Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="MH 01 CV 1003"
                 Grid.Row="1" Grid.Column="5" Margin="5"/>
 
                     <TextBlock Text="Job Site" Foreground="White"
-                  Grid.Row="1" Grid.Column="6" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="6" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="Flyover Ghatkopar"
                 Grid.Row="1" Grid.Column="7" Margin="5"/>
 
                     <TextBlock Text="Moisture Actual 2 %" Foreground="White"
-                  Grid.Row="1" Grid.Column="8" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="8" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="0"
                 Grid.Row="1" Grid.Column="9" Margin="5"/>
 
                     <TextBlock Text="Total" Foreground="White"
-                  Grid.Row="1" Grid.Column="10" VerticalAlignment="Center"/>
+                  Grid.Row="1" Grid.Column="10" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="2"
                 Grid.Row="1" Grid.Column="11" Margin="5"/>
 
                     <!-- ================= ROW 3 ================= -->
 
                     <TextBlock Text="Running Order" Foreground="White"
-                  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="M 45 SMC" 
                 Grid.Row="2" Grid.Column="1" Margin="5"/>
 
                     <TextBlock Text="Load Sent Qty" Foreground="White"
-                  Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
+                  Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="0"
                 Grid.Row="2" Grid.Column="3" Margin="5"/>
 
                     <TextBlock Text="Driver" Foreground="White"
-                  Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"/>
+                  Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="Pradeep"
                 Grid.Row="2" Grid.Column="5" Margin="5"/>
 
                     <TextBlock Text="Batch No" Foreground="White"
-                  Grid.Row="2" Grid.Column="6" VerticalAlignment="Center"/>
+                  Grid.Row="2" Grid.Column="6" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="74353"
                 Grid.Row="2" Grid.Column="7" Margin="5"/>
 
                     <TextBlock Text="Water Correction" Foreground="White"
-                  Grid.Row="2" Grid.Column="8" VerticalAlignment="Center"/>
+                  Grid.Row="2" Grid.Column="8" VerticalAlignment="Center"  Style="{StaticResource MiniCompactLabel}"/>
                     <TextBox Text="0"
                 Grid.Row="2" Grid.Column="9" Margin="5"/>
 
@@ -4795,8 +4885,9 @@ VerticalAlignment="Center" Canvas.Top="-33">
                HorizontalAlignment="Stretch"/>
 
                 </Grid>
+                            </Viewbox>
 
-            </Border>
+                        </Border>
 
 
         </Grid>

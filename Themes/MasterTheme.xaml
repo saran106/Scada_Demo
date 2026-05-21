@@ -342,6 +342,7 @@
         <Setter Property="Foreground" Value="#00FFFF"/>
         <Setter Property="Margin" Value="0,6"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontStyle" Value="Italic"/>
     </Style>
 
     <!-- TEXTBOX -->
@@ -371,6 +372,16 @@
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Margin" Value="0,10,0,2"/>
         <!-- 🔥 TOP GAP -->
+    </Style>
+
+    <Style x:Key="MiniCompactLabel"
+       TargetType="TextBlock"
+       BasedOn="{StaticResource LabelStyle}">
+
+        <Setter Property="FontSize" Value="9.5"/>
+        <Setter Property="Margin" Value="0,6,0,1"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+
     </Style>
     <!--<Style x:Key="CompactComboBoxSmall"
        TargetType="ComboBox"

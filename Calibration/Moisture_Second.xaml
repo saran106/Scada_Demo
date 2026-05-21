@@ -7,90 +7,125 @@
         mc:Ignorable="d"
          Title="MC460 Moisture Calibration"
  SizeToContent="WidthAndHeight"
- MaxWidth="420"
+ MaxWidth="450"
+ MaxHeight="480"
  Background="{StaticResource PrimaryBgBrush}"
  WindowStartupLocation="CenterScreen">
+
     <Grid Margin="10">
 
+        <!-- MAIN BORDER -->
         <Border Background="{StaticResource PanelBrush}"
-            BorderBrush="{StaticResource BorderBrushColor}"
-            BorderThickness="2"
-            CornerRadius="10"
-            Padding="20">
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="10"
+                Padding="20">
 
+            <!-- MAIN GRID -->
             <Grid>
 
+                <!-- ROWS -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <!-- Title -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Raw -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Offset -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Span -->
+                    <!-- Content -->
                     <RowDefinition Height="Auto"/>
                     <!-- Buttons -->
                 </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2.5*"/>
-                </Grid.ColumnDefinitions>
+                <!-- ================= CONTENT ================= -->
+                <Grid Grid.Row="0">
 
-                <!-- 🔹 Title -->
-                <TextBlock Text="Moisture Calibration"
-                       Grid.Row="0"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource HeaderTextStyle}"
-                       Margin="0,0,0,15"/>
+                    <!-- ROWS -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Title -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Raw -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Offset -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Span -->
+                    </Grid.RowDefinitions>
 
-                <!-- 🔹 Labels -->
-                <TextBlock Text="Moisture raw value"
-                       Grid.Row="1"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource LabelStyle}"/>
+                    <!-- COLUMNS -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="2.5*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Moisture offset"
-                       Grid.Row="2"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource LabelStyle}"/>
+                    <!-- TITLE -->
+                    <TextBlock Text="Moisture Calibration"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="3"
+                               Style="{StaticResource HeaderTextStyle}"
+                               Margin="0,0,0,15"
+                               HorizontalAlignment="Center"/>
 
-                <TextBlock Text="Moisture span"
-                       Grid.Row="3"
-                       VerticalAlignment="Center"
-                       Style="{StaticResource LabelStyle}"/>
+                    <!-- LABELS -->
+                    <TextBlock Text="Moisture raw value"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource LabelStyle}"/>
 
-                <!-- 🔹 Inputs -->
-                <TextBox Grid.Row="1" Grid.Column="1"
-                     Style="{StaticResource SystemFieldTextBox}"
-                     Height="30" Margin="5"/>
+                    <TextBlock Text="Moisture offset"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource LabelStyle}"/>
 
-                <TextBox Grid.Row="2" Grid.Column="1"
-                     Style="{StaticResource SystemFieldTextBox}"
-                     Height="30" Margin="5"/>
+                    <TextBlock Text="Moisture span"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource LabelStyle}"/>
 
-                <TextBox Grid.Row="3" Grid.Column="1"
-                     Style="{StaticResource SystemFieldTextBox}"
-                     Height="30" Margin="5"/>
+                    <!-- INPUTS -->
+                    <TextBox Grid.Row="1"
+                             Grid.Column="2"
+                             Style="{StaticResource JogTextBoxStyle}"
+                             Width="180"
+                             Height="34"
+                             MinWidth="0"/>
 
-                <!-- 🔹 Buttons -->
-                <StackPanel Grid.Row="4"
-                        Grid.ColumnSpan="2"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Margin="0,20,0,0">
+                    <TextBox Grid.Row="2"
+                             Grid.Column="2"
+                             Style="{StaticResource JogTextBoxStyle}"
+                             Width="180"
+                             Height="34"
+                             MinWidth="0"/>
+
+                    <TextBox Grid.Row="3"
+                             Grid.Column="2"
+                             Style="{StaticResource JogTextBoxStyle}"
+                             Width="180"
+                             Height="34"
+                             MinWidth="0"/>
+
+                </Grid>
+
+                <!-- ================= BUTTONS ================= -->
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,20,0,0">
 
                     <Button Content="Calibrate"
-                        Width="120"
-                        Margin="10"/>
+                            Width="120"
+                            Margin="10"/>
+
                     <Button Content="Exit"
-    Width="120"
-    Margin="10"
-    Style="{StaticResource RedButton}"/>
+                            Width="120"
+                            Margin="10"
+                            Style="{StaticResource RedButton}"/>
+
                 </StackPanel>
 
             </Grid>
+
         </Border>
+
     </Grid>
+
 </Window>

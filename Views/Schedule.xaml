@@ -2,9 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MCI460 Schedule Master"
-        Height="500" Width="850"
-        WindowStartupLocation="CenterScreen"
-        Background="{StaticResource PrimaryBgBrush}">
+        Height="630" Width="550"
+        
+       
+Background="{StaticResource PrimaryBgBrush}"
+
+WindowStartupLocation="CenterScreen"
+ResizeMode="NoResize">
 
     <Border Margin="10"
             BorderBrush="{StaticResource BorderBrushColor}"
@@ -99,16 +103,13 @@
                         Margin="10">
 
                 <Button Content="DELETE" Width="100" Margin="10"
-                        Background="{StaticResource ButtonBg}"
-                        Foreground="{StaticResource ButtonText}"/>
+                       />
 
                 <Button Content="SAVE" Width="100" Margin="10"
-                        Background="{StaticResource ButtonBg}"
-                        Foreground="{StaticResource ButtonText}"/>
+                       />
 
                 <Button Content="EXIT" Width="100" Margin="10"
-                        Background="{StaticResource ButtonBg}"
-                        Foreground="{StaticResource ButtonText}"/>
+                       Style="{StaticResource RedButton}"/>
             </StackPanel>
 
         </Grid>

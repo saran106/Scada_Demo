@@ -3,9 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Scada_Demo.Views"
-        mc:Ignorable="d"
-        Title="Site_Details" Height="450" Width="800">
+        
+        Title="Site_Details"
+        Height="650"
+        Width="500"
+
+        WindowStartupLocation="CenterScreen"
+
+        ResizeMode="NoResize"
+
+        Background="{StaticResource PrimaryBgBrush}">
     <Grid>
         <Grid Background="#0F2A2A" Margin="10">
 
@@ -114,15 +121,23 @@
                         <ComboBox Grid.Row="0" Grid.Column="1"/>
                         <ComboBox Grid.Row="1" Grid.Column="1"/>
 
-                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource InputStyle}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="3" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="4" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
 
-                        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource InputStyle}"/>
-                        <TextBox Grid.Row="9" Grid.Column="1" Style="{StaticResource InputStyle}"/>
+                        <TextBox Grid.Row="5" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="6" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="7" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="8" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
+                        <TextBox Grid.Row="9" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
+Height="34"/>
 
                     </Grid>
 
@@ -131,9 +146,9 @@
                         Orientation="Horizontal"
                         HorizontalAlignment="Center">
 
-                        <Button Content="SAVE" Style="{StaticResource BtnStyle}"/>
-                        <Button Content="DELETE" Style="{StaticResource BtnStyle}"/>
-                        <Button Content="EXIT" Style="{StaticResource BtnStyle}"/>
+                        <Button Content="SAVE" Width="105" />
+                        <Button Content="DELETE"  Width="105"/>
+                        <Button Content="EXIT" Style="{StaticResource RedButton}"  Width="105"/>
 
                     </StackPanel>
 

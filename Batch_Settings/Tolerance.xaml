@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scada_Demo.Batch_Settings"
         mc:Ignorable="d"
-        Title="Tolerance"         Height="380" Width="650"
+        Title="Tolerance"         Height="400" Width="650"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource PrimaryBgBrush}">
 
@@ -76,7 +76,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
                     <!-- Agg2 -->
@@ -90,7 +90,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
                     <!-- Agg3 -->
@@ -104,7 +104,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
 
@@ -121,7 +121,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
                     <!-- Agg5 -->
@@ -135,7 +135,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
                     <!-- Agg6 -->
@@ -149,7 +149,7 @@
                    Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"/>
+                 Width="180" Height="34"/>
                     </StackPanel>
 
                 </Grid>
@@ -181,7 +181,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Cem2 -->
@@ -195,7 +195,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Cem3 -->
@@ -209,7 +209,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
 
@@ -226,7 +226,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Cem5 -->
@@ -240,7 +240,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
 
@@ -273,7 +273,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Wtr2 -->
@@ -287,7 +287,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Wtr3 -->
@@ -301,7 +301,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                 </Grid>
@@ -331,7 +331,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Admix2 -->
@@ -345,7 +345,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
 
@@ -363,7 +363,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                     <!-- Admix4 -->
@@ -377,7 +377,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
 
                 </Grid>
@@ -407,7 +407,7 @@
     Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"/>
+  Width="180"  Height="34"/>
                     </StackPanel>
                 </Grid>
 

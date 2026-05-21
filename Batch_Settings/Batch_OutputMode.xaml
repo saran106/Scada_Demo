@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Scada_Demo.Batch_Settings"
         mc:Ignorable="d"
         Title="Batch Output Mode"
-        Height="260" Width="600"
+        Height="260" Width="630"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource PrimaryBgBrush}">
 
@@ -35,10 +35,10 @@
                 <!-- Agg2 -->
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="Agg2 Batch Mode"
-                               Style="{StaticResource CompactLabel}"/>
+                               Style="{StaticResource CompactLabel}" />
 
                     <ComboBox x:Name="cmbBatchMode"
-                              Style="{StaticResource CompactComboBoxSmall}">
+                              Style="{StaticResource CompactComboBoxSmall}" Width="180"> 
                         <ComboBoxItem Content="Auto"/>
                         <ComboBoxItem Content="Manual"/>
                     </ComboBox>
@@ -50,7 +50,7 @@
                                Style="{StaticResource CompactLabel}"/>
 
                     <TextBox x:Name="txtFullOpen"
-                             Style="{StaticResource CompactTextBox}"/>
+                             Style="{StaticResource CompactTextBox}" Width="180"/>
                 </StackPanel>
 
                 <!-- Half Open -->
@@ -59,7 +59,7 @@
                                Style="{StaticResource CompactLabel}"/>
 
                     <TextBox x:Name="txtHalfOpen"
-                             Style="{StaticResource CompactTextBox}"/>
+                             Style="{StaticResource CompactTextBox}" Width="180"/>
                 </StackPanel>
 
             </Grid>

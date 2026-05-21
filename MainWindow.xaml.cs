@@ -33,6 +33,7 @@ namespace Scada_Demo
             ParamSubMenu.ItemsSource = ParameterMenuItems;
             OtherSubMenu.ItemsSource = OtherMenuItems;
             UserSubMenu.ItemsSource = UserMenuItems;
+            TransSubMenu.ItemsSource = TransactionsMenuItems;
 
             MasterPopup.DataContext = this;
             CalibrationPopup.DataContext = this;
@@ -40,6 +41,7 @@ namespace Scada_Demo
             ParamPopup.DataContext = this;
             OtherPopup.DataContext = this;
             UserPopup.DataContext = this;
+            TransPopup.DataContext = this;
 
             // Start PLC simulation
             _ = _viewModel.StartPlcSimulation();
@@ -103,6 +105,8 @@ namespace Scada_Demo
     new SubMenuItem { Name = "Customer", ViewKey = "Customer" },
     new SubMenuItem { Name = "Site", ViewKey = "Site" },
     new SubMenuItem { Name = "Order", ViewKey = "Order" },
+    new SubMenuItem { Name = "Inward", ViewKey = "Inward" },
+    new SubMenuItem { Name = "Maintenance", ViewKey = "Maintenance" },
     new SubMenuItem { Name = "Schedule", ViewKey = "Schedule" }
 };
 
@@ -233,6 +237,29 @@ namespace Scada_Demo
         ViewKey = "Delete_User"
     }
 };
+
+        public List<SubMenuItem> TransactionsMenuItems = new List<SubMenuItem>()
+{
+    new SubMenuItem
+    {
+        Name = "Alarm History",
+        ViewKey = "Alarm_History"
+    },
+
+    new SubMenuItem
+    {
+        Name = "Divert Concrete",
+        ViewKey = "Divert_Concrete"
+    },
+
+    new SubMenuItem
+    {
+        Name = "Start Production",
+        ViewKey = "Start_Production"
+    }
+
+    
+};
         private void SubMenu_Click(object sender, MouseButtonEventArgs e)
         {
             FrameworkElement element = sender as FrameworkElement;
@@ -253,6 +280,15 @@ namespace Scada_Demo
 
                 case "Order":
                     OpenWindowOnce<Configuration_Order>();
+                    break;
+
+
+                case "Inward":
+                    OpenWindowOnce<Inward>();
+                    break;
+                
+                case "Maintenance":
+                    OpenWindowOnce<Maintenance>();
                     break;
 
                 case "Schedule":
@@ -464,6 +500,32 @@ namespace Scada_Demo
 
             UserPopup.IsOpen = false;
         }
+
+        private void TransSubMenu_Click(object sender, MouseButtonEventArgs e)
+        {
+            FrameworkElement element = sender as FrameworkElement;
+            if (element == null) return;
+
+            SubMenuItem item = element.DataContext as SubMenuItem;
+            if (item == null) return;
+
+            switch (item.ViewKey)
+            {
+                case "Alarm_History":
+                    OpenWindowOnce<Alarm_History>();
+                    break;
+
+                case "Divert_Concrete":
+                    OpenWindowOnce<Divert_Concrete>();
+                    break;
+
+                case "Start_Production":
+                    OpenWindowOnce<Start_Production>();
+                    break;
+            }
+
+            TransPopup.IsOpen = false;
+        }
         private void StartVanAnimation_Click(object sender, RoutedEventArgs e)
         {
             // Method 1: Using Storyboard from Resources
@@ -560,8 +622,16 @@ namespace Scada_Demo
                 UserPopup.IsOpen = !UserPopup.IsOpen;
             }
         }
+        private void Trans_Click(object sender, MouseButtonEventArgs e)
+        {
+            TransSubMenu.ItemsSource = TransactionsMenuItems;
 
-        private void Trans_Click(object sender, MouseButtonEventArgs e) { }
+            if (TransSubMenu.Visibility == Visibility.Collapsed)
+                TransSubMenu.Visibility = Visibility.Visible;
+            else
+                TransSubMenu.Visibility = Visibility.Collapsed;
+        }
+      
         private void Options_Click(object sender, MouseButtonEventArgs e) { }
         private void DB_Click(object sender, MouseButtonEventArgs e) { }
         private void Reports_Click(object sender, MouseButtonEventArgs e) { }
@@ -606,6 +676,10 @@ namespace Scada_Demo
                     MasterSubMenu.Visibility = Visibility.Collapsed;
                     CalibrationSubMenu.Visibility = Visibility.Collapsed;
                     BatchSubMenu.Visibility = Visibility.Collapsed;
+                    ParamSubMenu.Visibility = Visibility.Collapsed;
+                    OtherSubMenu.Visibility = Visibility.Collapsed;
+                    UserSubMenu.Visibility = Visibility.Collapsed;
+                    TransSubMenu.Visibility = Visibility.Collapsed;
                 }
 
                 isOpen = false;

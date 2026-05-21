@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Admixture2"    SizeToContent="WidthAndHeight"
   
-MaxWidth="400"
+  
+MaxWidth="570"
         Background="{StaticResource PrimaryBgBrush}"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
@@ -57,7 +58,9 @@ MaxWidth="400"
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
-                     
+
+                        <ColumnDefinition Width="30"/>
+                        
                         <ColumnDefinition Width="2*"/>
                      
                     </Grid.ColumnDefinitions>
@@ -89,22 +92,27 @@ MaxWidth="400"
                     <TextBlock Text="Calibration mode" Grid.Row="9" Style="{StaticResource CompactLabel}"/>
 
                     <!-- INPUTS -->
-                    <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="1" Grid.Column="2" Style="{StaticResource CompactComboBox}"/>
 
-                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource CompactTextBox}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
+                    <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
+                    <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"/>
 
-                    <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
-                    <ComboBox Grid.Row="7" Grid.Column="1" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="6" Grid.Column="2" Style="{StaticResource CompactComboBox}"/>
+                    <ComboBox Grid.Row="7" Grid.Column="2" Style="{StaticResource CompactComboBox}"/>
 
-                    <TextBox Grid.Row="8" Grid.Column="1"
-                             Style="{StaticResource CompactTextBox}"
+                    <TextBox Grid.Row="8" Grid.Column="2"
+                             Style="{StaticResource JogTextBoxStyle}"
+                 Width="180" Height="34"
                              Text="1"/>
 
-                    <CheckBox Grid.Row="9" Grid.Column="1"
+                    <CheckBox Grid.Row="9" Grid.Column="2"
                               Content="Mean Value"
                               FontSize="12"
                               VerticalAlignment="Center"/>
