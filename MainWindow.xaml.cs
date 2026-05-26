@@ -34,6 +34,9 @@ namespace Scada_Demo
             OtherSubMenu.ItemsSource = OtherMenuItems;
             UserSubMenu.ItemsSource = UserMenuItems;
             TransSubMenu.ItemsSource = TransactionsMenuItems;
+            ThemeToggle.Visibility = Visibility.Collapsed;
+           // LightThemeBtn.Visibility = Visibility.Collapsed;
+
 
             MasterPopup.DataContext = this;
             CalibrationPopup.DataContext = this;
@@ -50,7 +53,28 @@ namespace Scada_Demo
         bool isOpen = false;
 
 
+        private void DarkMode_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
 
+            Application.Current.Resources.MergedDictionaries.Add(
+                new ResourceDictionary()
+                {
+                    Source = new Uri("Themes/MasterTheme.xaml", UriKind.Relative)
+                });
+
+        }
+
+        private void LightMode_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+
+            Application.Current.Resources.MergedDictionaries.Add(
+                new ResourceDictionary()
+                {
+                    Source = new Uri("Themes/LightThemeMaster.xaml", UriKind.Relative)
+                });
+        }
         private void Dashboard_Click(object sender, MouseButtonEventArgs e)
         {
             Alarm_History obj = new Alarm_History();
@@ -660,6 +684,9 @@ namespace Scada_Demo
                 TxtOptions.Visibility = Visibility.Visible;
                 TxtDB.Visibility = Visibility.Visible;
                 TxtReports.Visibility = Visibility.Visible;
+                LightThemeBtn.Visibility = Visibility.Visible;
+                DarkThemeBtn.Visibility = Visibility.Visible;
+                ThemeToggle.Visibility = Visibility.Visible;
 
                 // Enable scroll
                 MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
@@ -698,6 +725,9 @@ namespace Scada_Demo
                 TxtOptions.Visibility = Visibility.Collapsed;
                 TxtDB.Visibility = Visibility.Collapsed;
                 TxtReports.Visibility = Visibility.Collapsed;
+                LightThemeBtn.Visibility = Visibility.Collapsed;
+                DarkThemeBtn.Visibility = Visibility.Collapsed;
+                ThemeToggle.Visibility = Visibility.Collapsed;
 
                 // Disable scroll
                 MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;

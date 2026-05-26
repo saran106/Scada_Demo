@@ -4,7 +4,7 @@
         Title="Step_Time"
         Height="420" Width="700"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
 
     <Grid Margin="8">
 
@@ -18,7 +18,7 @@
         <!-- HEADER -->
         <TextBlock Text="Step Time"
                    Margin="5"
-                   Style="{StaticResource HeaderTextStyle}"/>
+                   Style="{DynamicResource HeaderTextStyle}"/>
 
         <!-- TABS -->
         <StackPanel x:Name="TabButtons"
@@ -26,11 +26,11 @@
                     Orientation="Horizontal"
                     Margin="5">
 
-            <Button Content="Aggregate" Style="{StaticResource TabButtonStyle}" Click="ShowAggregate"/>
-            <Button Content="Cement" Style="{StaticResource TabButtonStyle}" Click="ShowCement"/>
-            <Button Content="Water" Style="{StaticResource TabButtonStyle}" Click="ShowWater"/>
-            <Button Content="Admixture" Style="{StaticResource TabButtonStyle}" Click="ShowAdmix"/>
-            <Button Content="Micro Silica" Style="{StaticResource TabButtonStyle}" Click="ShowSilica"/>
+            <Button Content="Aggregate" Style="{DynamicResource TabButtonStyle}" Click="ShowAggregate"/>
+            <Button Content="Cement" Style="{DynamicResource TabButtonStyle}" Click="ShowCement"/>
+            <Button Content="Water" Style="{DynamicResource TabButtonStyle}" Click="ShowWater"/>
+            <Button Content="Admixture" Style="{DynamicResource TabButtonStyle}" Click="ShowAdmix"/>
+            <Button Content="Micro Silica" Style="{DynamicResource TabButtonStyle}" Click="ShowSilica"/>
 
         </StackPanel>
 
@@ -38,8 +38,8 @@
         <Border Grid.Row="2"
                 Margin="5"
                 Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
+                Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6">
 
@@ -62,39 +62,39 @@
 
                     <!-- LEFT -->
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                        <TextBlock Text="Agg1" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg1" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                        <TextBlock Text="Agg2" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg2" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                        <TextBlock Text="Agg3" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg3" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <!-- RIGHT -->
                     <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
-                        <TextBlock Text="Agg4" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg4" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                        <TextBlock Text="Agg5" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg5" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                        <TextBlock Text="Agg6" Width="70" Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBlock Text="Agg6" Width="70" Style="{DynamicResource CompactLabel}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
@@ -117,31 +117,31 @@
 
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem1" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem2" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem3" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Cem4" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Cem5" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
@@ -154,19 +154,19 @@
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr1" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr2" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr3" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
@@ -197,14 +197,14 @@
 
                         <TextBlock Text="Admix1"
                Width="70"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
                Margin="10,0,0,0"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
                     </StackPanel>
 
                     <!-- Admix2 -->
@@ -214,14 +214,14 @@
 
                         <TextBlock Text="Admix2"
                Width="70"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
                Margin="10,0,0,0"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
                     </StackPanel>
 
                     <!-- Admix3 -->
@@ -231,14 +231,14 @@
 
                         <TextBlock Text="Admix3"
                Width="70"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
                Margin="10,0,0,0"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
                     </StackPanel>
 
                     <!-- Admix4 -->
@@ -248,14 +248,14 @@
 
                         <TextBlock Text="Admix4"
                Width="70"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
                Margin="10,0,0,0"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
                     </StackPanel>
 
                 </Grid>
@@ -268,14 +268,14 @@
 
                         <TextBlock Text="Silica"
                Width="70"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
                Margin="10,0,0,0"
-               Style="{StaticResource CompactLabel}"/>
+               Style="{DynamicResource CompactLabel}"/>
                     </StackPanel>
                 </Grid>
 
@@ -290,7 +290,7 @@
 
             <Button Content="Read from PLC" Width="130"/>
             <Button Content="Write to PLC / DB" Width="160"/>
-            <Button Content="Exit" Width="100" Style="{StaticResource RedButton}"/>
+            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

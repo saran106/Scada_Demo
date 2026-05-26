@@ -71,10 +71,12 @@
                         Margin="0,15,0,0">
 
                 <Button Content="Read from PLC"
-                        Width="110"/>
+        Width="110"
+        Click="btnRead_Click"/>
 
                 <Button Content="Write to PLC/DB"
-                        Width="130"/>
+        Width="130"
+        Click="btnWrite_Click"/>
 
                 <Button Content="Exit"
                         Width="90"
