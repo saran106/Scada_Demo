@@ -75,5 +75,94 @@ namespace Scada_Demo.Batch_Settings
             SilicaPanel.Visibility = Visibility.Visible;
             SetActiveButton((Button)sender);
         }
+
+
+        private async void BtnRead_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Services.Step_Time step = new Services.Step_Time();
+
+                if (AggregatePanel.Visibility == Visibility.Visible)
+                {
+                    var data = await step.ReadValue();
+
+                    Agg1.Text = data.Agg;
+                    Agg2.Text = data.Agg;
+                    Agg3.Text = data.Agg;
+                    Agg4.Text = data.Agg;
+                    Agg5.Text = data.Agg;
+                    Agg6.Text = data.Agg;
+                }
+                else if (CementPanel.Visibility == Visibility.Visible)
+                {
+                    var data = await step.ReadValue();
+
+                    Cem1.Text = data.Cem1;
+                    Cem4.Text = data.Cem4;
+                }
+                else if (WaterPanel.Visibility == Visibility.Visible)
+                {
+                    var data = await step.ReadValue();
+
+                    Wtr1.Text = data.Water;
+                    Wtr2.Text = data.Water;
+                    Wtr3.Text = data.Water;
+                }
+                else if (AdmixPanel.Visibility == Visibility.Visible)
+                {
+                    var data = await step.ReadValue();
+
+                    Admix1.Text = data.Admix1;
+                }
+                else if (SilicaPanel.Visibility == Visibility.Visible)
+                {
+                    var data = await step.ReadValue();
+
+                    Silica.Text = data.Silica;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private async void BtnWrite_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Services.Step_Time step = new Services.Step_Time();
+
+                if (AggregatePanel.Visibility == Visibility.Visible)
+                {
+                    await step.WriteSTEP_136(Agg1.Text);
+                }
+                else if (CementPanel.Visibility == Visibility.Visible)
+                {
+                    await step.WriteSTEP_548(Cem1.Text);
+                    await step.WriteSTEP_552(Cem4.Text);
+                }
+                else if (WaterPanel.Visibility == Visibility.Visible)
+                {
+                    await step.WriteSTEP_386(Wtr1.Text);
+                }
+                else if (AdmixPanel.Visibility == Visibility.Visible)
+                {
+                    await step.WriteSTEP_140(Admix1.Text);
+                }
+                else if (SilicaPanel.Visibility == Visibility.Visible)
+                {
+                    await step.WriteSTEP_410(Silica.Text);
+                }
+
+                MessageBox.Show("Values Written Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

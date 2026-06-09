@@ -61,6 +61,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <!-- LEFT SIDE -->
@@ -75,7 +76,7 @@
                    Width="70"
                    Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtAgg1" Style="{StaticResource JogTextBoxStyle}"
                  Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -89,7 +90,7 @@
                    Width="70"
                    Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox  x:Name="txtAgg2" Style="{StaticResource JogTextBoxStyle}"
                  Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -103,7 +104,7 @@
                    Width="70"
                    Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtAgg3" Style="{StaticResource JogTextBoxStyle}"
                  Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -120,7 +121,7 @@
                    Width="70"
                    Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtAgg4" Style="{StaticResource JogTextBoxStyle}"
                  Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -151,6 +152,8 @@
                         <TextBox Style="{StaticResource JogTextBoxStyle}"
                  Width="180"  Height="34"/>
                     </StackPanel>
+                    
+                    
 
                 </Grid>
 
@@ -180,7 +183,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtC1" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -194,7 +197,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtC2" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -208,7 +211,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtC3" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -225,7 +228,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtC4" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -239,7 +242,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtC5" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -272,7 +275,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox  x:Name="txtWTR1" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -330,7 +333,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtAD1" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -344,7 +347,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox  x:Name="txtAD2" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
 
@@ -406,7 +409,7 @@
     Width="70"
     Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
+                        <TextBox x:Name="txtICE" Style="{StaticResource JogTextBoxStyle}"
   Width="180"  Height="34"/>
                     </StackPanel>
                 </Grid>
@@ -415,13 +418,15 @@
         </Border>
 
         <!-- BUTTONS -->
+        
+        
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,10">
 
-            <Button Content="Read from PLC" Width="130"/>
-            <Button Content="Write to PLC / DB" Width="160"/>
+            <Button Content="Read from PLC" Width="130" Click="BtnRead_Click"/>
+            <Button Content="Write to PLC / DB" Width="160" Click="WriteToPLC_Click"/>
             <Button Content="Exit" Width="100" Style="{StaticResource RedButton}"/>
 
         </StackPanel>

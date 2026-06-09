@@ -63,38 +63,38 @@
                     <!-- LEFT -->
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Agg1" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox x:Name="Agg1" Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Agg2" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox  x:Name="Agg2" Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Agg3" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Agg3" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <!-- RIGHT -->
                     <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Agg4" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Agg4"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Agg5" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"   x:Name="Agg5" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Agg6" Width="70" Style="{DynamicResource CompactLabel}"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Agg6" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
@@ -117,31 +117,31 @@
 
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem1" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Cem1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem2" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Cem2" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="Cem3" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Cem3" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Cem4" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Cem4"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="Cem5" Width="70"/>
-                        <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                        <TextBox Width="120"  x:Name="Cem5" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                         <TextBlock Text="sec" Margin="10,0,0,0"/>
                     </StackPanel>
 
@@ -154,19 +154,19 @@
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr1" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                            <TextBox Width="120"  x:Name="Wtr1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr2" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                            <TextBox Width="120" x:Name="Wtr2" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Wtr3" Width="70"/>
-                            <TextBox Width="120"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                            <TextBox Width="120" x:Name="Wtr3" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                             <TextBlock Text="sec" Margin="10,0,0,0"/>
                         </StackPanel>
 
@@ -199,7 +199,7 @@
                Width="70"
                Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
+                        <TextBox x:Name="Admix1" Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
@@ -216,7 +216,7 @@
                Width="70"
                Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
+                        <TextBox x:Name="Admix2" Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
@@ -229,11 +229,11 @@
             Orientation="Horizontal"
             VerticalAlignment="Center">
 
-                        <TextBlock Text="Admix3"
+                        <TextBlock Text="Admix3" 
                Width="70"
                Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
+                        <TextBox x:Name="Admix3" Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
@@ -250,7 +250,7 @@
                Width="70"
                Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
+                        <TextBox x:Name="Admix4" Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
@@ -270,7 +270,7 @@
                Width="70"
                Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox Style="{DynamicResource JogTextBoxStyle}"
+                        <TextBox x:Name="Silica" Style="{DynamicResource JogTextBoxStyle}"
              Width="120"  Height="34"/>
 
                         <TextBlock Text="sec"
@@ -288,8 +288,13 @@
                     HorizontalAlignment="Center"
                     Margin="0,10">
 
-            <Button Content="Read from PLC" Width="130"/>
-            <Button Content="Write to PLC / DB" Width="160"/>
+            <Button Content="Read from PLC"
+        Width="130"
+        Click="BtnRead_Click"/>
+
+            <Button Content="Write to PLC / DB"
+        Width="160"
+        Click="BtnWrite_Click"/>
             <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>

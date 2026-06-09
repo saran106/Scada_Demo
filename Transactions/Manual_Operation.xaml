@@ -6,13 +6,260 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MCI460 Manual Operation"
-        Height="600"
+        Height="650"
         Width="1200"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="{StaticResource PrimaryBgBrush}">
 
     <Window.Resources>
+
+        <Style x:Key="LampRedButtonStyle" TargetType="Button">
+
+            <Setter Property="Width" Value="58"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="Button">
+
+                        <Grid Width="{TemplateBinding Width}"
+                      Height="{TemplateBinding Height}">
+
+                            <Viewbox Stretch="Fill">
+
+                                <Path Fill="#FF2B2B"
+                              Stroke="#FF9A9A"
+                              StrokeThickness="1.5">
+
+                                    <Path.Data>
+
+                                        <PathGeometry>
+
+                                            <PathFigure StartPoint="8,4" IsClosed="True">
+
+                                                <!-- TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="29,-4"
+                                            Point2="50,4"/>
+
+                                                <!-- RIGHT TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="58,8"
+                                            Point2="58,18"/>
+
+                                                <!-- RIGHT SIDE -->
+                                                <QuadraticBezierSegment
+                                            Point1="58.5,24"
+                                            Point2="58,30"/>
+
+                                                <!-- RIGHT BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="58,42"
+                                            Point2="50,44"/>
+
+                                                <!-- BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="29,52"
+                                            Point2="8,44"/>
+
+                                                <!-- LEFT BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="0,42"
+                                            Point2="0,30"/>
+
+                                                <!-- LEFT SIDE -->
+                                                <QuadraticBezierSegment
+                                            Point1="-0.5,24"
+                                            Point2="0,18"/>
+
+                                                <!-- LEFT TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="0,8"
+                                            Point2="8,4"/>
+
+                                            </PathFigure>
+
+                                        </PathGeometry>
+
+                                    </Path.Data>
+
+                                </Path>
+
+                            </Viewbox>
+
+                            <!-- Reflection -->
+                            <Border Width="10"
+                            Height="4"
+                            CornerRadius="2"
+                            Background="White"
+                            Opacity="0.8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0,4,0,0"/>
+
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        RecognizesAccessKey="True"/>
+
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.96"
+                                                ScaleY="0.96"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="LampGreenButtonStyle" TargetType="Button">
+
+            <Setter Property="Width" Value="58"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="Button">
+
+                        <Grid Width="{TemplateBinding Width}"
+                      Height="{TemplateBinding Height}">
+
+                            <Viewbox Stretch="Fill">
+
+                                <Path Fill="#7CFF00"
+                              Stroke="#AFFF66"
+                              StrokeThickness="1.5">
+
+                                    <Path.Data>
+
+                                        <PathGeometry>
+
+                                            <PathFigure StartPoint="8,4" IsClosed="True">
+
+                                                <!-- TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="29,-4"
+                                            Point2="50,4"/>
+
+                                                <!-- RIGHT TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="58,8"
+                                            Point2="58,18"/>
+
+                                                <!-- RIGHT SIDE -->
+                                                <QuadraticBezierSegment
+                                            Point1="58.5,24"
+                                            Point2="58,30"/>
+
+                                                <!-- RIGHT BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="58,42"
+                                            Point2="50,44"/>
+
+                                                <!-- BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="29,52"
+                                            Point2="8,44"/>
+
+                                                <!-- LEFT BOTTOM -->
+                                                <QuadraticBezierSegment
+                                            Point1="0,42"
+                                            Point2="0,30"/>
+
+                                                <!-- LEFT SIDE -->
+                                                <QuadraticBezierSegment
+                                            Point1="-0.5,24"
+                                            Point2="0,18"/>
+
+                                                <!-- LEFT TOP -->
+                                                <QuadraticBezierSegment
+                                            Point1="0,8"
+                                            Point2="8,4"/>
+
+                                            </PathFigure>
+
+                                        </PathGeometry>
+
+                                    </Path.Data>
+
+                                </Path>
+
+                            </Viewbox>
+
+                            <!-- Reflection -->
+                            <Border Width="10"
+                            Height="4"
+                            CornerRadius="2"
+                            Background="White"
+                            Opacity="0.8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0,4,0,0"/>
+
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        RecognizesAccessKey="True"/>
+
+                        </Grid>
+
+                        <!-- Hover Effect -->
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.96"
+                                                ScaleY="0.96"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+        </Style>
 
         <!-- GREEN LAMP -->
         <Style x:Key="LampGreen" TargetType="Ellipse">
@@ -61,59 +308,691 @@
                 <!-- CEMENT FILLER -->
                 <!-- ================================================= -->
 
-                <Border Width="250"
+                <Border Width="241"
                         Height="145"
                         Canvas.Left="25"
                         Canvas.Top="20"
                         BorderBrush="White"
-                        BorderThickness="2">
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
 
                     <Canvas>
 
                         <!-- TOP -->
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="10" Canvas.Top="10"/>
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="90" Canvas.Top="10"/>
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="170" Canvas.Top="10"/>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="10"
+        Canvas.Top="10">
+
+                            <TextBlock Text="1"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="90"
+        Canvas.Top="10">
+
+                            <TextBlock Text="2"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="170"
+        Canvas.Top="10">
+
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
 
                         <!-- BOTTOM -->
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="10" Canvas.Top="82"/>
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="90" Canvas.Top="82"/>
-                        <Ellipse Style="{StaticResource LampGreen}" Canvas.Left="170" Canvas.Top="82"/>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="10" Canvas.Top="82">
 
-                        <TextBlock Text="1" Canvas.Left="34" Canvas.Top="16"
-                                   FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="4"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
 
-                        <TextBlock Text="2" Canvas.Left="114" Canvas.Top="16"
-                                   FontSize="18" FontWeight="Bold"/>
+                        </Button>
 
-                        <TextBlock Text="3" Canvas.Left="194" Canvas.Top="16"
-                                   FontSize="18" FontWeight="Bold"/>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="90" Canvas.Top="184" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                        <TextBlock Text="4" Canvas.Left="34" Canvas.Top="88"
-                                   FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
 
-                        <TextBlock Text="5" Canvas.Left="114" Canvas.Top="88"
-                                   FontSize="18" FontWeight="Bold"/>
+                        </Button>
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="199" Canvas.Top="277" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="M-OFF"
+        FontSize="12"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="85" Canvas.Top="277" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="184" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="-19" Canvas.Top="279" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="WAT-OFF"
+        FontSize="12"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="365" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="449" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="70" Canvas.Top="449" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="158" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="245" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="329" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="329" Canvas.Top="341" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="846" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="846" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="949" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="949" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="1046" Canvas.Top="334" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="255" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="90" Canvas.Top="82">
+
+                            <TextBlock Text="3"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="90" Canvas.Top="82">
+
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="170" Canvas.Top="82">
+
+                            <TextBlock 
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+
+
 
                         <TextBlock Text="CEMENT / FILLER"
                                    Style="{StaticResource WhiteText}"
-                                   Canvas.Left="48"
-                                   Canvas.Top="58"/>
+                                   Canvas.Left="50"
+                                   Canvas.Top="59"/>
 
                     </Canvas>
 
                 </Border>
 
+
+
+                <Border Width="241"
+                        Height="145"
+                        Canvas.Left="25"
+                        Canvas.Top="20"
+                        BorderBrush="White"
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                    <Canvas>
+
+                        <!-- TOP -->
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="10"
+        Canvas.Top="10">
+
+                            <TextBlock Text="1"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="90"
+        Canvas.Top="10">
+
+                            <TextBlock Text="2"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="170"
+        Canvas.Top="10">
+
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <!-- BOTTOM -->
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="10" Canvas.Top="82">
+
+                            <TextBlock Text="4"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="90" Canvas.Top="184" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="199" Canvas.Top="277" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="M-OFF"
+        FontSize="12"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="85" Canvas.Top="277" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="184" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="-19" Canvas.Top="279" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="WAT-OFF"
+        FontSize="12"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="365" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-19" Canvas.Top="449" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="70" Canvas.Top="449" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="158" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="245" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="329" Canvas.Top="449" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="329" Canvas.Top="341" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="749" Canvas.Top="160" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="545" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="449" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="846" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="846" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="949" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="949" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampRedButtonStyle}"
+Canvas.Left="1046" Canvas.Top="334" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="255" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="1046" Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="90" Canvas.Top="82">
+
+                            <TextBlock Text="3"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="90" Canvas.Top="82">
+
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="170" Canvas.Top="82">
+
+                            <TextBlock 
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="648" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+
+                        <TextBlock Text="CEMENT / FILLER"
+                                   Style="{StaticResource WhiteText}"
+                                   Canvas.Left="50"
+                                   Canvas.Top="59"/>
+
+                    </Canvas>
+
+                </Border>
                 <!-- ================================================= -->
                 <!-- WATER -->
                 <!-- ================================================= -->
 
                 <Border Width="90"
                         Height="145"
-                        Canvas.Left="300"
+                        Canvas.Left="282"
                         Canvas.Top="20"
                         BorderBrush="White"
-                        BorderThickness="2">
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
 
                     <Canvas>
 
@@ -148,151 +1027,263 @@
                 <!-- ICE -->
                 <Border Width="75"
                         Height="145"
-                        Canvas.Left="405"
+                        Canvas.Left="372"
                         Canvas.Top="20"
                         BorderBrush="White"
-                        BorderThickness="2">
+                        BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                     <Canvas>
 
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="8"
-                                 Canvas.Top="12"/>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="8"
+Canvas.Top="7" HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                        <TextBlock Text="1"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Canvas.Left="32"
-                                   Canvas.Top="16"/>
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+       Canvas.Left="8"
+Canvas.Top="87" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                            <TextBlock Text="3"
+               FontSize="18"
+               FontWeight="Bold"
+               Foreground="#00DFFF"/>
+
+                        </Button>
+
 
                         <TextBlock Text="ICE"
                                    Style="{StaticResource WhiteText}"
-                                   Canvas.Left="18"
-                                   Canvas.Top="82"/>
+                                   Canvas.Left="24"
+                                   Canvas.Top="60" HorizontalAlignment="Center" Height="22" VerticalAlignment="Center"/>
 
                     </Canvas>
 
                 </Border>
 
                 <!-- ADMIX-1 -->
-                <Border Width="90"
-                        Height="145"
-                        Canvas.Left="495"
-                        Canvas.Top="20"
-                        BorderBrush="White"
-                        BorderThickness="2">
-
-                    <Canvas>
-
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="15"
-                                 Canvas.Top="10"/>
-
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="15"
-                                 Canvas.Top="82"/>
-
-                        <TextBlock Text="1"
-                                   Canvas.Left="38"
-                                   Canvas.Top="16"
-                                   FontSize="18"
-                                   FontWeight="Bold"/>
-
-                        <TextBlock Text="2"
-                                   Canvas.Left="38"
-                                   Canvas.Top="88"
-                                   FontSize="18"
-                                   FontWeight="Bold"/>
-
-                        <TextBlock Text="ADMIX-1"
-                                   Style="{StaticResource WhiteText}"
-                                   FontSize="13"
-                                   Canvas.Left="8"
-                                   Canvas.Top="54"/>
-
-                    </Canvas>
-
-                </Border>
 
                 <!-- ADMIX-2 -->
-                <Border Width="90"
-                        Height="145"
-                        Canvas.Left="595"
-                        Canvas.Top="20"
-                        BorderBrush="White"
-                        BorderThickness="2">
-
-                    <Canvas>
-
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="15"
-                                 Canvas.Top="10"/>
-
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="15"
-                                 Canvas.Top="82"/>
-
-                        <TextBlock Text="1"
-                                   Canvas.Left="38"
-                                   Canvas.Top="16"
-                                   FontSize="18"
-                                   FontWeight="Bold"/>
-
-                        <TextBlock Text="2"
-                                   Canvas.Left="38"
-                                   Canvas.Top="88"
-                                   FontSize="18"
-                                   FontWeight="Bold"/>
-
-                        <TextBlock Text="ADMIX-2"
-                                   Style="{StaticResource WhiteText}"
-                                   FontSize="13"
-                                   Canvas.Left="8"
-                                   Canvas.Top="54"/>
-
-                    </Canvas>
-
-                </Border>
 
                 <!-- SILICA -->
-                <Border Width="90"
+                <Border Width="84"
                         Height="145"
-                        Canvas.Left="695"
+                        Canvas.Left="760"
                         Canvas.Top="20"
                         BorderBrush="White"
-                        BorderThickness="2">
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                    <Canvas>
 
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="15"
-                                 Canvas.Top="10"/>
+
+
+                    <Canvas Margin="8,0,0,0">
 
                         <TextBlock Text="SILICA"
                                    Style="{StaticResource WhiteText}"
-                                   Canvas.Left="15"
-                                   Canvas.Top="82"/>
+                                   Canvas.Left="10"
+                                   Canvas.Top="60" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top"/>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="83" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF" VerticalAlignment="Top"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
 
                     </Canvas>
 
+
+
+
                 </Border>
+
+
+
+                <Border Width="84"
+                        Height="145"
+                        Canvas.Left="660"
+                        Canvas.Top="20"
+                        BorderBrush="White"
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+
+
+
+                    <Canvas Margin="8,0,0,0">
+
+                        <TextBlock Text="SILICA"
+                                   Style="{StaticResource WhiteText}"
+                                   Canvas.Left="10"
+                                   Canvas.Top="60" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top"/>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="83" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF" VerticalAlignment="Top"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                    </Canvas>
+
+
+
+
+                </Border>
+
+
+                <Border Width="84"
+                        Height="145"
+                        Canvas.Left="557"
+                        Canvas.Top="20"
+                        BorderBrush="White"
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+
+
+
+                    <Canvas Margin="8,0,0,0">
+
+                        <TextBlock Text="SILICA"
+                                   Style="{StaticResource WhiteText}"
+                                   Canvas.Left="10"
+                                   Canvas.Top="60" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top"/>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="83" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF" VerticalAlignment="Top"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                    </Canvas>
+
+
+
+
+                </Border>
+
+
+
+                <Border Width="84"
+                        Height="145"
+                        Canvas.Left="460"
+                        Canvas.Top="20"
+                        BorderBrush="White"
+                        BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+
+
+
+                    <Canvas Margin="8,0,0,0">
+
+                        <TextBlock Text="SILICA"
+                                   Style="{StaticResource WhiteText}"
+                                   Canvas.Left="10"
+                                   Canvas.Top="60" HorizontalAlignment="Center" Height="23" VerticalAlignment="Top"/>
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="83" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF" VerticalAlignment="Top"/>
+
+                        </Button>
+
+
+
+
+                        <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="5" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                        </Button>
+
+
+                    </Canvas>
+
+
+
+
+                </Border>
+
+
+
+
 
                 <!-- RIGHT STATUS -->
                 <StackPanel Canvas.Left="820"
-                            Canvas.Top="18">
-
-                    <Ellipse Style="{StaticResource LampGreen}" Margin="0,0,0,12"/>
-                    <Ellipse Style="{StaticResource LampGreen}" Margin="0,0,0,12"/>
-                    <Ellipse Style="{StaticResource LampGreen}"/>
-
-                </StackPanel>
+                            Canvas.Top="18"/>
 
                 <!-- LOGO -->
-                <Border Width="210"
-                        Height="95"
+                <Border Width="192"
+                        Height="82"
                         Background="White"
-                        Canvas.Left="930"
-                        Canvas.Top="20">
+                        Canvas.Left="954" HorizontalAlignment="Left" VerticalAlignment="Top">
 
                     <TextBlock Text="SCHWING&#10;Stetter"
                                Foreground="Black"
@@ -309,82 +1300,1007 @@
 
                 <Line X1="330" Y1="230"
                       X2="900" Y2="230"
-                      Style="{StaticResource PipeStyle}"/>
+                      Style="{StaticResource PipeStyle}" Canvas.Left="-95" Canvas.Top="35" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Line X1="330" Y1="230"
+X2="330" Y2="188.5"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-121"
+Canvas.Top="58"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"/>
 
                 <Line X1="330" Y1="230"
-                      X2="330" Y2="190"
-                      Style="{StaticResource PipeStyle}"/>
+X2="330" Y2="200"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="374"
+Canvas.Top="29"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"/>
 
-                <Line X1="430" Y1="230"
-                      X2="430" Y2="190"
-                      Style="{StaticResource PipeStyle}"/>
 
-                <Line X1="530" Y1="230"
-                      X2="530" Y2="190"
-                      Style="{StaticResource PipeStyle}"/>
 
-                <Line X1="630" Y1="230"
-                      X2="630" Y2="190"
-                      Style="{StaticResource PipeStyle}"/>
+                <Line X1="330" Y1="230"
+X2="330" Y2="210"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="270"
+Canvas.Top="19.5"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"/>
 
-                <Line X1="730" Y1="230"
-                      X2="730" Y2="190"
-                      Style="{StaticResource PipeStyle}"/>
+
+
+                <Line X1="330" Y1="230"
+X2="330" Y2="195.5"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-106"
+Canvas.Top="60"
+HorizontalAlignment="Center"
+VerticalAlignment="Center"/>
+
+                <Line X1="330" Y1="230"
+X2="330" Y2="219"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="176"
+Canvas.Top="11"
+HorizontalAlignment="Center"
+VerticalAlignment="Center"/>
+
+
+                <Line X1="330" Y1="230"
+X2="330" Y2="203.5"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-95"
+Canvas.Top="60"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"/>
+
+                <Line X1="330" Y1="230"
+      X2="330" Y2="194"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="474"
+      Canvas.Top="36"
+      HorizontalAlignment="Left"
+      VerticalAlignment="Top"/>
+
+                <Line X1="330" Y1="230"
+X2="330" Y2="182"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-137"
+Canvas.Top="57"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"/>
+
+                <Line X1="320" Y1="230"
+         X2="800" Y2="230"
+         Style="{StaticResource PipeStyle}" Canvas.Left="-95" Canvas.Top="27" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                <Line X1="310" Y1="230"
+X2="700" Y2="230"
+Style="{StaticResource PipeStyle}" Canvas.Left="-100" Canvas.Top="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+                <Line X1="310" Y1="230"
+X2="625" Y2="230"
+Style="{StaticResource PipeStyle}" Canvas.Left="-118" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <Line X1="330" Y1="230"
+          X2="330" Y2="152"
+                      StrokeThickness="2"
+          Style="{StaticResource PipeStyle}" Canvas.Left="-94" Canvas.Top="245" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.056"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <Line X1="420" Y1="230"
+StrokeThickness="2"
+                      X2="430"  Y2="145"
+                      Style="{StaticResource PipeStyle}" Canvas.Left="-28" Canvas.Top="-154" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="60.969"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <Line X1="420" Y1="230"
+      X2="430" Y2="145"
+      StrokeThickness="2"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-271"
+      Canvas.Top="248"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-75.037"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <Canvas  >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
+
+
+                <Canvas Canvas.Left="100" Canvas.Top="-2" >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
+
+
+                <Canvas Canvas.Left="200" Canvas.Top="-2" >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
+
+
+                <Canvas Canvas.Left="300" Canvas.Top="-2" >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
+
+
+                <Canvas Canvas.Left="400" Canvas.Top="-2" >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
+
+                <Canvas Canvas.Left="500" Canvas.Top="-2" >
+                    <Line X1="630" Y1="230"
+        X2="630" Y2="90"
+        Style="{StaticResource PipeStyle}" Canvas.Left="-161" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Line X1="630" Y1="230"
+X2="630" Y2="90"
+Style="{StaticResource PipeStyle}" Canvas.Left="-92" Canvas.Top="185" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Line X1="630" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="-92"
+      Canvas.Top="185"/>
+
+                    <Line X1="630" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-92"
+Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+                    <Line X1="610" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="-81"
+Canvas.Top="345" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="287" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+
+
+                    <Button Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="476" Canvas.Top="359" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="4"
+        FontSize="18"
+        FontWeight="Bold"
+        Foreground="#00DFFF"/>
+
+                    </Button>
+                    <Line X1="585" Y1="90"
+X2="560" Y2="90"
+Style="{StaticResource PipeStyle}"
+Canvas.Left="80"
+Canvas.Top="612" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Border Width="50"
+Height="58"
+Canvas.Left="479"
+Canvas.Top="434"
+BorderBrush="White"
+BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </Border>
+                    <Line X1="585" Y1="90"
+      X2="560" Y2="90"
+      Style="{StaticResource PipeStyle}"
+      Canvas.Left="101"
+      Canvas.Top="107"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top"
+      RenderTransformOrigin="0.5,0.5">
+                        <Line.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="64.472"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Line.RenderTransform>
+                    </Line>
+
+
+                    <Button Width="48"
+Height="53"
+Canvas.Left="476"
+Canvas.Top="434"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Background="#7CFF00"
+BorderBrush="#AFFF66"
+BorderThickness="4"
+Cursor="Hand">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Grid>
+
+                                    <Ellipse Fill="Black"
+                 Stroke="#AFFF66"
+                 StrokeThickness="4"/>
+
+                                    <!-- Reflection -->
+                                    <Ellipse Width="18"
+                 Height="6"
+                 Fill="White"
+                 Opacity="0.7"
+                 VerticalAlignment="Top"
+                 Margin="0,8,0,0"/>
+
+                                    <ContentPresenter
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+                                </Grid>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Canvas>
 
                 <!-- ================================================= -->
                 <!-- MIXER -->
                 <!-- ================================================= -->
 
-                <Border Width="250"
-                        Height="210"
-                        Canvas.Left="35"
-                        Canvas.Top="290"
+                <Border Width="196"
+                        Height="161"
+                        Canvas.Left="100"
+                        Canvas.Top="287"
                         BorderBrush="White"
-                        BorderThickness="3">
+                        BorderThickness="3" HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                    <Canvas>
+                    <Canvas Margin="0,-16,0,16">
 
-                        <Ellipse Style="{StaticResource LampGreen}"
-                                 Canvas.Left="10"
-                                 Canvas.Top="10"/>
 
-                        <Ellipse Width="58"
-                                 Height="34"
-                                 Fill="#D91E1E"
-                                 Stroke="#FF7A7A"
-                                 StrokeThickness="2"
-                                 Canvas.Left="175"
-                                 Canvas.Top="10"/>
 
-                        <TextBlock Text="M-ON"
-                                   FontWeight="Bold"
-                                   Canvas.Left="24"
-                                   Canvas.Top="16"/>
 
-                        <TextBlock Text="M-OFF"
-                                   Foreground="White"
-                                   FontWeight="Bold"
-                                   Canvas.Left="187"
-                                   Canvas.Top="16"/>
+
+                        <Border Width="90"
+        Height="73"
+        Canvas.Left="55"
+        Canvas.Top="91"
+        BorderBrush="White"
+        BorderThickness="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        </Border>
+
+
 
                         <TextBlock Text="MIXER"
                                    Style="{StaticResource WhiteText}"
-                                   FontSize="20"
-                                   Canvas.Left="88"
-                                   Canvas.Top="82"/>
+                                   FontSize="12"
+                                   Canvas.Left="79"
+                                   Canvas.Top="62" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <TextBlock Text="M.TIME"
                                    Style="{StaticResource WhiteText}"
-                                   FontSize="14"
-                                   Canvas.Left="84"
-                                   Canvas.Top="110"/>
+                                   FontSize="12"
+                                   Canvas.Left="76"
+                                   Canvas.Top="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-                        <Ellipse Width="75"
-                                 Height="75"
-                                 Stroke="#7CFF00"
-                                 StrokeThickness="4"
-                                 Canvas.Left="85"
-                                 Canvas.Top="125"/>
+                        <Button Width="64"
+        Height="65"
+        Canvas.Left="63"
+        Canvas.Top="95"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Background="#7CFF00"
+        BorderBrush="#AFFF66"
+        BorderThickness="4"
+        Cursor="Hand">
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+
+                                    <Grid>
+
+                                        <Ellipse Fill="Black"
+                         Stroke="#AFFF66"
+                         StrokeThickness="4"/>
+
+                                        <!-- Reflection -->
+                                        <Ellipse Width="18"
+                         Height="6"
+                         Fill="White"
+                         Opacity="0.7"
+                         VerticalAlignment="Top"
+                         Margin="0,8,0,0"/>
+
+                                        <ContentPresenter
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+
+                                    </Grid>
+
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+
+
 
                     </Canvas>
 
@@ -394,7 +2310,7 @@
                 <!-- BIN SECTION -->
                 <!-- ================================================= -->
 
-                <ItemsControl Canvas.Left="421"
+                <ItemsControl Canvas.Left="450"
                               Canvas.Top="258">
 
                     <ItemsControl.ItemsPanel>
@@ -418,63 +2334,17 @@
 
                             <StackPanel Margin="8">
 
-                                <Border Width="95"
-                                        Height="190"
-                                        BorderBrush="White"
-                                        BorderThickness="2">
 
-                                    <Canvas>
 
-                                        <Ellipse Style="{StaticResource LampGreen}"
-                                                 Canvas.Left="18"
-                                                 Canvas.Top="10"/>
+                                <Canvas>
 
-                                        <TextBlock Text="C"
-                                                   FontSize="18"
-                                                   FontWeight="Bold"
-                                                   Canvas.Left="42"
-                                                   Canvas.Top="16"/>
 
-                                        <TextBlock Text="{Binding}"
-                                                   Style="{StaticResource WhiteText}"
-                                                   FontSize="14"
-                                                   Canvas.Left="16"
-                                                   Canvas.Top="62"/>
 
-                                        <Ellipse Style="{StaticResource LampGreen}"
-                                                 Canvas.Left="18"
-                                                 Canvas.Top="82"/>
+                                </Canvas>
 
-                                        <TextBlock Text="F"
-                                                   FontSize="18"
-                                                   FontWeight="Bold"
-                                                   Canvas.Left="42"
-                                                   Canvas.Top="88"/>
 
-                                        <Border Width="70"
-                                                Height="28"
-                                                BorderBrush="White"
-                                                BorderThickness="1"
-                                                Canvas.Left="12"
-                                                Canvas.Top="142">
 
-                                            <TextBlock Text="G-OPEN"
-                                                       Foreground="White"
-                                                       FontWeight="Bold"
-                                                       HorizontalAlignment="Center"
-                                                       VerticalAlignment="Center"/>
 
-                                        </Border>
-
-                                    </Canvas>
-
-                                </Border>
-
-                                <Ellipse Width="70"
-                                         Height="40"
-                                         Stroke="#7CFF00"
-                                         StrokeThickness="3"
-                                         Margin="10"/>
 
                             </StackPanel>
 

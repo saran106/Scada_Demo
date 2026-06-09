@@ -262,7 +262,7 @@ namespace Scada_Demo
     }
 };
 
-        public List<SubMenuItem> TransactionsMenuItems = new List<SubMenuItem>()
+        public List<SubMenuItem> TransactionsMenuItems = new List<SubMenuItem>()//hii1
 {
     new SubMenuItem
     {
@@ -280,9 +280,19 @@ namespace Scada_Demo
     {
         Name = "Start Production",
         ViewKey = "Start_Production"
+    },
+    new SubMenuItem
+    {
+        Name = "Manual Operation",
+        ViewKey = "Manual_Operation"
+    },
+    new SubMenuItem
+    {
+        Name = "Manual Operation2",
+        ViewKey = "Manual_Operation2"
     }
 
-    
+
 };
         private void SubMenu_Click(object sender, MouseButtonEventArgs e)
         {
@@ -545,6 +555,15 @@ namespace Scada_Demo
 
                 case "Start_Production":
                     OpenWindowOnce<Start_Production>();
+                    break;
+
+                case "Manual_Operation":
+                    OpenWindowOnce<Manual_Operation>();
+                    break;
+
+
+                case "Manual_Operation2":
+                    OpenWindowOnce<Manual_Operation2>();
                     break;
             }
 

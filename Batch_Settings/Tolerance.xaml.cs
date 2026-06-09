@@ -23,6 +23,88 @@ namespace Scada_Demo.Batch_Settings
         {
             InitializeComponent();
         }
+
+        private async void BtnRead_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Services.Tolerance tol = new Services.Tolerance();
+
+                var data = await tol.ReadValues_TOL();
+
+                if (AggregatePanel.Visibility == Visibility.Visible)
+                {
+                    Agg1.Text = data.Agg1;
+                    Agg2.Text = data.Agg2;
+                    Agg3.Text = data.Agg3;
+                    Agg4.Text = data.Agg4;
+                }
+                else if (CementPanel.Visibility == Visibility.Visible)
+                {
+                    Cem1.Text = data.Cem1;
+                    Cem2.Text = data.Cem1;
+                    Cem3.Text = data.Cem1;
+
+                    Cem4.Text = data.Cem4;
+                }
+                else if (WaterPanel.Visibility == Visibility.Visible)
+                {
+                    Wtr1.Text = data.Wtr1;
+                }
+                else if (AdmixPanel.Visibility == Visibility.Visible)
+                {
+                    Adm1.Text = data.Adm1;
+                }
+                else if (SilicaPanel.Visibility == Visibility.Visible)
+                {
+                    Ice1.Text = data.Ice1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void BtnWrite_Click(object sender, RoutedEventArgs e)
+        {
+            Services.Tolerance mqtt = new Services.Tolerance();
+
+            if (AggregatePanel.Visibility == Visibility.Visible)
+            {
+                await mqtt.WriteTOL_118(Agg1.Text);
+                await mqtt.WriteTOL_120(Agg2.Text);
+                await mqtt.WriteTOL_122(Agg3.Text);
+                await mqtt.WriteTOL_124(Agg4.Text);
+            }
+
+            else if (CementPanel.Visibility == Visibility.Visible)
+            {
+                // Cem1, Cem2, Cem3 common tolerance
+                await mqtt.WriteTOL_126(Cem1.Text);
+
+
+                // Cem4 separate DB
+                await mqtt.WriteTOL_DB184_78(Cem4.Text);
+            }
+
+            else if (WaterPanel.Visibility == Visibility.Visible)
+            {
+                await mqtt.WriteTOL_376(Wtr1.Text);
+            }
+
+            else if (AdmixPanel.Visibility == Visibility.Visible)
+            {
+                await mqtt.WriteTOL_128(Adm1.Text);
+            }
+
+            else if (SilicaPanel.Visibility == Visibility.Visible)
+            {
+                await mqtt.WriteTOL_400(Ice1.Text);
+            }
+
+            MessageBox.Show("Tolerance Values Written Successfully");
+        }
         void HideAll()
         {
             AggregatePanel.Visibility = Visibility.Collapsed;
