@@ -5,7 +5,7 @@
 Width="750"
 Height="470"
         ResizeMode="NoResize"
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
     <Grid Margin="8">
 
         <Grid.RowDefinitions>
@@ -17,14 +17,14 @@ Height="470"
         <!-- HEADER -->
         <TextBlock Text="Empty value in kilograms"
                Margin="5"
-               Style="{StaticResource HeaderTextStyle}"/>
+               Style="{DynamicResource HeaderTextStyle}"/>
 
         <!-- CONTENT BOX -->
         <Border Grid.Row="1"
             Margin="5"
             Padding="20"
-            Background="{StaticResource PanelBrush}"
-            BorderBrush="{StaticResource BorderBrushColor}"
+            Background="{DynamicResource PanelBrush}"
+            BorderBrush="{DynamicResource BorderBrushColor}"
             BorderThickness="2"
             CornerRadius="6">
 
@@ -47,26 +47,26 @@ Height="470"
 
                 <!-- Aggregate -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Aggregate" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox x:Name="Agg" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Aggregate" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="Agg" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Cement -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Cement" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox x:Name="Cem" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Cement" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="Cem" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Water -->
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Water" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox x:Name="Water" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Water" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="Water" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Wtr2 -->
                 <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Wtr2" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox x:Name="WTR" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Wtr2" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="WTR" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
 
@@ -74,20 +74,20 @@ Height="470"
 
                 <!-- Admix 1&2 -->
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Admixture 1 &amp; 2" Width="120" Style="{StaticResource CompactLabel}"/>
-                    <TextBox  x:Name="Adm12" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Admixture 1 &amp; 2" Width="120" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox  x:Name="Adm12" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Admix 3&4 -->
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Admixture 3 &amp; 4" Width="120" Style="{StaticResource CompactLabel}"/>
-                    <TextBox x:Name="adm34" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Admixture 3 &amp; 4" Width="120" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="adm34" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Silica -->
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Silica" Width="120" Style="{StaticResource CompactLabel}"/>
-                    <TextBox  x:Name="silica" Style="{StaticResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Silica" Width="120" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox  x:Name="silica" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
             </Grid>
@@ -108,7 +108,7 @@ Height="470"
         Click="BtnWrite_Click"/>
 
            
-            <Button Content="Exit" Width="100" Style="{StaticResource RedButton}"/>
+            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

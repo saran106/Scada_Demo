@@ -9,13 +9,13 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
 
     <Border Margin="10"
-            BorderBrush="{StaticResource BorderBrushColor}"
+            BorderBrush="{DynamicResource BorderBrushColor}"
             BorderThickness="2"
             CornerRadius="8"
-            Background="{StaticResource PanelBrush}">
+            Background="{DynamicResource PanelBrush}">
 
         <Grid Margin="10">
 
@@ -34,12 +34,12 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Current Gate Sequence"
-                           Style="{StaticResource HeaderTextStyle}"
+                           Style="{DynamicResource HeaderTextStyle}"
                            HorizontalAlignment="Center"/>
 
                 <TextBlock Grid.Column="2"
                            Text="Preferred Gate Sequence"
-                           Style="{StaticResource HeaderTextStyle}"
+                           Style="{DynamicResource HeaderTextStyle}"
                            HorizontalAlignment="Center"/>
             </Grid>
 
@@ -74,12 +74,16 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
 
-                    <Button Content="&gt;" Width="50" Height="40"/>
+                    <Button Content="&gt;"
+        Width="50"
+        Height="40"
+        Click="MoveToPreferred_Click"/>
 
                     <Button Content="Refresh"
-                            Width="80"
-                            Height="40"
-                            Margin="0,20,0,0"/>
+        Width="80"
+        Height="40"
+        Margin="0,20,0,0"
+        Click="Refresh_Click"/>
                 </StackPanel>
 
                 <!-- RIGHT LIST -->
@@ -98,10 +102,12 @@
                         HorizontalAlignment="Center"
                         Margin="10">
 
-                <Button Content="Read from PLC" Width="140"/>
-                <Button Content="Write to PLC / DB" Width="170"/>
+                <Button Content="Read from PLC" Width="140" Click="ReadFromPLC_Click"/>
+                <Button Content="Write to PLC / DB"
+        Width="170"
+        Click="WriteToPLC_Click"/>
                 <Button Content="Exit" Width="120"
-                        Style="{StaticResource RedButton}"/>
+                        Style="{DynamicResource RedButton}"/>
 
             </StackPanel>
 

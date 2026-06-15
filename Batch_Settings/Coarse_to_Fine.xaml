@@ -4,7 +4,7 @@
         Title="Coarse_to_Fine"
         Height="420" Width="700"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
 
     <Grid Margin="10">
 
@@ -16,15 +16,15 @@
 
         <!-- HEADER -->
         <TextBlock Text="Coarse to fine in terms of kilograms"
-                   Style="{StaticResource HeaderTextStyle}"
+                   Style="{DynamicResource HeaderTextStyle}"
                    Margin="5"/>
 
         <!-- CONTENT -->
         <Border Grid.Row="1"
                 Margin="5"
                 Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
+                Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6">
 
@@ -47,26 +47,26 @@
 
                 <!-- Agg1 -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Agg1" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg1" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg1" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180" x:Name="Agg1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
                 <!-- Agg2 -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Agg2" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180"  x:Name="Agg2" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg2" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180"  x:Name="Agg2" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
                 <!-- Agg3 -->
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Agg3" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg3" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg3" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180" x:Name="Agg3" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
                 <!-- Agg4 -->
                 <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Agg4" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg4"  Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg4" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180" x:Name="Agg4"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
 
@@ -74,20 +74,20 @@
 
                 <!-- Agg5 -->
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Agg5" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180"  x:Name="Agg5" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg5" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180"  x:Name="Agg5" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
                 <!-- Agg6 -->
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Agg6" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg6" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Agg6" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180" x:Name="Agg6" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
                 <!-- Wtr1 -->
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Text="Wtr1" Width="80" Style="{StaticResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Wtr1" Height="34" Style="{StaticResource JogTextBoxStyle}"/>
+                    <TextBlock Text="Wtr1" Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox Width="180" x:Name="Wtr1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
                 </StackPanel>
 
             </Grid>
@@ -102,7 +102,7 @@
             <Button Content="Read from PLC" Width="140" Margin="10" Click="BtnRead_Click"/>
             <Button Content="Write to PLC / DB" Width="180"  Height="34" Margin="10" Click="BtnWrite_Click"/>
             <Button Content="Exit" Width="100" Margin="10"
-                    Style="{StaticResource RedButton}"/>
+                    Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

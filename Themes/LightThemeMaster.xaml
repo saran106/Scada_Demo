@@ -1104,6 +1104,10 @@
         </Style.Triggers>
 
     </Style>
+
+
+    <!-- SCADA Material TextBox Style -->
+ 
     <!-- MENU BACKGROUND -->
     <SolidColorBrush x:Key="MenuBgBrush"
                  Color="#6E7F91"/>

@@ -2,9 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Jog Time"
-        Height="400" Width="650"
+        Height="490" Width="1330"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
 
     <Grid Margin="8">
 
@@ -18,7 +18,7 @@
         <!-- HEADER -->
         <TextBlock Text="Jog time in terms of milliseconds"
                    Margin="5"
-                   Style="{StaticResource HeaderTextStyle}"/>
+                   Style="{DynamicResource HeaderTextStyle}"/>
 
         <!-- TAB BUTTONS -->
         <StackPanel x:Name="TabButtons"
@@ -26,11 +26,11 @@
                     Orientation="Horizontal"
                     Margin="5">
 
-            <Button Content="Aggregate" Style="{StaticResource TabButtonStyle}" Click="ShowAggregate"/>
-            <Button Content="Cement" Style="{StaticResource TabButtonStyle}" Click="ShowCement"/>
-            <Button Content="Water" Style="{StaticResource TabButtonStyle}" Click="ShowWater"/>
-            <Button Content="Admixture" Style="{StaticResource TabButtonStyle}" Click="ShowAdmix"/>
-            <Button Content="Micro Silica" Style="{StaticResource TabButtonStyle}" Click="ShowSilica"/>
+            <Button Content="Aggregate" Style="{DynamicResource TabButtonStyle}" Click="ShowAggregate"/>
+            <Button Content="Cement" Style="{DynamicResource TabButtonStyle}" Click="ShowCement"/>
+            <Button Content="Water" Style="{DynamicResource TabButtonStyle}" Click="ShowWater"/>
+            <Button Content="Admixture" Style="{DynamicResource TabButtonStyle}" Click="ShowAdmix"/>
+            <Button Content="Micro Silica" Style="{DynamicResource TabButtonStyle}" Click="ShowSilica"/>
 
         </StackPanel>
 
@@ -38,8 +38,8 @@
         <Border Grid.Row="2"
                 Margin="5"
                 Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
+                Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6">
 
@@ -48,106 +48,195 @@
                 <!-- ================= AGGREGATE ================= -->
                 <Grid x:Name="AggregatePanel" Margin="10">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Margin="10">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <!-- LEFT SIDE -->
+                        <!-- ================= JOG ON ================= -->
+                        <GroupBox Grid.Column="0"
+                  Header="Jog ON"
+                  FontWeight="Bold"
+                  Padding="10">
 
-                    <!-- Agg1 -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-               >
+                            <Grid>
 
-                        <TextBlock Text="Agg1"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
-                    </StackPanel>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                    <!-- Agg2 -->
-                    <StackPanel Grid.Row="1" Grid.Column="0"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                                <!-- Agg1 -->
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg1"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg1JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBlock Text="Agg2"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                                <!-- Agg2 -->
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg2"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg2JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
-                    </StackPanel>
+                                <!-- Agg3 -->
+                                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg3"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg3JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                    <!-- Agg3 -->
-                    <StackPanel Grid.Row="2" Grid.Column="0"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-               >
+                                <!-- Agg4 -->
+                                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg4"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg4JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBlock Text="Agg3"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                                <!-- Agg5 -->
+                                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg5"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg5JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
-                    </StackPanel>
+                                <!-- Agg6 -->
+                                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg6"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg6JogOn"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
+                            </Grid>
 
-                    <!-- RIGHT SIDE -->
+                        </GroupBox>
 
-                    <!-- Agg4 -->
-                    <StackPanel Grid.Row="0" Grid.Column="2"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                        <!-- ================= JOG OFF ================= -->
+                        <GroupBox Grid.Column="2"
+                  Header="Jog OFF"
+                  FontWeight="Bold"
+                  Padding="10">
 
-                        <TextBlock Text="Agg4"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                            <Grid>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
-                    </StackPanel>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                    <!-- Agg5 -->
-                    <StackPanel Grid.Row="1" Grid.Column="2"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                        <TextBlock Text="Agg5"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                                <!-- Agg1 -->
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg1"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg1JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
-                    </StackPanel>
+                                <!-- Agg2 -->
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg2"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg2JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                    <!-- Agg6 -->
-                    <StackPanel Grid.Row="2" Grid.Column="2"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                                <!-- Agg3 -->
+                                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="Agg3"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg3JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBlock Text="Agg6"
-                   Width="70"
-                   Style="{StaticResource CompactLabel}"/>
+                                <!-- Agg4 -->
+                                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg4"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg4JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
-                    </StackPanel>
+                                <!-- Agg5 -->
+                                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg5"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg5JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
+
+                                <!-- Agg6 -->
+                                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                                    <TextBlock Text="Agg6"
+                               Width="70"
+                               Style="{DynamicResource CompactLabel}"/>
+                                    <TextBox x:Name="Agg6JogOff"
+                             Width="180"
+                             Height="34"
+                             Style="{DynamicResource JogTextBoxStyle}"/>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </GroupBox>
+
+                    </Grid>
 
                 </Grid>
 
@@ -156,150 +245,280 @@
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                    <!-- ================= JOG ON ================= -->
+                    <GroupBox Grid.Column="0"
+              Header="Jog ON"
+              FontWeight="Bold"
+              Padding="10">
 
-                    <!-- LEFT SIDE -->
-                    <!-- Cem1 -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                        <Grid>
 
-                        <TextBlock Text="Cem1"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                    <!-- Cem2 -->
-                    <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                            <!-- Cem1 -->
+                            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem1JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBlock Text="Cem2"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <!-- Cem2 -->
+                            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem2JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Cem3 -->
+                            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem3JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                    <!-- Cem3 -->
-                    <StackPanel Grid.Row="2" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                            <!-- Cem4 -->
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Cem4"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem4JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBlock Text="Cem3"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <!-- Cem5 -->
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Cem5"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem5JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                        </Grid>
 
+                    </GroupBox>
 
-                    <!-- RIGHT SIDE -->
+                    <!-- ================= JOG OFF ================= -->
+                    <GroupBox Grid.Column="2"
+              Header="Jog OFF"
+              FontWeight="Bold"
+              Padding="10">
 
-                    <!-- Cem4 -->
-                    <StackPanel Grid.Row="0" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                        <Grid>
 
-                        <TextBlock Text="Cem4"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                    <!-- Cem5 -->
-                    <StackPanel Grid.Row="1" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                            <!-- Cem1 -->
+                            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem1JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBlock Text="Cem5"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <!-- Cem2 -->
+                            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem2JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Cem3 -->
+                            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Cem3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem3JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
+                            <!-- Cem4 -->
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Cem4"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem4JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
+                            <!-- Cem5 -->
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Cem5"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Cem5JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
 
                 </Grid>
 
                 <!-- ================= WATER ================= -->
                 <Grid x:Name="WaterPanel" Visibility="Collapsed" Margin="10">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                    <!-- ================= JOG ON ================= -->
+                    <GroupBox Grid.Column="0"
+              Header="Jog ON"
+              FontWeight="Bold"
+              Padding="10">
 
-                    <!-- LEFT SIDE -->
-                    <!-- Wtr1 -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                        <Grid>
 
-                        <TextBlock Text="Wtr1"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Wtr1 -->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="Wtr1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr1JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                    <!-- Wtr2 -->
-                    <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                            <!-- Wtr2 -->
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Text="Wtr2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr2JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBlock Text="Wtr2"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <!-- Wtr3 -->
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="Wtr3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr3JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                        </Grid>
 
-                    <!-- Wtr3 -->
-                    <StackPanel Grid.Row="2" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                    </GroupBox>
 
-                        <TextBlock Text="Wtr3"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                    <!-- ================= JOG OFF ================= -->
+                    <GroupBox Grid.Column="2"
+              Header="Jog OFF"
+              FontWeight="Bold"
+              Padding="10">
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Wtr1 -->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="Wtr1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr1JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <!-- Wtr2 -->
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Text="Wtr2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr2JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <!-- Wtr3 -->
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBlock Text="Wtr3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Wtr3JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
 
                 </Grid>
 
@@ -308,106 +527,221 @@
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <!-- ================= JOG ON ================= -->
+                    <GroupBox Grid.Column="0"
+              Header="Jog ON"
+              FontWeight="Bold"
+              Padding="10">
 
-                    <!-- Admix1 -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                        <Grid>
 
-                        <TextBlock Text="Admix1"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                    <!-- Admix2 -->
-                    <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                            <!-- Admix1 -->
+                            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Admix1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix1JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBlock Text="Admix2"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <!-- Admix2 -->
+                            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Admix2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix2JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Admix3 -->
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Admix3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix3JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                  
+                            <!-- Admix4 -->
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Admix4"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix4JogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
 
-                    <!-- RIGHT SIDE -->
+                        </Grid>
 
-                    <!-- Admix3 -->
-                    <StackPanel Grid.Row="0" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                    </GroupBox>
 
-                        <TextBlock Text="Admix3"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                    <!-- ================= JOG OFF ================= -->
+                    <GroupBox Grid.Column="2"
+              Header="Jog OFF"
+              FontWeight="Bold"
+              Padding="10">
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                        <Grid>
 
-                    <!-- Admix4 -->
-                    <StackPanel Grid.Row="1" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Admix4"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Admix1 -->
+                            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Admix1"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix1JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <!-- Admix2 -->
+                            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="Admix2"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix2JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <!-- Admix3 -->
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Admix3"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix3JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                            <!-- Admix4 -->
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Admix4"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+                                <TextBox x:Name="Admix4JogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
 
                 </Grid>
 
                 <!-- ================= SILICA ================= -->
+
                 <Grid x:Name="SilicaPanel" Visibility="Collapsed" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <!-- ================= JOG ON ================= -->
+                    <GroupBox Grid.Column="0"
+              Header="Jog ON"
+              FontWeight="Bold"
+              Padding="10">
 
-                    <!-- Silica -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                        <Grid>
 
-                        <TextBlock Text="Silica"
-    Width="70"
-    Style="{StaticResource CompactLabel}"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBox Style="{StaticResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
-                    </StackPanel>
+                            <!-- Silica -->
+                            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Silica"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+
+                                <TextBox x:Name="SilicaJogOn"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
+
+                    <!-- ================= JOG OFF ================= -->
+                    <GroupBox Grid.Column="2"
+              Header="Jog OFF"
+              FontWeight="Bold"
+              Padding="10">
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Silica -->
+                            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Silica"
+                           Width="70"
+                           Style="{DynamicResource CompactLabel}"/>
+
+                                <TextBox x:Name="SilicaJogOff"
+                         Width="180"
+                         Height="34"
+                         Style="{DynamicResource JogTextBoxStyle}"/>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </GroupBox>
+
                 </Grid>
-
             </Grid>
         </Border>
 
@@ -417,9 +751,9 @@
                     HorizontalAlignment="Center"
                     Margin="0,10">
 
-            <Button Content="Read from PLC" Width="130"/>
-            <Button Content="Write to PLC / DB" Width="160"/>
-            <Button Content="Exit" Width="100" Style="{StaticResource RedButton}"/>
+            <Button Content="Read from PLC" Width="130" Click="BtnRead_Click"/>
+            <Button Content="Write to PLC / DB" Width="160" Click="WriteToPLC_Click"/>
+            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

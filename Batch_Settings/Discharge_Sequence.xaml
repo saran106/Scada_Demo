@@ -5,7 +5,7 @@
         Height="470" Width="700"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Background="{StaticResource PrimaryBgBrush}">
+        Background="{DynamicResource PrimaryBgBrush}">
 
     <Grid Margin="10">
 
@@ -17,14 +17,14 @@
 
         <!-- HEADER -->
         <TextBlock Text="Discharge delay sequence in terms of seconds"
-                   Style="{StaticResource HeaderTextStyle}"
+                   Style="{DynamicResource HeaderTextStyle}"
                    Margin="5,5,5,10"/>
 
         <!-- MAIN PANEL -->
         <Border Grid.Row="1"
                 Padding="15"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
+                Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6" Margin="0,0,0,36">
 
@@ -49,43 +49,43 @@
                 </Grid.RowDefinitions>
 
                 <!-- LEFT SIDE -->
-                <TextBlock Text="Cement" Grid.Row="0" Grid.Column="0" Style="{StaticResource CompactLabel}" Width="70"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Cement" Grid.Row="0" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
-                <TextBlock Text="Water" Grid.Row="1" Grid.Column="0" Style="{StaticResource CompactLabel}" Width="70"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Water" Grid.Row="1" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
-                <TextBlock Text="Wtr2" Grid.Row="2" Grid.Column="0" Style="{StaticResource CompactLabel}" Width="70"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Wtr2" Grid.Row="2" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <!-- RIGHT SIDE -->
-                <TextBlock Text="Admixture 1 &amp; 2" Grid.Row="0" Grid.Column="3" Style="{StaticResource CompactLabel}" Width="120"/>
-                <TextBox Grid.Row="0" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Admixture 1 &amp; 2" Grid.Row="0" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
+                <TextBox Grid.Row="0" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
-                <TextBlock Text="Admixture 3 &amp; 4" Grid.Row="1" Grid.Column="3" Style="{StaticResource CompactLabel}" Width="120"/>
-                <TextBox Grid.Row="1" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Admixture 3 &amp; 4" Grid.Row="1" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
+                <TextBox Grid.Row="1" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
-                <TextBlock Text="Silica" Grid.Row="2" Grid.Column="3" Style="{StaticResource CompactLabel}" Width="120"/>
-                <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBlock Text="Silica" Grid.Row="2" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
+                <TextBox Grid.Row="2" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <!-- EXTRA -->
                 <TextBlock Text="Water pump cutoff in kg"
                            Grid.Row="4" Grid.Column="0"
                            Grid.ColumnSpan="3"
-                           Style="{StaticResource CompactLabel}"/>
+                           Style="{DynamicResource CompactLabel}"/>
 
                 <TextBox Grid.Row="4" Grid.Column="3"
                          Grid.ColumnSpan="2"
-                         Style="{StaticResource JogTextBoxStyle}" Width="200"  Height="34"/>
+                         Style="{DynamicResource JogTextBoxStyle}" Width="200"  Height="34"/>
 
                 <TextBlock Text="Waiting hopper instant open delay in sec"
                            Grid.Row="5" Grid.Column="0"
                            Grid.ColumnSpan="3"
-                           Style="{StaticResource CompactLabel}"/>
+                           Style="{DynamicResource CompactLabel}"/>
 
                 <TextBox Grid.Row="5" Grid.Column="3"
                          Grid.ColumnSpan="2"
-                         Style="{StaticResource JogTextBoxStyle}" Width="200"  Height="34"/>
+                         Style="{DynamicResource JogTextBoxStyle}" Width="200"  Height="34"/>
 
             </Grid>
         </Border>
@@ -97,8 +97,8 @@
                     Margin="0,15,0,0">
 
             <Button Content="Read from PLC" Width="140"/>
-            <Button Content="Write to PLC / DB" Width="170" Style="{StaticResource GreenButton}"/>
-            <Button Content="Exit" Width="110" Style="{StaticResource RedButton}"/>
+            <Button Content="Write to PLC / DB" Width="170" Style="{DynamicResource GreenButton}"/>
+            <Button Content="Exit" Width="110" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

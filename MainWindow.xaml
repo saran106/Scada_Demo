@@ -65,8 +65,9 @@
             <Border Background="{DynamicResource MenuBgBrush}"
             BorderBrush="{DynamicResource MenuBorderBrush}"
             BorderThickness="1.5">
-
-                <StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden"
+HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
 
                     <!-- 🔥 HAMBURGER -->
                     <ToggleButton x:Name="MenuToggle"
@@ -151,8 +152,8 @@
 
                     </ToggleButton>
 
-
-                    <!-- MENU ITEMS -->
+                    
+                        <!-- MENU ITEMS -->
                     <StackPanel Margin="5,20,5,0">
 
                         <!-- 🔹 COMMON STYLE -->
@@ -951,8 +952,9 @@
 
                         </Border>
                     </StackPanel>
-
+                   
                 </StackPanel>
+                </ScrollViewer>
             </Border>
         </Grid>
 
@@ -1046,7 +1048,7 @@ BorderThickness="1.5"
 
                         <StackPanel Grid.Column="0" >
 
-                            <TextBlock Text="AGGREGATE"
+                            <TextBlock Text="AGGREGATE1"
                   
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
@@ -1077,7 +1079,7 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0"/>
+                                                <TextBox Grid.Row="0" Grid.Column="0"  />
                                 <TextBox Grid.Row="0" Grid.Column="1"/>
                                 <TextBox Grid.Row="0" Grid.Column="2"/>
 
