@@ -1,4 +1,5 @@
-﻿using Scada_Demo.Services;
+﻿using Scada_Demo.MQTT_Model;
+using Scada_Demo.Services;
 using System.Windows;
 
 namespace Scada_Demo.Batch_Settings
@@ -15,21 +16,22 @@ namespace Scada_Demo.Batch_Settings
 
         private async void BtnRead_Click(object sender, RoutedEventArgs e)
         {
-            var data = await _emptyValueService.ReadValues_Empty();
+            MaterialinAir batchSettings = new MaterialinAir();
 
-            Agg.Text = data.Agg;
-            Cem.Text = data.Cem;
-            Water.Text = data.Water;
+            BatchSettingsModel data = await batchSettings.ReadValues();
+
+            Agg.Text = data.EmptyValue.Agg.ToString();
+            Cem.Text = data.EmptyValue.Cem.ToString();
+            Water.Text = data.EmptyValue.Water.ToString();
 
             // Same PLC value for both Admix boxes
-            Adm12.Text = data.Admix;
-           // adm34.Text = data.Admix;
+            Adm12.Text = data.EmptyValue.Admix.ToString();
+            //adm34.Text = data.EmptyValue.Admix.ToString();
 
             // Ice / Silica
-            silica.Text = data.Ice;
+            silica.Text = data.EmptyValue.Ice.ToString();
 
-            // Water2 textbox irukku XAML la
-           // WTR.Text = data.Water;
+            //WTR.Text = data.EmptyValue.Water.ToString();
         }
 
 

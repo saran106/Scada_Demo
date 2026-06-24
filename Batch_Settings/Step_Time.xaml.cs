@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Scada_Demo.Services;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -81,45 +82,28 @@ namespace Scada_Demo.Batch_Settings
         {
             try
             {
-                Services.Step_Time step = new Services.Step_Time();
+                MaterialinAir mqtt = new MaterialinAir();
+
+                var data = await mqtt.ReadValues();
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    var data = await step.ReadValue();
-
-                    Agg1.Text = data.Agg;
-                    Agg2.Text = data.Agg;
-                    Agg3.Text = data.Agg;
-                    Agg4.Text = data.Agg;
-                    Agg5.Text = data.Agg;
-                    Agg6.Text = data.Agg;
+                    Agg1.Text = data.StepTime.Step136.ToString();
+                    Agg2.Text = data.StepTime.Step136.ToString();
+                    Agg3.Text = data.StepTime.Step136.ToString();
+                    Agg4.Text = data.StepTime.Step136.ToString();
+                    Agg5.Text = data.StepTime.Step136.ToString();
+                    Agg6.Text = data.StepTime.Step136.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                    var data = await step.ReadValue();
-
-                    Cem1.Text = data.Cem1;
-                    Cem4.Text = data.Cem4;
-                }
-                else if (WaterPanel.Visibility == Visibility.Visible)
-                {
-                    var data = await step.ReadValue();
-
-                    Wtr1.Text = data.Water;
-                    Wtr2.Text = data.Water;
-                    Wtr3.Text = data.Water;
+                    Cem1.Text = data.StepTime.Step548.ToString();
+                    Cem4.Text = data.StepTime.Step552.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    var data = await step.ReadValue();
-
-                    Admix1.Text = data.Admix1;
-                }
-                else if (SilicaPanel.Visibility == Visibility.Visible)
-                {
-                    var data = await step.ReadValue();
-
-                    Silica.Text = data.Silica;
+                    Admix1.Text = data.StepTime.Step140.ToString();
+                    Admix2.Text = data.StepTime.Step140.ToString();
                 }
             }
             catch (Exception ex)

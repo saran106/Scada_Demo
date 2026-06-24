@@ -10,6 +10,7 @@
         Width="980"
         Background="{StaticResource PrimaryBgBrush}"
         WindowStartupLocation="CenterScreen"
+   Icon="../project_small_i.png"
         ResizeMode="NoResize">
 
     <Grid Margin="15">

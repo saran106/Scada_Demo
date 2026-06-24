@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Truck Details"
         Height="500" Width="800"
+        Icon="../project_small_i.png"
         Background="{StaticResource PrimaryBgBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">

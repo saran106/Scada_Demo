@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 
 namespace Scada_Demo.Batch_Settings
@@ -29,21 +30,19 @@ namespace Scada_Demo.Batch_Settings
         {
             try
             {
-                Coarse_to_FIne material = new Coarse_to_FIne();
-                
+                MaterialinAir batchSettings = new MaterialinAir();
 
+                BatchSettingsModel data = await batchSettings.ReadValues();
 
-                    var data = await material.ReadValues_CF();
+                var cf = data.CoarseFine;
 
-                Agg1.Text = data.Agg1;
-                Agg2.Text = data.Agg2;
-                Agg3.Text = data.Agg3;
-                Agg4.Text = data.Agg4;
-                Agg5.Text = data.Agg5;
-                    Wtr1.Text = data.Wtr1;
+                Agg1.Text = cf.Agg1.ToString();
+                Agg2.Text = cf.Agg2.ToString();
+                Agg3.Text = cf.Agg3.ToString();
+                Agg4.Text = cf.Agg4.ToString();
+                Agg5.Text = cf.Agg5.ToString();
 
-               
-               
+                Wtr1.Text = cf.Water.ToString();
             }
             catch (Exception ex)
             {

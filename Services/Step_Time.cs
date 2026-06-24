@@ -1,6 +1,7 @@
 ﻿using MQTTnet;
 using Scada_Demo.MQTT_Model;
 using System.Text;
+using System.Text.Json;
 
 namespace Scada_Demo.Services
 {
@@ -133,6 +134,7 @@ namespace Scada_Demo.Services
 
             await client.DisconnectAsync();
         }
+
         public async Task<Step_Time_Model> ReadValue()
         {
             var factory = new MqttClientFactory();
@@ -144,45 +146,26 @@ namespace Scada_Demo.Services
 
             await client.ConnectAsync(options);
 
-            await client.SubscribeAsync("steptime/read/136");
-            await client.SubscribeAsync("steptime/read/548");
-            await client.SubscribeAsync("steptime/read/552");
-            await client.SubscribeAsync("steptime/read/386");
-            await client.SubscribeAsync("steptime/read/140");
-            await client.SubscribeAsync("steptime/read/410");
+            await client.SubscribeAsync("stepTimeJson/read");
 
             client.ApplicationMessageReceivedAsync += e =>
             {
                 string topic = e.ApplicationMessage.Topic;
 
-                string value = Encoding.UTF8.GetString(
-     e.ApplicationMessage.Payload);
-
-                switch (topic)
+                if (topic == "stepTimeJson/read")
                 {
-                    case "steptime/read/136":
-                        _model.Agg = value;
-                        break;
+                    string json = Encoding.UTF8.GetString(
+                        e.ApplicationMessage.Payload);
 
-                    case "steptime/read/548":
-                        _model.Cem1 = value;
-                        break;
+                    var data = JsonSerializer.Deserialize<Step_Time_Model>(json);
 
-                    case "steptime/read/552":
-                        _model.Cem4 = value;
-                        break;
-
-                    case "steptime/read/386":
-                        _model.Water = value;
-                        break;
-
-                    case "steptime/read/140":
-                        _model.Admix1 = value;
-                        break;
-
-                    case "steptime/read/410":
-                        _model.Silica = value;
-                        break;
+                    if (data != null)
+                    {
+                        _model.Step136 = data.Step136;
+                        _model.Step140 = data.Step140;
+                        _model.Step548 = data.Step548;
+                        _model.Step552 = data.Step552;
+                    }
                 }
 
                 return Task.CompletedTask;

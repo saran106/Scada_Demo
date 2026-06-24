@@ -9,8 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="project_small_i.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MQTTnet" Version="5.1.0.1559" />
     <PackageReference Include="Sharp7" Version="1.1.84" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="project_small_i.png" />
   </ItemGroup>
 
 </Project>

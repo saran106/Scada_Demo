@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Scada_Demo.Converters"
             xmlns:viewModels="clr-namespace:Scada_Demo.ViewModels"
             Title="SCADA Demo"
-            Icon="C:\Users\ADMIN\Downloads\download-removebg-preview.png"
+            Icon="project_small_i.png"
             Background="{DynamicResource PrimaryBgBrush}"
             WindowStartupLocation="CenterScreen"
             WindowState="Maximized">

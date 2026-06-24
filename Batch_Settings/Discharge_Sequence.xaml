@@ -50,20 +50,20 @@
 
                 <!-- LEFT SIDE -->
                 <TextBlock Text="Cement" Grid.Row="0" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBox x:Name="Cem" Grid.Row="0" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <TextBlock Text="Water" Grid.Row="1" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBox x:Name="Wat" Grid.Row="1" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <TextBlock Text="Wtr2" Grid.Row="2" Grid.Column="0" Style="{DynamicResource CompactLabel}" Width="70"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <!-- RIGHT SIDE -->
                 <TextBlock Text="Admixture 1 &amp; 2" Grid.Row="0" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
-                <TextBox Grid.Row="0" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBox x:Name="Admix12" Grid.Row="0" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <TextBlock Text="Admixture 3 &amp; 4" Grid.Row="1" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
-                <TextBox Grid.Row="1" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
+                <TextBox  x:Name="Admix34" Grid.Row="1" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
 
                 <TextBlock Text="Silica" Grid.Row="2" Grid.Column="3" Style="{DynamicResource CompactLabel}" Width="120"/>
                 <TextBox Grid.Row="2" Grid.Column="4" Style="{DynamicResource JogTextBoxStyle}"  Width="200"  Height="34"/>
@@ -76,6 +76,7 @@
 
                 <TextBox Grid.Row="4" Grid.Column="3"
                          Grid.ColumnSpan="2"
+                         x:Name="PC"
                          Style="{DynamicResource JogTextBoxStyle}" Width="200"  Height="34"/>
 
                 <TextBlock Text="Waiting hopper instant open delay in sec"
@@ -85,6 +86,7 @@
 
                 <TextBox Grid.Row="5" Grid.Column="3"
                          Grid.ColumnSpan="2"
+                         x:Name="Skip"
                          Style="{DynamicResource JogTextBoxStyle}" Width="200"  Height="34"/>
 
             </Grid>
@@ -96,8 +98,8 @@
                     HorizontalAlignment="Center"
                     Margin="0,15,0,0">
 
-            <Button Content="Read from PLC" Width="140"/>
-            <Button Content="Write to PLC / DB" Width="170" Style="{DynamicResource GreenButton}"/>
+            <Button Content="Read from PLC" Width="140" Click="BtnRead_Click"/>
+            <Button Content="Write to PLC / DB" Width="170" Style="{DynamicResource GreenButton}" Click="BtnWrite_Click"/>
             <Button Content="Exit" Width="110" Style="{DynamicResource RedButton}"/>
 
         </StackPanel>

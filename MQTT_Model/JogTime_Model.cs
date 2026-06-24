@@ -3,16 +3,16 @@
     public class JogTime_Model
     {
         // Jog ON
-        public short Agg1On { get; set; }
-        public short Agg2On { get; set; }
-        public short Agg3On { get; set; }
-        public short Agg4On { get; set; }
+        public short Agg1 { get; set; }
+        public short Agg2 { get; set; }
+        public short Agg3 { get; set; }
+        public short Agg4 { get; set; }
 
-        public short Cem3On { get; set; }
+        public short Cem { get; set; }
 
-        public int Adm1On { get; set; }
-        public int IceOn { get; set; }
-        public int WaterOn { get; set; }
+        public int Water { get; set; }
+        public int Admix { get; set; }
+        public int Ice { get; set; }
 
         // Jog OFF
         public short Agg1Off { get; set; }

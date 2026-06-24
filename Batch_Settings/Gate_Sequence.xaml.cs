@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 
 namespace Scada_Demo.Batch_Settings
@@ -57,28 +58,29 @@ namespace Scada_Demo.Batch_Settings
 
         private async void ReadFromPLC_Click(object sender, RoutedEventArgs e)
         {
-            Gate_Seq service = new Gate_Seq();
+            MaterialinAir batchSettings = new MaterialinAir();
 
-            var data = await service.ReadValues_GateSeq();
+            BatchSettingsModel data = await batchSettings.ReadValues();
 
             PreferredList.Items.Clear();
 
             string[] positions = new string[4];
 
-            positions[1] = "Agg2 : 2"; // Fixed
+            // Agg2 is always sequence 2
+            positions[1] = "Agg2 : 2";
 
-            if (int.TryParse(data.Agg1, out int agg1))
-                positions[agg1 - 1] = $"Agg1 : {agg1}";
+            if (data.GateSequence.Agg1 >= 1 && data.GateSequence.Agg1 <= 4)
+                positions[data.GateSequence.Agg1 - 1] = $"Agg1 : {data.GateSequence.Agg1}";
 
-            if (int.TryParse(data.Agg3, out int agg3))
-                positions[agg3 - 1] = $"Agg3 : {agg3}";
+            if (data.GateSequence.Agg3 >= 1 && data.GateSequence.Agg3 <= 4)
+                positions[data.GateSequence.Agg3 - 1] = $"Agg3 : {data.GateSequence.Agg3}";
 
-            if (int.TryParse(data.Agg4, out int agg4))
-                positions[agg4 - 1] = $"Agg4 : {agg4}";
+            if (data.GateSequence.Agg4 >= 1 && data.GateSequence.Agg4 <= 4)
+                positions[data.GateSequence.Agg4 - 1] = $"Agg4 : {data.GateSequence.Agg4}";
 
-            foreach (var item in positions)
+            foreach (string item in positions)
             {
-                if (!string.IsNullOrEmpty(item))
+                if (!string.IsNullOrWhiteSpace(item))
                 {
                     PreferredList.Items.Add(new ListBoxItem
                     {
@@ -145,10 +147,10 @@ namespace Scada_Demo.Batch_Settings
 
                 // Publish one by one
                 await service.WriteGATESEQ_210(agg1Pos.ToString());
-                await Task.Delay(1000);
+                //await Task.Delay(1000);
 
                 await service.WriteGATESEQ_212(agg3Pos.ToString());
-                await Task.Delay(1000);
+                //await Task.Delay(1000);
 
                 await service.WriteGATESEQ_214(agg4Pos.ToString());
 

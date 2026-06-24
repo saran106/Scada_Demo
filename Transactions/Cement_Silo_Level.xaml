@@ -8,6 +8,7 @@
         Title="Cement Silo Level"
         Height="720"
         Width="1100"
+            Icon="../project_small_i.png"
         Background="{StaticResource PrimaryBgBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">

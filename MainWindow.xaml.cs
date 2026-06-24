@@ -130,6 +130,7 @@ namespace Scada_Demo
     new SubMenuItem { Name = "Site", ViewKey = "Site" },
     new SubMenuItem { Name = "Order", ViewKey = "Order" },
     new SubMenuItem { Name = "Inward", ViewKey = "Inward" },
+    new SubMenuItem { Name = "Recipe", ViewKey = "Recipe" },
     new SubMenuItem { Name = "Maintenance", ViewKey = "Maintenance" },
     new SubMenuItem { Name = "Schedule", ViewKey = "Schedule" }
 };
@@ -314,6 +315,10 @@ namespace Scada_Demo
 
                 case "Order":
                     OpenWindowOnce<Configuration_Order>();
+                    break;   
+
+                case "Recipe":
+                    OpenWindowOnce<Recipe_Details>();
                     break;
 
 

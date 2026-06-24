@@ -10,10 +10,12 @@ namespace Scada_Demo.MQTT_Model
     {
 
 
-        public string Agg { get; set; }
-        public string Cem { get; set; }
-        public string Water { get; set; }
-        public string Admix { get; set; }
-        public string Ice { get; set; }
+       
+            public short Agg { get; set; }
+            public short Cem { get; set; }
+            public short Admix { get; set; }
+            public short Water { get; set; }
+            public short Ice { get; set; }
+       
     }
 }

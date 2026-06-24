@@ -6,56 +6,56 @@ namespace Scada_Demo.Services
 {
     public class Gate_Seq
     {
-        public async Task<GateSeq_Model> ReadValues_GateSeq()
-        {
-            var data = new GateSeq_Model();
+        //public async Task<GateSeq_Model> ReadValues_GateSeq()
+        //{
+        //    var data = new GateSeq_Model();
 
-            var factory = new MqttClientFactory();
-            var client = factory.CreateMqttClient();
+        //    var factory = new MqttClientFactory();
+        //    var client = factory.CreateMqttClient();
 
-            var options = new MqttClientOptionsBuilder()
-                .WithClientId("SCADAReceiver")
-                .WithTcpServer("localhost", 1883)
-                .Build();
+        //    var options = new MqttClientOptionsBuilder()
+        //        .WithClientId("SCADAReceiver")
+        //        .WithTcpServer("localhost", 1883)
+        //        .Build();
 
-            await client.ConnectAsync(options);
+        //    await client.ConnectAsync(options);
 
-            client.ApplicationMessageReceivedAsync += e =>
-            {
-                var topic = e.ApplicationMessage.Topic;
+        //    client.ApplicationMessageReceivedAsync += e =>
+        //    {
+        //        var topic = e.ApplicationMessage.Topic;
 
-                var value = Encoding.UTF8.GetString(
-                    e.ApplicationMessage.Payload.FirstSpan);
+        //        var value = Encoding.UTF8.GetString(
+        //            e.ApplicationMessage.Payload.FirstSpan);
 
-                switch (topic)
-                {
-                    case "gateseq/read/210":
-                        data.Agg1 = value;
-                        break;
+        //        switch (topic)
+        //        {
+        //            case "gateseq/read/210":
+        //                data.Agg1 = value;
+        //                break;
 
-                    case "gateseq/read/212":
-                        data.Agg3 = value;
-                        break;
+        //            case "gateseq/read/212":
+        //                data.Agg3 = value;
+        //                break;
 
-                    case "gateseq/read/214":
-                        data.Agg4 = value;
-                        break;
-                }
+        //            case "gateseq/read/214":
+        //                data.Agg4 = value;
+        //                break;
+        //        }
 
-                return Task.CompletedTask;
-            };
+        //        return Task.CompletedTask;
+        //    };
 
-            await client.SubscribeAsync(
-                new MqttTopicFilterBuilder()
-                    .WithTopic("gateseq/read/#")
-                    .Build());
+        //    await client.SubscribeAsync(
+        //        new MqttTopicFilterBuilder()
+        //            .WithTopic("gateseq/read/#")
+        //            .Build());
 
-            await Task.Delay(3000);
+        //    await Task.Delay(3000);
 
-            await client.DisconnectAsync();
+        //    await client.DisconnectAsync();
 
-            return data;
-        }
+        //    return data;
+        //}
 
         public async Task WriteGATESEQ_210(string value)
         {

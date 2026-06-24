@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MCI460 Manual Operation"
         Height="650"
-        Width="1200"
+        Width="1200"    
+        Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="{StaticResource PrimaryBgBrush}">

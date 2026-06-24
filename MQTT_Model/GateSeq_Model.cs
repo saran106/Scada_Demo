@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Scada_Demo.MQTT_Model
 {
-    public class GateSeq_Model
-    {
-        public string Agg1 { get; set; }
-        public string Agg3 { get; set; }
-        public string Agg4 { get; set; }
-    }
+   
+        public class GateSeq_Model
+        {
+            public short Agg1 { get; set; }
+            public short Agg3 { get; set; }
+            public short Agg4 { get; set; }
+        }
+ 
 }

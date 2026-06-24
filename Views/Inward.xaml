@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MCI460 Material Inward Master"
         Height="430"
+Icon="../project_small_i.png"
         Width="450"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"

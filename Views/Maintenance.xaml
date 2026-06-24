@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Maintenance"         Height="450" Width="620"
 Background="#0D3A3A" 
+  
         WindowStartupLocation="CenterScreen">
     <Grid Margin="8">
 

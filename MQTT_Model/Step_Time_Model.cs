@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Scada_Demo.MQTT_Model
 {
-   
-        public class Step_Time_Model
-        {
-            public string Agg { get; set; } 
-            public string Cem1 { get; set; }
-            public string Cem4 { get; set; } 
-            public string Water { get; set; } 
-            public string Admix1 { get; set; }
-            public string Silica { get; set; }
-        }
-    
+
+    public class Step_Time_Model
+    {
+        public short Step136 { get; set; }
+
+        public short Step140 { get; set; }
+
+        public int Step548 { get; set; }
+
+        public int Step552 { get; set; }
+    }
+
 }

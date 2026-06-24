@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Scada_Demo.Calibration;
+using Scada_Demo.MQTT_Model;
+using Scada_Demo.Services;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -28,36 +31,36 @@ namespace Scada_Demo.Batch_Settings
         {
             try
             {
-                Services.Tolerance tol = new Services.Tolerance();
+                MaterialinAir batchSettings = new MaterialinAir();
 
-                var data = await tol.ReadValues_TOL();
+                BatchSettingsModel data = await batchSettings.ReadValues();
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    Agg1.Text = data.Agg1;
-                    Agg2.Text = data.Agg2;
-                    Agg3.Text = data.Agg3;
-                    Agg4.Text = data.Agg4;
+                    Agg1.Text = data.Tolerance.Agg1.ToString();
+                    Agg2.Text = data.Tolerance.Agg2.ToString();
+                    Agg3.Text = data.Tolerance.Agg3.ToString();
+                    Agg4.Text = data.Tolerance.Agg4.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                    Cem1.Text = data.Cem1;
-                    Cem2.Text = data.Cem1;
-                    Cem3.Text = data.Cem1;
+                    Cem1.Text = data.Tolerance.Cem1.ToString();
+                    Cem2.Text = data.Tolerance.Cem1.ToString();
+                    Cem3.Text = data.Tolerance.Cem1.ToString();
 
-                    Cem4.Text = data.Cem4;
+                    Cem4.Text = data.Tolerance.Cem4.ToString();
                 }
                 else if (WaterPanel.Visibility == Visibility.Visible)
                 {
-                    Wtr1.Text = data.Wtr1;
+                    Wtr1.Text = data.Tolerance.Water.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    Adm1.Text = data.Adm1;
+                    Adm1.Text = data.Tolerance.Adm1.ToString();
                 }
                 else if (SilicaPanel.Visibility == Visibility.Visible)
                 {
-                    Ice1.Text = data.Ice1;
+                    Ice1.Text = data.Tolerance.Ice.ToString();
                 }
             }
             catch (Exception ex)

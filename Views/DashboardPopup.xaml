@@ -5,6 +5,7 @@
         Height="400"
         Width="500"
         WindowStartupLocation="CenterOwner"
+          Icon="../project_small_i.png"
         Background="#0F2A2A">
 
     <Grid Margin="20">

@@ -8,18 +8,23 @@ namespace Scada_Demo.MQTT_Model
 {
     public class Tolerance_Model
     {
-        public string Agg1 { get; set; }
-        public string Agg2 { get; set; }
-        public string Agg3 { get; set; }
-        public string Agg4 { get; set; }
+        // Aggregate
+        public short Agg1 { get; set; }      // DB78.DBW118
+        public short Agg2 { get; set; }      // DB78.DBW120
+        public short Agg3 { get; set; }      // DB78.DBW122
+        public short Agg4 { get; set; }      // DB78.DBW124
 
-        public string Cem1 { get; set; }
-        public string Cem4 { get; set; }
+        // Cement
+        public short Cem1 { get; set; }      // DB78.DBW126
+        public short Cem4 { get; set; }      // DB184.DBW78
 
-        public string Wtr1 { get; set; }
+        // Water
+        public short Water { get; set; }     // DB78.DBW376
 
-        public string Adm1 { get; set; }
+        // Admixture
+        public short Adm1 { get; set; }      // DB78.DBW128
 
-        public string Ice1 { get; set; }
+        // Ice / Silica
+        public short Ice { get; set; }       // DB78.DBW400
     }
 }

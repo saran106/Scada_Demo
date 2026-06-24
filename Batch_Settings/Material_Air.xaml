@@ -77,7 +77,7 @@
                    Style="{DynamicResource CompactLabel}"/>
 
                         <TextBox x:Name="txtAgg1" Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180"  Height="34"/>
+                 Width="180"  Height="34" />
                     </StackPanel>
 
                     <!-- Agg2 -->

@@ -4,6 +4,7 @@
         Title="Register_New_User"
         Height="750" Width="765"
         Background="#0D3A3A"
+            Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="10">

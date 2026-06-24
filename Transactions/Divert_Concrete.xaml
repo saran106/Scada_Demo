@@ -4,6 +4,7 @@
         Title="Divert_Concrete"
         Height="400" Width="400"
         Background="#0D3A3A"
+            Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="8">

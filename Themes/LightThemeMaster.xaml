@@ -813,6 +813,8 @@
         <Setter Property="MaxWidth" Value="250"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
 
+        <!-- FONT -->
+        <Setter Property="FontWeight" Value="Bold"/>
         <!-- SPACING -->
         <Setter Property="Margin" Value="4,6"/>
         <Setter Property="Padding" Value="6,2"/>

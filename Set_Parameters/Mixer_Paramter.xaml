@@ -61,6 +61,7 @@
                            Style="{StaticResource CompactLabel}"/>
 
                 <TextBox Grid.Row="0" Grid.Column="2"
+                         x:Name="DisTime"
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
@@ -83,6 +84,7 @@
                            Style="{StaticResource CompactLabel}"/>
 
                 <TextBox Grid.Row="2" Grid.Column="2"
+                         x:Name="MidPosTime"
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"
                          Text="10"/>

@@ -1,0 +1,660 @@
+﻿<Window x:Class="Scada_Demo.Views.Recipe_Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe Master"
+        Height="680"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Icon="../project_small_i.png"
+        Background="{StaticResource ScadaPrimaryBgBrush}">
+
+    <Grid Margin="15">
+
+        <Border Background="{StaticResource ScadaPanelBrush}"
+                BorderBrush="{StaticResource BorderBrushColor}"
+                BorderThickness="2"
+                CornerRadius="6">
+
+            <Grid Margin="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- LEFT PANEL -->
+
+                <GroupBox Header="Recipe Details"
+                          Foreground="White"
+                          FontWeight="Bold">
+
+                    <Border  Background="{StaticResource ScadaPanelBrush}"
+         BorderBrush="{StaticResource BorderBrushColor}"
+         BorderThickness="2"
+         CornerRadius="6">
+
+                        <Grid Margin="10">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Recipe Id"
+                                   Grid.Row="0"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <ComboBox Grid.Row="0"
+                                  Grid.Column="1"
+                                  Style="{StaticResource CompactComboBoxSmall}" Margin="8,8,0,8"/>
+
+                        <TextBlock Text="Recipe Name"
+                                   Grid.Row="1"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <ComboBox Grid.Row="1"
+                                  Grid.Column="1"
+                                  Style="{StaticResource CompactComboBoxSmall}" Margin="6,8,0,8"/>
+
+                        <TextBlock Text="Strength"
+                                   Grid.Row="2"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="2"
+                                 Grid.Column="1"
+                              
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Consistency"
+                                   Grid.Row="3"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="3"
+                                 Grid.Column="1"
+                                   Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Mixing Time (sec)"
+                                   Grid.Row="4"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="4"
+                                 Grid.Column="1"
+                                   Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Pre Mixing Time (sec)"
+                                   Grid.Row="5"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="5"
+                                 Grid.Column="1"
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Mixer Discharge (sec)"
+                                   Grid.Row="6"
+                                     Height="35"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="6"
+                                 Grid.Column="1"
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Mixer Capacity (m³)"
+                                   Grid.Row="7"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="7"
+                                 Grid.Column="1"
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Water Cement Ratio"
+                                   Grid.Row="8"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="8"
+                                 Grid.Column="1"
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                        <TextBlock Text="Total Recipe Mass (kg)"
+                                   Grid.Row="9"
+                                   Style="{StaticResource CompactLabel}"/>
+
+                        <TextBox Grid.Row="9"
+                                 Grid.Column="1"
+                                 Height="35"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                    </Grid>
+                        </Border>
+                </GroupBox>
+
+                <!-- RIGHT PANEL -->
+
+                <Border Grid.Column="2"
+        BorderBrush="White"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="10">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- TAB BUTTONS -->
+
+                        <StackPanel Orientation="Horizontal"
+                    Margin="5">
+
+                            <Button Content="Aggregate"
+                    Style="{StaticResource TabButtonStyle}"
+                    Click="ShowAggregate"/>
+
+                            <Button Content="Cement"
+                    Style="{StaticResource TabButtonStyle}"
+                    Click="ShowCement"/>
+
+                            <Button Content="Water"
+                    Style="{StaticResource TabButtonStyle}"
+                    Click="ShowWater"/>
+
+                            <Button Content="Admixture"
+                    Style="{StaticResource TabButtonStyle}"
+                    Click="ShowAdmix"/>
+
+                            <Button Content="Micro Silica"
+                    Style="{StaticResource TabButtonStyle}"
+                    Click="ShowSilica"/>
+
+                        </StackPanel>
+
+                        <!-- CONTENT -->
+
+                        <Grid Grid.Row="1">
+
+                            <!-- AGGREGATE -->
+                            <Grid x:Name="AggregatePanel"
+      Margin="2"
+      VerticalAlignment="Top">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Agg1 -->
+                                <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0"
+                   Text="Agg1"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg1"
+                 Margin="5,0,0,0"
+           Height="35"
+                 HorizontalAlignment="Stretch"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Agg2 -->
+                                <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Agg2"
+                   VerticalAlignment="Center"
+                                               
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg2"
+                 Margin="5,0,0,0"
+                  Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Agg3 -->
+                                <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Agg3"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg3"
+                 Margin="5,0,0,0"
+                Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Agg4 -->
+                                <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Agg4"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg4"
+                 Margin="5,0,0,0"
+         Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Agg5 -->
+                                <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Agg5"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg5"
+                 Margin="5,0,0,0"
+             Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Agg6 -->
+                                <Grid Grid.Row="2" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Agg6"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAgg6"
+                 Margin="5,0,0,0"
+            Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                            </Grid>
+                            <!-- CEMENT -->
+
+                            <Grid x:Name="CementPanel"
+      Visibility="Collapsed"
+      Margin="2"
+      VerticalAlignment="Top">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Cem1 -->
+                                <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Cem1"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtCem1"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Cem2 -->
+                                <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Cem2"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtCem2"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Cem3 -->
+                                <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Cem3"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtCem3"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Cem4 -->
+                                <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Cem4"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtCem4"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Cem5 -->
+                                <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Cem5"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtCem5"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                            </Grid>
+
+                            <!-- WATER -->
+
+                            <Grid x:Name="WaterPanel"
+      Visibility="Collapsed"
+      Margin="2"
+      VerticalAlignment="Top">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Wtr1 -->
+                                <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Wat1"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtWtr1"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Wtr2 -->
+                                <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Wat2"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtWtr2"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Wtr3 -->
+                                <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Wat3"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtWtr3"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                            </Grid>
+
+                            <!-- ADMIX -->
+
+                            <Grid x:Name="AdmixPanel"
+      Visibility="Collapsed"
+      Margin="2"
+      VerticalAlignment="Top">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Admix1 -->
+                                <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Adm1"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAdm1"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Admix2 -->
+                                <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Adm2"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAdm2"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Admix3 -->
+                                <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Adm3"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAdm3"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                                <!-- Admix4 -->
+                                <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Adm4"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource CompactLabel}"/>
+
+                                    <TextBox Grid.Column="1"
+                 x:Name="txtAdm4"
+                 Margin="5,0,0,0"
+                 Height="35"
+                 Style="{StaticResource JogTextBoxStyle}"/>
+                                </Grid>
+
+                            </Grid>
+
+                            <!-- MICRO SILICA -->
+
+                            <Grid x:Name="SilicaPanel" Visibility="Collapsed" Margin="10">
+
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Silica" Width="80" Style="{StaticResource CompactLabel}"/>
+                                        <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Crystaline" Width="80" Style="{StaticResource CompactLabel}"/>
+                                        <TextBox Width="180" Style="{StaticResource JogTextBoxStyle}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- BUTTONS -->
+
+                <StackPanel Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,20,0,0">
+
+                    <Button Content="SAVE"
+                            Width="150"
+                            Style="{StaticResource GreenButton}"/>
+
+                    <Button Content="DELETE"
+                            Width="150"
+                            Style="{StaticResource RedButton}"/>
+
+                    <Button Content="EXIT"
+                            Width="150"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

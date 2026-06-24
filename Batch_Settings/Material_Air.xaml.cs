@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Sharp7;
 using System.Windows.Threading;
 using Scada_Demo.Services;
+using Scada_Demo.MQTT_Model;
 namespace Scada_Demo.Batch_Settings 
 {
     /// <summary>
@@ -35,48 +36,33 @@ namespace Scada_Demo.Batch_Settings
         {
             try
             {
-                MaterialinAir material = new MaterialinAir();
+                MaterialinAir batchSettings = new MaterialinAir();
+
+                BatchSettingsModel data = await batchSettings.ReadValues();
+
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                   
-
-                    var data = await material.ReadValues_Agg();
-
-                    txtAgg1.Text = data.Value92;
-                    txtAgg2.Text = data.Value94;
-                    txtAgg3.Text = data.Value96;
-                    txtAgg4.Text = data.Value98;
+                    txtAgg1.Text = data.MaterialInAir.Agg92.ToString();
+                    txtAgg2.Text = data.MaterialInAir.Agg94.ToString();
+                    txtAgg3.Text = data.MaterialInAir.Agg96.ToString();
+                    txtAgg4.Text = data.MaterialInAir.Agg98.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                   // MaterialinAir material = new MaterialinAir();
-
-                    var data = await material.ReadValues_Cement();
-
-                    txtC1.Text = data.Cement1;
-                    txtC2.Text = data.Cement2;
-                    txtC3.Text = data.Cement3;
-                    txtC4.Text = data.Cement2;
+                    
                 }
                 else if (WaterPanel.Visibility == Visibility.Visible)
                 {
-                    var data = await material.ReadValues_WTR();
-
-                    txtWTR1.Text = data.Wtr1;
+                    txtWTR1.Text = data.MaterialInAir.Water386.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    var data = await material.ReadValues_Admix();
-
-                    txtAD1.Text = data.Admix1;
-                    txtAD2.Text = data.Admix2;
+                    txtAD1.Text = data.MaterialInAir.Admix108.ToString();
+                    txtAD2.Text = data.MaterialInAir.Admix110.ToString();
                 }
                 else if (SilicaPanel.Visibility == Visibility.Visible)
                 {
-                    var data = await material.ReadValues_ICE();
-
-                    txtICE.Text = data.Silica;
-                  
+                     txtICE.Text = data.MaterialInAir.Ice410.ToString();
                 }
             }
             catch (Exception ex)
@@ -84,8 +70,46 @@ namespace Scada_Demo.Batch_Settings
                 MessageBox.Show(ex.Message);
             }
         }
+        //private async void BtnRead_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        MaterialinAir material = new MaterialinAir();
 
-       
+        //        var data = await material.ReadValues();
+
+        //        if (AggregatePanel.Visibility == Visibility.Visible)
+        //        {
+        //            txtAgg1.Text = data.Agg92.ToString();
+        //            txtAgg2.Text = data.Agg94.ToString();
+        //            txtAgg3.Text = data.Agg96.ToString();
+        //            txtAgg4.Text = data.Agg98.ToString();
+        //        }
+        //        else if (CementPanel.Visibility == Visibility.Visible)
+        //        {
+        //            MessageBox.Show("Cement JSON migrate pannala innum");
+        //        }
+        //        else if (WaterPanel.Visibility == Visibility.Visible)
+        //        {
+        //            txtWTR1.Text = data.Water386.ToString();
+        //        }
+        //        else if (AdmixPanel.Visibility == Visibility.Visible)
+        //        {
+        //            txtAD1.Text = data.Admix108.ToString();
+        //            txtAD2.Text = data.Admix110.ToString();
+        //        }
+        //        else if (SilicaPanel.Visibility == Visibility.Visible)
+        //        {
+        //            txtICE.Text = data.Ice410.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+
 
         private async void WriteToPLC_Click(object sender, RoutedEventArgs e)
         {
@@ -96,19 +120,25 @@ namespace Scada_Demo.Batch_Settings
             {
 
                 await mqtt.WriteAGG_92(txtAgg1.Text);
+                //await Task.Delay(1000);
                 await mqtt.WriteAGG_94(txtAgg2.Text);
+                //await Task.Delay(1000);
                 await mqtt.WriteAGG_96(txtAgg3.Text);
+                //await Task.Delay(1000);
                 await mqtt.WriteAGG_98(txtAgg4.Text);
+                //await Task.Delay(1000);
             }
             if (CementPanel.Visibility == Visibility.Visible) 
             {
                 await mqtt.WriteCEM_100(txtC1.Text);
+               // await Task.Delay(1000);
 
-                
+
             }
             if (WaterPanel.Visibility == Visibility.Visible)
             {
                 await mqtt.WriteWTR_386(txtWTR1.Text);
+              //  await Task.Delay(1000);
 
 
             }
@@ -116,7 +146,9 @@ namespace Scada_Demo.Batch_Settings
             if (AdmixPanel.Visibility == Visibility.Visible)
             {
                 await mqtt.WriteADM_108(txtAD1.Text);
+              //  await Task.Delay(1000);
                 await mqtt.WriteADM_110(txtAD2.Text);
+               // await Task.Delay(1000);
 
 
             }
@@ -124,6 +156,7 @@ namespace Scada_Demo.Batch_Settings
             if (SilicaPanel.Visibility == Visibility.Visible)
             {
                 await mqtt.WriteICE_410(txtICE.Text);
+               // await Task.Delay(1000);
 
 
             }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MCI460 Schedule Master"
         Height="630" Width="550"
-        
+        Icon="../project_small_i.png"
        
 Background="{StaticResource PrimaryBgBrush}"
 

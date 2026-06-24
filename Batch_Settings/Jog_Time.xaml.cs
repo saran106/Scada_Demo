@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 
 
@@ -83,37 +84,44 @@ namespace Scada_Demo.Batch_Settings
         {
             try
             {
-                JogTime jog = new JogTime();
+                MaterialinAir service = new MaterialinAir();
 
-                var data = await jog.ReadValue();
+                BatchSettingsModel data = await service.ReadValues();
+
+                var jog = data.JogSettings;
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    Agg1JogOn.Text = data.Agg1On.ToString();
-                    Agg2JogOn.Text = data.Agg2On.ToString();
-                    Agg3JogOn.Text = data.Agg3On.ToString();
-                    Agg4JogOn.Text = data.Agg4On.ToString();
+                    Agg1JogOn.Text = jog.Agg1.ToString();
+                    Agg2JogOn.Text = jog.Agg2.ToString();
+                    Agg3JogOn.Text = jog.Agg3.ToString();
+                    Agg4JogOn.Text = jog.Agg4.ToString();
 
-                    Agg1JogOff.Text = data.Agg1Off.ToString();
-                    Agg2JogOff.Text = data.Agg2Off.ToString();
-                    Agg3JogOff.Text = data.Agg3Off.ToString();
-                    Agg4JogOff.Text = data.Agg4Off.ToString();
+                    Agg1JogOff.Text = jog.Agg1Off.ToString();
+                    Agg2JogOff.Text = jog.Agg2Off.ToString();
+                    Agg3JogOff.Text = jog.Agg3Off.ToString();
+                    Agg4JogOff.Text = jog.Agg4Off.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                    Cem3JogOn.Text = data.Cem3On.ToString();
+                    Cem3JogOn.Text = jog.Cem.ToString();
+                    Cem2JogOn.Text = jog.Cem.ToString();
+                    Cem1JogOn.Text = jog.Cem.ToString();
+                    Cem4JogOn.Text = jog.Cem.ToString();
+                    Cem5JogOn.Text = jog.Cem.ToString();
                 }
                 else if (WaterPanel.Visibility == Visibility.Visible)
                 {
-                    Wtr1JogOn.Text = data.WaterOn.ToString();
+                    Wtr1JogOn.Text = jog.Water.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    Admix1JogOn.Text = data.Adm1On.ToString();
+                    Admix1JogOn.Text = jog.Admix.ToString();
+                    Admix2JogOn.Text = jog.Admix.ToString();
                 }
                 else if (SilicaPanel.Visibility == Visibility.Visible)
                 {
-                    SilicaJogOn.Text = data.IceOn.ToString();
+                    SilicaJogOn.Text = jog.Ice.ToString();
                 }
             }
             catch (Exception ex)

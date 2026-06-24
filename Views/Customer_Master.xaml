@@ -1,8 +1,10 @@
 ﻿<Window x:Class="Scada_Demo.Views.Customer_Master"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       
         Title="Customer Master"
         Height="640" Width="500"
+    Icon="../project_small_i.png"
         Background="{StaticResource PrimaryBgBrush}"
 
         WindowStartupLocation="CenterScreen"
