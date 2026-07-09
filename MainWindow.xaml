@@ -1,4 +1,5 @@
-﻿<Window x:Class="Scada_Demo.MainWindow"
+﻿
+<Window x:Class="Scada_Demo.MainWindow"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Scada_Demo.Converters"
@@ -177,8 +178,9 @@ HorizontalScrollBarVisibility="Disabled">
 
                                     <!-- Hover -->
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#123F3F"/>
-                                        <Setter Property="BorderBrush" Value="#00FFFF"/>
+                                            <Setter Property="Background" Value="{DynamicResource MenuHoverBg1}"/>
+
+                                            <Setter Property="BorderBrush"   Value="{DynamicResource MenuHoverBorderBrush1}"/>
                                         <Setter Property="BorderThickness" Value="1"/>
 
                                         <!-- Slight zoom -->
@@ -1078,12 +1080,21 @@ BorderThickness="1.5"
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <!-- Row 1 -->
-                                                <TextBox Grid.Row="0" Grid.Column="0"  />
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                                <!-- Aggregate -->
 
-                                <!-- Row 2 -->
+                                                <TextBox x:Name="txtAggCounter"
+         Grid.Row="0"
+         Grid.Column="0"/>
+
+                                                <TextBox x:Name="txtAggSetWt"
+         Grid.Row="0"
+         Grid.Column="1"/>
+
+                                                <TextBox x:Name="txtAggActWt"
+         Grid.Row="0"
+         Grid.Column="2"/>
+
+                                                <!-- Row 2 -->
                                 <TextBox Grid.Row="1" Grid.Column="0"/>
                                 <TextBox Grid.Row="1" Grid.Column="1"/>
                                 <TextBox Grid.Row="1" Grid.Column="2"/>
@@ -1109,13 +1120,12 @@ BorderThickness="1.5"
                                 <TextBox Grid.Row="5" Grid.Column="2"/>
 
                                 <!-- Row 7 (TOTAL – Full Width) -->
-                                <TextBox Grid.Row="6"
-             Grid.Column="0"
-             Grid.ColumnSpan="3"
-         
-             FontWeight="Bold"
-             TextAlignment="Center"
-             Text="TOTAL"/>
+                                <TextBox x:Name="txtAggWeigherValue"
+       Grid.Row="5"
+    Grid.Column="0"
+    Grid.ColumnSpan="3"
+
+FontWeight="Bold"/>
 
                             </Grid>
 
@@ -1148,9 +1158,9 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtCmtCounter"/>
+                                                <TextBox Grid.Row="0" Grid.Column="1"  x:Name="txtCmtset_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2"  x:Name="txtCmtact_wt"/>
 
                                 <!-- Row 2 -->
                                 <TextBox Grid.Row="1" Grid.Column="0"/>
@@ -1170,7 +1180,7 @@ BorderThickness="1.5"
                                 <TextBox Grid.Row="4"
     Grid.Column="0"
     Grid.ColumnSpan="3"
-
+x:Name="txtCmtweighervalue"
     FontWeight="Bold"
 
     />
@@ -1205,19 +1215,16 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtWtrCounter"/>
+                                                <TextBox Grid.Row="0" Grid.Column="1"  x:Name="txtWtrset_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2" x:Name="txtWtract_wt"/>
 
-                                <!-- Row 2 -->
-                                <TextBox Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1"/>
-                                <TextBox Grid.Row="1" Grid.Column="2"/>
+                               
 
                                 <TextBox Grid.Row="2"
     Grid.Column="0"
     Grid.ColumnSpan="3"
-
+x:Name="txtWtrweighervalue"
     FontWeight="Bold"
     />
 
@@ -1250,19 +1257,16 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtAdm1Counter"/>
+                                                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtAdm1set_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2" x:Name="txtAdm1act_wt"/>
 
-                                <!-- Row 2 -->
-                                <TextBox Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1"/>
-                                <TextBox Grid.Row="1" Grid.Column="2"/>
+                               
 
                                 <TextBox Grid.Row="2"
     Grid.Column="0"
     Grid.ColumnSpan="3"
-
+x:Name="txtAdm1weighervalue"
     FontWeight="Bold"
     />
 
@@ -1295,20 +1299,17 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0"/>
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtAdm2Counter"/>
+                                                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtAdm2set_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2" x:Name="txtAdm2act_wt"/>
 
-                                <!-- Row 2 -->
-                                <TextBox Grid.Row="1" Grid.Column="0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1"/>
-                                <TextBox Grid.Row="1" Grid.Column="2"/>
-
-                                <TextBox Grid.Row="3"
+                             
+                                <TextBox Grid.Row="2"
     Grid.Column="0"
     Grid.ColumnSpan="3"
-    Height="30"
+    
     FontWeight="Bold"
+                                         x:Name="txtAdm2weighervalue"
     />
 
                             </Grid>
@@ -1341,14 +1342,15 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0" />
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2"/>
+                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtSILCounter" />
+                                                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtSILset_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2" x:Name="txtSILact_wt"/>
 
                                 <!-- Row 2 (Long Box) -->
                                 <TextBox Grid.Row="1"
                      Grid.Column="0"
                      Grid.ColumnSpan="3"
+                     x:Name="txtSILweighervalue"                    
                 
                  
                      />
@@ -1377,17 +1379,17 @@ BorderThickness="1.5"
                                 </Grid.RowDefinitions>
 
                                 <!-- Row 1 -->
-                                <TextBox Grid.Row="0" Grid.Column="0" />
-                                <TextBox Grid.Row="0" Grid.Column="1"/>
-                                <TextBox Grid.Row="0" Grid.Column="2" />
+                                                <TextBox Grid.Row="0" Grid.Column="0" x:Name="txtICECounter"/>
+                                                <TextBox Grid.Row="0" Grid.Column="1"  x:Name="txtICEset_wt"/>
+                                                <TextBox Grid.Row="0" Grid.Column="2" x:Name="txtICEact_wt"/>
 
-                                <!-- Row 2 (Long Box) -->
+                                                <!-- Row 2 (Long Box) -->
                                 <TextBox Grid.Row="1"
-                     Grid.Column="0"
-                     Grid.ColumnSpan="3"
-                 
-                 
-                     />
+                       Grid.Column="0"
+    Grid.ColumnSpan="3"
+x:Name="txtICEweighervalue"
+    FontWeight="Bold"
+    />
 
                             </Grid>
 

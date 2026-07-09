@@ -37,30 +37,30 @@ namespace Scada_Demo.Batch_Settings
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    Agg1.Text = data.Tolerance.Agg1.ToString();
-                    Agg2.Text = data.Tolerance.Agg2.ToString();
-                    Agg3.Text = data.Tolerance.Agg3.ToString();
-                    Agg4.Text = data.Tolerance.Agg4.ToString();
+                    Agg1.Text = data.batchSettings_Tolerance.Agg1.ToString();
+                    Agg2.Text = data.batchSettings_Tolerance.Agg2.ToString();
+                    Agg3.Text = data.batchSettings_Tolerance.Agg3.ToString();
+                    Agg4.Text = data.batchSettings_Tolerance.Agg4.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                    Cem1.Text = data.Tolerance.Cem1.ToString();
-                    Cem2.Text = data.Tolerance.Cem1.ToString();
-                    Cem3.Text = data.Tolerance.Cem1.ToString();
+                    Cem1.Text = data.batchSettings_Tolerance.Cem1.ToString();
+                    Cem2.Text = data.batchSettings_Tolerance.Cem1.ToString();
+                    Cem3.Text = data.batchSettings_Tolerance.Cem1.ToString();
 
-                    Cem4.Text = data.Tolerance.Cem4.ToString();
+                    Cem4.Text = data.batchSettings_Tolerance.Cem4.ToString();
                 }
                 else if (WaterPanel.Visibility == Visibility.Visible)
                 {
-                    Wtr1.Text = data.Tolerance.Water.ToString();
+                    Wtr1.Text = data.batchSettings_Tolerance.Water.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    Adm1.Text = data.Tolerance.Adm1.ToString();
+                    Adm1.Text = data.batchSettings_Tolerance.Adm1.ToString();
                 }
                 else if (SilicaPanel.Visibility == Visibility.Visible)
                 {
-                    Ice1.Text = data.Tolerance.Ice.ToString();
+                    Ice1.Text = data.batchSettings_Tolerance.Ice.ToString();
                 }
             }
             catch (Exception ex)

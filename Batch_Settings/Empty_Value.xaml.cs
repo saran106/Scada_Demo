@@ -6,7 +6,7 @@ namespace Scada_Demo.Batch_Settings
 {
     public partial class Empty_Value : Window
     {
-        private readonly Services.Empty_Value _emptyValueService =
+        private readonly Services.Empty_Value _batchSettings_EmptyValueService =
             new Services.Empty_Value();
 
         public Empty_Value()
@@ -20,32 +20,32 @@ namespace Scada_Demo.Batch_Settings
 
             BatchSettingsModel data = await batchSettings.ReadValues();
 
-            Agg.Text = data.EmptyValue.Agg.ToString();
-            Cem.Text = data.EmptyValue.Cem.ToString();
-            Water.Text = data.EmptyValue.Water.ToString();
+            Agg.Text = data.batchSettings_EmptyValue.Agg.ToString();
+            Cem.Text = data.batchSettings_EmptyValue.Cem.ToString();
+            Water.Text = data.batchSettings_EmptyValue.Water.ToString();
 
             // Same PLC value for both Admix boxes
-            Adm12.Text = data.EmptyValue.Admix.ToString();
-            //adm34.Text = data.EmptyValue.Admix.ToString();
+            Adm12.Text = data.batchSettings_EmptyValue.Admix.ToString();
+            //adm34.Text = data.batchSettings_EmptyValue.Admix.ToString();
 
             // Ice / Silica
-            silica.Text = data.EmptyValue.Ice.ToString();
+            silica.Text = data.batchSettings_EmptyValue.Ice.ToString();
 
-            //WTR.Text = data.EmptyValue.Water.ToString();
+            //WTR.Text = data.batchSettings_EmptyValue.Water.ToString();
         }
 
 
         private async void BtnWrite_Click(object sender, RoutedEventArgs e)
         {
-            await _emptyValueService.WriteEMPTY_112(Agg.Text);
-            await _emptyValueService.WriteEMPTY_114(Cem.Text);
-            await _emptyValueService.WriteEMPTY_428(Water.Text);
+            await _batchSettings_EmptyValueService.WriteEMPTY_112(Agg.Text);
+            await _batchSettings_EmptyValueService.WriteEMPTY_114(Cem.Text);
+            await _batchSettings_EmptyValueService.WriteEMPTY_428(Water.Text);
 
             // Admixture 1&2 value PLC-ku write
-            await _emptyValueService.WriteEMPTY_116(Adm12.Text);
+            await _batchSettings_EmptyValueService.WriteEMPTY_116(Adm12.Text);
 
             // Ice / Silica value PLC-ku write
-            await _emptyValueService.WriteEMPTY_430(silica.Text);
+            await _batchSettings_EmptyValueService.WriteEMPTY_430(silica.Text);
 
             MessageBox.Show(
                 "Empty Values Written Successfully",

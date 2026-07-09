@@ -12,6 +12,7 @@ using Scada_Demo.Set_Parameters;
 using Scada_Demo.Other_Settings;
 using Scada_Demo.User;
 using Scada_Demo.Transactions;
+using Scada_Demo.MQTT_Model;
 
 namespace Scada_Demo
 {
@@ -23,7 +24,7 @@ namespace Scada_Demo
         public MainWindow()
         {
             InitializeComponent();
-
+            App.Store.DataReceived += Store_DataReceived;
             // Set ViewModel as DataContext
             _viewModel = new PlantViewModel();
             DataContext = _viewModel;
@@ -52,7 +53,55 @@ namespace Scada_Demo
 
         bool isOpen = false;
 
+        private void Store_DataReceived(BatchSettingsModel data)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                // ================= AGGREGATE =================
+                txtAggCounter.Text = data.Home_Top.Home_Top_aggregate.counter.ToString();
+                txtAggSetWt.Text = data.Home_Top.Home_Top_aggregate.set_wt.ToString();
+                txtAggActWt.Text = data.Home_Top.Home_Top_aggregate.act_wt.ToString();
+                txtAggWeigherValue.Text = data.Home_Top.Home_Top_aggregate.weighervalue.ToString();
 
+                // ================= CEMENT =================
+                txtCmtCounter.Text = data.Home_Top.Home_Top_cement.counter.ToString();
+                txtCmtset_wt.Text = data.Home_Top.Home_Top_cement.set_wt.ToString();
+                txtCmtact_wt.Text = data.Home_Top.Home_Top_cement.act_wt.ToString();
+                txtCmtweighervalue.Text = data.Home_Top.Home_Top_cement.weighervalue.ToString();
+
+                // ================= WATER =================
+                txtWtrCounter.Text = data.Home_Top.Home_Top_water.counter.ToString();
+                txtWtrset_wt.Text = data.Home_Top.Home_Top_water.set_wt.ToString();
+                txtWtract_wt.Text = data.Home_Top.Home_Top_water.act_wt.ToString();
+                txtWtrweighervalue.Text = data.Home_Top.Home_Top_water.weighervalue.ToString();
+
+                // ================= ADMIXTURE 1 =================
+                txtAdm1Counter.Text = data.Home_Top.Home_Top_admix.counter.ToString();
+                txtAdm1set_wt.Text = data.Home_Top.Home_Top_admix.set_wt.ToString();
+                txtAdm1act_wt.Text = data.Home_Top.Home_Top_admix.act_wt.ToString();
+                txtAdm1weighervalue.Text = data.Home_Top.Home_Top_admix.weighervalue.ToString();
+
+                // ================= ADMIXTURE 2 =================
+                // Separate model illa. Temporary same values use pannuren.
+                txtAdm2Counter.Text = data.Home_Top.Home_Top_admix.counter.ToString();
+                txtAdm2set_wt.Text = data.Home_Top.Home_Top_admix.set_wt.ToString();
+                txtAdm2act_wt.Text = data.Home_Top.Home_Top_admix.act_wt.ToString();
+                txtAdm2weighervalue.Text = data.Home_Top.Home_Top_admix.weighervalue.ToString();
+
+                // ================= ICE =================
+                txtICECounter.Text = data.Home_Top.Home_Top_ice.counter.ToString();
+                txtICEset_wt.Text = data.Home_Top.Home_Top_ice.set_wt.ToString();
+                txtICEact_wt.Text = data.Home_Top.Home_Top_ice.act_wt.ToString();
+                txtICEweighervalue.Text = data.Home_Top.Home_Top_ice.weighervalue.ToString();
+
+                // ================= SILICA =================
+                // Model-la Silica illa. Blank-aa vechurukken.
+                txtSILCounter.Text = "";
+                txtSILset_wt.Text = "";
+                txtSILact_wt.Text = "";
+                txtSILweighervalue.Text = "";
+            });
+        }
         private void DarkMode_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Resources.MergedDictionaries.Clear();
@@ -131,6 +180,7 @@ namespace Scada_Demo
     new SubMenuItem { Name = "Order", ViewKey = "Order" },
     new SubMenuItem { Name = "Inward", ViewKey = "Inward" },
     new SubMenuItem { Name = "Recipe", ViewKey = "Recipe" },
+    new SubMenuItem { Name = "Truck", ViewKey = "Truck" },
     new SubMenuItem { Name = "Maintenance", ViewKey = "Maintenance" },
     new SubMenuItem { Name = "Schedule", ViewKey = "Schedule" }
 };
@@ -332,6 +382,10 @@ namespace Scada_Demo
 
                 case "Schedule":
                     OpenWindowOnce<Schedule>();
+                    break;
+
+                case "Truck":
+                    OpenWindowOnce<Truck_Details>();
                     break;
             }
 

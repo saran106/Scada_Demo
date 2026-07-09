@@ -27,9 +27,7 @@ ResizeMode="NoResize">
 
             <!-- Title -->
             <TextBlock Text="Schedule Configuration"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Foreground="{StaticResource PrimaryText}"
+                        Style="{DynamicResource HeaderTextStyle}"
                        Margin="10"/>
 
             <!-- Form Section -->

@@ -88,22 +88,22 @@ namespace Scada_Demo.Batch_Settings
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    Agg1.Text = data.StepTime.Step136.ToString();
-                    Agg2.Text = data.StepTime.Step136.ToString();
-                    Agg3.Text = data.StepTime.Step136.ToString();
-                    Agg4.Text = data.StepTime.Step136.ToString();
-                    Agg5.Text = data.StepTime.Step136.ToString();
-                    Agg6.Text = data.StepTime.Step136.ToString();
+                    Agg1.Text = data.batchSettings_StepTime.Step136.ToString();
+                    Agg2.Text = data.batchSettings_StepTime.Step136.ToString();
+                    Agg3.Text = data.batchSettings_StepTime.Step136.ToString();
+                    Agg4.Text = data.batchSettings_StepTime.Step136.ToString();
+                    Agg5.Text = data.batchSettings_StepTime.Step136.ToString();
+                    Agg6.Text = data.batchSettings_StepTime.Step136.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
-                    Cem1.Text = data.StepTime.Step548.ToString();
-                    Cem4.Text = data.StepTime.Step552.ToString();
+                    Cem1.Text = data.batchSettings_StepTime.Step548.ToString();
+                    Cem4.Text = data.batchSettings_StepTime.Step552.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    Admix1.Text = data.StepTime.Step140.ToString();
-                    Admix2.Text = data.StepTime.Step140.ToString();
+                    Admix1.Text = data.batchSettings_StepTime.Step140.ToString();
+                    Admix2.Text = data.batchSettings_StepTime.Step140.ToString();
                 }
             }
             catch (Exception ex)

@@ -39,11 +39,11 @@ namespace Scada_Demo.Batch_Settings
 
                 var data = await service.ReadValues();
 
-                Cem.Text = data.DischargeDelay.Cement.ToString();
-                Wat.Text = data.DischargeDelay.Water.ToString();
-                Admix12.Text = data.DischargeDelay.Admix.ToString();
-                Skip.Text = data.DischargeDelay.Skip.ToString();
-                PC.Text = data.DischargeDelay.PumpCutOff.ToString();
+                Cem.Text = data.batchSettings_DischargeDelay.Cement.ToString();
+                Wat.Text = data.batchSettings_DischargeDelay.Water.ToString();
+                Admix12.Text = data.batchSettings_DischargeDelay.Admix.ToString();
+                Skip.Text = data.batchSettings_DischargeDelay.Skip.ToString();
+                PC.Text = data.batchSettings_DischargeDelay.PumpCutOff.ToString();
             }
             catch (Exception ex)
             {

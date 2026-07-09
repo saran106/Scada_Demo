@@ -88,7 +88,7 @@ namespace Scada_Demo.Batch_Settings
 
                 BatchSettingsModel data = await service.ReadValues();
 
-                var jog = data.JogSettings;
+                var jog = data.batchSettings_JogSettings;
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {

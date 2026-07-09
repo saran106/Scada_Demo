@@ -552,7 +552,7 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="0,0,0,10"/>
-
+        <Setter Property="FontStyle" Value="Italic"/>
         <!-- 🔥 COLOR -->
         <Setter Property="Foreground" Value="#00FFFF"/>
 
@@ -917,4 +917,8 @@
     <!-- BORDER -->
     <SolidColorBrush x:Key="MenuBorderBrush"
                  Color="#00DCDC"/>
+
+
+    <SolidColorBrush x:Key="MenuHoverBg1" Color="#123F3F"/>
+    <SolidColorBrush x:Key="MenuHoverBorderBrush1" Color="#00FFFF"/>
 </ResourceDictionary>

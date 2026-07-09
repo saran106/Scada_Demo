@@ -2,94 +2,141 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Truck Details"
-        Height="500" Width="800"
-        Icon="../project_small_i.png"
-        Background="{StaticResource PrimaryBgBrush}"
+        Height="450"
+        Width="620"
+        Background="#0D3A3A"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="../project_small_i.png">
 
-    <Grid Margin="15">
+    <Grid Margin="8">
 
-        <Border Background="{StaticResource PanelBrush}"
+        <!-- MAIN ROWS -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <TextBlock Text="Truck Details"
+                   Margin="10,5"
+                   Style="{StaticResource HeaderTextStyle}"/>
+
+        <!-- CONTENT -->
+        <Border Grid.Row="1"
+                Margin="10"
+                Padding="20"
+                Background="{StaticResource PanelBrush}"
                 BorderBrush="{StaticResource BorderBrushColor}"
                 BorderThickness="2"
-                Padding="20"
-                CornerRadius="10">
+                CornerRadius="6">
 
             <Grid>
 
-                <!-- LAYOUT -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- TITLE -->
-                <TextBlock Text="Truck Details"
-                           FontSize="24"
-                           FontWeight="Bold"
-                           Margin="0,0,0,15"/>
+                <!-- Truck Reg No -->
+                <TextBlock Text="Truck Reg No"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CompactLabel}"/>
 
-                <!-- FORM -->
-                <Grid Grid.Row="1">
+                <ComboBox Grid.Row="0"
+                          Grid.Column="2"
+                          Width="180"
+                          Height="34"
+                          Style="{StaticResource CompactComboBoxSmall}"/>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <!-- Driver -->
+                <TextBlock Text="Driver"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CompactLabel}"/>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
+                <TextBox Grid.Row="1"
+                         Grid.Column="2"
+                         Width="180"
+                         Height="34"
+                         Margin="6,6,14,6"
+                         Style="{StaticResource JogTextBoxStyle}"/>
 
-                    <!-- LABELS -->
-                    <TextBlock Text="Truck Reg No" Grid.Row="0" Style="{StaticResource LabelStyle}" />
-                    <TextBlock Text="Driver" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
-                    <TextBlock Text="Capacity" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
-                    <TextBlock Text="Type of Truck" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
-                    <TextBlock Text="Mixer Gate Timer" Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+                <!-- Capacity -->
+                <TextBlock Text="Capacity"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CompactLabel}"/>
 
-                    <!-- INPUTS -->
+                <TextBox Grid.Row="2"
+                         Grid.Column="2"
+                         Width="180"
+                         Height="34"
+                         Margin="6,6,14,6"
+                         Style="{StaticResource JogTextBoxStyle}"/>
 
-                    <!-- SYSTEM FIELD -->
-                    <ComboBox Grid.Row="0" Grid.Column="1"
-                              Style="{StaticResource SystemFieldComboBox}"/>
+                <!-- Type of Truck -->
+                <TextBlock Text="Type of Truck"
+                           Grid.Row="3"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CompactLabel}"/>
 
-                    <!-- 🔥 BLACK (Editable important fields) -->
-                    <TextBox Grid.Row="1" Grid.Column="1"
-                             Style="{StaticResource SystemFieldTextBox}"/>
+                <TextBox Grid.Row="3"
+                         Grid.Column="2"
+                         Width="180"
+                         Height="34"
+                         Margin="6,6,14,6"
+                         Style="{StaticResource JogTextBoxStyle}"/>
 
-                    <TextBox Grid.Row="2" Grid.Column="1"
-                             Style="{StaticResource SystemFieldTextBox}"/>
+                <!-- Mixer Gate Timer -->
+                <TextBlock Text="Mixer Gate Timer"
+                           Grid.Row="4"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CompactLabel}"/>
 
-                    <!-- NORMAL WHITE -->
-                    <TextBox Grid.Row="3" Grid.Column="1"
-                             Style="{StaticResource SystemFieldTextBox}"/>
-
-                    <!-- 🔥 BLACK -->
-                    <TextBox Grid.Row="4" Grid.Column="1"
-                             Style="{StaticResource SystemFieldTextBox}"/>
-
-                </Grid>
-
-                <!-- BUTTONS -->
-                <StackPanel Grid.Row="2"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Margin="0,20,0,0">
-
-                    <Button Content="SAVE" Width="90"/>
-                    <Button Content="DELETE" Width="90"/>
-                    <Button Content="EXIT" Width="90"/>
-
-                </StackPanel>
+                <TextBox Grid.Row="4"
+                         Grid.Column="2"
+                         Width="180"
+                         Height="34"
+                         Margin="6,6,14,6"
+                         Style="{StaticResource JogTextBoxStyle}"/>
 
             </Grid>
+
         </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10">
+
+            <Button Content="Save"
+                    Width="100"
+                    Margin="8"/>
+
+            <Button Content="Delete"
+                    Width="100"
+                    Margin="8"/>
+
+            <Button Content="Exit"
+                    Width="100"
+                    Margin="8"
+                    Style="{StaticResource RedButton}"/>
+
+        </StackPanel>
+
     </Grid>
+
 </Window>

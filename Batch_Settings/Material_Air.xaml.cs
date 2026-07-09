@@ -42,10 +42,10 @@ namespace Scada_Demo.Batch_Settings
 
                 if (AggregatePanel.Visibility == Visibility.Visible)
                 {
-                    txtAgg1.Text = data.MaterialInAir.Agg92.ToString();
-                    txtAgg2.Text = data.MaterialInAir.Agg94.ToString();
-                    txtAgg3.Text = data.MaterialInAir.Agg96.ToString();
-                    txtAgg4.Text = data.MaterialInAir.Agg98.ToString();
+                    txtAgg1.Text = data.batchSettings_MaterialInAir.Agg92.ToString();
+                    txtAgg2.Text = data.batchSettings_MaterialInAir.Agg94.ToString();
+                    txtAgg3.Text = data.batchSettings_MaterialInAir.Agg96.ToString();
+                    txtAgg4.Text = data.batchSettings_MaterialInAir.Agg98.ToString();
                 }
                 else if (CementPanel.Visibility == Visibility.Visible)
                 {
@@ -53,16 +53,16 @@ namespace Scada_Demo.Batch_Settings
                 }
                 else if (WaterPanel.Visibility == Visibility.Visible)
                 {
-                    txtWTR1.Text = data.MaterialInAir.Water386.ToString();
+                    txtWTR1.Text = data.batchSettings_MaterialInAir.Water386.ToString();
                 }
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
-                    txtAD1.Text = data.MaterialInAir.Admix108.ToString();
-                    txtAD2.Text = data.MaterialInAir.Admix110.ToString();
+                    txtAD1.Text = data.batchSettings_MaterialInAir.Admix108.ToString();
+                    txtAD2.Text = data.batchSettings_MaterialInAir.Admix110.ToString();
                 }
                 else if (SilicaPanel.Visibility == Visibility.Visible)
                 {
-                     txtICE.Text = data.MaterialInAir.Ice410.ToString();
+                     txtICE.Text = data.batchSettings_MaterialInAir.Ice410.ToString();
                 }
             }
             catch (Exception ex)

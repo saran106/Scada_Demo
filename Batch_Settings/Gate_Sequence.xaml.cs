@@ -69,14 +69,14 @@ namespace Scada_Demo.Batch_Settings
             // Agg2 is always sequence 2
             positions[1] = "Agg2 : 2";
 
-            if (data.GateSequence.Agg1 >= 1 && data.GateSequence.Agg1 <= 4)
-                positions[data.GateSequence.Agg1 - 1] = $"Agg1 : {data.GateSequence.Agg1}";
+            if (data.batchSettings_GateSequence.Agg1 >= 1 && data.batchSettings_GateSequence.Agg1 <= 4)
+                positions[data.batchSettings_GateSequence.Agg1 - 1] = $"Agg1 : {data.batchSettings_GateSequence.Agg1}";
 
-            if (data.GateSequence.Agg3 >= 1 && data.GateSequence.Agg3 <= 4)
-                positions[data.GateSequence.Agg3 - 1] = $"Agg3 : {data.GateSequence.Agg3}";
+            if (data.batchSettings_GateSequence.Agg3 >= 1 && data.batchSettings_GateSequence.Agg3 <= 4)
+                positions[data.batchSettings_GateSequence.Agg3 - 1] = $"Agg3 : {data.batchSettings_GateSequence.Agg3}";
 
-            if (data.GateSequence.Agg4 >= 1 && data.GateSequence.Agg4 <= 4)
-                positions[data.GateSequence.Agg4 - 1] = $"Agg4 : {data.GateSequence.Agg4}";
+            if (data.batchSettings_GateSequence.Agg4 >= 1 && data.batchSettings_GateSequence.Agg4 <= 4)
+                positions[data.batchSettings_GateSequence.Agg4 - 1] = $"Agg4 : {data.batchSettings_GateSequence.Agg4}";
 
             foreach (string item in positions)
             {

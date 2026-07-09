@@ -15,28 +15,31 @@ Icon="../project_small_i.png"
 
     <Grid Margin="15">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Schedule Configuration"
+ Style="{DynamicResource HeaderTextStyle}"
+Margin="0,0,0,15"/>
+
         <Border Background="{StaticResource PanelBrush}"
                 BorderBrush="{StaticResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6"
-                Padding="15">
+                Padding="15" Grid.Row="1">
 
             <Grid>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="70"/>
-                </Grid.RowDefinitions>
+               
 
                 <!-- HEADER -->
-                <TextBlock Text="Schedule Configuration"
-             FontSize="24"
-             FontWeight="Bold"
-             Margin="0,0,0,15"/>
+              
 
                 <!-- FORM -->
-                <Grid Grid.Row="1"
+                <Grid 
                      >
 
                     <Grid.ColumnDefinitions>
@@ -115,32 +118,34 @@ Icon="../project_small_i.png"
 
                 </Grid>
 
-                <!-- BUTTONS -->
-                <StackPanel Grid.Row="2"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
-
-                    <Button Content="Add"
-                            
-                          Width="100"
-                Style="{StaticResource GreenButton}" />
-
-                    <Button Content="Del"
-                           
-                           Width="100"
-                />
-
-                    <Button Content="eXit"
-                            
-                         Width="100"
-                Style="{StaticResource RedButton}" />
-
-                </StackPanel>
+            
 
             </Grid>
 
         </Border>
+
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="2"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <Button Content="Add"
+                
+              Width="100"
+    Style="{StaticResource GreenButton}" />
+
+            <Button Content="Del"
+               
+               Width="100"
+    />
+
+            <Button Content="eXit"
+                
+             Width="100"
+    Style="{StaticResource RedButton}" />
+
+        </StackPanel>
 
     </Grid>
 </Window>

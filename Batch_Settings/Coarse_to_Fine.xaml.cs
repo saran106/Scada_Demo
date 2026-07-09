@@ -34,7 +34,7 @@ namespace Scada_Demo.Batch_Settings
 
                 BatchSettingsModel data = await batchSettings.ReadValues();
 
-                var cf = data.CoarseFine;
+                var cf = data.batchSettings_CoarseFine;
 
                 Agg1.Text = cf.Agg1.ToString();
                 Agg2.Text = cf.Agg2.ToString();

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Icon="../project_small_i.png"
         Title="Site_Details"
-        Height="650"
+        Height="700"
         Width="500"
 
         WindowStartupLocation="CenterScreen"
@@ -14,19 +14,12 @@
 
         Background="{StaticResource PrimaryBgBrush}">
     <Grid>
-        <Grid Background="#0F2A2A" Margin="10">
+        <Grid  Margin="10">
 
             <!-- STYLES -->
             <Grid.Resources>
 
-                <!-- Label -->
-                <Style x:Key="LabelStyle" TargetType="TextBlock">
-                    <Setter Property="FontSize" Value="14"/>
-                    <Setter Property="FontWeight" Value="SemiBold"/>
-                    <Setter Property="Foreground" Value="#00FFFF"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="Margin" Value="0,6"/>
-                </Style>
+            
 
                 <!-- Input -->
                 <Style x:Key="InputStyle" TargetType="TextBox">
@@ -62,34 +55,36 @@
 
             </Grid.Resources>
 
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- HEADER -->
+            <TextBlock Text="Site Details"
+                        Style="{DynamicResource HeaderTextStyle}"
+                       Margin="5"/>
+
             <!-- CARD -->
-            <Border Background="#134646"
-            BorderBrush="#00FFFF"
-            BorderThickness="1.5"
-            CornerRadius="8"
-            Padding="10">
+            <Border  Grid.Row="1"
+   Margin="10"
+   Padding="20"
+   Background="{StaticResource PanelBrush}"
+   BorderBrush="{StaticResource BorderBrushColor}"
+   BorderThickness="2"
+   CornerRadius="6">
 
                 <Grid>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- HEADER -->
-                    <TextBlock Text="Site Details"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Foreground="#00FFFF"
-                       Margin="5"/>
 
                     <!-- FORM -->
                     <Grid Grid.Row="1" Margin="5">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
@@ -118,42 +113,90 @@
                         <TextBlock Text="Distance" Grid.Row="9" Style="{StaticResource LabelStyle}"/>
 
                         <!-- INPUTS -->
-                        <ComboBox Grid.Row="0" Grid.Column="1"/>
-                        <ComboBox Grid.Row="1" Grid.Column="1"/>
+                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cmbCustomerID"  SelectionChanged="cmbCustomerID_SelectionChanged"  Style="{StaticResource CompactComboBoxSmall}"/>
+                        <ComboBox x:Name="cmbSiteID"
+          Grid.Row="1"
+          Grid.Column="1"
+          IsEditable="True"
+          IsTextSearchEnabled="False"
+          SelectionChanged="cmbSiteID_SelectionChanged"
+          Style="{StaticResource CompactComboBoxSmall}"/>
 
-                        <TextBox Grid.Row="2" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="3" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="4" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
+                        <TextBox x:Name="txtAddress1"
+         Grid.Row="2"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
 
-                        <TextBox Grid.Row="5" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="6" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="7" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="8" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
-                        <TextBox Grid.Row="9" Grid.Column="1"               Style="{StaticResource JogTextBoxStyle}"
-Height="34"/>
+                        <TextBox x:Name="txtAddress2"
+         Grid.Row="3"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
 
+                        <TextBox x:Name="txtAddress3"
+         Grid.Row="4"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
+
+                        <TextBox x:Name="txtCity"
+         Grid.Row="5"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
+
+                        <TextBox x:Name="txtPincode"
+         Grid.Row="6"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
+
+                        <TextBox x:Name="txtPhone"
+         Grid.Row="7"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
+
+                        <TextBox x:Name="txtContact"
+         Grid.Row="8"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
+
+                        <TextBox x:Name="txtDistance"
+         Grid.Row="9"
+         Grid.Column="1"
+         Style="{StaticResource JogTextBoxStyle}"
+         Height="34"/>
                     </Grid>
 
-                    <!-- BUTTONS -->
-                    <StackPanel Grid.Row="2"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-
-                        <Button Content="SAVE" Width="105" />
-                        <Button Content="DELETE"  Width="105"/>
-                        <Button Content="EXIT" Style="{StaticResource RedButton}"  Width="105"/>
-
-                    </StackPanel>
+             
 
                 </Grid>
             </Border>
+
+            <!-- BUTTONS -->
+            <StackPanel Grid.Row="2"
+                 Orientation="Horizontal"
+                 HorizontalAlignment="Center"
+                 Margin="0,15">
+
+
+                <Button Content="SAVE"
+        Width="105"
+        Click="btnSave_Click"/>
+
+                <Button Content="DELETE"
+        Width="105"
+        Click="btnDelete_Click"/>
+
+                <Button Content="EXIT"
+        Width="105"
+        Style="{StaticResource RedButton}"
+        Click="btnExit_Click"/>
+
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

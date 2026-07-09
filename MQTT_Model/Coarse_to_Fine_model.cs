@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Scada_Demo.MQTT_Model
 {
-    public class Coarse_to_Fine
+    public class Coarse_to_Fine_model
     {
         public short Agg1 { get; set; }
         public short Agg2 { get; set; }
