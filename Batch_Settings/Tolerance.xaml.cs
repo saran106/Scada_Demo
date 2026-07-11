@@ -11,9 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
 using Scada_Demo.Calibration;
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
+using Scada_Demo.Database;
+using Scada_Demo.MQTT_Model;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -106,7 +109,88 @@ namespace Scada_Demo.Batch_Settings
                 await mqtt.WriteTOL_400(Ice1.Text);
             }
 
+            SaveTolerance();
+
             MessageBox.Show("Tolerance Values Written Successfully");
+        }
+
+        private void SaveTolerance()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"
+IF EXISTS (SELECT 1 FROM Tolerance_Setup)
+BEGIN
+    UPDATE Tolerance_Setup
+    SET
+        Gate1=@Gate1,
+        Gate2=@Gate2,
+        Gate3=@Gate3,
+        Gate4=@Gate4,
+        Cement1=@Cement1,
+        Cement4=@Cement4,
+        Water=@Water,
+        Admix1=@Admix1,
+        Silica=@Silica
+END
+ELSE
+BEGIN
+    INSERT INTO Tolerance_Setup
+    (
+        Gate1,Gate2,Gate3,Gate4,
+        Cement1,Cement4,
+        Water,
+        Admix1,
+        Silica
+    )
+    VALUES
+    (
+        @Gate1,@Gate2,@Gate3,@Gate4,
+        @Cement1,@Cement4,
+        @Water,
+        @Admix1,
+        @Silica
+    )
+END", con);
+
+                    cmd.Parameters.AddWithValue("@Gate1",
+                        string.IsNullOrWhiteSpace(Agg1.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg1.Text));
+
+                    cmd.Parameters.AddWithValue("@Gate2",
+                        string.IsNullOrWhiteSpace(Agg2.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg2.Text));
+
+                    cmd.Parameters.AddWithValue("@Gate3",
+                        string.IsNullOrWhiteSpace(Agg3.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg3.Text));
+
+                    cmd.Parameters.AddWithValue("@Gate4",
+                        string.IsNullOrWhiteSpace(Agg4.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg4.Text));
+
+                    cmd.Parameters.AddWithValue("@Cement1",
+                        string.IsNullOrWhiteSpace(Cem1.Text) ? (object)DBNull.Value : Convert.ToInt32(Cem1.Text));
+
+                    cmd.Parameters.AddWithValue("@Cement4",
+                        string.IsNullOrWhiteSpace(Cem4.Text) ? (object)DBNull.Value : Convert.ToInt32(Cem4.Text));
+
+                    cmd.Parameters.AddWithValue("@Water",
+                        string.IsNullOrWhiteSpace(Wtr1.Text) ? (object)DBNull.Value : Convert.ToInt32(Wtr1.Text));
+
+                    cmd.Parameters.AddWithValue("@Admix1",
+                        string.IsNullOrWhiteSpace(Adm1.Text) ? (object)DBNull.Value : Convert.ToDecimal(Adm1.Text));
+
+                    cmd.Parameters.AddWithValue("@Silica",
+                        string.IsNullOrWhiteSpace(Ice1.Text) ? (object)DBNull.Value : Convert.ToInt32(Ice1.Text));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         void HideAll()
         {

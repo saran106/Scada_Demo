@@ -72,26 +72,26 @@ namespace Scada_Demo.Services
             await client.DisconnectAsync();
         }
 
-        public async Task WriteSTEP_386(string value)
-        {
-            var factory = new MqttClientFactory();
-            var client = factory.CreateMqttClient();
+        //public async Task WriteSTEP_386(string value)
+        //{
+        //    var factory = new MqttClientFactory();
+        //    var client = factory.CreateMqttClient();
 
-            var options = new MqttClientOptionsBuilder()
-                .WithTcpServer("localhost", 1883)
-                .Build();
+        //    var options = new MqttClientOptionsBuilder()
+        //        .WithTcpServer("localhost", 1883)
+        //        .Build();
 
-            await client.ConnectAsync(options);
+        //    await client.ConnectAsync(options);
 
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic("steptime/write/386")
-                .WithPayload(value)
-                .Build();
+        //    var message = new MqttApplicationMessageBuilder()
+        //        .WithTopic("steptime/write/386")
+        //        .WithPayload(value)
+        //        .Build();
 
-            await client.PublishAsync(message);
+        //    await client.PublishAsync(message);
 
-            await client.DisconnectAsync();
-        }
+        //    await client.DisconnectAsync();
+        //}
 
         public async Task WriteSTEP_140(string value)
         {

@@ -11,7 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
 using Scada_Demo.Services;
+using Scada_Demo.Database;
+using Scada_Demo.MQTT_Model;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -112,6 +115,83 @@ namespace Scada_Demo.Batch_Settings
             }
         }
 
+        private void SaveStepTime()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"
+IF EXISTS (SELECT 1 FROM StepTime_Setup)
+BEGIN
+    UPDATE StepTime_Setup
+    SET
+        Gate1 = @Gate1,
+        Gate2= @Gate1,
+        Gate3= @Gate1,
+        Gate4= @Gate1,
+        Gate5= @Gate1,
+        Gate6= @Gate1,
+        Cement1 = @Cement1,
+        Cement4 = @Cement4,
+        Admix1 = @Admix1
+        --Silica = @Silica
+END
+ELSE
+BEGIN
+    INSERT INTO StepTime_Setup
+    (
+        Gate1,
+        Gate2,
+        Gate3,
+        Gate4,
+        Gate5,
+        Gate6,
+        Cement1,
+        Cement4,
+        Admix1
+        --Silica
+    )
+    VALUES
+    (
+        @Gate1,
+          @Gate1,
+          @Gate1,
+          @Gate1,
+          @Gate1,
+          @Gate1,
+        @Cement1,
+        @Cement4,
+        @Admix1
+        --@Silica
+    )
+END", con);
+
+                    cmd.Parameters.AddWithValue("@Gate1",
+                        string.IsNullOrWhiteSpace(Agg1.Text) ? (object)DBNull.Value : Convert.ToDecimal(Agg1.Text));
+
+                    cmd.Parameters.AddWithValue("@Cement1",
+                        string.IsNullOrWhiteSpace(Cem1.Text) ? (object)DBNull.Value : Convert.ToDecimal(Cem1.Text));
+
+                    cmd.Parameters.AddWithValue("@Cement4",
+                        string.IsNullOrWhiteSpace(Cem4.Text) ? (object)DBNull.Value : Convert.ToDecimal(Cem4.Text));
+
+                    cmd.Parameters.AddWithValue("@Admix1",
+                        string.IsNullOrWhiteSpace(Admix1.Text) ? (object)DBNull.Value : Convert.ToDecimal(Admix1.Text));
+
+                    //cmd.Parameters.AddWithValue("@Silica",
+                    //    string.IsNullOrWhiteSpace(Silica.Text) ? (object)DBNull.Value : Convert.ToDecimal(Silica.Text));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private async void BtnWrite_Click(object sender, RoutedEventArgs e)
         {
@@ -128,10 +208,10 @@ namespace Scada_Demo.Batch_Settings
                     await step.WriteSTEP_548(Cem1.Text);
                     await step.WriteSTEP_552(Cem4.Text);
                 }
-                else if (WaterPanel.Visibility == Visibility.Visible)
-                {
-                    await step.WriteSTEP_386(Wtr1.Text);
-                }
+                //else if (WaterPanel.Visibility == Visibility.Visible)
+                //{
+                //    await step.WriteSTEP_386(Wtr1.Text);
+                //}
                 else if (AdmixPanel.Visibility == Visibility.Visible)
                 {
                     await step.WriteSTEP_140(Admix1.Text);
@@ -141,6 +221,7 @@ namespace Scada_Demo.Batch_Settings
                     await step.WriteSTEP_410(Silica.Text);
                 }
 
+                SaveStepTime();
                 MessageBox.Show("Values Written Successfully");
             }
             catch (Exception ex)

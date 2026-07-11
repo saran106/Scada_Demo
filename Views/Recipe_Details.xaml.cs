@@ -30,7 +30,7 @@ namespace Scada_Demo.Views
             InitializeComponent();
 
             LoadRecipeIds();
-            LoadRecipeNames();
+            //LoadRecipeNames();
 
             App.Store.DataReceived += Store_BatchSettingsChanged;
         }
@@ -83,24 +83,114 @@ namespace Scada_Demo.Views
             }
         }
 
-        private void LoadRecipeNames()
+        private void LoadRecipeNames(string recipeId)
         {
             try
             {
-                using (SqlConnection con = DbConnection.GetConnection())
+                using SqlConnection con = DbConnection.GetConnection();
+                con.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(
+                @"SELECT RecipeName
+          FROM RecipeMaster
+          WHERE RecipeID=@RecipeID
+          ORDER BY RecipeName", con);
+
+                da.SelectCommand.Parameters.AddWithValue("@RecipeID", recipeId);
+
+                DataTable dt = new();
+                da.Fill(dt);
+
+                cmbRecipeName.ItemsSource = dt.DefaultView;
+                cmbRecipeName.DisplayMemberPath = "RecipeName";
+                cmbRecipeName.SelectedValuePath = "RecipeName";
+                cmbRecipeName.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cmbRecipeId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbRecipeId.SelectedValue == null)
+                return;
+
+            LoadRecipeNames(cmbRecipeId.SelectedValue.ToString());
+        }
+        private void cmbRecipeName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbRecipeId.SelectedValue == null ||
+                cmbRecipeName.SelectedValue == null)
+                return;
+
+            LoadRecipe(
+                cmbRecipeId.SelectedValue.ToString(),
+                cmbRecipeName.SelectedValue.ToString());
+        }
+
+        private void LoadRecipe(string recipeId, string recipeName)
+        {
+            try
+            {
+                using SqlConnection con = DbConnection.GetConnection();
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(@"
+        SELECT *
+        FROM RecipeMaster
+        WHERE RecipeID=@RecipeID
+          AND RecipeName=@RecipeName", con);
+
+                cmd.Parameters.AddWithValue("@RecipeID", recipeId);
+                cmd.Parameters.AddWithValue("@RecipeName", recipeName);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    con.Open();
+                    // Left Panel
+                    txtStrength.Text = dr["Strength"].ToString();
+                    txtConsistency.Text = dr["Consistency"].ToString();
+                    txtMixerCapacity.Text = dr["MixerCapacity"].ToString();
+                    txtMixingTime.Text = dr["MixingTime"].ToString();
+                    txtMixerDischarge.Text = dr["MixerDischargeTime"].ToString();
+                    txtPreMixingTime.Text = dr["PreMixingTime"].ToString();
+                    txtWaterCementRatio.Text = dr["WaterCementRatio"].ToString();
+                    txtTotalMass.Text = dr["TotalMass"].ToString();
 
-                    SqlDataAdapter da = new SqlDataAdapter(
-                        "SELECT RecipeID,RecipeName FROM RecipeMaster ORDER BY RecipeName", con);
+                    // Aggregate
+                    txtAgg1.Text = dr["Aggregate1Weight"].ToString();
+                    txtAgg2.Text = dr["Aggregate2Weight"].ToString();
+                    txtAgg3.Text = dr["Aggregate3Weight"].ToString();
+                    txtAgg4.Text = dr["Aggregate4Weight"].ToString();
+                    txtAgg5.Text = dr["Aggregate5Weight"].ToString();
+                    txtAgg6.Text = dr["Aggregate6Weight"].ToString();
 
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    // Cement
+                    txtCem1.Text = dr["Cement1Weight"].ToString();
+                    txtCem2.Text = dr["Cement2Weight"].ToString();
+                    txtCem3.Text = dr["Cement3Weight"].ToString();
+                    txtCem4.Text = dr["Cement4Weight"].ToString();
+                    txtCem5.Text = dr["Cement5Weight"].ToString();
 
-                    cmbRecipeName.ItemsSource = dt.DefaultView;
-                    cmbRecipeName.DisplayMemberPath = "RecipeName";
-                    cmbRecipeName.SelectedValuePath = "RecipeID";
+                    // Water
+                    txtWtr1.Text = dr["Water1Weight"].ToString();
+                    txtWtr2.Text = dr["Water2Weight"].ToString();
+                    txtWtr3.Text = dr["Water3Weight"].ToString();
+
+                    // Admixture
+                    txtAdm1.Text = dr["Admixture1Weight"].ToString();
+                    txtAdm2.Text = dr["Admixture2Weight"].ToString();
+                    txtAdm3.Text = dr["Admixture3Weight"].ToString();
+                    txtAdm4.Text = dr["Admixture4Weight"].ToString();
+
+                    // Silica
+                    txtSilica.Text = dr["SilicaWeight"].ToString();
                 }
+
+                dr.Close();
             }
             catch (Exception ex)
             {
@@ -243,41 +333,7 @@ namespace Scada_Demo.Views
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(cmbRecipeId.Text))
-                {
-                    MessageBox.Show("Select Recipe ID");
-                    return;
-                }
-
-                if (MessageBox.Show("Are you sure you want to delete this recipe?",
-                                    "Confirm",
-                                    MessageBoxButton.YesNo,
-                                    MessageBoxImage.Question) == MessageBoxResult.No)
-                    return;
-
-                using (SqlConnection con = DbConnection.GetConnection())
-                {
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(
-                        "DELETE FROM RecipeMaster WHERE RecipeID=@RecipeID", con);
-
-                    cmd.Parameters.AddWithValue("@RecipeID", cmbRecipeId.Text.Trim());
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Recipe Deleted Successfully");
-
-                LoadRecipeIds();
-                LoadRecipeNames();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Close();
         }
     }
 }

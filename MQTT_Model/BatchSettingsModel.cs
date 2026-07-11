@@ -8,6 +8,7 @@ namespace Scada_Demo.MQTT_Model
 {
     public class BatchSettingsModel
     {
+        public string Type { get; set; }
         public MaterialInAir_Model batchSettings_MaterialInAir { get; set; } = new();
         public DischargeDelay_Model batchSettings_DischargeDelay { get; set; } = new();
         public Step_Time_Model batchSettings_StepTime { get; set; } = new();

@@ -77,7 +77,9 @@
                         <ComboBox Grid.Row="0"
                                   x:Name="cmbRecipeId"
                                   Grid.Column="1"
-                                  Style="{StaticResource CompactComboBoxSmall}" Margin="8,8,0,8"/>
+                                  Style="{StaticResource CompactComboBoxSmall}"
+                                  Margin="8,8,0,8"
+                                  SelectionChanged="cmbRecipeId_SelectionChanged"/>
 
                         <TextBlock Text="Recipe Name"
                                    Grid.Row="1"
@@ -86,7 +88,8 @@
                         <ComboBox Grid.Row="1"
                                   x:Name="cmbRecipeName"
                                   Grid.Column="1"
-                                  Style="{StaticResource CompactComboBoxSmall}" Margin="6,8,0,8"/>
+                                  Style="{StaticResource CompactComboBoxSmall}" Margin="6,8,0,8"
+                                  SelectionChanged="cmbRecipeName_SelectionChanged"/>
 
                         <TextBlock Text="Strength"
                                    Grid.Row="2"

@@ -1,6 +1,9 @@
-﻿using Scada_Demo.MQTT_Model;
+﻿using Microsoft.Data.SqlClient;
+using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 using System.Windows;
+using Scada_Demo.Database;
+using Scada_Demo.MQTT_Model;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -47,11 +50,66 @@ namespace Scada_Demo.Batch_Settings
             // Ice / Silica value PLC-ku write
             await _batchSettings_EmptyValueService.WriteEMPTY_430(silica.Text);
 
+            SaveEmptyValues();
+
             MessageBox.Show(
                 "Empty Values Written Successfully",
                 "Success",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
+        }
+
+        private void SaveEmptyValues()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"
+IF EXISTS (SELECT 1 FROM EmptyValue_Setup)
+BEGIN
+    UPDATE EmptyValue_Setup
+    SET Aggregate = @Aggregate,
+        Cement = @Cement,
+        Water = @Water,
+        Admix12 = @Admix12,
+        Silica = @Silica
+END
+ELSE
+BEGIN
+    INSERT INTO EmptyValue_Setup
+    (
+        Aggregate,
+        Cement,
+        Water,
+        Admix12,
+        Silica
+    )
+    VALUES
+    (
+        @Aggregate,
+        @Cement,
+        @Water,
+        @Admix12,
+        @Silica
+    )
+END", con);
+
+                    cmd.Parameters.AddWithValue("@Aggregate", Convert.ToInt32(Agg.Text));
+                    cmd.Parameters.AddWithValue("@Cement", Convert.ToInt32(Cem.Text));
+                    cmd.Parameters.AddWithValue("@Water", Convert.ToInt32(Water.Text));
+                    cmd.Parameters.AddWithValue("@Admix12", Convert.ToDecimal(Adm12.Text));
+                    cmd.Parameters.AddWithValue("@Silica", Convert.ToInt32(silica.Text));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

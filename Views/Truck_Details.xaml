@@ -50,67 +50,75 @@
 
                 <!-- Truck Reg No -->
                 <TextBlock Text="Truck Reg No"
-                           Grid.Row="0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+           Grid.Row="0"
+           VerticalAlignment="Center"
+           Style="{StaticResource CompactLabel}"/>
 
-                <ComboBox Grid.Row="0"
-                          Grid.Column="2"
-                          Width="180"
-                          Height="34"
-                          Style="{StaticResource CompactComboBoxSmall}"/>
+                <ComboBox x:Name="cmbTruckNo"
+          Grid.Row="0"
+          Grid.Column="2"
+          Width="180"
+          Height="34"
+          IsEditable="True"
+          IsTextSearchEnabled="False"
+          SelectionChanged="cmbTruckNo_SelectionChanged"
+          Style="{StaticResource CompactComboBoxSmall}"/>
 
                 <!-- Driver -->
                 <TextBlock Text="Driver"
-                           Grid.Row="1"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+           Grid.Row="1"
+           VerticalAlignment="Center"
+           Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="1"
-                         Grid.Column="2"
-                         Width="180"
-                         Height="34"
-                         Margin="6,6,14,6"
-                         Style="{StaticResource JogTextBoxStyle}"/>
+                <TextBox x:Name="txtDriver"
+         Grid.Row="1"
+         Grid.Column="2"
+         Width="180"
+         Height="34"
+         Margin="6,6,14,6"
+         Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- Capacity -->
                 <TextBlock Text="Capacity"
-                           Grid.Row="2"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+           Grid.Row="2"
+           VerticalAlignment="Center"
+           Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="2"
-                         Grid.Column="2"
-                         Width="180"
-                         Height="34"
-                         Margin="6,6,14,6"
-                         Style="{StaticResource JogTextBoxStyle}"/>
+                <TextBox x:Name="txtCapacity"
+         Grid.Row="2"
+         Grid.Column="2"
+         Width="180"
+         Height="34"
+         Margin="6,6,14,6"
+         Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- Type of Truck -->
                 <TextBlock Text="Type of Truck"
-                           Grid.Row="3"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+           Grid.Row="3"
+           VerticalAlignment="Center"
+           Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="3"
-                         Grid.Column="2"
-                         Width="180"
-                         Height="34"
-                         Margin="6,6,14,6"
-                         Style="{StaticResource JogTextBoxStyle}"/>
+                <TextBox x:Name="txtTruckType"
+         Grid.Row="3"
+         Grid.Column="2"
+         Width="180"
+         Height="34"
+         Margin="6,6,14,6"
+         Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- Mixer Gate Timer -->
                 <TextBlock Text="Mixer Gate Timer"
-                           Grid.Row="4"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+           Grid.Row="4"
+           VerticalAlignment="Center"
+           Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="4"
-                         Grid.Column="2"
-                         Width="180"
-                         Height="34"
-                         Margin="6,6,14,6"
-                         Style="{StaticResource JogTextBoxStyle}"/>
+                <TextBox x:Name="txtMixerGateTimer"
+         Grid.Row="4"
+         Grid.Column="2"
+         Width="180"
+         Height="34"
+         Margin="6,6,14,6"
+         Style="{StaticResource JogTextBoxStyle}"/>
 
             </Grid>
 
@@ -121,19 +129,18 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,10">
+            <Button Content="SAVE"
+Width="105"
+Click="btnSave_Click"/>
 
-            <Button Content="Save"
-                    Width="100"
-                    Margin="8"/>
+            <Button Content="DELETE"
+Width="105"
+Click="btnDelete_Click"/>
 
-            <Button Content="Delete"
-                    Width="100"
-                    Margin="8"/>
-
-            <Button Content="Exit"
-                    Width="100"
-                    Margin="8"
-                    Style="{StaticResource RedButton}"/>
+            <Button Content="EXIT"
+Width="105"
+Style="{StaticResource RedButton}"
+Click="btnExit_Click"/>
 
         </StackPanel>
 

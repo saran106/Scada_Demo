@@ -62,12 +62,16 @@ Background="#0D3A3A"
                            Grid.Row="0"
                            VerticalAlignment="Center"
                            Style="{StaticResource CompactLabel}"/>
-
-                <ComboBox Grid.Row="0"
-             Grid.Column="2"
-            
-             Style="{StaticResource CompactComboBoxSmall}"
-              Width="180" Height="34"/>
+                <ComboBox
+    x:Name="cmbMaintID"
+    IsEditable="True"
+    IsTextSearchEnabled="False"
+    SelectionChanged="cmbMaintID_SelectionChanged"
+    Grid.Row="0"
+    Grid.Column="2"
+    Width="180"
+    Height="34"
+    Style="{StaticResource CompactComboBoxSmall}"/>
 
 
                 <!-- 2 -->
@@ -76,10 +80,14 @@ Background="#0D3A3A"
                            VerticalAlignment="Center"
                            Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="2" Grid.Column="2"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="34"
-                         Text="10" Width="180" Margin="6,6,14,6"/>
+                <TextBox
+    x:Name="txtMaintDesc"
+    Grid.Row="2"
+    Grid.Column="2"
+    Width="180"
+    Height="34"
+    Margin="6,6,14,6"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- 3 -->
                 <TextBlock Text="Daywise trigger(no of days)"
@@ -87,9 +95,14 @@ Background="#0D3A3A"
                            VerticalAlignment="Center"
                            Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="3" Grid.Column="2"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="34" Width="180" Margin="6,6,14,6"/>
+                <TextBox
+    x:Name="txtDaywise"
+    Grid.Row="3"
+    Grid.Column="2"
+    Width="180"
+    Height="34"
+    Margin="6,6,14,6"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- 4 -->
                 <TextBlock Text="Mixer running wise trigger(hrs)"
@@ -97,10 +110,15 @@ Background="#0D3A3A"
                            VerticalAlignment="Center"
                            Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="4" Grid.Column="2"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="34"
-                         Text="0" Width="180" Margin="6,6,14,6"/>
+
+                <TextBox
+    x:Name="txtMixerwise"
+    Grid.Row="4"
+    Grid.Column="2"
+    Width="180"
+    Height="34"
+    Margin="6,6,14,6"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
                 <!-- 5 -->
                 <TextBlock Text="Production wise trigger(M)"
@@ -108,11 +126,14 @@ Background="#0D3A3A"
                            VerticalAlignment="Center"
                            Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="5" Grid.Column="2"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="34"
-                         Margin="6,6,14,6"
-                         Text="1" Width="180"/>
+                <TextBox
+    x:Name="txtProdwise"
+    Grid.Row="5"
+    Grid.Column="2"
+    Width="180"
+    Height="34"
+    Margin="6,6,14,6"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
 
@@ -134,15 +155,15 @@ Background="#0D3A3A"
                     Margin="8"/>
 
             <Button Content="Save"
-                    Width="100"
-                    Margin="8"
-                   />
-
-            <Button Content="exit"
         Width="100"
         Margin="8"
-                    Style="{StaticResource RedButton}"
-       />
+        Click="btnSave_Click"/>
+
+            <Button Content="Exit"
+        Width="100"
+        Margin="8"
+        Style="{StaticResource RedButton}"
+        Click="btnExit_Click"/>
 
         </StackPanel>
 

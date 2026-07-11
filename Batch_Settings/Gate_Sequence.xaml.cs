@@ -1,7 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Data.SqlClient;
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
+using Microsoft.Data.SqlClient;
+using Scada_Demo.Database;
+using Scada_Demo.MQTT_Model;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -154,6 +158,8 @@ namespace Scada_Demo.Batch_Settings
 
                 await service.WriteGATESEQ_214(agg4Pos.ToString());
 
+                SaveGateSequence(agg1Pos, agg3Pos, agg4Pos);
+
                 MessageBox.Show(
                     "Gate Sequence Sent Successfully.",
                     "Success",
@@ -173,6 +179,42 @@ namespace Scada_Demo.Batch_Settings
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             PreferredList.Items.Clear();
+        }
+
+        private void SaveGateSequence(int gate1, int gate3, int gate4)
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"
+IF EXISTS (SELECT 1 FROM GateSeQ_Setup)
+BEGIN
+    UPDATE GateSeQ_Setup
+    SET Gate1 = @Gate1,
+        Gate3 = @Gate3,
+        Gate4 = @Gate4,
+        Gate2 = 2
+END
+ELSE
+BEGIN
+    INSERT INTO GateSeQ_Setup (Gate1, Gate3, Gate4,Gate2)
+    VALUES (@Gate1, @Gate3, @Gate4,2)
+END", con);
+
+                    cmd.Parameters.AddWithValue("@Gate1", gate1);
+                    cmd.Parameters.AddWithValue("@Gate3", gate3);
+                    cmd.Parameters.AddWithValue("@Gate4", gate4);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

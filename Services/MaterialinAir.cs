@@ -293,5 +293,70 @@ namespace Scada_Demo.Services
 
             await client.DisconnectAsync();
         }
+
+
+        public async Task WriteBatchSettings(BatchSettingsModel model)
+        {
+            var factory = new MqttClientFactory();
+            var client = factory.CreateMqttClient();
+
+            var options = new MqttClientOptionsBuilder()
+                .WithClientId("SCADASender")
+                .WithTcpServer("localhost", 1883)
+                .Build();
+
+            await client.ConnectAsync(options);
+
+            var json = JsonSerializer.Serialize(model);
+
+            var message = new MqttApplicationMessageBuilder()
+                .WithTopic("batchsettingstest/write")
+                .WithPayload(json)
+                .Build();
+
+            await client.PublishAsync(message);
+
+            await client.DisconnectAsync();
+        }
+
+
+        public async Task<BatchSettingsResponse> ReadBatchSettingsResponse()
+        {
+            var factory = new MqttClientFactory();
+            var client = factory.CreateMqttClient();
+
+            var tcs = new TaskCompletionSource<BatchSettingsResponse>();
+
+            var options = new MqttClientOptionsBuilder()
+                .WithClientId("SCADAReceiverResponse")
+                .WithTcpServer("localhost", 1883)
+                .Build();
+
+            await client.ConnectAsync(options);
+
+            client.ApplicationMessageReceivedAsync += e =>
+            {
+                if (e.ApplicationMessage.Topic == "batchsettingstest/response")
+                {
+                    var json = Encoding.UTF8.GetString(
+                        e.ApplicationMessage.Payload.FirstSpan);
+
+                    var result = JsonSerializer.Deserialize<BatchSettingsResponse>(json);
+
+                    if (result != null)
+                        tcs.TrySetResult(result);
+                }
+
+                return Task.CompletedTask;
+            };
+
+            await client.SubscribeAsync("batchsettingstest/response");
+
+            var response = await tcs.Task;
+
+            await client.DisconnectAsync();
+
+            return response;
+        }
     }
 }
