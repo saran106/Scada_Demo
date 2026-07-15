@@ -41,9 +41,9 @@
 
 //            await _client.ConnectAsync(options);
 
-//            await _client.SubscribeAsync("batchsettings/read");
+//            await _client.SubscribeAsync("Mimic_Screen/read");
 
-//            Console.WriteLine("📡 Subscribed : batchsettings/read");
+//            Console.WriteLine("📡 Subscribed : Mimic_Screen/read");
 //        }
 
 //        private Task OnMessageReceived(MqttApplicationMessageReceivedEventArgs e)
@@ -131,11 +131,11 @@ namespace Scada_Demo.Services
 
             await _client.ConnectAsync(options);
 
-            await _client.SubscribeAsync("batchsettings/read");
-            await _client.SubscribeAsync("batchsettingstest/response");
+            await _client.SubscribeAsync("Mimic_Screen/read");
+            await _client.SubscribeAsync("batchsettings/response");
 
-            Console.WriteLine("📡 Subscribed : batchsettings/read");
-            Console.WriteLine("📡 Subscribed : batchsettingstest/response");
+            Console.WriteLine("📡 Subscribed : Mimic_Screen/read");
+            Console.WriteLine("📡 Subscribed : batchsettings/response");
         }
 
         private Task OnMessageReceived(MqttApplicationMessageReceivedEventArgs e)
@@ -152,12 +152,12 @@ namespace Scada_Demo.Services
                 if (data == null)
                     return Task.CompletedTask;
 
-                if (topic == "batchsettings/read")
+                if (topic == "Mimic_Screen/read")
                 {
                     Console.WriteLine("✅ Running Values Updated");
                     _store.Update(data);
                 }
-                else if (topic == "batchsettingstest/response")
+                else if (topic == "batchsettings/response")
                 {
                     Console.WriteLine("✅ Write Response Updated");
                     _responseStore.Update(data);

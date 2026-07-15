@@ -22,4 +22,8 @@
     <Resource Include="project_small_i.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\User\" />
+  </ItemGroup>
+
 </Project>

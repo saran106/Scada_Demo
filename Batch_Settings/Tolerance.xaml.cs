@@ -17,6 +17,9 @@ using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 using Scada_Demo.Database;
 using Scada_Demo.MQTT_Model;
+using Scada_Demo.ViewModels.BatchSettings;
+using Sharp7;
+using System.Windows.Threading;
 
 namespace Scada_Demo.Batch_Settings
 {
@@ -25,223 +28,18 @@ namespace Scada_Demo.Batch_Settings
     /// </summary>
     public partial class Tolerance : Window
     {
+      
+        S7Client plc = new S7Client();
+        DispatcherTimer timer = new DispatcherTimer();
+        private ToleranceViewModel vm;
         public Tolerance()
         {
             InitializeComponent();
-        }
+            // PLC CONNECT
+            vm = App.TolVM;
+            DataContext = vm;
 
-        private async void BtnRead_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                MaterialinAir batchSettings = new MaterialinAir();
-
-                BatchSettingsModel data = await batchSettings.ReadValues();
-
-                if (AggregatePanel.Visibility == Visibility.Visible)
-                {
-                    Agg1.Text = data.batchSettings_Tolerance.Agg1.ToString();
-                    Agg2.Text = data.batchSettings_Tolerance.Agg2.ToString();
-                    Agg3.Text = data.batchSettings_Tolerance.Agg3.ToString();
-                    Agg4.Text = data.batchSettings_Tolerance.Agg4.ToString();
-                }
-                else if (CementPanel.Visibility == Visibility.Visible)
-                {
-                    Cem1.Text = data.batchSettings_Tolerance.Cem1.ToString();
-                    Cem2.Text = data.batchSettings_Tolerance.Cem1.ToString();
-                    Cem3.Text = data.batchSettings_Tolerance.Cem1.ToString();
-
-                    Cem4.Text = data.batchSettings_Tolerance.Cem4.ToString();
-                }
-                else if (WaterPanel.Visibility == Visibility.Visible)
-                {
-                    Wtr1.Text = data.batchSettings_Tolerance.Water.ToString();
-                }
-                else if (AdmixPanel.Visibility == Visibility.Visible)
-                {
-                    Adm1.Text = data.batchSettings_Tolerance.Adm1.ToString();
-                }
-                else if (SilicaPanel.Visibility == Visibility.Visible)
-                {
-                    Ice1.Text = data.batchSettings_Tolerance.Ice.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private async void BtnWrite_Click(object sender, RoutedEventArgs e)
-        {
-            Services.Tolerance mqtt = new Services.Tolerance();
-
-            if (AggregatePanel.Visibility == Visibility.Visible)
-            {
-                await mqtt.WriteTOL_118(Agg1.Text);
-                await mqtt.WriteTOL_120(Agg2.Text);
-                await mqtt.WriteTOL_122(Agg3.Text);
-                await mqtt.WriteTOL_124(Agg4.Text);
-            }
-
-            else if (CementPanel.Visibility == Visibility.Visible)
-            {
-                // Cem1, Cem2, Cem3 common tolerance
-                await mqtt.WriteTOL_126(Cem1.Text);
-
-
-                // Cem4 separate DB
-                await mqtt.WriteTOL_DB184_78(Cem4.Text);
-            }
-
-            else if (WaterPanel.Visibility == Visibility.Visible)
-            {
-                await mqtt.WriteTOL_376(Wtr1.Text);
-            }
-
-            else if (AdmixPanel.Visibility == Visibility.Visible)
-            {
-                await mqtt.WriteTOL_128(Adm1.Text);
-            }
-
-            else if (SilicaPanel.Visibility == Visibility.Visible)
-            {
-                await mqtt.WriteTOL_400(Ice1.Text);
-            }
-
-            SaveTolerance();
-
-            MessageBox.Show("Tolerance Values Written Successfully");
-        }
-
-        private void SaveTolerance()
-        {
-            try
-            {
-                using (SqlConnection con = DbConnection.GetConnection())
-                {
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"
-IF EXISTS (SELECT 1 FROM Tolerance_Setup)
-BEGIN
-    UPDATE Tolerance_Setup
-    SET
-        Gate1=@Gate1,
-        Gate2=@Gate2,
-        Gate3=@Gate3,
-        Gate4=@Gate4,
-        Cement1=@Cement1,
-        Cement4=@Cement4,
-        Water=@Water,
-        Admix1=@Admix1,
-        Silica=@Silica
-END
-ELSE
-BEGIN
-    INSERT INTO Tolerance_Setup
-    (
-        Gate1,Gate2,Gate3,Gate4,
-        Cement1,Cement4,
-        Water,
-        Admix1,
-        Silica
-    )
-    VALUES
-    (
-        @Gate1,@Gate2,@Gate3,@Gate4,
-        @Cement1,@Cement4,
-        @Water,
-        @Admix1,
-        @Silica
-    )
-END", con);
-
-                    cmd.Parameters.AddWithValue("@Gate1",
-                        string.IsNullOrWhiteSpace(Agg1.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg1.Text));
-
-                    cmd.Parameters.AddWithValue("@Gate2",
-                        string.IsNullOrWhiteSpace(Agg2.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg2.Text));
-
-                    cmd.Parameters.AddWithValue("@Gate3",
-                        string.IsNullOrWhiteSpace(Agg3.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg3.Text));
-
-                    cmd.Parameters.AddWithValue("@Gate4",
-                        string.IsNullOrWhiteSpace(Agg4.Text) ? (object)DBNull.Value : Convert.ToInt32(Agg4.Text));
-
-                    cmd.Parameters.AddWithValue("@Cement1",
-                        string.IsNullOrWhiteSpace(Cem1.Text) ? (object)DBNull.Value : Convert.ToInt32(Cem1.Text));
-
-                    cmd.Parameters.AddWithValue("@Cement4",
-                        string.IsNullOrWhiteSpace(Cem4.Text) ? (object)DBNull.Value : Convert.ToInt32(Cem4.Text));
-
-                    cmd.Parameters.AddWithValue("@Water",
-                        string.IsNullOrWhiteSpace(Wtr1.Text) ? (object)DBNull.Value : Convert.ToInt32(Wtr1.Text));
-
-                    cmd.Parameters.AddWithValue("@Admix1",
-                        string.IsNullOrWhiteSpace(Adm1.Text) ? (object)DBNull.Value : Convert.ToDecimal(Adm1.Text));
-
-                    cmd.Parameters.AddWithValue("@Silica",
-                        string.IsNullOrWhiteSpace(Ice1.Text) ? (object)DBNull.Value : Convert.ToInt32(Ice1.Text));
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        void HideAll()
-        {
-            AggregatePanel.Visibility = Visibility.Collapsed;
-            CementPanel.Visibility = Visibility.Collapsed;
-            WaterPanel.Visibility = Visibility.Collapsed;
-            AdmixPanel.Visibility = Visibility.Collapsed;
-            SilicaPanel.Visibility = Visibility.Collapsed;
-        }
-
-        void SetActiveButton(Button active)
-        {
-            foreach (Button btn in TabButtons.Children)
-                btn.Tag = null;
-
-            active.Tag = "Active";
-        }
-
-        private void ShowAggregate(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AggregatePanel.Visibility = Visibility.Visible;
-            if (sender != null) SetActiveButton((Button)sender);
-        }
-
-        private void ShowCement(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            CementPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowWater(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            WaterPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowAdmix(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AdmixPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowSilica(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            SilicaPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
+            //txtAgg1.Text = "12345";
         }
 
     }

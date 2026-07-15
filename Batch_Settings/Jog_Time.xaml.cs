@@ -11,8 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
+using Scada_Demo.ViewModels.BatchSettings;
+using Sharp7;
 
 
 namespace Scada_Demo.Batch_Settings
@@ -22,160 +25,19 @@ namespace Scada_Demo.Batch_Settings
     /// </summary>
     public partial class Jog_Time : Window
     {
+        
+
+        S7Client plc = new S7Client();
+        DispatcherTimer timer = new DispatcherTimer();
+        private JogTimeViewModel vm;
         public Jog_Time()
         {
             InitializeComponent();
-            ShowAggregate(null, null); // default tab
-        }
+            // PLC CONNECT
+            vm = App.JogTimeVM;
+            DataContext = vm;
 
-        void HideAll()
-        {
-            AggregatePanel.Visibility = Visibility.Collapsed;
-            CementPanel.Visibility = Visibility.Collapsed;
-            WaterPanel.Visibility = Visibility.Collapsed;
-            AdmixPanel.Visibility = Visibility.Collapsed;
-            SilicaPanel.Visibility = Visibility.Collapsed;
-        }
-
-        void SetActiveButton(Button active)
-        {
-            foreach (Button btn in TabButtons.Children)
-                btn.Tag = null;
-
-            active.Tag = "Active";
-        }
-
-        private void ShowAggregate(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AggregatePanel.Visibility = Visibility.Visible;
-            if (sender != null) SetActiveButton((Button)sender);
-        }
-
-        private void ShowCement(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            CementPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowWater(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            WaterPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowAdmix(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AdmixPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private void ShowSilica(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            SilicaPanel.Visibility = Visibility.Visible;
-            SetActiveButton((Button)sender);
-        }
-
-        private async void BtnRead_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                MaterialinAir service = new MaterialinAir();
-
-                BatchSettingsModel data = await service.ReadValues();
-
-                var jog = data.batchSettings_JogSettings;
-
-                if (AggregatePanel.Visibility == Visibility.Visible)
-                {
-                    Agg1JogOn.Text = jog.Agg1.ToString();
-                    Agg2JogOn.Text = jog.Agg2.ToString();
-                    Agg3JogOn.Text = jog.Agg3.ToString();
-                    Agg4JogOn.Text = jog.Agg4.ToString();
-
-                    Agg1JogOff.Text = jog.Agg1Off.ToString();
-                    Agg2JogOff.Text = jog.Agg2Off.ToString();
-                    Agg3JogOff.Text = jog.Agg3Off.ToString();
-                    Agg4JogOff.Text = jog.Agg4Off.ToString();
-                }
-                else if (CementPanel.Visibility == Visibility.Visible)
-                {
-                    Cem3JogOn.Text = jog.Cem.ToString();
-                    Cem2JogOn.Text = jog.Cem.ToString();
-                    Cem1JogOn.Text = jog.Cem.ToString();
-                    Cem4JogOn.Text = jog.Cem.ToString();
-                    Cem5JogOn.Text = jog.Cem.ToString();
-                }
-                else if (WaterPanel.Visibility == Visibility.Visible)
-                {
-                    Wtr1JogOn.Text = jog.Water.ToString();
-                }
-                else if (AdmixPanel.Visibility == Visibility.Visible)
-                {
-                    Admix1JogOn.Text = jog.Admix.ToString();
-                    Admix2JogOn.Text = jog.Admix.ToString();
-                }
-                else if (SilicaPanel.Visibility == Visibility.Visible)
-                {
-                    SilicaJogOn.Text = jog.Ice.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-        private async void WriteToPLC_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                JogTime jog = new JogTime();
-
-                if (AggregatePanel.Visibility == Visibility.Visible)
-                {
-                    await jog.WriteJOGON_142(Agg1JogOn.Text);
-                    await jog.WriteJOGON_146(Agg2JogOn.Text);
-                    await jog.WriteJOGON_150(Agg3JogOn.Text);
-                    await jog.WriteJOGON_154(Agg4JogOn.Text);
-
-                    await jog.WriteJOGOFF_144(Agg1JogOff.Text);
-                    await jog.WriteJOGOFF_148(Agg2JogOff.Text);
-                    await jog.WriteJOGOFF_152(Agg3JogOff.Text);
-                    await jog.WriteJOGOFF_156(Agg4JogOff.Text);
-                }
-
-                else if (CementPanel.Visibility == Visibility.Visible)
-                {
-                    await jog.WriteJOGON_236(Cem3JogOn.Text);
-                }
-
-                else if (WaterPanel.Visibility == Visibility.Visible)
-                {
-                    await jog.WriteJOGON_420(Wtr1JogOn.Text);
-                }
-
-                else if (AdmixPanel.Visibility == Visibility.Visible)
-                {
-                    await jog.WriteJOGON_240(Admix1JogOn.Text);
-                }
-
-                else if (SilicaPanel.Visibility == Visibility.Visible)
-                {
-                    await jog.WriteJOGON_416(SilicaJogOn.Text);
-                }
-
-                MessageBox.Show("Values Written Successfully");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //txtAgg1.Text = "12345";
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Scada_Demo.MQTT_Model;
+using System.Windows;
 using Scada_Demo.ViewModels.BatchSettings;
 
 namespace Scada_Demo.Services
@@ -8,21 +9,80 @@ namespace Scada_Demo.Services
 
         private BatchSettingsModel _current = new();
 
-        public BatchSettingsModel Current => _current;   
+        public BatchSettingsModel Current => _current;
 
         public event EventHandler? DataReceived;
         private readonly MaterialInAirViewModel _MaterialInAirViewModel;
-        public BatchSettingsResponseStore(MaterialInAirViewModel materialInAirViewModel)
+        private readonly DischargeDelayViewModel _DischargeDelayViewModel;
+        private readonly EmptyValueViewModel _EmptyValueViewModel;
+        private readonly GateSequenceViewModel _GateSequenceViewModel;
+        private readonly StepTimeViewModel _StepTimeViewModel;
+        private readonly JogTimeViewModel _JogTimeViewModel;
+        private readonly ToleranceViewModel _ToleranceViewModel;
+        public BatchSettingsResponseStore(MaterialInAirViewModel materialInAirViewModel, DischargeDelayViewModel DischargeDelayViewModel
+            , EmptyValueViewModel emptyValueViewModel, GateSequenceViewModel gateSequenceViewModel, StepTimeViewModel stepTimeViewModel, JogTimeViewModel jogTimeViewModel, ToleranceViewModel toleranceViewModel)
         {
             _MaterialInAirViewModel = materialInAirViewModel;
+            _DischargeDelayViewModel = DischargeDelayViewModel;
+            _EmptyValueViewModel = emptyValueViewModel;
+            _GateSequenceViewModel = gateSequenceViewModel;
+            _StepTimeViewModel = stepTimeViewModel;
+            _JogTimeViewModel = jogTimeViewModel;
+            _ToleranceViewModel = toleranceViewModel;
         }
 
-        public void Update(BatchSettingsModel data) 
+        public void Update(BatchSettingsModel data)
         {
             _current = data;
 
-            _MaterialInAirViewModel.ResponseStore_DataReceived(data);
+            switch (data.Type)
+            {
+                case "MIA":
+                    {
+                        _MaterialInAirViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+                case "DischargeDelay":
+                    {
+                        _DischargeDelayViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
 
+                case "EmptyValue":
+                    {
+                        _EmptyValueViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+
+                case "GateSequence":
+                    {
+                        _GateSequenceViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+
+                case "StepTime":
+                    {
+                        _StepTimeViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    } 
+
+                case "JogTime":
+                    {
+                        _JogTimeViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    } 
+                case "Tolerance":
+                    {
+                        _ToleranceViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+
+
+
+            }
+
+            DataReceived?.Invoke(this, EventArgs.Empty);
+            // });
             DataReceived?.Invoke(this, EventArgs.Empty);
         }
     }

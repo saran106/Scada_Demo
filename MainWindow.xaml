@@ -1452,10 +1452,10 @@ x:Name="txtICEweighervalue"
 
                             <!-- MIXER DATA -->
                             <TextBlock Text="MIXER DATA"
-                           Foreground="#00FFFF"
+                     
                            FontWeight="Bold"
                            FontSize="17"
-                           Style="{DynamicResource CompactLabel}"
+                           Style="{DynamicResource miniLabelStyle}"
                            Margin="0,0,0,18"/>
 
                             <Grid>
@@ -1472,19 +1472,19 @@ x:Name="txtICEweighervalue"
                                     <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
 
-                                            <TextBlock Text="Mixer Mid Discharge" Foreground="#00FFFF" Grid.Row="0"  Style="{StaticResource CompactLabel}"/>
+                                            <TextBlock Text="Mixer Mid Discharge"   Style="{DynamicResource miniLabelStyle}" Grid.Row="0"  />
                                 <TextBox Text="0" Grid.Row="0" Grid.Column="1"/>
 
-                                            <TextBlock Text="Mixer Full Discharge" Foreground="#00FFFF" Grid.Row="1"  Style="{StaticResource CompactLabel}"/>
+                                            <TextBlock Text="Mixer Full Discharge"   Style="{DynamicResource miniLabelStyle}" Grid.Row="1"  />
                                 <TextBox Text="0" Grid.Row="1" Grid.Column="1"/>
 
-                                            <TextBlock Text="Mixer Mixing Time" Foreground="#00FFFF" Grid.Row="2"  Style="{StaticResource CompactLabel}"/>
+                                            <TextBlock Text="Mixer Mixing Time"   Style="{DynamicResource miniLabelStyle}" Grid.Row="2"  />
                                 <TextBox Text="0" Grid.Row="2" Grid.Column="1"/>
 
-                                            <TextBlock Text="Mixer Pre Mixing Time" Foreground="#00FFFF" Grid.Row="3"  Style="{StaticResource CompactLabel}"/>
+                                            <TextBlock Text="Mixer Pre Mixing Time"   Style="{DynamicResource miniLabelStyle}" Grid.Row="3"  />
                                 <TextBox Text="0" Grid.Row="3" Grid.Column="1"/>
 
-                                            <TextBlock Text="Mixer Running Hours" Foreground="#00FFFF" Grid.Row="4"  Style="{StaticResource CompactLabel}"/>
+                                            <TextBlock Text="Mixer Running Hours"   Style="{DynamicResource miniLabelStyle}" Grid.Row="4"  />
                                 <TextBox Text="6441" Grid.Row="4" Grid.Column="1"/>
                             </Grid>
 
@@ -4882,22 +4882,22 @@ VerticalAlignment="Center" Canvas.Top="-33">
         Background="{DynamicResource PrimaryBgBrush}"
         CornerRadius="6"
         Padding="10"
-        BorderBrush="{StaticResource BorderBrushColor}"
+        BorderBrush="{DynamicResource BorderBrushColor}"
         BorderThickness="1">
 
                                     <StackPanel>
 
                                         <TextBlock Text="Batch Schedule Stat"
-                   Style="{StaticResource HeaderTextStyle}" />
+                   Style="{DynamicResource HeaderTextStyle}" />
 
                                         <DataGrid AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   Background="Transparent"
                   Foreground="White"
 
-                  ColumnHeaderStyle="{StaticResource DarkDataGridHeaderStyle}"
-                  CellStyle="{StaticResource DarkDataGridCellStyle}"
-                  RowStyle="{StaticResource DarkDataGridRowStyle}">
+                  ColumnHeaderStyle="{DynamicResource DarkDataGridHeaderStyle}"
+                  CellStyle="{DynamicResource DarkDataGridCellStyle}"
+                  RowStyle="{DynamicResource DarkDataGridRowStyle}">
 
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Order" Binding="{Binding Order}" Width="*"/>

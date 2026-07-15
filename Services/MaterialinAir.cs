@@ -80,7 +80,7 @@ namespace Scada_Demo.Services
                 return Task.CompletedTask;
             };
 
-            await client.SubscribeAsync("batchsettings/read");
+            await client.SubscribeAsync("Mimic_Screen/read");
 
             var data = await tcs.Task;
 
@@ -310,7 +310,7 @@ namespace Scada_Demo.Services
             var json = JsonSerializer.Serialize(model);
 
             var message = new MqttApplicationMessageBuilder()
-                .WithTopic("batchsettingstest/write")
+                .WithTopic("batchsettings/write")
                 .WithPayload(json)
                 .Build();
 
@@ -336,7 +336,7 @@ namespace Scada_Demo.Services
 
             client.ApplicationMessageReceivedAsync += e =>
             {
-                if (e.ApplicationMessage.Topic == "batchsettingstest/response")
+                if (e.ApplicationMessage.Topic == "batchsettings/response")
                 {
                     var json = Encoding.UTF8.GetString(
                         e.ApplicationMessage.Payload.FirstSpan);
@@ -350,7 +350,7 @@ namespace Scada_Demo.Services
                 return Task.CompletedTask;
             };
 
-            await client.SubscribeAsync("batchsettingstest/response");
+            await client.SubscribeAsync("batchsettings/response");
 
             var response = await tcs.Task;
 

@@ -26,12 +26,25 @@
                     Orientation="Horizontal"
                     Margin="5">
 
-            <Button Content="Aggregate" Style="{DynamicResource TabButtonStyle}" Click="ShowAggregate"/>
-            <Button Content="Cement" Style="{DynamicResource TabButtonStyle}" Click="ShowCement"/>
-            <Button Content="Water" Style="{DynamicResource TabButtonStyle}" Click="ShowWater"/>
-            <Button Content="Admixture" Style="{DynamicResource TabButtonStyle}" Click="ShowAdmix"/>
-            <Button Content="Micro Silica" Style="{DynamicResource TabButtonStyle}" Click="ShowSilica"/>
+            <Button Content="Aggregate"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowAggregateCommand}"/>
 
+            <Button Content="Cement"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowCementCommand}"/>
+
+            <Button Content="Water"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowWaterCommand}"/>
+
+            <Button Content="Admixture"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowAdmixCommand}"/>
+
+            <Button Content="Micro Silica"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowSilicaCommand}"/>
         </StackPanel>
 
         <!-- CONTENT -->
@@ -46,7 +59,7 @@
             <Grid>
 
                 <!-- ================= AGGREGATE ================= -->
-                <Grid x:Name="AggregatePanel" Margin="10">
+                <Grid Visibility="{Binding AggregateVisibility}" Margin="10">
 
                     <Grid Margin="10">
 
@@ -81,9 +94,9 @@
                                     <TextBlock Text="Agg1"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg1JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg1JogOn, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -92,9 +105,9 @@
                                     <TextBlock Text="Agg2"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg2JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg2JogOn, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -103,9 +116,9 @@
                                     <TextBlock Text="Agg3"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg3JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg3JogOn, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -114,9 +127,9 @@
                                     <TextBlock Text="Agg4"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg4JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg4JogOn, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -125,9 +138,9 @@
                                     <TextBlock Text="Agg5"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg5JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             IsEnabled="False"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -136,9 +149,9 @@
                                     <TextBlock Text="Agg6"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg6JogOn"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             IsEnabled="False"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -171,9 +184,9 @@
                                     <TextBlock Text="Agg1"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg1JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg1JogOff, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -182,9 +195,9 @@
                                     <TextBlock Text="Agg2"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg2JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg2JogOff, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -193,9 +206,9 @@
                                     <TextBlock Text="Agg3"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg3JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg3JogOff, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -204,9 +217,9 @@
                                     <TextBlock Text="Agg4"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg4JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             Text="{Binding Agg4JogOff, UpdateSourceTrigger=PropertyChanged}"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -215,9 +228,9 @@
                                     <TextBlock Text="Agg5"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg5JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             IsEnabled="False"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -226,9 +239,9 @@
                                     <TextBlock Text="Agg6"
                                Width="70"
                                Style="{DynamicResource CompactLabel}"/>
-                                    <TextBox x:Name="Agg6JogOff"
-                             Width="180"
+                                    <TextBox Width="180"
                              Height="34"
+                             IsEnabled="False"
                              Style="{DynamicResource JogTextBoxStyle}"/>
                                 </StackPanel>
 
@@ -239,9 +252,8 @@
                     </Grid>
 
                 </Grid>
-
                 <!-- ================= CEMENT ================= -->
-                <Grid x:Name="CementPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding CementVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -269,58 +281,53 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Cem1 -->
                             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem1JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem2 -->
                             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem2JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem3 -->
                             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem3JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem4 -->
                             <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock Text="Cem4"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem4JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem5 -->
                             <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock Text="Cem5"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem5JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -348,58 +355,53 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Cem1 -->
                             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem1JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem2 -->
                             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem2JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem3 -->
                             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="Cem3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem3JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem4 -->
                             <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock Text="Cem4"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem4JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
-                            <!-- Cem5 -->
                             <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock Text="Cem5"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Cem5JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding CemJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -408,9 +410,10 @@
                     </GroupBox>
 
                 </Grid>
+
 
                 <!-- ================= WATER ================= -->
-                <Grid x:Name="WaterPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding WaterVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -437,9 +440,9 @@
                                 <TextBlock Text="Wtr1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr1JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding WaterJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -448,9 +451,9 @@
                                 <TextBlock Text="Wtr2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr2JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -459,9 +462,9 @@
                                 <TextBlock Text="Wtr3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr3JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -488,9 +491,9 @@
                                 <TextBlock Text="Wtr1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr1JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding WaterJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -499,9 +502,9 @@
                                 <TextBlock Text="Wtr2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr2JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -510,9 +513,9 @@
                                 <TextBlock Text="Wtr3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Wtr3JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -521,9 +524,11 @@
                     </GroupBox>
 
                 </Grid>
+
+
 
                 <!-- ================= ADMIX ================= -->
-                <Grid x:Name="AdmixPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding AdmixVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -555,9 +560,9 @@
                                 <TextBlock Text="Admix1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix1JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding AdmixJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -566,9 +571,9 @@
                                 <TextBlock Text="Admix2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix2JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding AdmixJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -577,9 +582,9 @@
                                 <TextBlock Text="Admix3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix3JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -588,9 +593,9 @@
                                 <TextBlock Text="Admix4"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix4JogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -622,9 +627,9 @@
                                 <TextBlock Text="Admix1"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix1JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding AdmixJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -633,9 +638,9 @@
                                 <TextBlock Text="Admix2"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix2JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding AdmixJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -644,9 +649,9 @@
                                 <TextBlock Text="Admix3"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix3JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -655,9 +660,9 @@
                                 <TextBlock Text="Admix4"
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
-                                <TextBox x:Name="Admix4JogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         IsEnabled="False"
                          Style="{DynamicResource JogTextBoxStyle}"/>
                             </StackPanel>
 
@@ -666,10 +671,11 @@
                     </GroupBox>
 
                 </Grid>
+
 
                 <!-- ================= SILICA ================= -->
 
-                <Grid x:Name="SilicaPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding SilicaVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -689,7 +695,6 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Silica -->
                             <StackPanel Grid.Row="0"
                         Orientation="Horizontal"
                         VerticalAlignment="Center">
@@ -698,9 +703,9 @@
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
 
-                                <TextBox x:Name="SilicaJogOn"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding SilicaJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
 
                             </StackPanel>
@@ -721,7 +726,6 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Silica -->
                             <StackPanel Grid.Row="0"
                         Orientation="Horizontal"
                         VerticalAlignment="Center">
@@ -730,9 +734,9 @@
                            Width="70"
                            Style="{DynamicResource CompactLabel}"/>
 
-                                <TextBox x:Name="SilicaJogOff"
-                         Width="180"
+                                <TextBox Width="180"
                          Height="34"
+                         Text="{Binding SilicaJogOn, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource JogTextBoxStyle}"/>
 
                             </StackPanel>
@@ -750,11 +754,18 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,10">
+            <Button Content="Read from PLC"
+        Width="130"
+        Command="{Binding ReadFromPlcCommand}"/>
 
-            <Button Content="Read from PLC" Width="130" Click="BtnRead_Click"/>
-            <Button Content="Write to PLC / DB" Width="160" Click="WriteToPLC_Click"/>
-            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
+            <Button Content="Write to PLC / DB"
+        Width="160"
+        Command="{Binding WriteToPlcCommand}"/>
 
+            <Button Content="Exit"
+        Width="100"
+        Style="{DynamicResource RedButton}"
+        Command="{Binding ExitCommand}"/>
         </StackPanel>
 
     </Grid>

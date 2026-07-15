@@ -54,19 +54,12 @@
 
                 <!-- LEFT LIST -->
                 <StackPanel>
-                    <ListBox x:Name="CurrentList"
-                             Height="250"
-                             Background="White"
-                             Foreground="Black">
-
-                        <ListBoxItem Content="Agg1 : 1"/>
-                        <ListBoxItem Content="Agg2 : 2"/>
-                        <ListBoxItem Content="Agg3 : 3"/>
-                        <ListBoxItem Content="Agg4 : 4"/>
-                        <ListBoxItem Content="Agg5 : 5"/>
-                        <ListBoxItem Content="Agg6 : 6"/>
-
-                    </ListBox>
+                    <ListBox
+    Height="250"
+    Background="White"
+    Foreground="Black"
+    ItemsSource="{Binding CurrentItems}"
+    SelectedItem="{Binding SelectedCurrentItem}" />
                 </StackPanel>
 
                 <!-- MIDDLE BUTTONS -->
@@ -77,21 +70,22 @@
                     <Button Content="&gt;"
         Width="50"
         Height="40"
-        Click="MoveToPreferred_Click"/>
+        Command="{Binding MoveCommand}"/>
 
                     <Button Content="Refresh"
         Width="80"
         Height="40"
         Margin="0,20,0,0"
-        Click="Refresh_Click"/>
+      Command="{Binding RefreshCommand}"/>
                 </StackPanel>
 
                 <!-- RIGHT LIST -->
                 <StackPanel Grid.Column="2">
-                    <ListBox x:Name="PreferredList"
-                             Height="250"
-                             Background="White"
-                             Foreground="Black"/>
+                    <ListBox
+    Height="250"
+    Background="White"
+    Foreground="Black"
+    ItemsSource="{Binding PreferredItems}" />
                 </StackPanel>
 
             </Grid>
@@ -102,13 +96,14 @@
                         HorizontalAlignment="Center"
                         Margin="10">
 
-                <Button Content="Read from PLC" Width="140" Click="ReadFromPLC_Click"/>
+                <Button Content="Read from PLC" Width="140" Command="{Binding ReadFromPlcCommand}"/>
                 <Button Content="Write to PLC / DB"
         Width="170"
-        Click="WriteToPLC_Click"/>
-                <Button Content="Exit" Width="120"
-                        Style="{DynamicResource RedButton}"/>
-
+   Command="{Binding WriteToPlcCommand}"/>
+                <Button Content="Exit"
+        Width="120"
+        Style="{DynamicResource RedButton}"
+        Command="{Binding ExitCommand}"/>
             </StackPanel>
 
         </Grid>

@@ -28,13 +28,25 @@
                     Grid.Row="1"
                     Orientation="Horizontal"
                     Margin="5">
+            <Button Content="Aggregate"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowAggregateCommand}"/>
 
-            <Button Content="Aggregate" Style="{DynamicResource TabButtonStyle}" Click="ShowAggregate"/>
-            <Button Content="Cement" Style="{DynamicResource TabButtonStyle}" Click="ShowCement"/>
-            <Button Content="Water" Style="{DynamicResource TabButtonStyle}" Click="ShowWater"/>
-            <Button Content="Admixture" Style="{DynamicResource TabButtonStyle}" Click="ShowAdmix"/>
-            <Button Content="Micro Silica" Style="{DynamicResource TabButtonStyle}" Click="ShowSilica"/>
+            <Button Content="Cement"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowCementCommand}"/>
 
+            <Button Content="Water"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowWaterCommand}"/>
+
+            <Button Content="Admixture"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowAdmixCommand}"/>
+
+            <Button Content="Micro Silica"
+        Style="{DynamicResource TabButtonStyle}"
+        Command="{Binding ShowSilicaCommand}"/>
         </StackPanel>
 
         <!-- CONTENT -->
@@ -49,7 +61,7 @@
             <Grid>
 
                 <!-- ================= AGGREGATE ================= -->
-                <Grid x:Name="AggregatePanel" Margin="10">
+                <Grid Visibility="{Binding AggregateVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -63,99 +75,101 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- LEFT SIDE -->
-
                     <!-- Agg1 -->
                     <StackPanel Grid.Row="0" Grid.Column="0"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-               >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg1"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox   x:Name="Agg1"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Agg2 -->
                     <StackPanel Grid.Row="1" Grid.Column="0"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg2"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Agg2"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg2, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Agg3 -->
                     <StackPanel Grid.Row="2" Grid.Column="0"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-               >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg3"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox   x:Name="Agg3"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg3, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
-
-
-                    <!-- RIGHT SIDE -->
 
                     <!-- Agg4 -->
                     <StackPanel Grid.Row="0" Grid.Column="2"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg4"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Agg4"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg4, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Agg5 -->
                     <StackPanel Grid.Row="1" Grid.Column="2"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg5"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Agg5"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg5, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Agg6 -->
                     <StackPanel Grid.Row="2" Grid.Column="2"
                 Orientation="Horizontal"
-                VerticalAlignment="Center"
-                >
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Agg6"
                    Width="70"
                    Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Agg6"  Style="{DynamicResource JogTextBoxStyle}"
-                 Width="180" Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAgg6, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                 </Grid>
 
+
                 <!-- ================= CEMENT ================= -->
-                <Grid x:Name="CementPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding CementVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -169,86 +183,87 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- LEFT SIDE -->
                     <!-- Cem1 -->
                     <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Cem1"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Cem1" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtC1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Cem2 -->
                     <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
-                        <TextBlock  Text="Cem2"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                        <TextBlock Text="Cem2"
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Cem2" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtC1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Cem3 -->
                     <StackPanel Grid.Row="2" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Cem3"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Cem3" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtC1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
-
-
-                    <!-- RIGHT SIDE -->
 
                     <!-- Cem4 -->
                     <StackPanel Grid.Row="0" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Cem4"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Cem4" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtC4, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Cem5 -->
                     <StackPanel Grid.Row="1" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Cem5"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox   x:Name="Cem5" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtC4, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
-
-
 
                 </Grid>
 
+
                 <!-- ================= WATER ================= -->
-                <Grid x:Name="WaterPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding WaterVisibility}" Margin="10">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="40"/>
@@ -261,53 +276,56 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- LEFT SIDE -->
                     <!-- Wtr1 -->
                     <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Wtr1"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Wtr1" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtWTR1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Wtr2 -->
                     <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Wtr2"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox  x:Name="Wtr2" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtWTR2, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Wtr3 -->
                     <StackPanel Grid.Row="2" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Wtr3"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Wtr3" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtWTR3, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                 </Grid>
 
+
                 <!-- ================= ADMIX ================= -->
-                <Grid x:Name="AdmixPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding AdmixVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -322,68 +340,68 @@
 
                     <!-- Admix1 -->
                     <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Admix1"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Adm1" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAD1, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Admix2 -->
                     <StackPanel Grid.Row="1" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Admix2"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Adm2" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAD2, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
-
-
-
-                    <!-- RIGHT SIDE -->
 
                     <!-- Admix3 -->
                     <StackPanel Grid.Row="0" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Admix3"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Adm3" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAD3, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                     <!-- Admix4 -->
-                    <StackPanel  Grid.Row="1" Grid.Column="2"
- Orientation="Horizontal"
- VerticalAlignment="Center"
- >
+                    <StackPanel Grid.Row="1" Grid.Column="2"
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Admix4"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Adm4" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtAD4, UpdateSourceTrigger=PropertyChanged}"/>
                     </StackPanel>
 
                 </Grid>
 
                 <!-- ================= SILICA ================= -->
-                <Grid x:Name="SilicaPanel" Visibility="Collapsed" Margin="10">
+                <Grid Visibility="{Binding SilicaVisibility}" Margin="10">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -397,20 +415,23 @@
                     </Grid.RowDefinitions>
 
                     <!-- Silica -->
-                    <StackPanel Grid.Row="0" Grid.Column="0"
- Orientation="Horizontal"
- VerticalAlignment="Center"
->
+                    <StackPanel Grid.Row="0"
+                Grid.Column="0"
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
                         <TextBlock Text="Silica"
-    Width="70"
-    Style="{DynamicResource CompactLabel}"/>
+                   Width="70"
+                   Style="{DynamicResource CompactLabel}"/>
 
-                        <TextBox x:Name="Ice1" Style="{DynamicResource JogTextBoxStyle}"
-  Width="180"  Height="34"/>
+                        <TextBox Width="180"
+                 Height="34"
+                 Style="{DynamicResource JogTextBoxStyle}"
+                 Text="{Binding txtICE, UpdateSourceTrigger=PropertyChanged}"/>
+
                     </StackPanel>
-                </Grid>
 
+                </Grid>
             </Grid>
         </Border>
 
@@ -419,11 +440,19 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,10">
+            
+            <Button Content="Read from PLC"
+        Width="130"
+        Command="{Binding ReadFromPlcCommand}"/>
 
-            <Button Content="Read from PLC" Width="130"  Click="BtnRead_Click"/>
-            <Button Content="Write to PLC / DB" Width="160"  Click="BtnWrite_Click"/>
-            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
+            <Button Content="Write to PLC / DB"
+        Width="160"
+        Command="{Binding WriteToPlcCommand}"/>
 
+            <Button Content="Exit"
+        Width="100"
+        Style="{DynamicResource RedButton}"
+        Command="{Binding ExitCommand}"/>
         </StackPanel>
 
     </Grid>

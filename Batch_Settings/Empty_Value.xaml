@@ -48,25 +48,25 @@ Height="470"
                 <!-- Aggregate -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Aggregate" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox x:Name="Agg" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox x:Name="Agg" Text="{Binding Aggregate, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Cement -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Cement" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox x:Name="Cem" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox x:Name="Cem"   Text="{Binding Cement, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Water -->
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="Water" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox x:Name="Water" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBlock Text="Water"  Width="80" Style="{DynamicResource CompactLabel}"/>
+                    <TextBox x:Name="Water" Text="{Binding Water, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Wtr2 -->
                 <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Wtr2" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox x:Name="WTR" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox x:Name="WTR" Text="{Binding Water2, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
 
@@ -75,19 +75,19 @@ Height="470"
                 <!-- Admix 1&2 -->
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Admixture 1 &amp; 2" Width="120" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox  x:Name="Adm12" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox  x:Name="Adm12"  Text="{Binding Admix, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Admix 3&4 -->
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Admixture 3 &amp; 4" Width="120" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox x:Name="adm34" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox x:Name="adm34"    Text="{Binding Admix34, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
                 <!-- Silica -->
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Silica" Width="120" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox  x:Name="silica" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
+                    <TextBox  x:Name="silica"    Text="{Binding Silica, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource JogTextBoxStyle}" Width="180" Height="34"/>
                 </StackPanel>
 
             </Grid>
@@ -101,15 +101,17 @@ Height="470"
 
             <Button Content="Read from PLC"
         Width="130"
-        Click="BtnRead_Click"/>
+        Command="{Binding ReadFromPlcCommand}"/>
 
             <Button Content="Write to PLC / DB"
         Width="160"
-        Click="BtnWrite_Click"/>
+        Command="{Binding WriteToPlcCommand}"/>
 
-           
-            <Button Content="Exit" Width="100" Style="{DynamicResource RedButton}"/>
-
+            <Button Content="Exit"
+        Width="100"
+        Style="{DynamicResource RedButton}"
+        Command="{Binding ExitCommand}"/>
+            
         </StackPanel>
 
     </Grid>
