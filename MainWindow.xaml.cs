@@ -13,6 +13,7 @@ using Scada_Demo.Other_Settings;
 using Scada_Demo.User;
 using Scada_Demo.Transactions;
 using Scada_Demo.MQTT_Model;
+using Scada_Demo.Common;
 
 namespace Scada_Demo
 {
@@ -306,6 +307,12 @@ namespace Scada_Demo
         ViewKey = "Register_New_User"
     },
 
+     new SubMenuItem
+    {
+        Name = "Modify User",
+        ViewKey = "Modify_user"
+    },
+
     new SubMenuItem
     {
         Name = "Delete User",
@@ -341,6 +348,11 @@ namespace Scada_Demo
     {
         Name = "Manual Operation2",
         ViewKey = "Manual_Operation2"
+    },
+            new SubMenuItem
+    {
+        Name = "Cement Silo Level",
+        ViewKey = "Cement_Silo_Level"
     }
 
 
@@ -352,6 +364,24 @@ namespace Scada_Demo
 
             SubMenuItem item = element.DataContext as SubMenuItem;
             if (item == null) return;
+            bool isAuthorized = item.ViewKey switch
+            {
+                "Customer" => UserSession.Auth_MAS_CUS,
+                "Site" => UserSession.Auth_MAS_SITE,
+                "Order" => UserSession.Auth_MAS_ORD,
+                "Inward" => UserSession.Auth_MAS_INW,
+                "Recipe" => UserSession.Auth_MAS_RECP,
+                "Truck" => UserSession.Auth_MAS_TRK,
+                "Maintenance" => UserSession.Auth_MAS_MNT,
+                "Schedule" => UserSession.Auth_MAS_SCH,
+                _ => true
+            };
+
+            if (!isAuthorized)
+            {
+                MessageBox.Show("You are not authorised.");
+                return;
+            }
 
             switch (item.ViewKey)
             {
@@ -365,17 +395,16 @@ namespace Scada_Demo
 
                 case "Order":
                     OpenWindowOnce<Configuration_Order>();
-                    break;   
+                    break;
 
                 case "Recipe":
                     OpenWindowOnce<Recipe_Details>();
                     break;
 
-
                 case "Inward":
                     OpenWindowOnce<Inward>();
                     break;
-                
+
                 case "Maintenance":
                     OpenWindowOnce<Maintenance>();
                     break;
@@ -454,6 +483,26 @@ namespace Scada_Demo
             SubMenuItem item = element.DataContext as SubMenuItem;
             if (item == null) return;
 
+            bool isAuthorized = item.ViewKey switch
+            {
+                "Batch_Output_Mode" => UserSession.Auth_BS_BOM,
+                "Gate_Sequence" => UserSession.Auth_BS_GS,
+                "Jog_Time" => UserSession.Auth_BS_JT,
+                "Empty_Value" => UserSession.Auth_BS_EMPV,
+                "Tolerance" => UserSession.Auth_BS_TOL,
+                "Discharge_Sequence" => UserSession.Auth_BS_DSQ,
+                "Step_Time" => UserSession.Auth_BS_STP,
+                "Material_Air" => UserSession.Auth_BS_MIA,
+                "Coarse_to_Fine" => UserSession.Auth_BS_CTF,
+                _ => true
+            };
+
+            if (!isAuthorized)
+            {
+                MessageBox.Show("You are not authorised.");
+                return;
+            }
+
             switch (item.ViewKey)
             {
                 case "Batch_Output_Mode":
@@ -504,6 +553,23 @@ namespace Scada_Demo
             SubMenuItem item = element.DataContext as SubMenuItem;
             if (item == null) return;
 
+            bool isAuthorized = item.ViewKey switch
+            {
+                "Mixer_Grease_Parameter" => UserSession.Auth_SP_MGP,
+                "Mixer_Parameter" => UserSession.Auth_SP_MXP,
+                "Skip_Parameter" => UserSession.Auth_SP_SKP,
+                "Conveyor_Parameter" => UserSession.Auth_SP_CVP,
+                "Moisture_Parameter" => UserSession.Auth_SP_MTP,
+                "Vibrator_Parameter" => UserSession.Auth_SP_VBP,
+                _ => true
+            };
+
+            if (!isAuthorized)
+            {
+                MessageBox.Show("You are not authorised.");
+                return;
+            }
+
             switch (item.ViewKey)
             {
                 case "Mixer_Grease_Parameter":
@@ -541,6 +607,26 @@ namespace Scada_Demo
 
             SubMenuItem item = element.DataContext as SubMenuItem;
             if (item == null) return;
+
+            bool isAuthorized = item.ViewKey switch
+            {
+                "Bin_Setup" => UserSession.Auth_OS_BIN,
+                "Capacity" => UserSession.Auth_OS_CAP,
+                "Enable_Disable_OtherModes" => UserSession.Auth_OS_EDOM,
+                "In_Air_Inflow_Mode" => UserSession.Auth_OS_IAIF,
+                "Plant_Profile" => UserSession.Auth_OS_PPS,
+
+                // Backup Settings-ku DB permission illa
+                "Auto_Backup_Settings" => true,
+
+                _ => true
+            };
+
+            if (!isAuthorized)
+            {
+                MessageBox.Show("You are not authorised.");
+                return;
+            }
 
             switch (item.ViewKey)
             {
@@ -586,6 +672,10 @@ namespace Scada_Demo
                     OpenWindowOnce<Register_New_User>();
                     break;
 
+                case "Modify_user":
+                    OpenWindowOnce<Modify_user>();
+                    break;
+
                 case "Delete_User":
                     OpenWindowOnce<Delete_User>();
                     break;
@@ -623,6 +713,10 @@ namespace Scada_Demo
 
                 case "Manual_Operation2":
                     OpenWindowOnce<Manual_Operation2>();
+                    break;
+
+                case "Cement_Silo_Level":
+                    OpenWindowOnce<Cement_Silo_Level>();
                     break;
             }
 

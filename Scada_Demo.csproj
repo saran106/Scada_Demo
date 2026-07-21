@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="login_bg.PNG" />
+    <None Remove="Login_bg_new.PNG" />
     <None Remove="project_small_i.png" />
   </ItemGroup>
 
@@ -19,11 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="login_bg.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Login_bg_new.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="project_small_i.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModels\User\" />
   </ItemGroup>
 
 </Project>

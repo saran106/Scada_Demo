@@ -48,48 +48,67 @@
                 <!-- Agg1 -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg1" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg1, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <!-- Agg2 -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg2" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180"  x:Name="Agg2" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg2, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <!-- Agg3 -->
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg3" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg3" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg3, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <!-- Agg4 -->
                 <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg4" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg4"  Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg4, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-
 
                 <!-- RIGHT SIDE -->
 
                 <!-- Agg5 -->
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Agg5" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180"  x:Name="Agg5" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg5, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Agg6 -->
+                <!-- Agg6 (Dummy) -->
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Agg6" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Agg6" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtAgg6, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Wtr1 -->
+                <!-- Water -->
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Wtr1" Width="80" Style="{DynamicResource CompactLabel}"/>
-                    <TextBox Width="180" x:Name="Wtr1" Height="34" Style="{DynamicResource JogTextBoxStyle}"/>
+                    <TextBox Width="180"
+             Height="34"
+             Style="{DynamicResource JogTextBoxStyle}"
+             Text="{Binding txtWTR1, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-
             </Grid>
         </Border>
 
@@ -98,12 +117,22 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,10">
+            <Button Content="Read from PLC"
+        Width="140"
+        Margin="10"
+        Command="{Binding ReadFromPlcCommand}"/>
 
-            <Button Content="Read from PLC" Width="140" Margin="10" Click="BtnRead_Click"/>
-            <Button Content="Write to PLC / DB" Width="180"  Height="34" Margin="10" Click="BtnWrite_Click"/>
-            <Button Content="Exit" Width="100" Margin="10"
-                    Style="{DynamicResource RedButton}"/>
+            <Button Content="Write to PLC / DB"
+        Width="180"
+        Height="34"
+        Margin="10"
+        Command="{Binding WriteToPlcCommand}"/>
 
+            <Button Content="Exit"
+        Width="100"
+        Margin="10"
+        Style="{DynamicResource RedButton}"
+        Command="{Binding ExitCommand}"/>
         </StackPanel>
 
     </Grid>

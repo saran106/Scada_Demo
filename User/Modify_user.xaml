@@ -1,24 +1,26 @@
-﻿<Window x:Class="Scada_Demo.User.Register_New_User"
+﻿<Window x:Class="Scada_Demo.User.Modify_user"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Register_New_User"
-        Height="750" Width="765"
-        Background="#0D3A3A"
-            Icon="../project_small_i.png"
-        WindowStartupLocation="CenterScreen">
-
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.User"
+        mc:Ignorable="d"
+        Title="Modify_user"  Height="750" Width="765"
+ Background="#0D3A3A"
+     Icon="../project_small_i.png"
+ WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
 
         <!-- 🔥 MAIN ROW STRUCTURE -->
         <Grid.RowDefinitions>
-           
+
             <RowDefinition Height="*"/>
             <!-- CONTENT -->
             <RowDefinition Height="Auto"/>
             <!-- BUTTONS -->
         </Grid.RowDefinitions>
 
-       
+
 
         <!-- ================= CONTENT ================= -->
         <Grid Grid.Row="0">
@@ -78,11 +80,9 @@
                Margin="0,0,0,8"/>
 
                         <!-- USER NAME -->
-                        <!-- USER NAME -->
                         <TextBlock Text="User name"
-           Grid.Row="1"
-           Style="{StaticResource CompactLabel}"/>
-
+               Grid.Row="1"
+               Style="{StaticResource CompactLabel}"/>
                         <TextBox Grid.Row="1"
          Grid.Column="1"
          Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
@@ -92,8 +92,8 @@
 
                         <!-- PASSWORD -->
                         <TextBlock Text="Password"
-           Grid.Row="2"
-           Style="{StaticResource CompactLabel}"/>
+               Grid.Row="2"
+               Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Grid.Row="2"
          Grid.Column="1"
@@ -101,11 +101,10 @@
          Style="{StaticResource JogTextBoxStyle}"
          Width="250"
          Height="30"/>
-
                         <!-- CONFIRM PASSWORD -->
                         <TextBlock Text="Confirm password"
-           Grid.Row="3"
-           Style="{StaticResource CompactLabel}"/>
+               Grid.Row="3"
+               Style="{StaticResource CompactLabel}"/>
 
                         <TextBox Grid.Row="3"
          Grid.Column="1"
@@ -113,6 +112,7 @@
          Style="{StaticResource JogTextBoxStyle}"
          Width="250"
          Height="30"/>
+
                         <!-- AUTHORITY -->
                         <TextBlock Text="Authority level"
                Grid.Row="4"
@@ -123,10 +123,9 @@
 
                         <!-- 🔥 CHECKBOX (separate row) -->
                         <CheckBox Content="Select (or) Deselect all options"
-          Grid.Row="5"
-          Grid.ColumnSpan="2"
-          Margin="0,10,0,0"
-          IsChecked="{Binding SelectAllPermissions}" />
+              Grid.Row="5"
+              Grid.ColumnSpan="2"
+              Margin="0,10,0,0"/>
 
                     </Grid>
                 </Border>
@@ -146,57 +145,49 @@
 
                         <StackPanel>
                             <TextBlock Text="Master Segment"
-               Style="{StaticResource HeaderTextStyle}"/>
+                                   Style="{StaticResource HeaderTextStyle}"/>
 
                             <CheckBox Content="Customer"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasCus}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasCus}" />
 
                             <CheckBox Content="Site"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasSite}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasSite}" />
 
                             <CheckBox Content="Recipe"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasRecp}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasRecp}" />
 
                             <CheckBox Content="Truck"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasTrk}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasTrk}" />
 
                             <CheckBox Content="Order"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasOrd}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasOrd}" />
 
                             <CheckBox Content="Schedule"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasSch}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasSch}" />
 
                             <CheckBox Content="Inward"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasInw}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasInw}" />
 
                             <CheckBox Content="Alarm"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasAlm}" />
+          Margin="0.8"
+          IsChecked="{Binding AuthMasAlm}" />
 
                             <CheckBox Content="Maintenance"
-              Margin="0.8"
-              IsChecked="{Binding AuthMasMnt}" />
-
+          Margin="0.8"
+          IsChecked="{Binding AuthMasMnt}" />
                             <Separator Margin="8"/>
 
-                            <CheckBox Content="Credit limit"
-              Margin="0.8"/>
-
-                            <CheckBox Content="Import &amp; export"
-              Margin="0.8"/>
-
-                            <CheckBox Content="Restore deleted records"
-              Margin="0.8"/>
-
-                            <CheckBox Content="Recover batch data"
-              Margin="0.8"/>
+                            <CheckBox Content="Credit limit" Margin="0.8"/>
+                            <CheckBox Content="Import &amp; export" Margin="0.8"/>
+                            <CheckBox Content="Restore deleted records" Margin="0.8"/>
+                            <CheckBox Content="Recover batch data" Margin="0.8"/>
                         </StackPanel>
                     </Border>
 
@@ -243,100 +234,81 @@
 
                 <StackPanel>
                     <TextBlock Text="Plant Settings Segment"
-               Style="{StaticResource HeaderTextStyle}"/>
+                           Style="{StaticResource HeaderTextStyle}"/>
+
 
                     <StackPanel>
-
                         <CheckBox Content="Gate sequence"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsGs}" />
+          IsChecked="{Binding AuthBsGs}" />
 
                         <CheckBox Content="Jog time"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsJt}" />
+          IsChecked="{Binding AuthBsJt}" />
 
                         <CheckBox Content="Empty valve"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsEmpv}" />
+          IsChecked="{Binding AuthBsEmpv}" />
 
                         <CheckBox Content="Tolerance"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsTol}" />
+          IsChecked="{Binding AuthBsTol}" />
 
                         <CheckBox Content="Discharge sequence"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsDsq}" />
+          IsChecked="{Binding AuthBsDsq}" />
 
                         <CheckBox Content="Step time"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsStp}" />
+          IsChecked="{Binding AuthBsStp}" />
 
                         <CheckBox Content="Batch mode"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsBom}" />
+          IsChecked="{Binding AuthBsBom}" />
 
                         <CheckBox Content="Material in air"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsMia}" />
+          IsChecked="{Binding AuthBsMia}" />
 
                         <CheckBox Content="Coarse to fine"
-                  Margin="2"
-                  IsChecked="{Binding AuthBsCtf}" />
-
-                        <CheckBox Content="Calibration"
-                  Margin="2"/>
-
+          IsChecked="{Binding AuthBsCtf}" />
+                        <CheckBox Content="Calibration" Margin="2"/>
                         <CheckBox Content="Bin setup"
-                  Margin="2"
-                  IsChecked="{Binding AuthOsBin}" />
-
+          Margin="2"
+          IsChecked="{Binding AuthOsBin}" />
                         <CheckBox Content="Mixer Grease Pump"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpMgp}" />
+          Margin="2"
+          IsChecked="{Binding AuthSpMgp}" />
 
                         <CheckBox Content="Mixer parameter"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpMxp}" />
+          Margin="2"
+          IsChecked="{Binding AuthSpMxp}" />
 
                         <CheckBox Content="Skip parameter"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpSkp}" />
+          Margin="2"
+          IsChecked="{Binding AuthSpSkp}" />
 
                         <CheckBox Content="Conveyor parameter"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpCvp}" />
+          Margin="2"
+          IsChecked="{Binding AuthSpCvp}" />
 
                         <CheckBox Content="Moisture parameter"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpMtp}" />
+          Margin="2"
+          IsChecked="{Binding AuthSpMtp}" />
 
                         <CheckBox Content="Vibrator parameter"
-                  Margin="2"
-                  IsChecked="{Binding AuthSpVbp}" />
-
+          Margin="2"
+          IsChecked="{Binding AuthSpVbp}" />
                         <CheckBox Content="Capacity"
-                  Margin="2"
-                  IsChecked="{Binding AuthOsCap}" />
-
+          Margin="2"
+          IsChecked="{Binding AuthOsCap}" />
                         <CheckBox Content="Enable / disable / other setup"
-                  Margin="2"
-                  IsChecked="{Binding AuthOsEdom}" />
-
-                        <CheckBox Content="Batch / discharge time"
-                  Margin="2"/>
-
+          Margin="2"
+          IsChecked="{Binding AuthOsEdom}" />
+                        <CheckBox Content="Batch / discharge time" Margin="2"/>
                         <CheckBox Content="In air / inflow mode"
-                  Margin="2"
-                  IsChecked="{Binding AuthOsIaif}" />
+          Margin="2"
+          IsChecked="{Binding AuthOsIaif}" />
+
 
                         <CheckBox Content="Plant profile"
-                  Margin="2"
-                  IsChecked="{Binding AuthOsPps}" />
-
-                        <CheckBox Content="Plant profile"
-                  Margin="2"/>
-
+          Margin="2"
+          IsChecked="{Binding AuthOsPps}" />
+                        <CheckBox Content="Plant profile" Margin="2"/>
                     </StackPanel>
+
 
                 </StackPanel>
             </Border>
@@ -346,21 +318,22 @@
 
         <!-- ================= BUTTONS ================= -->
         <StackPanel Grid.Row="1"
-            Orientation="Horizontal"
-            HorizontalAlignment="Center"
-            Margin="10">
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
 
             <Button Content="Register"
-            Width="150"
-            Margin="10"
-            Command="{Binding RegisterCommand}"/>
+        Width="150"
+        Margin="10"
+        Command="{Binding RegisterCommand}"/>
 
             <Button Content="Exit"
-            Width="120"
-            Margin="10"
-            Style="{StaticResource RedButton}"
-            Command="{Binding ExitCommand}"/>
+        Width="120"
+        Margin="10"
+        Style="{StaticResource RedButton}"
+        Command="{Binding ExitCommand}"/>
 
         </StackPanel>
+
     </Grid>
 </Window>

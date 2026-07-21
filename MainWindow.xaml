@@ -2,7 +2,7 @@
 <Window x:Class="Scada_Demo.MainWindow"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Scada_Demo.Converters"
+           
             xmlns:viewModels="clr-namespace:Scada_Demo.ViewModels"
             Title="SCADA Demo"
             Icon="project_small_i.png"
@@ -12,11 +12,6 @@
 
 
     <Window.Resources>
-        <local:LevelToHeightConverter x:Key="LevelToHeightConverter"/>
-        <local:LevelToTopConverter x:Key="LevelToTopConverter"/>
-        <local:BoolToColorConverter x:Key="BoolToColorConverter"/>
-        <local:GateStatusToColorConverter x:Key="GateStatusToColorConverter"/>
-        <local:GateStatusToForegroundConverter x:Key="GateStatusToForegroundConverter"/>
         <Storyboard x:Key="VanMoveAnimation" RepeatBehavior="Forever" AutoReverse="True">
 
             <DoubleAnimation 

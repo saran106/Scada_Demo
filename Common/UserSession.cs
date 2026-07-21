@@ -50,6 +50,7 @@
         public static bool Auth_BS_CTF { get; set; }
         public static bool Auth_BS_JT { get; set; }
         public static bool Auth_BS_BOM { get; set; }
+        public static bool Auth_BS_GS{ get; set; }
 
         // ================= Service Parameters =================
         public static bool Auth_SP_MGP { get; set; }
@@ -110,6 +111,7 @@
             Auth_BS_CTF = false;
             Auth_BS_JT = false;
             Auth_BS_BOM = false;
+            Auth_BS_GS = false;
 
             Auth_SP_MGP = false;
             Auth_SP_MXP = false;

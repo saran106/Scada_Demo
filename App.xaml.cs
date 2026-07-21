@@ -2,6 +2,8 @@
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
 using Scada_Demo.ViewModels.BatchSettings;
+using Scada_Demo.ViewModels.Login;
+using Scada_Demo.ViewModels.User;
 
 namespace Scada_Demo
 {
@@ -21,14 +23,23 @@ namespace Scada_Demo
         public static StepTimeViewModel StepTimeVM { get; private set; }
         public static JogTimeViewModel JogTimeVM { get; private set; }
         public static ToleranceViewModel TolVM { get; private set; }
+
+        public static CoarseToFineViewModel CoarseToFineVM { get; private set; }
         public static MqttPublishSerice Publisher { get; private set; }
+
+        public static LoginViewModel LoginVM { get; private set; }
+        public static ModifyuserViewModel ModifyUserVM { get; private set; }
+
+        public static RegisterUserViewModel RegisterUserVM { get; private set; }
 
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             Publisher = new MqttPublishSerice();
-
+            LoginVM = new LoginViewModel();
+            ModifyUserVM = new ModifyuserViewModel();
+            RegisterUserVM = new RegisterUserViewModel();
             MaterialVM = new MaterialInAirViewModel(Publisher);
             DDVM = new DischargeDelayViewModel(Publisher);
             EmptyVM = new EmptyValueViewModel(Publisher);
@@ -36,9 +47,10 @@ namespace Scada_Demo
             StepTimeVM = new StepTimeViewModel(Publisher);
             JogTimeVM = new JogTimeViewModel(Publisher);
             TolVM = new ToleranceViewModel(Publisher);
+            CoarseToFineVM = new CoarseToFineViewModel(Publisher);
 
             Store = new BatchSettingsStore();
-            ResponseStore = new BatchSettingsResponseStore(MaterialVM, DDVM, EmptyVM, GateSeqVM, StepTimeVM,JogTimeVM,TolVM);
+            ResponseStore = new BatchSettingsResponseStore(MaterialVM, DDVM, EmptyVM, GateSeqVM, StepTimeVM,JogTimeVM,TolVM, CoarseToFineVM);
 
 
             Subscriber = new MqttSubscriberService(Store, ResponseStore);

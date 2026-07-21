@@ -3,13 +3,13 @@ using Scada_Demo.ViewModels.User;
 
 namespace Scada_Demo.User
 {
-    public partial class Register_New_User : Window
+    public partial class Modify_user : Window
     {
-        public Register_New_User()
+        public Modify_user()
         {
             InitializeComponent();
 
-            DataContext = App.RegisterUserVM;
+            DataContext = new ModifyuserViewModel();
         }
     }
 }

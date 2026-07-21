@@ -3,8 +3,11 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Data.SqlClient;
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Services;
+using Scada_Demo.Database;
+using Scada_Demo.ViewModels.BatchSettings;
 
 namespace Scada_Demo.ViewModels.BatchSettings
 {
@@ -69,6 +72,7 @@ namespace Scada_Demo.ViewModels.BatchSettings
             ReadFromPlcCommand = new RelayCommand(_ => ReadFromPlc());
             WriteToPlcCommand = new RelayCommand(_ => WriteToPlc());
             ExitCommand = new RelayCommand(_ => Exit());
+            LoadJogTime();
         }
 
         #region Commands
@@ -324,6 +328,168 @@ namespace Scada_Demo.ViewModels.BatchSettings
 
         #endregion
 
+        private void LoadJogTime()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(
+                        "SELECT TOP 1 * FROM JogTime_Setup", con);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        Agg1JogOn = dr["Agg1_On"]?.ToString();
+                        Agg2JogOn = dr["Agg2_On"]?.ToString();
+                        Agg3JogOn = dr["Agg3_On"]?.ToString();
+                        Agg4JogOn = dr["Agg4_On"]?.ToString();
+
+                        CemJogOn = dr["Cement_On"]?.ToString();
+
+                        WaterJogOn = dr["Water_On"]?.ToString();
+
+                        AdmixJogOn = dr["Admix_On"]?.ToString();
+
+                        SilicaJogOn = dr["Silica_On"]?.ToString();
+
+                        Agg1JogOff = dr["Agg1_Off"]?.ToString();
+                        Agg2JogOff = dr["Agg2_Off"]?.ToString();
+                        Agg3JogOff = dr["Agg3_Off"]?.ToString();
+                        Agg4JogOff = dr["Agg4_Off"]?.ToString();
+                    }
+
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SaveJogTime()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"
+IF EXISTS (SELECT 1 FROM JogTime_Setup)
+BEGIN
+    UPDATE JogTime_Setup
+    SET
+        Agg1_On=@Agg1_On,
+        Agg2_On=@Agg2_On,
+        Agg3_On=@Agg3_On,
+        Agg4_On=@Agg4_On,
+
+        Cement_On=@Cement_On,
+
+        Water_On=@Water_On,
+
+        Admix_On=@Admix_On,
+
+        Silica_On=@Silica_On,
+
+        Agg1_Off=@Agg1_Off,
+        Agg2_Off=@Agg2_Off,
+        Agg3_Off=@Agg3_Off,
+        Agg4_Off=@Agg4_Off
+END
+ELSE
+BEGIN
+    INSERT INTO JogTime_Setup
+    (
+        Agg1_On,
+        Agg2_On,
+        Agg3_On,
+        Agg4_On,
+
+        Cement_On,
+
+        Water_On,
+
+        Admix_On,
+
+        Silica_On,
+
+        Agg1_Off,
+        Agg2_Off,
+        Agg3_Off,
+        Agg4_Off
+    )
+    VALUES
+    (
+        @Agg1_On,
+        @Agg2_On,
+        @Agg3_On,
+        @Agg4_On,
+
+        @Cement_On,
+
+        @Water_On,
+
+        @Admix_On,
+
+        @Silica_On,
+
+        @Agg1_Off,
+        @Agg2_Off,
+        @Agg3_Off,
+        @Agg4_Off
+    )
+END", con);
+
+                    cmd.Parameters.AddWithValue("@Agg1_On",
+                        string.IsNullOrWhiteSpace(Agg1JogOn) ? (object)DBNull.Value : Convert.ToInt32(Agg1JogOn));
+
+                    cmd.Parameters.AddWithValue("@Agg2_On",
+                        string.IsNullOrWhiteSpace(Agg2JogOn) ? (object)DBNull.Value : Convert.ToInt32(Agg2JogOn));
+
+                    cmd.Parameters.AddWithValue("@Agg3_On",
+                        string.IsNullOrWhiteSpace(Agg3JogOn) ? (object)DBNull.Value : Convert.ToInt32(Agg3JogOn));
+
+                    cmd.Parameters.AddWithValue("@Agg4_On",
+                        string.IsNullOrWhiteSpace(Agg4JogOn) ? (object)DBNull.Value : Convert.ToInt32(Agg4JogOn));
+
+                    cmd.Parameters.AddWithValue("@Cement_On",
+                        string.IsNullOrWhiteSpace(CemJogOn) ? (object)DBNull.Value : Convert.ToInt32(CemJogOn));
+
+                    cmd.Parameters.AddWithValue("@Water_On",
+                        string.IsNullOrWhiteSpace(WaterJogOn) ? (object)DBNull.Value : Convert.ToInt32(WaterJogOn));
+
+                    cmd.Parameters.AddWithValue("@Admix_On",
+                        string.IsNullOrWhiteSpace(AdmixJogOn) ? (object)DBNull.Value : Convert.ToInt32(AdmixJogOn));
+
+                    cmd.Parameters.AddWithValue("@Silica_On",
+                        string.IsNullOrWhiteSpace(SilicaJogOn) ? (object)DBNull.Value : Convert.ToInt32(SilicaJogOn));
+
+                    cmd.Parameters.AddWithValue("@Agg1_Off",
+                        string.IsNullOrWhiteSpace(Agg1JogOff) ? (object)DBNull.Value : Convert.ToInt32(Agg1JogOff));
+
+                    cmd.Parameters.AddWithValue("@Agg2_Off",
+                        string.IsNullOrWhiteSpace(Agg2JogOff) ? (object)DBNull.Value : Convert.ToInt32(Agg2JogOff));
+
+                    cmd.Parameters.AddWithValue("@Agg3_Off",
+                        string.IsNullOrWhiteSpace(Agg3JogOff) ? (object)DBNull.Value : Convert.ToInt32(Agg3JogOff));
+
+                    cmd.Parameters.AddWithValue("@Agg4_Off",
+                        string.IsNullOrWhiteSpace(Agg4JogOff) ? (object)DBNull.Value : Convert.ToInt32(Agg4JogOff));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void MqttReadSuccessStatus(BatchSettingsModel data)
         {
             try
@@ -370,6 +536,7 @@ namespace Scada_Demo.ViewModels.BatchSettings
                         Convert.ToInt32(SilicaJogOn) == data.batchSettings_JogSettings.Ice
                         )
                     {
+                        SaveJogTime();
                         MessageBox.Show("Data Saved Successfully.");
                     }
                     else

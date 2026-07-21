@@ -19,8 +19,10 @@ namespace Scada_Demo.Services
         private readonly StepTimeViewModel _StepTimeViewModel;
         private readonly JogTimeViewModel _JogTimeViewModel;
         private readonly ToleranceViewModel _ToleranceViewModel;
+        private readonly CoarseToFineViewModel _CoarseToFineViewModel;
         public BatchSettingsResponseStore(MaterialInAirViewModel materialInAirViewModel, DischargeDelayViewModel DischargeDelayViewModel
-            , EmptyValueViewModel emptyValueViewModel, GateSequenceViewModel gateSequenceViewModel, StepTimeViewModel stepTimeViewModel, JogTimeViewModel jogTimeViewModel, ToleranceViewModel toleranceViewModel)
+            , EmptyValueViewModel emptyValueViewModel, GateSequenceViewModel gateSequenceViewModel, StepTimeViewModel stepTimeViewModel, JogTimeViewModel jogTimeViewModel, ToleranceViewModel toleranceViewModel
+            , CoarseToFineViewModel coarsetofinemodel)
         {
             _MaterialInAirViewModel = materialInAirViewModel;
             _DischargeDelayViewModel = DischargeDelayViewModel;
@@ -29,6 +31,7 @@ namespace Scada_Demo.Services
             _StepTimeViewModel = stepTimeViewModel;
             _JogTimeViewModel = jogTimeViewModel;
             _ToleranceViewModel = toleranceViewModel;
+            _CoarseToFineViewModel = coarsetofinemodel;
         }
 
         public void Update(BatchSettingsModel data)
@@ -74,6 +77,12 @@ namespace Scada_Demo.Services
                 case "Tolerance":
                     {
                         _ToleranceViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+
+                case "CTF":
+                    {
+                        _CoarseToFineViewModel.MqttReadSuccessStatus(data);
                         break;
                     }
 
