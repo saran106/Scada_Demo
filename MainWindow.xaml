@@ -204,7 +204,7 @@ HorizontalScrollBarVisibility="Disabled">
                 Cursor="Hand">
 
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                        <TextBlock Text="⚙️" FontSize="18" Foreground="{DynamicResource MenuIconBrush}"/>
+                                            <TextBlock Text="⚙️" x:Name="MasterIcon" FontSize="18" Foreground="{DynamicResource MenuIconBrush}"/>
 
                                         <TextBlock Text="Master"
                            x:Name="TxtMaster"
@@ -1405,93 +1405,143 @@ x:Name="txtICEweighervalue"
                         <!-- Right Panel - 70% -->
                     </Grid.ColumnDefinitions>
 
+                                <!-- LEFT PANEL -->
+                                <Border Grid.Column="0"
+        Background="{DynamicResource PrimaryBgBrush}"
+        BorderBrush="{DynamicResource BorderBrushColor}"
+        BorderThickness="1.5"
+        Margin="5"
+        CornerRadius="5"
+        Padding="10">
 
-                    <!-- LEFT PANEL -->
-                    <Border Grid.Column="0"
-                Background="{DynamicResource PrimaryBgBrush}"
-                            BorderBrush="{DynamicResource  BorderBrushColor}"
-                         
- BorderThickness="1.5"
-                Margin="5"
-                CornerRadius="5"
-                Padding="10">
+                                    <Grid Margin="20">
 
-                        <StackPanel Margin="20">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
 
-                            <StackPanel.Resources>
-                                <Style TargetType="TextBox">
-                                    <Setter Property="Width" Value="100"/>
+                                        <!-- ================= CONTENT ================= -->
 
-                                    <Setter Property="Background" Value="#3A3A3A"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                    <Setter Property="IsReadOnly" Value="True"/>
-                                    <Setter Property="Margin" Value="0,6"/>
-                                </Style>
-                            </StackPanel.Resources>
+                                        <StackPanel Grid.Row="0">
 
-                            <!-- RAW MATERIAL -->
-                            <TextBlock Text="RAW MATERIAL STATUS"
-                           
-                           FontWeight="Bold"
-                           FontSize="18"
-                                       Style="{DynamicResource miniLabelStyle}"
-                           Margin="0,0,0,18"/>
+                                            <!-- RAW MATERIAL -->
 
-                                        <TextBlock Text="Cement: 0 kg"  FontSize="14" Margin="0,6"  Style="{DynamicResource miniLabelStyle}"/>
-                                        <TextBlock Text="Water: 0 L"  FontSize="14" Margin="0,6"  Style="{DynamicResource miniLabelStyle}"/>
-                                        <TextBlock Text="Aggregate: 0 kg" FontSize="14" Margin="0,6"  Style="{DynamicResource miniLabelStyle}"/>
+                                            <TextBlock Text="Raw Material Status"
+                       FontSize="18"
+                       Style="{DynamicResource HeaderTextStyle}"
+                       Margin="0,0,0,18"/>
 
-                                        <Separator Margin="0,25,0,25" Background="{DynamicResource BorderBrushColor}" Height="1"/>
+                                            <TextBlock Text="🧱 Cement : 0 kg"
+                       FontSize="14"
+                       Style="{DynamicResource StatusLabelStyle}"/>
 
-                            <!-- MIXER DATA -->
-                            <TextBlock Text="MIXER DATA"
-                     
-                           FontWeight="Bold"
-                           FontSize="17"
-                           Style="{DynamicResource miniLabelStyle}"
-                           Margin="0,0,0,18"/>
+                                            <TextBlock Text="💧 Water : 0 L"
+                       FontSize="14"
+                       Style="{DynamicResource StatusLabelStyle}"/>
 
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                                            <TextBlock Text="🪨 Aggregate : 0 kg"
+                       FontSize="14"
+                       Style="{DynamicResource StatusLabelStyle}"/>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="120"/>
-                                </Grid.ColumnDefinitions>
+                                            <Separator Margin="0,25,0,25"
+                       Height="1"
+                       Background="{DynamicResource BorderBrushColor}"/>
 
-                                            <TextBlock Text="Mixer Mid Discharge"   Style="{DynamicResource miniLabelStyle}" Grid.Row="0"  />
-                                <TextBox Text="0" Grid.Row="0" Grid.Column="1"/>
+                                            <!-- MIXER DATA -->
 
-                                            <TextBlock Text="Mixer Full Discharge"   Style="{DynamicResource miniLabelStyle}" Grid.Row="1"  />
-                                <TextBox Text="0" Grid.Row="1" Grid.Column="1"/>
+                                            <TextBlock Text="Mixer Data"
+                       FontSize="17"
+                       Style="{DynamicResource HeaderTextStyle}"
+                       Margin="0,0,0,15"/>
 
-                                            <TextBlock Text="Mixer Mixing Time"   Style="{DynamicResource miniLabelStyle}" Grid.Row="2"  />
-                                <TextBox Text="0" Grid.Row="2" Grid.Column="1"/>
+                                            <Grid>
 
-                                            <TextBlock Text="Mixer Pre Mixing Time"   Style="{DynamicResource miniLabelStyle}" Grid.Row="3"  />
-                                <TextBox Text="0" Grid.Row="3" Grid.Column="1"/>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="36"/>
+                                                    <RowDefinition Height="36"/>
+                                                    <RowDefinition Height="36"/>
+                                                    <RowDefinition Height="36"/>
+                                                    <RowDefinition Height="42"/>
+                                                </Grid.RowDefinitions>
 
-                                            <TextBlock Text="Mixer Running Hours"   Style="{DynamicResource miniLabelStyle}" Grid.Row="4"  />
-                                <TextBox Text="6441" Grid.Row="4" Grid.Column="1"/>
-                            </Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                </Grid.ColumnDefinitions>
 
-                            <Button Content="Recover Data"
-                        Margin="0,30,0,0"
-                    
-                        Background="#D3D3D3"
-                        FontWeight="Bold"/>
+                                                <!-- Row 1 -->
 
-                        </StackPanel>
-                    </Border>
-                    <!-- ========== VIDEO STYLE BATCHING PLANT LAYOUT ========== -->
+                                                <TextBlock Grid.Row="0"
+                           Text="Mid Discharge"
+                           Style="{DynamicResource MixerLabelStyle}"/>
+
+                                                <TextBox Grid.Row="0"
+                         Grid.Column="1"
+                         Text="0"
+                         Style="{DynamicResource MixerValueTextBox}"/>
+
+                                                <!-- Row 2 -->
+
+                                                <TextBlock Grid.Row="1"
+                           Text="Full Discharge"
+                           Style="{DynamicResource MixerLabelStyle}"/>
+
+                                                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Text="0"
+                         Style="{DynamicResource MixerValueTextBox}"/>
+
+                                                <!-- Row 3 -->
+
+                                                <TextBlock Grid.Row="2"
+                           Text="Mixing Time"
+                           Style="{DynamicResource MixerLabelStyle}"/>
+
+                                                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Text="0"
+                         Style="{DynamicResource MixerValueTextBox}"/>
+
+                                                <!-- Row 4 -->
+
+                                                <TextBlock Grid.Row="3"
+                           Text="Pre Mixing"
+                           Style="{DynamicResource MixerLabelStyle}"/>
+
+                                                <TextBox Grid.Row="3"
+                         Grid.Column="1"
+                         Text="0"
+                         Style="{DynamicResource MixerValueTextBox}"/>
+
+                                                <!-- Row 5 -->
+
+                                                <TextBlock Grid.Row="4"
+                           Text="Running Hours"
+                           Style="{DynamicResource MixerLabelStyle}"/>
+
+                                                <TextBox Grid.Row="4"
+                         Grid.Column="1"
+                         Text="6441"
+                         Style="{DynamicResource MixerValueTextBox}"/>
+
+                                            </Grid>
+
+                                        </StackPanel>
+
+                                        <!-- ================= BUTTON ================= -->
+
+                                        <Button Grid.Row="1"
+                Content="Recover Data"
+               
+                Height="28"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Stretch"/>
+
+                                    </Grid>
+
+                                </Border>
+                                <!-- ========== VIDEO STYLE BATCHING PLANT LAYOUT ========== -->
 
                     <!-- ========== 3D BATCHING PLANT LAYOUT - REALISTIC ========== -->
 
@@ -3561,7 +3611,7 @@ Canvas.Left="782">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="565" Y1="450" X2="565" Y2="155" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="337" Canvas.Top="209" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <Line X1="565" Y1="450" X2="565" Y2="155" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="337" Canvas.Top="209" HorizontalAlignment="Left" VerticalAlignment="Top">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -3971,7 +4021,7 @@ VerticalAlignment="Top">
 
                                     </Rectangle>
 
-                                    <Line X1="560" Y1="250" X2="580" Y2="190" Stroke="#FFFFFF" StrokeThickness="4" Canvas.Left="736" Canvas.Top="-119" RenderTransformOrigin="0.5,0.5">
+                                                <Line X1="560" Y1="250" X2="580" Y2="190" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="4" Canvas.Left="736" Canvas.Top="-119" RenderTransformOrigin="0.5,0.5">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -3981,7 +4031,7 @@ VerticalAlignment="Top">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="565" Y1="450" X2="565" Y2="240" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="790" Canvas.Top="374">
+                                                <Line X1="565" Y1="450" X2="565" Y2="240" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="790" Canvas.Top="374">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -3991,7 +4041,7 @@ VerticalAlignment="Top">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="545" Y1="250" X2="580" Y2="190" Stroke="#FFFFFF" StrokeThickness="4" Canvas.Left="678" Canvas.Top="-130" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Line X1="545" Y1="250" X2="580" Y2="190" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="4" Canvas.Left="678" Canvas.Top="-130" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4001,7 +4051,7 @@ VerticalAlignment="Top">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="545" Y1="250" X2="580" Y2="190" Stroke="#FFFFFF" StrokeThickness="4" Canvas.Left="676" Canvas.Top="-157" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <Line X1="545" Y1="250" X2="580" Y2="190" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="4" Canvas.Left="676" Canvas.Top="-157" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4039,7 +4089,7 @@ VerticalAlignment="Top">
                                         </Polygon.RenderTransform>
 
                                     </Polygon>
-                                    <Line X1="565" Y1="450" X2="565" Y2="235" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="797" Canvas.Top="399">
+                                                <Line X1="565" Y1="450" X2="565" Y2="235" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="797" Canvas.Top="399">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4049,7 +4099,7 @@ VerticalAlignment="Top">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="530" Y1="440" X2="535" Y2="235" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="803" Canvas.Top="400" Height="449" Width="547">
+                                                <Line X1="530" Y1="440" X2="535" Y2="235" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="803" Canvas.Top="400" Height="449" Width="547">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4112,7 +4162,7 @@ Width="561">
                                         </Polygon.RenderTransform>
 
                                     </Polygon>
-                                    <Line X1="565" Y1="450" X2="565" Y2="220" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="911" Canvas.Top="-212">
+                                                <Line X1="565" Y1="450" X2="565" Y2="220" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="911" Canvas.Top="-212">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4122,7 +4172,7 @@ Width="561">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="565" Y1="450" X2="565" Y2="228" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="907" Canvas.Top="-175" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Line X1="565" Y1="450" X2="565" Y2="228" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="907" Canvas.Top="-175" HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4132,7 +4182,7 @@ Width="561">
                                             </TransformGroup>
                                         </Line.RenderTransform>
                                     </Line>
-                                    <Line X1="565" Y1="450" X2="565" Y2="150" Stroke="#FFFFFF" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="350" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Center" Height="470" Width="566">
+                                                <Line X1="565" Y1="450" X2="565" Y2="150" Stroke="{DynamicResource StairRailBrush}" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Canvas.Left="350" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Center" Height="470" Width="566">
                                         <Line.RenderTransform>
                                             <TransformGroup>
                                                 <ScaleTransform/>
@@ -4814,31 +4864,50 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     </Grid.RowDefinitions>
 
                     <!-- ================= ALARMS ================= -->
-                    <Border Grid.Row="0"
-                Background="{DynamicResource PrimaryBgBrush}"
-                CornerRadius="6"
-                Padding="10"
-                Margin="0,-9,0,10"
-                BorderBrush="{DynamicResource  BorderBrushColor}"
-                BorderThickness="1.5">
+                                <Border Grid.Row="0"
+        Background="{DynamicResource PrimaryBgBrush}"
+        CornerRadius="6"
+        Padding="10"
+        Margin="0,-9,0,10"
+        BorderBrush="{DynamicResource BorderBrushColor}"
+        BorderThickness="1.5">
 
-                        <StackPanel>
-                            <TextBlock Text="ALARMS"
-                                       Style="{StaticResource CompactLabel}"
-                           Foreground="White"
-                           FontWeight="Bold"
-                           Margin="0,0,0,8"/>
+                                    <Grid>
 
-                            <ListBox Background="#0A2C2C"
-                         Foreground="Red"
-                         >
-                                <ListBoxItem>Motor Overload</ListBoxItem>
-                                <ListBoxItem>Low Water Level</ListBoxItem>
-                            </ListBox>
-                        </StackPanel>
-                    </Border>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
-                    <!-- ================= GRAPH ================= -->
+                                        <!-- Header -->
+                                        <TextBlock Grid.Row="0"
+                   Text="Alarms"
+                   Style="{DynamicResource HeaderTextStyle}"
+                   Margin="0,0,0,10"/>
+
+                                        <!-- Alarm List -->
+                                        <Border Grid.Row="1"
+                Background="#FFF9F9"
+                BorderBrush="#E4B5B5"
+                BorderThickness="1"
+                CornerRadius="6">
+
+                                            <ListBox x:Name="AlarmList"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Foreground="#2F3E46"
+                     Padding="5"
+                     ItemContainerStyle="{DynamicResource AlarmListBoxItemStyle}"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Border>
+
+                                <!-- ================= GRAPH ================= -->
                     <Border Grid.Row="1"
                 Background="#2E2E2E"
                 CornerRadius="6"
@@ -4875,36 +4944,107 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     <!-- ================= BATCH SCHEDULE STAT ================= -->
                                 <Border Grid.Row="2"
         Background="{DynamicResource PrimaryBgBrush}"
-        CornerRadius="6"
-        Padding="10"
         BorderBrush="{DynamicResource BorderBrushColor}"
-        BorderThickness="1">
+        BorderThickness="1.5"
+        CornerRadius="10"
+        Padding="14"
+        Margin="2">
 
-                                    <StackPanel>
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="10"
+                          ShadowDepth="2"
+                          Opacity="0.12"
+                          Color="#B7C4B0"/>
+                                    </Border.Effect>
 
-                                        <TextBlock Text="Batch Schedule Stat"
-                   Style="{DynamicResource HeaderTextStyle}" />
+                                    <Grid>
 
-                                        <DataGrid AutoGenerateColumns="False"
-                  HeadersVisibility="Column"
-                  Background="Transparent"
-                  Foreground="White"
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="10"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
-                  ColumnHeaderStyle="{DynamicResource DarkDataGridHeaderStyle}"
-                  CellStyle="{DynamicResource DarkDataGridCellStyle}"
-                  RowStyle="{DynamicResource DarkDataGridRowStyle}">
+                                        <!-- HEADER -->
 
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Order" Binding="{Binding Order}" Width="*"/>
-                                                <DataGridTextColumn Header="O Qty" Binding="{Binding OQty}" Width="*"/>
-                                                <DataGridTextColumn Header="P Qty" Binding="{Binding PQty}" Width="*"/>
-                                                <DataGridTextColumn Header="L Sent" Binding="{Binding LSent}" Width="*"/>
-                                                <DataGridTextColumn Header="Stat" Binding="{Binding Status}" Width="*"/>
-                                            </DataGrid.Columns>
+                                        <DockPanel Grid.Row="0">
 
-                                        </DataGrid>
+                                            <TextBlock Text="Batch Schedule Status"
+                       Style="{DynamicResource HeaderTextStyle}"
+                       VerticalAlignment="Center"/>
 
-                                    </StackPanel>
+                                            <Border DockPanel.Dock="Right"
+                    Background="#6E8062"
+                    CornerRadius="12"
+                    Padding="10,3"
+                    HorizontalAlignment="Right">
+
+                                                <TextBlock Text="LIVE"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           FontSize="11"/>
+
+                                            </Border>
+
+                                        </DockPanel>
+
+                                        <!-- DATAGRID -->
+
+                                        <Border Grid.Row="2"
+                Background="#FFFFFF"
+                CornerRadius="8"
+                BorderBrush="#D7DFD1"
+                BorderThickness="1">
+
+                                            <DataGrid AutoGenerateColumns="False"
+                      HeadersVisibility="Column"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      GridLinesVisibility="Horizontal"
+                      HorizontalGridLinesBrush="#E7ECE3"
+                      VerticalGridLinesBrush="#F5F7F4"
+                      RowHeight="34"
+                      ColumnHeaderHeight="36"
+                      AlternatingRowBackground="#F7FAF5"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      CanUserResizeRows="False"
+                      SelectionMode="Single"
+
+                      ColumnHeaderStyle="{DynamicResource PremiumDataGridHeaderStyle}"
+                      CellStyle="{DynamicResource PremiumDataGridCellStyle}"
+                      RowStyle="{DynamicResource PremiumDataGridRowStyle}">
+
+                                                <DataGrid.Columns>
+
+                                                    <DataGridTextColumn Header="Order"
+                                        Binding="{Binding Order}"
+                                        Width="2*"/>
+
+                                                    <DataGridTextColumn Header="Ordered Qty"
+                                        Binding="{Binding OQty}"
+                                        Width="*"/>
+
+                                                    <DataGridTextColumn Header="Produced Qty"
+                                        Binding="{Binding PQty}"
+                                        Width="*"/>
+
+                                                    <DataGridTextColumn Header="Load Sent"
+                                        Binding="{Binding LSent}"
+                                        Width="*"/>
+
+                                                    <DataGridTextColumn Header="Status"
+                                        Binding="{Binding Status}"
+                                        Width="*"/>
+
+                                                </DataGrid.Columns>
+
+                                            </DataGrid>
+
+                                        </Border>
+
+                                    </Grid>
+
                                 </Border>
 
                             </Grid>
@@ -4943,52 +5083,89 @@ VerticalAlignment="Center" Canvas.Top="-33">
                     </Grid.ColumnDefinitions>
 
                     <!-- Flexible Rows -->
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                
 
                     <!-- ================= ROW 1 ================= -->
 
-                    <TextBlock Text="Recipe Name" 
-                  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="M 45 SMC G"
-                Grid.Row="0" Grid.Column="1" Margin="5"/>
+                                    <TextBlock Text="Recipe Name"
+           Grid.Row="0"
+           Grid.Column="0"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Ordered Qty" 
-                  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="230"
-                Grid.Row="0" Grid.Column="3" Margin="5"/>
+                                    <TextBox Text="M 45 SMC G"
+         Grid.Row="0"
+         Grid.Column="1"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <TextBlock Text="Adjusted Qty" 
-                  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="0"
-                Grid.Row="0" Grid.Column="5" Margin="5"/>
 
-                    <TextBlock Text="Customer ID"
-                  Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="SMC Infra"
-                Grid.Row="0" Grid.Column="7" Margin="5"/>
+                                    <TextBlock Text="Ordered Qty"
+           Grid.Row="0"
+           Grid.Column="2"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Moisture Actual 1 %" 
-                  Grid.Row="0" Grid.Column="8" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="0"
-                Grid.Row="0" Grid.Column="9" Margin="5"/>
+                                    <TextBox Text="230"
+         Grid.Row="0"
+         Grid.Column="3"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <!-- Fault Button -->
-                                <Button Content="Fault"
+
+                                    <TextBlock Text="Adjusted Qty"
+           Grid.Row="0"
+           Grid.Column="4"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="0"
+         Grid.Row="0"
+         Grid.Column="5"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Customer ID"
+           Grid.Row="0"
+           Grid.Column="6"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="SMC Infra"
+         Grid.Row="0"
+         Grid.Column="7"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Moisture Actual 1 %"
+           Grid.Row="0"
+           Grid.Column="8"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="0"
+         Grid.Row="0"
+         Grid.Column="9"
+         Style="{DynamicResource PremiumTextBox}"/>
+                                    <!-- Fault Button -->
+                                    <Button Content="Fault"
         Grid.Row="0"
         Grid.Column="10"
+        Height="22"
         Margin="5"
         Style="{DynamicResource RedButton}"
         HorizontalAlignment="Stretch"/>
 
-                                <!-- Tolerance Ack Button -->
+                                    <!-- Tolerance Ack Button -->
                     <Button Content="Tolerance Ack"
                Grid.Row="0"
                Grid.Column="11"
                Margin="5"
+                              Height="22"
                Background="#1E6F6F"
                Foreground="White"
                FontWeight="Bold"
@@ -4996,68 +5173,143 @@ VerticalAlignment="Center" Canvas.Top="-33">
 
                     <!-- ================= ROW 2 ================= -->
 
-                    <TextBlock Text="Customer Name" 
-                  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="SMC Infra"
-                Grid.Row="1" Grid.Column="1" Margin="5"/>
+                                    <TextBlock Text="Customer Name"
+           Grid.Row="1"
+           Grid.Column="0"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Production Qty" 
-                  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="5"
-                Grid.Row="1" Grid.Column="3" Margin="5"/>
+                                    <TextBox Text="SMC Infra"
+         Grid.Row="1"
+         Grid.Column="1"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <TextBlock Text="Truck ID" 
-                  Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="MH 01 CV 1003"
-                Grid.Row="1" Grid.Column="5" Margin="5"/>
 
-                    <TextBlock Text="Job Site" 
-                  Grid.Row="1" Grid.Column="6" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="Flyover Ghatkopar"
-                Grid.Row="1" Grid.Column="7" Margin="5"/>
+                                    <TextBlock Text="Production Qty"
+           Grid.Row="1"
+           Grid.Column="2"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Moisture Actual 2 %" 
-                  Grid.Row="1" Grid.Column="8" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="0"
-                Grid.Row="1" Grid.Column="9" Margin="5"/>
+                                    <TextBox Text="5"
+         Grid.Row="1"
+         Grid.Column="3"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <TextBlock Text="Total" 
-                  Grid.Row="1" Grid.Column="10" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="2"
-                Grid.Row="1" Grid.Column="11" Margin="5"/>
 
-                    <!-- ================= ROW 3 ================= -->
+                                    <TextBlock Text="Truck ID"
+           Grid.Row="1"
+           Grid.Column="4"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Running Order" 
-                  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="M 45 SMC" 
-                Grid.Row="2" Grid.Column="1" Margin="5"/>
+                                    <TextBox Text="MH 01 CV 1003"
+         Grid.Row="1"
+         Grid.Column="5"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <TextBlock Text="Load Sent Qty" 
-                  Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="0"
-                Grid.Row="2" Grid.Column="3" Margin="5"/>
 
-                    <TextBlock Text="Driver" 
-                  Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="Pradeep"
-                Grid.Row="2" Grid.Column="5" Margin="5"/>
+                                    <TextBlock Text="Job Site"
+           Grid.Row="1"
+           Grid.Column="6"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
 
-                    <TextBlock Text="Batch No" 
-                  Grid.Row="2" Grid.Column="6" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="74353"
-                Grid.Row="2" Grid.Column="7" Margin="5"/>
+                                    <TextBox Text="Flyover Ghatkopar"
+         Grid.Row="1"
+         Grid.Column="7"
+         Style="{DynamicResource PremiumTextBox}"/>
 
-                    <TextBlock Text="Water Correction" 
-                  Grid.Row="2" Grid.Column="8" VerticalAlignment="Center"  Style="{DynamicResource MiniCompactLabel}"/>
-                    <TextBox Text="0"
-                Grid.Row="2" Grid.Column="9" Margin="5"/>
 
-                    <Button Content="Set"
+                                    <TextBlock Text="Moisture Actual 2 %"
+           Grid.Row="1"
+           Grid.Column="8"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="0"
+         Grid.Row="1"
+         Grid.Column="9"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Total"
+           Grid.Row="1"
+           Grid.Column="10"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="2"
+         Grid.Row="1"
+         Grid.Column="11"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+                                    <!-- ================= ROW 3 ================= -->
+                                    <TextBlock Text="Running Order"
+           Grid.Row="2"
+           Grid.Column="0"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="M 45 SMC"
+         Grid.Row="2"
+         Grid.Column="1"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Load Sent Qty"
+           Grid.Row="2"
+           Grid.Column="2"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="0"
+         Grid.Row="2"
+         Grid.Column="3"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Driver"
+           Grid.Row="2"
+           Grid.Column="4"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="Pradeep"
+         Grid.Row="2"
+         Grid.Column="5"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Batch No"
+           Grid.Row="2"
+           Grid.Column="6"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="74353"
+         Grid.Row="2"
+         Grid.Column="7"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <TextBlock Text="Water Correction"
+           Grid.Row="2"
+           Grid.Column="8"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="0"
+         Grid.Row="2"
+         Grid.Column="9"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+                                    <Button Content="Set"
                Grid.Row="2"
                Grid.Column="10"
                Grid.ColumnSpan="2"
                Margin="5"
+                                            Height="22"
                Background="#D3D3D3"
                FontWeight="Bold"
                HorizontalAlignment="Stretch"/>

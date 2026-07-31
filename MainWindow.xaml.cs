@@ -14,6 +14,8 @@ using Scada_Demo.User;
 using Scada_Demo.Transactions;
 using Scada_Demo.MQTT_Model;
 using Scada_Demo.Common;
+using Scada_Demo.Models;
+using System.Collections.ObjectModel;
 
 namespace Scada_Demo
 {
@@ -22,6 +24,9 @@ namespace Scada_Demo
         private PlantViewModel _viewModel;
         private bool isMenuOpen = false;
 
+        public ObservableCollection<string> AlarmMessages { get; set; }
+    = new ObservableCollection<string>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +34,8 @@ namespace Scada_Demo
             // Set ViewModel as DataContext
             _viewModel = new PlantViewModel();
             DataContext = _viewModel;
+
+            AlarmList.ItemsSource = AlarmMessages;
             MasterSubMenu.ItemsSource = MasterMenuItems;
             CalibrationSubMenu.ItemsSource = CalibrationMenuItems;
             BatchSubMenu.ItemsSource = BatchMenuItems;
@@ -101,7 +108,37 @@ namespace Scada_Demo
                 txtSILset_wt.Text = "";
                 txtSILact_wt.Text = "";
                 txtSILweighervalue.Text = "";
+
+
+                UpdateAlarmList(data);
             });
+
+           
+        }
+
+        private void UpdateAlarmList(BatchSettingsModel data)
+        {
+            AlarmMessages.Clear();
+
+            foreach (var alarm in AlarmManager.Definitions)
+            {
+                string propertyName = $"Alarm{alarm.AlarmNo}_Bit{alarm.Bit}";
+
+                var property = data.Alarm.GetType().GetProperty(propertyName);
+
+                if (property == null)
+                    continue;
+
+                bool isOn = (bool)property.GetValue(data.Alarm)!;
+
+                if (isOn &&
+                    !string.IsNullOrWhiteSpace(alarm.Text) &&
+                    alarm.Text != "NA" &&
+                    alarm.Text != "NOT USED")
+                {
+                    AlarmMessages.Add(alarm.Text);
+                }
+            }
         }
         private void DarkMode_Click(object sender, RoutedEventArgs e)
         {

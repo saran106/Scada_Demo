@@ -397,11 +397,11 @@
             </TextBlock>
 
             <Border Width="430"
-            Height="2"
-            Margin="-10,6,0,6"
-            CornerRadius="3"
-            Background="{StaticResource AccentBrush}"/>
-
+        Height="3"
+        Margin="-10,6,0,6"
+        CornerRadius="3"
+        Background="#3C3C3C"/>
+            
             <TextBlock Style="{StaticResource SubtitleStyle}"
                Text="Smart Control. Accurate Batching. Maximum Performance."
                Margin="0,0,0,0"/>
@@ -670,14 +670,15 @@
         <!-- ================================================= -->
         <!-- FOOTER OVERLAY -->
         <!-- ================================================= -->
-        <Border Height="80"
+        <Border Height="85"
         Margin="40,336,40,0"
         VerticalAlignment="Top"
         CornerRadius="20"
-        Background="#66FFFFFF"
-        BorderBrush="#55FFFFFF"
+        Background="#88FFFFFF"
+        BorderBrush="#AAFFFFFF"
         BorderThickness="1"
-        Padding="18,10" Grid.Row="1">
+        Padding="18,10"
+        Grid.Row="1">
             <Grid 
               
               Height="62">
@@ -698,10 +699,13 @@
                         Orientation="Horizontal"
                         VerticalAlignment="Center">
 
+
                     <Border Width="48"
-                        Height="48"
-                        CornerRadius="12"
-                        Background="#AAFFFFFF">
+        Height="48"
+        CornerRadius="12"
+        Background="#44FFFFFF"
+        BorderBrush="#3C3C3C"
+        BorderThickness="2">
 
                         <TextBlock Text="🖥"
                                FontSize="22"
@@ -731,10 +735,13 @@
                         Orientation="Horizontal"
                         VerticalAlignment="Center">
 
+
                     <Border Width="48"
-                        Height="48"
-                        CornerRadius="12"
-                        Background="#AAFFFFFF">
+        Height="48"
+        CornerRadius="12"
+        Background="#44FFFFFF"
+        BorderBrush="#3C3C3C"
+        BorderThickness="2">
 
                         <TextBlock Text="🛡"
                                FontSize="22"
@@ -765,9 +772,11 @@
                         VerticalAlignment="Center">
 
                     <Border Width="48"
-                        Height="48"
-                        CornerRadius="12"
-                      Background="#44FFFFFF">
+        Height="48"
+        CornerRadius="12"
+        Background="#44FFFFFF"
+        BorderBrush="#3C3C3C"
+        BorderThickness="2">
 
                         <TextBlock Text="🎧"
                                FontSize="22"
@@ -800,13 +809,13 @@
                     <TextBlock Text="© 2026 Elantris Technologies Pvt. Ltd."
                            FontSize="14"
                            FontWeight="SemiBold"
-                           Foreground="White"
+                         Foreground="{StaticResource AccentBrush}"
                            HorizontalAlignment="Center"/>
 
                     <TextBlock Text="All Rights Reserved."
                            Margin="0,4,0,0"
                            FontSize="12"
-                           Foreground="#F3F4F6"
+                        Foreground="{StaticResource AccentBrush}"
                            HorizontalAlignment="Center"/>
 
                 </StackPanel>
@@ -814,17 +823,19 @@
                 <!-- ================= LOGO ================= -->
 
                 <Border Grid.Column="4"
-                    Width="60"
-                    Height="60"
-                    CornerRadius="15"
-                    Background="#AAFFFFFF"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+        Width="60"
+        Height="60"
+        CornerRadius="15"
+        Background="#AAFFFFFF"
+        BorderBrush="#4A4A4A"
+        BorderThickness="2"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
 
                     <Image Source="../project_small_i.png"
-                       Width="44"
-                       Height="44"
-                       Stretch="Uniform"/>
+           Width="44"
+           Height="44"
+           Stretch="Uniform"/>
 
                 </Border>
 

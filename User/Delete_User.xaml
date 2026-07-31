@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scada_Demo.User"
         mc:Ignorable="d"
-        Title="Delete_User" Height="270" Width="480"
+        Title="Delete_User" Height="290" Width="480"
 Background="#0D3A3A"
             Icon="../project_small_i.png"
 WindowStartupLocation="CenterScreen">
@@ -21,15 +21,15 @@ WindowStartupLocation="CenterScreen">
 
         <!-- HEADER -->
         <TextBlock Text="Delete user"
-                   Style="{StaticResource HeaderTextStyle}"
+                   Style="{DynamicResource HeaderTextStyle}"
                    Margin="10,5"/>
 
         <!-- CONTENT -->
         <Border Grid.Row="1"
                 Margin="10"
                 Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
+                Background="{DynamicResource PanelBrush}"
+                BorderBrush="{DynamicResource BorderBrushColor}"
                 BorderThickness="2"
                 CornerRadius="6">
 
@@ -43,14 +43,14 @@ WindowStartupLocation="CenterScreen">
                 <!-- LABEL -->
                 <TextBlock Text="User name"
                            VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                           Style="{DynamicResource CompactLabel}"/>
 
                 <!-- COMBO -->
                 <ComboBox Grid.Column="1"
                           Width="200"
                           Height="24"
                           
-                          Style="{StaticResource CompactComboBoxSmall}"/>
+                          Style="{DynamicResource CompactComboBoxSmall}"/>
 
             </Grid>
         </Border>
@@ -68,7 +68,7 @@ WindowStartupLocation="CenterScreen">
             <Button Content="Exit"
                     Width="120"
                     Margin="10"
-                    Style="{StaticResource RedButton}"/>
+                    Style="{DynamicResource RedButton}"/>
 
         </StackPanel>
 

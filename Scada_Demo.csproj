@@ -9,6 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\Address.png" />
+    <None Remove="Icons\Address1.png" />
+    <None Remove="Icons\city.png" />
+    <None Remove="Icons\Contact.png" />
+    <None Remove="Icons\Customer_Id.png" />
+    <None Remove="Icons\Customer_ID2.png" />
+    <None Remove="Icons\Delete.png" />
+    <None Remove="Icons\Distance.png" />
+    <None Remove="Icons\Distance1.png" />
+    <None Remove="Icons\exit.png" />
+    <None Remove="Icons\phone.png" />
+    <None Remove="Icons\Pincode.png" />
+    <None Remove="Icons\save.png" />
+    <None Remove="Icons\Site.png" />
     <None Remove="login_bg.PNG" />
     <None Remove="Login_bg_new.PNG" />
     <None Remove="project_small_i.png" />
@@ -21,6 +35,45 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\Address.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Address1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\city.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Contact.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Customer_ID2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Delete.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Distance.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Distance1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\phone.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Pincode.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\save.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Site.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="login_bg.PNG">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

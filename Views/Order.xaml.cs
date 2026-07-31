@@ -68,7 +68,7 @@ namespace Scada_Demo.Views
                     SqlDataAdapter da = new SqlDataAdapter(
                     @"SELECT CustomerID,
                      CustomerName
-              FROM Customer_Master
+              FROM CustomerMaster
               ORDER BY CustomerName", con);
 
                     DataTable dt = new DataTable();
@@ -96,7 +96,7 @@ namespace Scada_Demo.Views
                     SqlDataAdapter da = new SqlDataAdapter(
                     @"SELECT SiteID,
                      SiteName
-              FROM Site_Master
+              FROM SiteMaster
               ORDER BY SiteName", con);
 
                     DataTable dt = new DataTable();

@@ -24,6 +24,10 @@ namespace Scada_Demo.MQTT_Model
 
         public Recipe_Model batchSettings_Recipe { get; set; } = new();
 
+
+        public AlarmModel Alarm { get; set; } = new();
+
+
         // Home Top
         public Home_Top Home_Top { get; set; } = new();
     }

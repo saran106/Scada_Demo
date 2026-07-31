@@ -4,15 +4,17 @@
              xmlns:local="clr-namespace:Scada_Demo"
           
              
-          StartupUri="Login/Login.xaml">
+          StartupUri="Views/Maintenance.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/MasterTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/LightThemeMaster.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
 
+
+<!--StartupUri="Login/Login.xaml">-->
 
 <!--StartupUri="MainWindow.xaml"-->

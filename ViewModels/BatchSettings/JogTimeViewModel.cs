@@ -30,48 +30,91 @@ namespace Scada_Demo.ViewModels.BatchSettings
 
         private readonly MqttPublishSerice _mqttPublishSerice;
 
+        private string _selectedTab = "Aggregate";
+
+        public string SelectedTab
+        {
+            get => _selectedTab;
+            set => SetProperty(ref _selectedTab, value);
+        }
         public JogTimeViewModel(MqttPublishSerice mqttPublishSerice)
         {
             _mqttPublishSerice = mqttPublishSerice;
 
+
+
+            // Aggregate
             ShowAggregateCommand = new RelayCommand(_ =>
-                ShowOnly(Visibility.Visible,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed));
+            {
+                SelectedTab = "Aggregate";
 
+                ShowOnly(
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
+
+            // Cement
             ShowCementCommand = new RelayCommand(_ =>
-                ShowOnly(Visibility.Collapsed,
-                         Visibility.Visible,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed));
+            {
+                SelectedTab = "Cement";
 
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
+
+            // Water
             ShowWaterCommand = new RelayCommand(_ =>
-                ShowOnly(Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Visible,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed));
+            {
+                SelectedTab = "Water";
 
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
+
+            // Admixture
             ShowAdmixCommand = new RelayCommand(_ =>
-                ShowOnly(Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Visible,
-                         Visibility.Collapsed));
+            {
+                SelectedTab = "Admixture";
 
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed);
+            });
+
+            // Micro Silica
             ShowSilicaCommand = new RelayCommand(_ =>
-                ShowOnly(Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Collapsed,
-                         Visibility.Visible));
+            {
+                SelectedTab = "Micro Silica";
+
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible);
+            });
 
             ReadFromPlcCommand = new RelayCommand(_ => ReadFromPlc());
             WriteToPlcCommand = new RelayCommand(_ => WriteToPlc());
             ExitCommand = new RelayCommand(_ => Exit());
+
+            // Default Tab
+            SelectedTab = "Aggregate";
+
             LoadJogTime();
         }
 

@@ -7,7 +7,7 @@ xmlns:local="clr-namespace:Scada_Demo.Calibration"
 mc:Ignorable="d"
         Title="MCI460 Start Batch Transaction"
             Icon="../project_small_i.png"
-        Height="770"
+        Height="790"
         Width="1110"
         Background="#0D3A3A"
         WindowStartupLocation="CenterScreen">
@@ -111,9 +111,11 @@ mc:Ignorable="d"
                        VerticalAlignment="Center"/>
 
                             <ComboBox Grid.Column="1"
-                      Height="30"
-                      MinWidth="280"
-                      Style="{StaticResource CompactComboBoxSmall}"/>
+          Height="30"
+          MinWidth="280"
+          Style="{StaticResource CompactComboBoxSmall}"
+          ItemsSource="{Binding ScheduleIds}"
+          SelectedItem="{Binding SelectedScheduleId}"/>
 
                         </Grid>
 
@@ -142,9 +144,12 @@ mc:Ignorable="d"
         BorderThickness="2"
         Background="#1B1B1B">
 
-                                <ListBox Background="#1B1B1B"
-             BorderThickness="0"
-             Foreground="White"/>
+                                <ListBox
+    Background="#1B1B1B"
+    BorderThickness="0"
+    Foreground="White"
+    ItemsSource="{Binding OrderIds}"
+    SelectedItem="{Binding SelectedOrderId, Mode=TwoWay}"/>
 
                             </Border>
 
@@ -191,47 +196,53 @@ mc:Ignorable="d"
                         <TextBlock Text="Customer ID"
                    Grid.Row="0"
                    Style="{StaticResource CompactLabel}"/>
-
-                        <TextBox Grid.Row="0"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+                        <TextBox
+    Grid.Row="0"
+    Grid.Column="1"
+                             Height="30"
+ Width="250"
+    Text="{Binding CustomerID}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
                         <TextBlock Text="Site"
                    Grid.Row="1"
                    Style="{StaticResource CompactLabel}"/>
-
-                        <TextBox Grid.Row="1"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
-
-
+                        
+                        <TextBox
+    Grid.Row="1"
+    Grid.Column="1"
+                             Height="30"
+ Width="250"
+    Text="{Binding Site}"
+    Style="{StaticResource JogTextBoxStyle}"/>
+                        
+                        
                         <TextBlock Text="Recipe ID"
                    Grid.Row="2"
                    Style="{StaticResource CompactLabel}"/>
 
-                        <TextBox Grid.Row="2"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
-
-
+                        <TextBox
+    Grid.Row="2"
+    Grid.Column="1"
+    Text="{Binding RecipeID}"
+                             Height="30"
+ Width="250"
+    Style="{StaticResource JogTextBoxStyle}"/>
+                        
+                        
                         <TextBlock Text="Recipe Name"
                    Grid.Row="3"
                    Style="{StaticResource CompactLabel}"/>
-
-                        <TextBox Grid.Row="3"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
-
-
+                        
+                        <TextBox
+    Grid.Row="3"
+    Grid.Column="1"
+    Text="{Binding RecipeName}"
+                             Height="30"
+ Width="250"
+    Style="{StaticResource JogTextBoxStyle}"/>
+                        
                         <TextBlock Text="Truck No"
                    Grid.Row="4"
                    Style="{StaticResource CompactLabel}"/>
@@ -240,7 +251,9 @@ mc:Ignorable="d"
                   Grid.Column="1"
                   Height="30"
                   Width="250"
-                  Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
+                  ItemsSource="{Binding TruckNos}"
+    SelectedItem="{Binding SelectedTruckNo}"
+    Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
 
 
                         <TextBlock Text="Driver"
@@ -251,7 +264,9 @@ mc:Ignorable="d"
                   Grid.Column="1"
                   Height="30"
                   Width="250"
-                  Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
+                  ItemsSource="{Binding Drivers}"
+    SelectedItem="{Binding SelectedDriver}"
+    Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
 
 
                         <TextBlock Text="Production Qty"
@@ -262,7 +277,9 @@ mc:Ignorable="d"
                  Grid.Column="1"
                  Height="30"
                  Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+                
+    Text="{Binding ProductionQty}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
                         <TextBlock Text="Returned Qty"
@@ -273,7 +290,8 @@ mc:Ignorable="d"
                  Grid.Column="1"
                  Height="30"
                  Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+               Text="{Binding ReturnedQty}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
                         <TextBlock Text="Mixer Capacity"
@@ -284,7 +302,8 @@ mc:Ignorable="d"
                  Grid.Column="1"
                  Height="30"
                  Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+                 Text="{Binding MixerCapacity}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
                         <TextBlock Text="Mixing Time"
@@ -295,7 +314,8 @@ mc:Ignorable="d"
                  Grid.Column="1"
                  Height="30"
                  Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+                 Text="{Binding MixingTime}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
 
                         <TextBlock Text="Slurry Split in %"
@@ -306,7 +326,8 @@ mc:Ignorable="d"
                  Grid.Column="1"
                  Height="30"
                  Margin="0,4,0,4"
-                 Style="{StaticResource JogTextBoxStyle}"/>
+   Text="{Binding SlurrySplit}"
+    Style="{StaticResource JogTextBoxStyle}"/>
 
                     </Grid>
 

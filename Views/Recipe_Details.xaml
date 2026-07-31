@@ -195,28 +195,32 @@
 
                         <!-- TAB BUTTONS -->
 
-                        <StackPanel Orientation="Horizontal"
-                    Margin="5">
+                        <StackPanel Orientation="Horizontal" Margin="5">
 
-                            <Button Content="Aggregate"
-                    Style="{StaticResource TabButtonStyle}"
-                    Click="ShowAggregate"/>
+                            <Button x:Name="btnAggregate"
+            Content="Aggregate"
+            Style="{StaticResource TabButtonStyle}"
+            Click="ShowAggregate"/>
 
-                            <Button Content="Cement"
-                    Style="{StaticResource TabButtonStyle}"
-                    Click="ShowCement"/>
+                            <Button x:Name="btnCement"
+            Content="Cement"
+            Style="{StaticResource TabButtonStyle}"
+            Click="ShowCement"/>
 
-                            <Button Content="Water"
-                    Style="{StaticResource TabButtonStyle}"
-                    Click="ShowWater"/>
+                            <Button x:Name="btnWater"
+            Content="Water"
+            Style="{StaticResource TabButtonStyle}"
+            Click="ShowWater"/>
 
-                            <Button Content="Admixture"
-                    Style="{StaticResource TabButtonStyle}"
-                    Click="ShowAdmix"/>
+                            <Button x:Name="btnAdmix"
+            Content="Admixture"
+            Style="{StaticResource TabButtonStyle}"
+            Click="ShowAdmix"/>
 
-                            <Button Content="Micro Silica"
-                    Style="{StaticResource TabButtonStyle}"
-                    Click="ShowSilica"/>
+                            <Button x:Name="btnSilica"
+            Content="Micro Silica"
+            Style="{StaticResource TabButtonStyle}"
+            Click="ShowSilica"/>
 
                         </StackPanel>
 

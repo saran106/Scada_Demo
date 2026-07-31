@@ -4,7 +4,7 @@ using Scada_Demo.Services;
 using Scada_Demo.ViewModels.BatchSettings;
 using Scada_Demo.ViewModels.Login;
 using Scada_Demo.ViewModels.User;
-
+using Scada_Demo.ViewModels.Transactions;
 namespace Scada_Demo
 {
     public partial class App : Application
@@ -30,6 +30,8 @@ namespace Scada_Demo
         public static LoginViewModel LoginVM { get; private set; }
         public static ModifyuserViewModel ModifyUserVM { get; private set; }
 
+        public static Start_ProductionViewModel StartProductionVM { get; private set; }
+
         public static RegisterUserViewModel RegisterUserVM { get; private set; }
 
         protected override async void OnStartup(StartupEventArgs e)
@@ -39,6 +41,7 @@ namespace Scada_Demo
             Publisher = new MqttPublishSerice();
             LoginVM = new LoginViewModel();
             ModifyUserVM = new ModifyuserViewModel();
+            StartProductionVM = new Start_ProductionViewModel();
             RegisterUserVM = new RegisterUserViewModel();
             MaterialVM = new MaterialInAirViewModel(Publisher);
             DDVM = new DischargeDelayViewModel(Publisher);

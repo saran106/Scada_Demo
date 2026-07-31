@@ -31,7 +31,9 @@ namespace Scada_Demo.Views
 
             LoadRecipeIds();
             //LoadRecipeNames();
-
+            ResetTabs();
+            btnAggregate.Tag = "Active";
+            AggregatePanel.Visibility = Visibility.Visible;
             App.Store.DataReceived += Store_BatchSettingsChanged;
         }
 
@@ -57,6 +59,66 @@ namespace Scada_Demo.Views
                 txtMixingTime.Text = e.batchSettings_Recipe.MixingTime.ToString();
                 txtPreMixingTime.Text = e.batchSettings_Recipe.PremixTime.ToString();
             });
+        }
+
+        private void ResetTabs()
+        {
+            btnAggregate.Tag = null;
+            btnCement.Tag = null;
+            btnWater.Tag = null;
+            btnAdmix.Tag = null;
+            btnSilica.Tag = null;
+        }
+
+        private void ShowAggregate(object sender, RoutedEventArgs e)
+        {
+            HideAll();
+
+            AggregatePanel.Visibility = Visibility.Visible;
+
+            ResetTabs();
+            btnAggregate.Tag = "Active";
+        }
+
+
+        private void ShowCement(object sender, RoutedEventArgs e)
+        {
+            HideAll();
+
+            CementPanel.Visibility = Visibility.Visible;
+
+            ResetTabs();
+            btnCement.Tag = "Active";
+        }
+
+        private void ShowWater(object sender, RoutedEventArgs e)
+        {
+            HideAll();
+
+            WaterPanel.Visibility = Visibility.Visible;
+
+            ResetTabs();
+            btnWater.Tag = "Active";
+        }
+
+        private void ShowAdmix(object sender, RoutedEventArgs e)
+        {
+            HideAll();
+
+            AdmixPanel.Visibility = Visibility.Visible;
+
+            ResetTabs();
+            btnAdmix.Tag = "Active";
+        }
+
+        private void ShowSilica(object sender, RoutedEventArgs e)
+        {
+            HideAll();
+
+            SilicaPanel.Visibility = Visibility.Visible;
+
+            ResetTabs();
+            btnSilica.Tag = "Active";
         }
         private void LoadRecipeIds()
         {
@@ -296,36 +358,7 @@ namespace Scada_Demo.Views
             SilicaPanel.Visibility = Visibility.Collapsed;
         }
 
-        private void ShowAggregate(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AggregatePanel.Visibility = Visibility.Visible;
-        }
-
-        private void ShowCement(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            CementPanel.Visibility = Visibility.Visible;
-        }
-
-        private void ShowWater(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            WaterPanel.Visibility = Visibility.Visible;
-        }
-
-        private void ShowAdmix(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            AdmixPanel.Visibility = Visibility.Visible;
-        }
-
-        private void ShowSilica(object sender, RoutedEventArgs e)
-        {
-            HideAll();
-            SilicaPanel.Visibility = Visibility.Visible;
-        }
-
+       
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

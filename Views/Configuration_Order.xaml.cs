@@ -27,7 +27,7 @@ namespace Scada_Demo.Views
 
             LoadOrderIds();
             LoadCustomers();
-            //LoadSites();
+            LoadRecipes();
             LoadTrucks();
         }
 
@@ -84,8 +84,33 @@ namespace Scada_Demo.Views
             }
         }
 
-    
+        private void LoadRecipes()
+        {
+            try
+            {
+                using (SqlConnection con = DbConnection.GetConnection())
+                {
+                    con.Open();
 
+                    SqlDataAdapter da = new SqlDataAdapter(
+                        @"SELECT DISTINCT RecipeID
+                  FROM RecipeMaster
+                  WHERE RecipeID IS NOT NULL
+                  ORDER BY RecipeID", con);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cmbRecipe.ItemsSource = dt.DefaultView;
+                    cmbRecipe.DisplayMemberPath = "RecipeID";
+                    cmbRecipe.SelectedValuePath = "RecipeID";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void LoadTrucks()
         {
             try
@@ -94,10 +119,10 @@ namespace Scada_Demo.Views
                 {
                     con.Open();
 
-                    string query = @"SELECT Truck_ID,
-                                    Truck_Reg_No
+                    string query = @"SELECT 
+                                    Truck_No
                              FROM TruckMaster
-                             ORDER BY Truck_Reg_No";
+                             ";
 
                     SqlDataAdapter da = new SqlDataAdapter(query, con);
 
@@ -107,10 +132,10 @@ namespace Scada_Demo.Views
                     cmbTruck.ItemsSource = dt.DefaultView;
 
                     // User-ku kaatradhu
-                    cmbTruck.DisplayMemberPath = "Truck_Reg_No";
+                    cmbTruck.DisplayMemberPath = "Truck_No";
 
                     // Save aaguradhu
-                    cmbTruck.SelectedValuePath = "Truck_ID";
+                    cmbTruck.SelectedValuePath = "Truck_No";
                 }
             }
             catch (Exception ex)
@@ -151,7 +176,7 @@ Cust_ID,
 User_ID,
 Recipe_ID,
 Site,
-Truck_ID,
+Truck_No,
 Ordered_Qty,
 Production_Qty,
 Adjust_Qty,
@@ -201,7 +226,7 @@ Cust_ID=@CustID,
 User_ID=@UserID,
 Recipe_ID=@RecipeID,
 Site=@Site,
-Truck_ID=@TruckID,
+Truck_No=@TruckID,
 Ordered_Qty=@OrderedQty,
 Production_Qty=@ProductionQty,
 Adjust_Qty=@AdjustQty,
@@ -224,7 +249,7 @@ WHERE Order_ID=@OrderID", con);
                     cmd.Parameters.AddWithValue("@OrderDate", dpOrderDate.SelectedDate ?? DateTime.Now);
                     cmd.Parameters.AddWithValue("@CustID", cmbCustomer.SelectedValue ?? "");
                     cmd.Parameters.AddWithValue("@UserID", "ADMIN");   // Dummy User
-                    cmd.Parameters.AddWithValue("@RecipeID", cmbRecipe.Text);
+                    cmd.Parameters.AddWithValue("@RecipeID", cmbRecipe.SelectedValue ?? "");
                     cmd.Parameters.AddWithValue("@Site", cmbSite.SelectedValue ?? "");
                     cmd.Parameters.AddWithValue("@TruckID", cmbTruck.SelectedValue ?? "");
 
@@ -325,7 +350,11 @@ WHERE Order_ID=@OrderID", con);
 
                     if (dr.Read())
                     {
+
+                        string truck = dr["Truck_No"].ToString().Trim();
                         dpOrderDate.SelectedDate = Convert.ToDateTime(dr["Order_Date"]);
+
+                       // MessageBox.Show(dr["Truck_ID"].ToString());
 
                         cmbCustomer.SelectedValue = dr["Cust_ID"].ToString();
 
@@ -333,12 +362,19 @@ WHERE Order_ID=@OrderID", con);
                         LoadSites(dr["Cust_ID"].ToString());
 
                         cmbSite.SelectedValue = dr["Site"].ToString();
-                        cmbTruck.SelectedValue = dr["Truck_ID"].ToString();
+                        //cmbTruck.SelectedValue = dr["Truck_No"].ToString();
 
                         // Recipe later
-                        // cmbRecipe.SelectedValue = dr["Recipe_ID"].ToString();
+                         cmbRecipe.SelectedValue = dr["Recipe_ID"].ToString();
 
                         txtOrderedQty.Text = dr["Ordered_Qty"].ToString();
+
+                        
+
+                        cmbTruck.SelectedValue = truck;
+
+                       
+                        MessageBox.Show(cmbTruck.Items.Count.ToString());
                         txtProductionQty.Text = dr["Production_Qty"].ToString();
                         txtAdjustQty.Text = dr["Adjust_Qty"].ToString();
                         txtLoadSentQty.Text = dr["Load_Send_Qty"].ToString();

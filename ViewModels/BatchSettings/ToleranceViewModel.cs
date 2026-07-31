@@ -25,6 +25,13 @@ namespace Scada_Demo.ViewModels.BatchSettings
         }
 
         #endregion
+        private string _selectedTab = "Aggregate";
+
+        public string SelectedTab
+        {
+            get => _selectedTab;
+            set => SetProperty(ref _selectedTab, value);
+        }
 
         private readonly MqttPublishSerice _mqttPublishSerice;
 
@@ -32,44 +39,77 @@ namespace Scada_Demo.ViewModels.BatchSettings
         {
             _mqttPublishSerice = mqttPublishSerice;
 
-            ShowAggregateCommand = new RelayCommand(_ => ShowOnly(
-                Visibility.Visible,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed));
+            // Aggregate
+            ShowAggregateCommand = new RelayCommand(_ =>
+            {
+                SelectedTab = "Aggregate";
 
-            ShowCementCommand = new RelayCommand(_ => ShowOnly(
-                Visibility.Collapsed,
-                Visibility.Visible,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed));
+                ShowOnly(
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
 
-            ShowWaterCommand = new RelayCommand(_ => ShowOnly(
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Visible,
-                Visibility.Collapsed,
-                Visibility.Collapsed));
+            // Cement
+            ShowCementCommand = new RelayCommand(_ =>
+            {
+                SelectedTab = "Cement";
 
-            ShowAdmixCommand = new RelayCommand(_ => ShowOnly(
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Visible,
-                Visibility.Collapsed));
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
 
-            ShowSilicaCommand = new RelayCommand(_ => ShowOnly(
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Collapsed,
-                Visibility.Visible));
+            // Water
+            ShowWaterCommand = new RelayCommand(_ =>
+            {
+                SelectedTab = "Water";
+
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed);
+            });
+
+            // Admixture
+            ShowAdmixCommand = new RelayCommand(_ =>
+            {
+                SelectedTab = "Admixture";
+
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible,
+                    Visibility.Collapsed);
+            });
+
+            // Micro Silica
+            ShowSilicaCommand = new RelayCommand(_ =>
+            {
+                SelectedTab = "Micro Silica";
+
+                ShowOnly(
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Collapsed,
+                    Visibility.Visible);
+            });
 
             ReadFromPlcCommand = new RelayCommand(_ => ReadFromPlc());
             WriteToPlcCommand = new RelayCommand(_ => WriteToPlc());
             ExitCommand = new RelayCommand(_ => Exit());
+
+            // Default
+            SelectedTab = "Aggregate";
 
             LoadTolerance();
         }

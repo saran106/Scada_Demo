@@ -164,5 +164,7 @@ namespace Scada_Demo.Views
         {
             Close();
         }
+
+
     }
 }

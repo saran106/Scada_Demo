@@ -1,4 +1,4 @@
-﻿<Window x:Class="Scada_Demo.Views.Site_Details"
+﻿<!--<Window x:Class="Scada_Demo.Views.Site_Details"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -16,12 +16,12 @@
     <Grid>
         <Grid  Margin="10">
 
-            <!-- STYLES -->
+            --><!-- STYLES --><!--
             <Grid.Resources>
 
             
 
-                <!-- Input -->
+                --><!-- Input --><!--
                 <Style x:Key="InputStyle" TargetType="TextBox">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Margin" Value="0,5"/>
@@ -31,7 +31,7 @@
                     <Setter Property="BorderThickness" Value="1.5"/>
                 </Style>
 
-                <!-- Combo -->
+                --><!-- Combo --><!--
                 <Style TargetType="ComboBox">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Margin" Value="0,5"/>
@@ -41,7 +41,7 @@
                     <Setter Property="BorderThickness" Value="1.5"/>
                 </Style>
 
-                <!-- Button -->
+                --><!-- Button --><!--
                 <Style x:Key="BtnStyle" TargetType="Button">
                     <Setter Property="Width" Value="120"/>
                     <Setter Property="Height" Value="40"/>
@@ -63,12 +63,12 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- HEADER -->
+            --><!-- HEADER --><!--
             <TextBlock Text="Site Details"
                         Style="{DynamicResource HeaderTextStyle}"
                        Margin="5"/>
 
-            <!-- CARD -->
+            --><!-- CARD --><!--
             <Border  Grid.Row="1"
    Margin="10"
    Padding="20"
@@ -79,7 +79,7 @@
 
                 <Grid>
 
-                    <!-- FORM -->
+                    --><!-- FORM --><!--
                     <Grid Grid.Row="1" Margin="5">
 
                         <Grid.ColumnDefinitions>
@@ -100,7 +100,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <!-- LABELS -->
+                        --><!-- LABELS --><!--
                         <TextBlock Text="Customer ID" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
                         <TextBlock Text="Site" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
                         <TextBlock Text="Address" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
@@ -112,7 +112,7 @@
                         <TextBlock Text="Contact" Grid.Row="8" Style="{StaticResource LabelStyle}"/>
                         <TextBlock Text="Distance" Grid.Row="9" Style="{StaticResource LabelStyle}"/>
 
-                        <!-- INPUTS -->
+                        --><!-- INPUTS --><!--
                         <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cmbCustomerID"  SelectionChanged="cmbCustomerID_SelectionChanged"  Style="{StaticResource CompactComboBoxSmall}"/>
                         <ComboBox x:Name="cmbSiteID"
           Grid.Row="1"
@@ -176,7 +176,7 @@
                 </Grid>
             </Border>
 
-            <!-- BUTTONS -->
+            --><!-- BUTTONS --><!--
             <StackPanel Grid.Row="2"
                  Orientation="Horizontal"
                  HorizontalAlignment="Center"
@@ -199,4 +199,656 @@
             </StackPanel>
         </Grid>
     </Grid>
+</Window>-->
+
+<Window x:Class="Scada_Demo.Views.Site_Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Site Details"
+        Width="900"
+        Height="600"
+        WindowStartupLocation="CenterScreen"
+               Icon="../project_small_i.png"
+        ResizeMode="NoResize"
+        Background="{DynamicResource SitePageBackgroundBrush}">
+
+    <Grid>
+
+        <!-- OUTER CARD -->
+
+        <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
+
+            <Border.Effect>
+
+                <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+
+            </Border.Effect>
+
+            <Grid Margin="25">
+
+                <Grid.RowDefinitions>
+
+                    <!-- Header -->
+                    <RowDefinition Height="90"/>
+
+                    <!-- Form -->
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- ================= HEADER ================= -->
+
+                <Grid Grid.Row="0" Margin="0,-60,0,0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="50"/>
+
+                        <ColumnDefinition Width="Auto"/>
+
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ICON -->
+
+                    <Border Grid.Column="0"
+                            Style="{DynamicResource SiteHeaderIconStyle}">
+
+                        <!-- Replace with Flaticon PNG/SVG later -->
+
+                        <TextBlock Text="🏢"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <!-- TITLE -->
+
+                    <TextBlock Grid.Column="1"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"
+                               Style="{DynamicResource SiteHeaderStyle}"
+                               Text="Site Details"/>
+
+                    <!-- GREEN LINE -->
+
+                    <Grid Grid.ColumnSpan="3"
+                          VerticalAlignment="Bottom"
+                          Margin="0,0,0,35">
+
+                        <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                        <Ellipse Width="11"
+                                 Height="11"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"
+                                 Margin="0,-1,0,0"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <!-- ================= FORM ================= -->
+
+                <Grid Grid.Row="1" Margin="0,-20,0,0">
+
+                   
+
+                        <Grid.RowDefinitions>
+
+                            <!-- Customer -->
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="1"/>
+
+                            <!-- Site -->
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="1"/>
+
+                            <!-- Address -->
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="1"/>
+
+                            <!-- City --><!--
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="1"/>
+
+                            --><!-- Pincode --><!--
+                            <RowDefinition Height="56"/>
+                        <RowDefinition Height="1"/>-->
+
+                        <!-- Phone -->
+                        <RowDefinition Height="56"/>
+                        <RowDefinition Height="1"/>
+
+                        <!-- Contact --><!--
+                        <RowDefinition Height="56"/>
+                        <RowDefinition Height="1"/>-->
+
+                        <!-- Contact -->
+                        <RowDefinition Height="56"/>
+                        <RowDefinition Height="*"/>
+
+               
+                    </Grid.RowDefinitions>
+
+                 
+
+                    <!-- ================= CUSTOMER ================= -->
+
+                    <Grid Grid.Row="0">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+                Width="34"
+                Height="34"
+                VerticalAlignment="Center">
+
+                            <Image Source="/Icons/Customer_ID2.png"
+       Width="28"
+       Height="28"
+       Stretch="Uniform"/>
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                   Text="Customer ID"
+                   Style="{DynamicResource SiteLabelStyle}"
+                   VerticalAlignment="Center"
+                   Margin="8,0,0,0"/>
+
+                        <ComboBox 
+                            Grid.Column="3"
+                  x:Name="cmbCustomerID"
+                  Height="34"
+                            Tag="Enter City"
+                  VerticalAlignment="Center"
+                   IsEditable="True"
+  IsTextSearchEnabled="False"
+  Style="{DynamicResource SiteComboBoxStyle}"/>
+
+                    </Grid>
+
+                    <!-- GREY LINE -->
+
+                    <Border Grid.Row="1"
+   Background="#ECEFF3"
+        Height="0.8"/>
+
+                    <!-- ================= SITE ================= -->
+
+                    <Grid Grid.Row="2">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+               Width="34"
+                Height="34"
+                VerticalAlignment="Center">
+
+                            <Image Source="/Icons/Site.png"
+       Width="24"
+       Height="24"
+       Stretch="Uniform"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                   Text="Site"
+                   Style="{DynamicResource SiteLabelStyle}"
+                   VerticalAlignment="Center"
+                   Margin="8,0,0,0"/>
+
+                        <ComboBox Grid.Column="3"
+                  x:Name="cmbSiteID"
+                  Height="34"
+                  VerticalAlignment="Center"
+                  IsEditable="True"
+                  IsTextSearchEnabled="False"
+                  Style="{DynamicResource SiteComboBoxStyle}"/>
+
+                    </Grid>
+
+                    <!-- GREY LINE -->
+
+                    <Border Grid.Row="3"
+         Background="#ECEFF3"
+            Height="0.8"/>
+
+                    <!-- ================= ADDRESS ================= -->
+
+                    <Grid Grid.Row="4"
+          Margin="0,10,0,0">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ICON -->
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+               Width="34"
+                Height="34"
+                VerticalAlignment="Top">
+
+                            <Image Source="/Icons/Address1.png"
+                                      Width="23"
+   Height="23"
+
+Stretch="Uniform"/>
+
+                        </Border>
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                   Text="Address"
+                   Style="{DynamicResource SiteLabelStyle}"
+                   VerticalAlignment="Top"
+                   Margin="8,15,0,0"/>
+
+                        <!-- ADDRESS -->
+
+                        <StackPanel Grid.Column="3">
+                            <TextBox x:Name="txtAddress"
+         Height="60"
+         Margin="0,0,0,6"
+         Tag="Enter Address"
+         AcceptsReturn="True"
+         TextWrapping="Wrap"
+         VerticalContentAlignment="Top"
+         Style="{DynamicResource SiteTextBoxStyle}"/>
+
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <!-- GREY LINE --><!--
+
+                    <Border Grid.Row="5" Background="{DynamicResource SiteInputBrush}"
+
+        Height="0.8"/>
+
+                    --><!-- ================= CITY ================= --><!--
+
+                    <Grid Grid.Row="6">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        --><!-- ICON --><!--
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+           Width="34"
+            Height="34"
+            VerticalAlignment="Center">
+
+                            <Image Source="/Icons/city.png"
+Width="22"
+Height="22"
+Stretch="Uniform"/>
+
+                        </Border>
+
+                        --><!-- LABEL --><!--
+
+                        <TextBlock Grid.Column="1"
+               Text="City"
+               Style="{DynamicResource SiteLabelStyle}"
+               VerticalAlignment="Center"
+               Margin="8,0,0,0"/>
+
+                        --><!-- TEXTBOX --><!--
+
+                        <TextBox Grid.Column="3"
+             x:Name="txtCity"
+             Height="34"
+             VerticalAlignment="Center"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    --><!-- GREY LINE --><!--
+                    <Border Grid.Row="7" Background="{DynamicResource SiteInputBrush}"
+
+Height="0.8"/>
+
+                    --><!-- ================= PINCODE ================= --><!--
+
+                    <Grid Grid.Row="8">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="20"/>
+
+                            --><!-- Small textbox like screenshot --><!--
+                            <ColumnDefinition Width="250"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        --><!-- ICON --><!--
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+           Width="34"
+            Height="34"
+            VerticalAlignment="Center">
+
+                            <Image Source="/Icons/Pincode.png"
+Width="22"
+Height="22"
+Stretch="Uniform"/>
+
+                        </Border>
+
+                        --><!-- LABEL --><!--
+
+                        <TextBlock Grid.Column="1"
+               Text="Pincode"
+               Style="{DynamicResource SiteLabelStyle}"
+               VerticalAlignment="Center"
+               Margin="8,0,0,0"/>
+
+                        --><!-- TEXTBOX --><!--
+
+                        <TextBox Grid.Column="3"
+             x:Name="txtPincode"
+             Height="34"
+             VerticalAlignment="Center"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>-->
+
+
+
+                    <!-- GREY LINE -->
+
+                    <Border Grid.Row="5"
+Background="#ECEFF3"
+   Height="0.8"/>
+                    <Grid Grid.Row="6">
+
+                        <Grid.ColumnDefinitions>
+
+                            <!-- Phone -->
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="240"/>
+
+                            <!-- Gap -->
+                            <ColumnDefinition Width="40"/>
+
+                            <!-- Contact -->
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="240"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ================= PHONE ================= -->
+
+                        <Border Grid.Column="0"
+            Style="{DynamicResource SiteIconBoxStyle}"
+            Width="34"
+            Height="34"
+            VerticalAlignment="Center">
+
+                            <Image Source="/Icons/phone.png"
+               Width="22"
+               Height="22"
+               Stretch="Uniform"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+               Text="Phone"
+               Style="{DynamicResource SiteLabelStyle}"
+               VerticalAlignment="Center"
+               Margin="8,0,0,0"/>
+
+                        <TextBox Grid.Column="3"
+             x:Name="txtPhone"
+             Height="34"
+                                 Width="200"
+             Tag="Enter Phone Number"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        <!-- ================= CONTACT ================= -->
+
+                        <Border Grid.Column="5"
+            Style="{DynamicResource SiteIconBoxStyle}"
+            Width="34"
+            Height="34"
+            VerticalAlignment="Center">
+
+                            <Image Source="/Icons/contact.png"
+               Width="22"
+               Height="22"
+               Stretch="Uniform"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="6"
+               Text="Contact"
+               Style="{DynamicResource SiteLabelStyle}"
+               VerticalAlignment="Center"
+               Margin="8,0,0,0"/>
+
+                        <TextBox Grid.Column="8"
+             x:Name="txtContact"
+            Height="34"
+                                 Width="200"
+             Tag="Enter Contact Person"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+
+
+                    <Border Grid.Row="7"
+Background="#ECEFF3"
+   Height="0.8"/>
+                    <!-- ================= DISTANCE ================= -->
+
+                    <Grid Grid.Row="8">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="240"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ICON -->
+
+                        <Border Style="{DynamicResource SiteIconBoxStyle}"
+           Width="34"
+            Height="34"
+            VerticalAlignment="Center">
+
+                            <!-- Flaticon Distance Icon -->
+                            <Image Source="/Icons/Distance1.png"
+
+Stretch="Uniform"/>
+
+                        </Border>
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+               Text="Distance"
+               Style="{DynamicResource SiteLabelStyle}"
+               VerticalAlignment="Center"
+               Margin="8,0,0,0"/>
+
+                        <!-- TEXTBOX -->
+
+                        <TextBox Grid.Column="3"
+             x:Name="txtDistance"
+             Height="34"
+                      Width="200"
+                                 
+             VerticalAlignment="Center"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+
+                    <Border Grid.Row="9" Background="{DynamicResource SiteInputBrush}"
+
+Height="0.8"/>
+
+                    <!-- ================= BUTTONS ================= -->
+
+
+                    <Border Grid.Row="10"
+        Margin="-25,5,-25,-25"
+        
+        CornerRadius="0,0,18,18"
+                             BorderBrush="#E5E7EB"
+                           Background="#F3F4F6"
+        ClipToBounds="True">
+                        <Grid>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+
+                            <ColumnDefinition Width="250"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="250"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="250"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ================= SAVE ================= -->
+
+                        <Button Grid.Column="1"
+        Style="{StaticResource SaveButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                                <Image Source="/Icons/save.png"
+               Width="24"
+               Height="24"
+               Margin="0,0,14,0"/>
+
+                                <TextBlock Text="Save"
+                   FontSize="17"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= DELETE ================= -->
+
+                        <Button Grid.Column="3"
+        Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                                <Image Source="/Icons/Delete.png"
+               Width="24"
+               Height="24"
+               Margin="0,0,14,0"/>
+
+                                <TextBlock Text="Delete"
+                   FontSize="17"
+                   FontWeight="Bold"
+                   Foreground="#1F2937"
+                   VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= EXIT ================= -->
+
+                        <Button Grid.Column="5"
+        Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                                <Image Source="/Icons/exit.png"
+               Width="24"
+               Height="24"
+               Margin="0,0,14,0"/>
+
+                                <TextBlock Text="Exit"
+                   FontSize="17"
+                   FontWeight="Bold"
+                   Foreground="#1F2937"
+                   VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+                    </Border>
+                </Grid>
+                    
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
 </Window>

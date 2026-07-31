@@ -29,24 +29,69 @@
                     Orientation="Horizontal"
                     Margin="5">
             <Button Content="Aggregate"
-        Style="{DynamicResource TabButtonStyle}"
-        Command="{Binding ShowAggregateCommand}"/>
+        Command="{Binding ShowAggregateCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource TabButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedTab}" Value="Aggregate">
+                                <Setter Property="Tag" Value="Active"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <Button Content="Cement"
-        Style="{DynamicResource TabButtonStyle}"
-        Command="{Binding ShowCementCommand}"/>
+        Command="{Binding ShowCementCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource TabButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedTab}" Value="Cement">
+                                <Setter Property="Tag" Value="Active"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <Button Content="Water"
-        Style="{DynamicResource TabButtonStyle}"
-        Command="{Binding ShowWaterCommand}"/>
+        Command="{Binding ShowWaterCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource TabButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedTab}" Value="Water">
+                                <Setter Property="Tag" Value="Active"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <Button Content="Admixture"
-        Style="{DynamicResource TabButtonStyle}"
-        Command="{Binding ShowAdmixCommand}"/>
+        Command="{Binding ShowAdmixCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource TabButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedTab}" Value="Admixture">
+                                <Setter Property="Tag" Value="Active"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <Button Content="Micro Silica"
-        Style="{DynamicResource TabButtonStyle}"
-        Command="{Binding ShowSilicaCommand}"/>
+        Command="{Binding ShowSilicaCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource TabButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedTab}" Value="Micro Silica">
+                                <Setter Property="Tag" Value="Active"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
 
         <!-- CONTENT -->
