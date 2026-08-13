@@ -30,7 +30,10 @@
     <!--
  <SolidColorBrush x:Key="PrimaryText" Color="#00FFFF"/>-->
     <!-- TEXT -->
-    <SolidColorBrush x:Key="PrimaryText" Color="#E6E6E6"/>
+    <!--<SolidColorBrush x:Key="PrimaryText" Color="#E6E6E6"/>-->
+
+
+    <SolidColorBrush x:Key="PrimaryText" Color="#1F2937"/>
 
     <!-- INPUT -->
     <SolidColorBrush x:Key="DarkInputBg" Color="#3A3A3A"/>
@@ -502,31 +505,7 @@
         </Setter>
 
     </Style>
-    <!-- ================= BORDER ================= -->
-
-    <!--<Style TargetType="Border">
-        <Setter Property="BorderBrush" Value="#03346E"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="4"/>
-        <Style.Triggers>
-
-            <Trigger Property="IsMouseOver"
-                 Value="True">
-
-                <Setter Property="Background"
-                    Value="{DynamicResource MenuHoverBg}"/>
-
-                <Setter Property="BorderBrush"
-                    Value="{DynamicResource MenuHoverBorderBrush1}"/>
-
-                <Setter Property="BorderThickness"
-                    Value="1"/>
-
-            </Trigger>
-
-        </Style.Triggers>
-
-    </Style>-->
+   
 
     <Style TargetType="Border">
 
@@ -1395,7 +1374,7 @@
 
     <!-- MENU BACKGROUND -->
     <SolidColorBrush x:Key="MenuBgBrush"
-                 Color="#5a735a"/>
+                 Color="#5A725A"/>
 
     <!-- MENU ITEM NORMAL -->
     <SolidColorBrush x:Key="MenuItemBg"
@@ -1437,7 +1416,7 @@
     
     
 
-    <!--<Style x:Key="DarkListBoxStyle" TargetType="ListBox">
+    <Style x:Key="DarkListBoxStyle" TargetType="ListBox">
 
         <Setter Property="Width" Value="220"/>
         <Setter Property="Height" Value="250"/>
@@ -1466,13 +1445,13 @@
 
         <Style.Triggers>
 
-            --><!-- Hover --><!--
+            <!-- Hover -->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#3F4A5A"/>
                 <Setter Property="Foreground" Value="#00FFFF"/>
             </Trigger>
 
-            --><!-- Selected --><!--
+            <!-- Selected -->
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#00B8B8"/>
                 <Setter Property="Foreground" Value="#0B1F1F"/>
@@ -1481,8 +1460,7 @@
 
         </Style.Triggers>
 
-    </Style>-->
-
+    </Style>
     <!-- ================= LIGHT LISTBOX ================= -->
 
     <Style x:Key="LightListBoxStyle" TargetType="ListBox">
@@ -2169,6 +2147,25 @@
      SITE TEXTBOX
 =========================== -->
 
+    <Style x:Key="SiteCheckBoxStyle"
+       TargetType="CheckBox">
+
+        <Setter Property="Foreground"
+            Value="#1F2937"/>
+
+        <Setter Property="FontSize"
+            Value="15"/>
+
+        <Setter Property="FontWeight"
+            Value="Medium"/>
+
+        <Setter Property="Margin"
+            Value="0,3"/>
+
+        <Setter Property="VerticalAlignment"
+            Value="Center"/>
+
+    </Style>
     <Style x:Key="SiteTextBoxStyle"
        TargetType="TextBox">
 
@@ -2386,5 +2383,128 @@
     </Style>
 
 
+
+    <Style x:Key="SiteTabButtonStyle" TargetType="Button">
+
+        <!-- SIZE -->
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="16,0"/>
+
+        <!-- FONT -->
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="#273444"/>
+
+        <!-- COLORS -->
+        <Setter Property="Background" Value="#F8FAF8"/>
+        <Setter Property="BorderBrush" Value="#D7DFD9"/>
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+
+                        <TextBlock
+    x:Name="BtnText"
+    Text="{TemplateBinding Content}"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Foreground="{TemplateBinding Foreground}"
+    FontSize="{TemplateBinding FontSize}"
+    FontWeight="{TemplateBinding FontWeight}"/>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+
+                            <Setter TargetName="Bd"
+                                Property="Background"
+                                Value="#EAF4EC"/>
+
+                            <Setter TargetName="Bd"
+                                Property="BorderBrush"
+                                Value="#7EA787"/>
+
+                            <Setter Property="Foreground"
+                                Value="#2F4F39"/>
+
+                        </Trigger>
+
+                        <!-- Active -->
+
+                        <Trigger Property="Tag" Value="Active">
+
+                            <Setter TargetName="Bd"
+                                Property="Background"
+                                Value="#5E8D69"/>
+
+                            <Setter TargetName="Bd"
+                                Property="BorderBrush"
+                                Value="#4D7757"/>
+
+                            <Setter Property="Foreground"
+                                Value="White"/>
+
+                            <Setter Property="FontWeight"
+                                Value="Bold"/>
+
+                            <Setter TargetName="Bd"
+                                Property="BorderThickness"
+                                Value="2"/>
+
+                            <Setter TargetName="Bd"
+                                Property="Effect">
+
+                                <Setter.Value>
+
+                                    <DropShadowEffect
+                                    BlurRadius="10"
+                                    ShadowDepth="0"
+                                    Color="#5E8D69"
+                                    Opacity="0.30"/>
+
+                                </Setter.Value>
+
+                            </Setter>
+
+                        </Trigger>
+
+                        <!-- Pressed -->
+
+                        <Trigger Property="IsPressed" Value="True">
+
+                            <Setter TargetName="Bd"
+                                Property="Background"
+                                Value="#4F7658"/>
+
+                            <Setter Property="Foreground"
+                                Value="White"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <SolidColorBrush x:Key="SiteIconBrush" Color="#5E8D69"/>
 
 </ResourceDictionary>

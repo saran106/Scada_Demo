@@ -16,6 +16,7 @@ using Scada_Demo.MQTT_Model;
 using Scada_Demo.Common;
 using Scada_Demo.Models;
 using System.Collections.ObjectModel;
+using Scada_Demo.Options;
 
 namespace Scada_Demo
 {
@@ -43,6 +44,7 @@ namespace Scada_Demo
             OtherSubMenu.ItemsSource = OtherMenuItems;
             UserSubMenu.ItemsSource = UserMenuItems;
             TransSubMenu.ItemsSource = TransactionsMenuItems;
+            OptionsSubMenu.ItemsSource = OptionsMenuItems;
             ThemeToggle.Visibility = Visibility.Collapsed;
            // LightThemeBtn.Visibility = Visibility.Collapsed;
 
@@ -54,6 +56,7 @@ namespace Scada_Demo
             OtherPopup.DataContext = this;
             UserPopup.DataContext = this;
             TransPopup.DataContext = this;
+            OptionsPopup.DataContext = this;
 
             // Start PLC simulation
             _ = _viewModel.StartPlcSimulation();
@@ -103,6 +106,10 @@ namespace Scada_Demo
                 txtICEweighervalue.Text = data.Home_Top.Home_Top_ice.weighervalue.ToString();
 
                 // ================= SILICA =================
+
+
+                txtRemainingBatches.Text = data.Home_Top.BatchRemaining.ToString();
+                txtWaterCorrection.Text = data.Home_Top.WaterCorr.ToString();
                 // Model-la Silica illa. Blank-aa vechurukken.
                 txtSILCounter.Text = "";
                 txtSILset_wt.Text = "";
@@ -110,13 +117,13 @@ namespace Scada_Demo
                 txtSILweighervalue.Text = "";
 
 
-                UpdateAlarmList(data);
+                UpdateAlarmListAsync(data);
             });
 
            
         }
 
-        private void UpdateAlarmList(BatchSettingsModel data)
+        private void UpdateAlarmLisst(BatchSettingsModel data)
         {
             AlarmMessages.Clear();
 
@@ -138,6 +145,51 @@ namespace Scada_Demo
                 {
                     AlarmMessages.Add(alarm.Text);
                 }
+            }
+        }
+
+        private static readonly SemaphoreSlim _alarmListLock = new(1, 1);
+
+        private async Task UpdateAlarmListAsync(BatchSettingsModel data)
+        {
+            await _alarmListLock.WaitAsync();
+
+            try
+            {
+                AlarmMessages.Clear();
+
+                foreach (var alarm in AlarmManager.Definitions)
+                {
+                    string propertyName =
+                        $"Alarm{alarm.AlarmNo}_Bit{alarm.Bit}";
+
+                    var property =
+                        data.Alarm.GetType().GetProperty(propertyName);
+
+                    if (property == null)
+                        continue;
+
+                    bool isOn =
+                        (bool)property.GetValue(data.Alarm)!;
+
+                    await AlarmManager.ProcessAlarmAsync(
+                        alarm.AlarmNo,
+                        alarm.Bit,
+                        isOn,
+                        1);
+
+                    if (isOn &&
+                        !string.IsNullOrWhiteSpace(alarm.Text) &&
+                        alarm.Text != "NA" &&
+                        alarm.Text != "NOT USED")
+                    {
+                        AlarmMessages.Add(alarm.Text);
+                    }
+                }
+            }
+            finally
+            {
+                _alarmListLock.Release();
             }
         }
         private void DarkMode_Click(object sender, RoutedEventArgs e)
@@ -177,10 +229,42 @@ namespace Scada_Demo
 
 
 
-        public class SubMenuItem
+        public class SubMenuItems
         {
             public string Name { get; set; }
             public string ViewKey { get; set; }
+
+            public List<SubMenuItem> Children { get; set; }
+        }
+
+
+        public class SubMenuItem : System.ComponentModel.INotifyPropertyChanged
+        {
+            public string Name { get; set; }
+            public string ViewKey { get; set; }
+
+            public List<SubMenuItem> Children { get; set; }
+
+            private bool _isExpanded = false;
+
+            public bool IsExpanded
+            {
+                get => _isExpanded;
+                set
+                {
+                    if (_isExpanded != value)
+                    {
+                        _isExpanded = value;
+
+                        PropertyChanged?.Invoke(
+                            this,
+                            new System.ComponentModel.PropertyChangedEventArgs(nameof(IsExpanded))
+                        );
+                    }
+                }
+            }
+
+            public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         }
 
         //        public List<SubMenuItem> MasterMenuItemsd = new List<SubMenuItem>()
@@ -210,6 +294,35 @@ namespace Scada_Demo
             // not open → create new
             new T().Show();
         }
+
+        public List<SubMenuItem> OptionsMenuItems = new List<SubMenuItem>()
+{
+    new SubMenuItem
+    {
+        Name = "Weighbridge Setup",
+        ViewKey = "Weighbridge_Setup"
+    },
+
+    new SubMenuItem
+    {
+        Name = "SMS Facilities",
+        ViewKey = "SMS_Facilities",
+        Children = new List<SubMenuItem>
+        {
+            new SubMenuItem
+            {
+                Name = "SMS Config",
+                ViewKey = "SMS_Config"
+            },
+
+            new SubMenuItem
+            {
+                Name = "SMS Mobile Config",
+                ViewKey = "SMS_Mobile_Config"
+            }
+        }
+    }
+};
 
         public List<SubMenuItem> MasterMenuItems = new List<SubMenuItem>()
 {
@@ -431,7 +544,7 @@ namespace Scada_Demo
                     break;
 
                 case "Order":
-                    OpenWindowOnce<Configuration_Order>();
+                    OpenWindowOnce<Order>();
                     break;
 
                 case "Recipe":
@@ -770,6 +883,85 @@ namespace Scada_Demo
         }
 
 
+        private void OptionsSubMenu_Click(object sender, MouseButtonEventArgs e)
+        {
+            FrameworkElement element = sender as FrameworkElement;
+            if (element == null)
+                return;
+
+            SubMenuItem item = element.DataContext as SubMenuItem;
+            if (item == null)
+                return;
+
+
+            // =====================================================
+            // SMS FACILITIES - PARENT
+            // =====================================================
+
+            if (item.ViewKey == "SMS_Facilities")
+            {
+                item.IsExpanded = !item.IsExpanded;
+
+                e.Handled = true;
+                return;
+            }
+
+
+            // =====================================================
+            // AUTHORIZATION
+            // =====================================================
+
+            bool isAuthorized = item.ViewKey switch
+            {
+                "Weighbridge_Setup" => true,
+                "SMS_Config" => true,
+                "SMS_Mobile_Config" => true,
+
+                _ => true
+            };
+
+
+            if (!isAuthorized)
+            {
+                MessageBox.Show("You are not authorised.");
+                return;
+            }
+
+
+            // =====================================================
+            // OPEN WINDOW
+            // =====================================================
+
+            switch (item.ViewKey)
+            {
+                case "Weighbridge_Setup":
+
+                    OpenWindowOnce<Weighbridge_Setup>();
+
+                    break;
+
+
+                case "SMS_Config":
+
+                    OpenWindowOnce<SMS_Config>();
+
+                    break;
+
+
+                case "SMS_Mobile_Config":
+
+                    OpenWindowOnce<SMS_Mobile_Config>();
+
+                    break;
+            }
+
+
+            OptionsPopup.IsOpen = false;
+
+            e.Handled = true;
+        }
+
+
         private void Master_Click(object sender, MouseButtonEventArgs e)
         {
             if (isOpen)
@@ -864,8 +1056,21 @@ namespace Scada_Demo
             else
                 TransSubMenu.Visibility = Visibility.Collapsed;
         }
-      
-        private void Options_Click(object sender, MouseButtonEventArgs e) { }
+
+        private void Options_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (isOpen)
+            {
+                OptionsSubMenu.Visibility =
+                    OptionsSubMenu.Visibility == Visibility.Visible
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+            }
+            else
+            {
+                OptionsPopup.IsOpen = !OptionsPopup.IsOpen;
+            }
+        }
         private void DB_Click(object sender, MouseButtonEventArgs e) { }
         private void Reports_Click(object sender, MouseButtonEventArgs e) { }
 
@@ -896,6 +1101,7 @@ namespace Scada_Demo
                 LightThemeBtn.Visibility = Visibility.Visible;
                 DarkThemeBtn.Visibility = Visibility.Visible;
                 ThemeToggle.Visibility = Visibility.Visible;
+                TxtOptions.Visibility = Visibility.Visible;
 
                 // Enable scroll
                 MainScrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;

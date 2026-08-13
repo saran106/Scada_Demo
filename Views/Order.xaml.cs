@@ -121,10 +121,9 @@ namespace Scada_Demo.Views
                 {
                     con.Open();
 
-                    string query = @"SELECT Truck_ID,
-                                    Truck_Reg_No
-                             FROM Truck_Master
-                             ORDER BY Truck_Reg_No";
+                    string query = @"SELECT 
+                                    Truck_No
+                             FROM TruckMaster";
 
                     SqlDataAdapter da = new SqlDataAdapter(query, con);
 

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Scada_Demo.Batch_Settings.Batch_OutputMode"
+﻿<!--<Window x:Class="Scada_Demo.Batch_Settings.Batch_OutputMode"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,12 +19,12 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- 🔥 HEADER -->
+            --><!-- 🔥 HEADER --><!--
             <TextBlock Text="Batch Output Mode"
                        Style="{StaticResource HeaderTextStyle}"
                        Grid.Row="0"/>
 
-            <!-- 🔹 INPUT SECTION -->
+            --><!-- 🔹 INPUT SECTION --><!--
             <Grid Grid.Row="1" Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -32,7 +32,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Agg2 -->
+                --><!-- Agg2 --><!--
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="Agg2 Batch Mode"
                                Style="{StaticResource CompactLabel}" />
@@ -44,7 +44,7 @@
                     </ComboBox>
                 </StackPanel>
 
-                <!-- Full Open -->
+                --><!-- Full Open --><!--
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="Gate Full Open"
                                Style="{StaticResource CompactLabel}"/>
@@ -53,7 +53,7 @@
                              Style="{StaticResource CompactTextBox}" Width="180"/>
                 </StackPanel>
 
-                <!-- Half Open -->
+                --><!-- Half Open --><!--
                 <StackPanel Grid.Column="2">
                     <TextBlock Text="Gate Half Open"
                                Style="{StaticResource CompactLabel}"/>
@@ -64,7 +64,7 @@
 
             </Grid>
 
-            <!-- 🔹 BUTTONS -->
+            --><!-- 🔹 BUTTONS --><!--
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
@@ -86,4 +86,361 @@
         </Grid>
 
     </Border>
+</Window>-->
+
+
+
+<Window x:Class="Scada_Demo.Batch_Settings.Batch_OutputMode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scada_Demo.Batch_Settings"
+        mc:Ignorable="d"
+        Title="Batch Output Mode"
+        Width="760"
+        Height="490"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource SitePageBackgroundBrush}">
+
+    <Grid>
+
+        <!-- ================= OUTER CARD ================= -->
+
+        <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
+
+            <Border.Effect>
+
+                <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+
+            </Border.Effect>
+
+            <Grid Margin="22">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="72"/>
+
+                    <RowDefinition Height="*"/>
+
+                    <RowDefinition Height="92"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- ================= HEADER ================= -->
+
+                <Grid Grid.Row="0"
+                      Margin="0,-28,0,0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="48"/>
+
+                        <ColumnDefinition Width="Auto"/>
+
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                            Height="40"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Pincode.png"
+                               Width="22"
+                               Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                               Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Batch Output Mode"
+                               Style="{DynamicResource SiteHeaderStyle}"/>
+
+                    <Grid Grid.ColumnSpan="3"
+                          VerticalAlignment="Bottom"
+                          Margin="0,0,0,18">
+
+                        <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                        <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <!-- ================= BODY ================= -->
+
+                <Border Grid.Row="1"
+                        Margin="0,6,0,0"
+                        Padding="20"
+                        CornerRadius="14"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1"
+                        Background="White">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="58"/>
+                            <RowDefinition Height="1"/>
+
+                            <RowDefinition Height="58"/>
+                            <RowDefinition Height="1"/>
+
+                            <RowDefinition Height="58"/>
+
+                        </Grid.RowDefinitions>
+
+                        <!-- ================= AGG2 ================= -->
+
+                        <Grid Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="56"/>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Border Width="40"
+                Height="40"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                <Image Source="/Icons/Pincode.png"
+                   Width="20"
+                   Height="20"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="Agg2 Batch Mode"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <ComboBox Grid.Column="3"
+                  x:Name="cmbBatchMode"
+                                      IsEditable="True"
+                  Height="42"
+                  Style="{DynamicResource SiteComboBoxStyle}">
+
+                                <ComboBoxItem Content="Auto"/>
+                                <ComboBoxItem Content="Manual"/>
+
+                            </ComboBox>
+
+                        </Grid>
+
+                        <Border Grid.Row="1"
+            Background="#ECEFF3"/>
+
+                        <!-- ================= FULL OPEN ================= -->
+
+                        <Grid Grid.Row="2">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="56"/>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Border Width="40"
+                Height="40"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                <Image Source="/Icons/Pincode.png"
+                   Width="20"
+                   Height="20"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="Gate Full Open"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Grid.Column="3"
+                 x:Name="txtFullOpen"
+                 Height="42"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="3"
+            Background="#ECEFF3"/>
+
+                        <!-- ================= HALF OPEN ================= -->
+
+                        <Grid Grid.Row="4">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="56"/>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Border Width="40"
+                Height="40"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                <Image Source="/Icons/Pincode.png"
+                   Width="20"
+                   Height="20"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="Gate Half Open"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Grid.Column="3"
+                 x:Name="txtHalfOpen"
+                 Height="42"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+                <!-- ================= FOOTER ================= -->
+
+                <Border Grid.Row="2"
+        Margin="-22,8,-22,-22"
+        Background="#F8F9FB"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1,1,1,0"
+        CornerRadius="0,0,18,18">
+
+                    <Grid Margin="18,12">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="20"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="20"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ================= READ ================= -->
+
+                        <Button Grid.Column="1"
+                Width="180"
+                Height="48"
+                Style="{StaticResource SaveButtonStyle}"
+                Command="{Binding ReadFromPlcCommand}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                                <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,6,0"/>
+
+                                <TextBlock Text="Read from PLC"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= WRITE ================= -->
+
+                        <Button Grid.Column="3"
+                Width="180"
+                Height="48"
+                Style="{StaticResource WhiteActionButtonStyle}"
+                Command="{Binding WriteToPlcCommand}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                                <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,6,0"/>
+
+                                <TextBlock Text="Write PLC / DB"
+                           VerticalAlignment="Center"
+                           Foreground="#1F2937"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= EXIT ================= -->
+
+                        <Button Grid.Column="5"
+                Width="180"
+                Height="48"
+                Style="{StaticResource WhiteActionButtonStyle}"
+                Command="{Binding ExitCommand}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                                <Image Source="/Icons/exit.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,6,0"/>
+
+                                <TextBlock Text="Exit"
+                           VerticalAlignment="Center"
+                           Foreground="#1F2937"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
 </Window>

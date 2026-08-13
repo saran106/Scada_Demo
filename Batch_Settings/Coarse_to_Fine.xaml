@@ -1,4 +1,4 @@
-﻿<Window x:Class="Scada_Demo.Batch_Settings.Coarse_to_Fine"
+﻿<!--<Window x:Class="Scada_Demo.Batch_Settings.Coarse_to_Fine"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Coarse_to_Fine"
@@ -14,12 +14,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- HEADER -->
+        --><!-- HEADER --><!--
         <TextBlock Text="Coarse to fine in terms of kilograms"
                    Style="{DynamicResource HeaderTextStyle}"
                    Margin="5"/>
 
-        <!-- CONTENT -->
+        --><!-- CONTENT --><!--
         <Border Grid.Row="1"
                 Margin="5"
                 Padding="20"
@@ -43,9 +43,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <!-- LEFT SIDE -->
+                --><!-- LEFT SIDE -->
 
-                <!-- Agg1 -->
+                <!-- Agg1 --><!--
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg1" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -54,7 +54,7 @@
              Text="{Binding txtAgg1, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Agg2 -->
+                --><!-- Agg2 --><!--
                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg2" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -63,7 +63,7 @@
              Text="{Binding txtAgg2, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Agg3 -->
+                --><!-- Agg3 --><!--
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg3" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -72,7 +72,7 @@
              Text="{Binding txtAgg3, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Agg4 -->
+                --><!-- Agg4 --><!--
                 <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="Agg4" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -81,9 +81,9 @@
              Text="{Binding txtAgg4, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- RIGHT SIDE -->
+                --><!-- RIGHT SIDE -->
 
-                <!-- Agg5 -->
+                <!-- Agg5 --><!--
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Agg5" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -92,7 +92,7 @@
              Text="{Binding txtAgg5, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Agg6 (Dummy) -->
+                --><!-- Agg6 (Dummy) --><!--
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Agg6" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -101,7 +101,7 @@
              Text="{Binding txtAgg6, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <!-- Water -->
+                --><!-- Water --><!--
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
                     <TextBlock Text="Wtr1" Width="80" Style="{DynamicResource CompactLabel}"/>
                     <TextBox Width="180"
@@ -112,7 +112,7 @@
             </Grid>
         </Border>
 
-        <!-- BUTTONS -->
+        --><!-- BUTTONS --><!--
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -136,4 +136,694 @@
         </StackPanel>
 
     </Grid>
+</Window>-->
+
+
+
+
+<Window x:Class="Scada_Demo.Batch_Settings.Coarse_to_Fine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Coarse To Fine Settings"
+           xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        Width="780"
+        Height="550"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{DynamicResource SitePageBackgroundBrush}">
+
+    <Grid>
+
+        <!-- ================= OUTER CARD ================= -->
+
+        <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
+
+            <Border.Effect>
+
+                <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+
+            </Border.Effect>
+
+            <Grid Margin="22">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="72"/>
+
+                    <RowDefinition Height="*"/>
+
+                    <RowDefinition Height="92"/>
+
+                </Grid.RowDefinitions>
+
+                <!-- ================= HEADER ================= -->
+
+                <Grid Grid.Row="0"
+                      Margin="0,-28,0,0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="48"/>
+
+                        <ColumnDefinition Width="Auto"/>
+
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ICON -->
+
+                    <Border Width="40"
+                            Height="40"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/calendar.png"
+                               Width="22"
+                               Height="22"/>
+
+                    </Border>
+
+                    <!-- TITLE -->
+
+                    <TextBlock Grid.Column="1"
+                               Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Coarse To Fine Settings"
+                               Style="{DynamicResource SiteHeaderStyle}"/>
+
+                    <!-- HEADER LINE -->
+
+                    <Grid Grid.ColumnSpan="3"
+                          VerticalAlignment="Bottom"
+                          Margin="0,0,0,18">
+
+                        <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                        <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <!-- ================= BODY ================= -->
+
+                <Border Grid.Row="1"
+                        Margin="0,6,0,0"
+                        Padding="18"
+                        CornerRadius="14"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1"
+                        Background="White">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+
+                            <ColumnDefinition Width="28"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- LEFT PANEL -->
+
+                        <Grid Grid.Column="0">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="54"/>
+                                <RowDefinition Height="8"/>
+
+                                <RowDefinition Height="54"/>
+                                <RowDefinition Height="8"/>
+
+                                <RowDefinition Height="54"/>
+                                <RowDefinition Height="8"/>
+
+                                <RowDefinition Height="54"/>
+
+                            </Grid.RowDefinitions>
+
+                            <!-- ================================================= -->
+                            <!-- AGG1 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg1"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg1, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="0"
+        VerticalAlignment="Bottom"
+        Height="1"
+        Background="#E7EBEF"/>
+
+                            <!-- ================================================= -->
+                            <!-- AGG2 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="2">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg2"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg2, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="2"
+        VerticalAlignment="Bottom"
+        Height="1"
+        Background="#E7EBEF"/>
+
+                            <!-- ================================================= -->
+                            <!-- AGG3 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="4">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg3"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg3, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="4"
+        VerticalAlignment="Bottom"
+        Height="1"
+        Background="#E7EBEF"/>
+
+                            <!-- ================================================= -->
+                            <!-- AGG4 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="6">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg4"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg4, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <!-- CENTER LINE -->
+
+                        <Border Grid.Column="1"
+                                Width="1"
+                                Margin="0,8"
+                                Background="#ECEFF3"/>
+
+                        <!-- RIGHT PANEL -->
+
+                        <Grid Grid.Column="2">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="54"/>
+                                <RowDefinition Height="8"/>
+
+                                <RowDefinition Height="54"/>
+                                <RowDefinition Height="8"/>
+
+                                <RowDefinition Height="54"/>
+
+                            </Grid.RowDefinitions>
+
+                            <!-- ================================================= -->
+                            <!-- AGG5 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg5"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg5, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="0"
+        VerticalAlignment="Bottom"
+        Height="1"
+        Background="#E7EBEF"/>
+
+                            <!-- ================================================= -->
+                            <!-- AGG6 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="2">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Agg6"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtAgg6, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="2"
+        VerticalAlignment="Bottom"
+        Height="1"
+        Background="#E7EBEF"/>
+
+                            <!-- ================================================= -->
+                            <!-- WATER 1 -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="4">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ICON -->
+                                <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                    <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               VerticalAlignment="Center"
+               Text="Wtr1"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="2"
+             Height="40"
+             Text="{Binding txtWTR1, UpdateSourceTrigger=PropertyChanged}"
+             Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- ================= FOOTER ================= -->
+
+                <Border Grid.Row="2"
+        Margin="-22,8,-22,-22"
+        Background="#F8F9FB"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1,1,1,0"
+        CornerRadius="0,0,18,18">
+
+                    <Grid Margin="18,12">
+
+                        <Grid.ColumnDefinitions>
+
+                            <!-- Left Spacer -->
+                            <ColumnDefinition Width="*"/>
+
+                            <!-- Read -->
+                            <ColumnDefinition Width="180"/>
+
+                            <!-- Gap -->
+                            <ColumnDefinition Width="20"/>
+
+                            <!-- Write -->
+                            <ColumnDefinition Width="180"/>
+
+                            <!-- Gap -->
+                            <ColumnDefinition Width="20"/>
+
+                            <!-- Exit -->
+                            <ColumnDefinition Width="180"/>
+
+                            <!-- Right Spacer -->
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ================= READ ================= -->
+
+                        <Button Grid.Column="1"
+                Height="44"
+                Command="{Binding ReadFromPlcCommand}"
+                Style="{StaticResource SaveButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                                <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                                <TextBlock Text="Read from PLC"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= WRITE ================= -->
+
+                        <Button Grid.Column="3"
+                Height="44"
+                Command="{Binding WriteToPlcCommand}"
+                Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                                <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                                <TextBlock Text="Write PLC / DB"
+                           Foreground="#1F2937"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- ================= EXIT ================= -->
+
+                        <Button Grid.Column="5"
+                Height="44"
+                Command="{Binding ExitCommand}"
+                Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                                <Image Source="/Icons/exit.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                                <TextBlock Text="Exit"
+                           Foreground="#1F2937"
+                           FontWeight="SemiBold"
+                           FontSize="14"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
 </Window>
+
+
+
+
+
+
+

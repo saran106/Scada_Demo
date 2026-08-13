@@ -134,6 +134,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         Icon="../project_small_i.png"
         Title="Customer Master"
         Width="900"
@@ -174,12 +175,28 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0"
-                            Style="{DynamicResource SiteIconBoxStyle}">
+                    <Border Width="40"
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                        <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                        <Image Source="/Icons/Customer_ID2.png"
-                               Width="28"
-                               Height="28"/>
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform">
+                                    <VisualBrush.Visual>
+
+                                        <svgc:SvgViewbox Source="/Icons/Customer.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+
+                        </Rectangle>
+
 
                     </Border>
 
@@ -253,16 +270,29 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Customer_ID2.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/ID.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
                         </Border>
-
                         <TextBlock Grid.Column="1"
                VerticalAlignment="Center"
                Text="Customer ID"
@@ -299,15 +329,30 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Customer_ID2.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Name.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
                         </Border>
+
 
                         <TextBlock Grid.Column="1"
                VerticalAlignment="Center"
@@ -337,17 +382,33 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
+
                         <Border Width="40"
-            Height="40"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+     Height="40"
+ VerticalAlignment="Top"
+ HorizontalAlignment="Center"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Address1.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Address.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
                         </Border>
-
                         <TextBlock Grid.Column="1"
                Margin="0,8,0,0"
                Text="Address"
@@ -379,14 +440,28 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/city.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/City.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
                         </Border>
 
                         <TextBlock Grid.Column="1"
@@ -419,14 +494,27 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Pincode.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Pincode.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
@@ -472,18 +560,32 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
 
                         <!-- PHONE -->
 
-                        <Border Grid.Column="0"
-            Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+                        <Border Width="40"
+     Height="40"
+     Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/phone.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Phone.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
+
+
 
                         <TextBlock Grid.Column="1"
                VerticalAlignment="Center"
@@ -500,17 +602,33 @@ Style="{DynamicResource SiteComboBoxStyle}"/>
                         <!-- CONTACT -->
 
                         <Border Grid.Column="5"
-            Width="40"
-            Height="40"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Style="{DynamicResource SiteIconBoxStyle}">
+Width="40"
+Height="40"
+VerticalAlignment="Center"
+HorizontalAlignment="Center"
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+       Height="24"
+       Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Contact.png"
-               Width="22"
-               Height="22"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Letter.svg"
+                             Width="24"
+                             Height="24"
+                             Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
+
 
                         <TextBlock Grid.Column="6"
                VerticalAlignment="Center"

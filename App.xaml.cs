@@ -28,6 +28,7 @@ namespace Scada_Demo
         public static MqttPublishSerice Publisher { get; private set; }
 
         public static LoginViewModel LoginVM { get; private set; }
+        public static AlarmHistoryViewModel AlarmVM { get; private set; }
         public static ModifyuserViewModel ModifyUserVM { get; private set; }
 
         public static Start_ProductionViewModel StartProductionVM { get; private set; }
@@ -40,6 +41,7 @@ namespace Scada_Demo
 
             Publisher = new MqttPublishSerice();
             LoginVM = new LoginViewModel();
+            AlarmVM = new AlarmHistoryViewModel();
             ModifyUserVM = new ModifyuserViewModel();
             StartProductionVM = new Start_ProductionViewModel();
             RegisterUserVM = new RegisterUserViewModel();

@@ -9,20 +9,72 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\Account_Number.svg" />
     <None Remove="Icons\Address.png" />
+    <None Remove="Icons\Address.svg" />
     <None Remove="Icons\Address1.png" />
+    <None Remove="Icons\Admixture.svg" />
+    <None Remove="Icons\Aggregate.svg" />
+    <None Remove="Icons\calendar.png" />
+    <None Remove="Icons\Calender.svg" />
+    <None Remove="Icons\Calibration.svg" />
+    <None Remove="Icons\Capacity.svg" />
+    <None Remove="Icons\Cement.svg" />
     <None Remove="Icons\city.png" />
+    <None Remove="Icons\City.svg" />
+    <None Remove="Icons\Concrete_truck.svg" />
+    <None Remove="Icons\Connection.svg" />
     <None Remove="Icons\Contact.png" />
+    <None Remove="Icons\Contact_Letter.svg" />
+    <None Remove="Icons\Customer.svg" />
     <None Remove="Icons\Customer_Id.png" />
     <None Remove="Icons\Customer_ID2.png" />
+    <None Remove="Icons\CV.svg" />
     <None Remove="Icons\Delete.png" />
+    <None Remove="Icons\Device_Settings.svg" />
     <None Remove="Icons\Distance.png" />
+    <None Remove="Icons\Distance.svg" />
     <None Remove="Icons\Distance1.png" />
+    <None Remove="Icons\Driver.svg" />
     <None Remove="Icons\exit.png" />
+    <None Remove="Icons\Filter.svg" />
+    <None Remove="Icons\Ice.svg" />
+    <None Remove="Icons\ID.svg" />
+    <None Remove="Icons\Least.svg" />
+    <None Remove="Icons\Letter.svg" />
+    <None Remove="Icons\Maintenace.png" />
+    <None Remove="Icons\Maintenance.svg" />
+    <None Remove="Icons\Message.svg" />
+    <None Remove="Icons\Mixer-Discharge.svg" />
+    <None Remove="Icons\Mixer-fan.svg" />
+    <None Remove="Icons\mixer-truck.png" />
+    <None Remove="Icons\Mixing-time.svg" />
+    <None Remove="Icons\Name.svg" />
+    <None Remove="Icons\Order.svg" />
+    <None Remove="Icons\Order_Type.svg" />
     <None Remove="Icons\phone.png" />
+    <None Remove="Icons\Phone.svg" />
     <None Remove="Icons\Pincode.png" />
+    <None Remove="Icons\Pincode.svg" />
+    <None Remove="Icons\Product.svg" />
+    <None Remove="Icons\Production.svg" />
+    <None Remove="Icons\Product_Name.png" />
+    <None Remove="Icons\Quantity.png" />
+    <None Remove="Icons\Quantity.svg" />
+    <None Remove="Icons\Ratio.svg" />
+    <None Remove="Icons\Recipe.svg" />
+    <None Remove="Icons\Recipe_Details.svg" />
     <None Remove="Icons\save.png" />
+    <None Remove="Icons\Silica.svg" />
     <None Remove="Icons\Site.png" />
+    <None Remove="Icons\Site.svg" />
+    <None Remove="Icons\Sliders.svg" />
+    <None Remove="Icons\Timer.svg" />
+    <None Remove="Icons\Types.svg" />
+    <None Remove="Icons\Values.svg" />
+    <None Remove="Icons\Water.svg" />
+    <None Remove="Icons\Weight.svg" />
+    <None Remove="Icons\Work_Order.svg" />
     <None Remove="login_bg.PNG" />
     <None Remove="Login_bg_new.PNG" />
     <None Remove="project_small_i.png" />
@@ -32,46 +84,201 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
     <PackageReference Include="MQTTnet" Version="5.1.0.1559" />
     <PackageReference Include="Sharp7" Version="1.1.84" />
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\Account_Number.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Address.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Address.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Address1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Admixture.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Aggregate.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\calendar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Calender.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Calibration.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Capacity.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Cement.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\city.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\City.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Concrete_truck.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Connection.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Contact.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Contact_Letter.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Customer.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Customer_ID2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\CV.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Delete.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Device_Settings.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Distance.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Distance.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Distance1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Driver.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Filter.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Ice.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\ID.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Least.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Letter.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Maintenace.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Maintenance.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Message.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Mixer-Discharge.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Mixer-fan.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\mixer-truck.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Mixing-time.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Name.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Order.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Order_Type.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\phone.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Phone.svg" />
     <Resource Include="Icons\Pincode.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Pincode.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Product.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Production.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Product_Name.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Quantity.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Quantity.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Ratio.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Recipe.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Recipe_Details.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\save.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Silica.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Site.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Site.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Sliders.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Timer.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Types.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Values.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Water.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Weight.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Work_Order.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="login_bg.PNG">
@@ -81,6 +288,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="project_small_i.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Truck_Details.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
 
 </Project>

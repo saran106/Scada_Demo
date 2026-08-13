@@ -1705,6 +1705,129 @@
 
 
 
+
+    <Style x:Key="SiteTabButtonStyle" TargetType="Button">
+
+        <!-- SIZE -->
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="16,0"/>
+
+        <!-- FONT -->
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="#273444"/>
+
+        <!-- COLORS -->
+        <Setter Property="Background" Value="#F8FAF8"/>
+        <Setter Property="BorderBrush" Value="#D7DFD9"/>
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border x:Name="Bd"
+                     Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     CornerRadius="10">
+
+                        <TextBlock
+ x:Name="BtnText"
+ Text="{TemplateBinding Content}"
+ HorizontalAlignment="Center"
+ VerticalAlignment="Center"
+ Foreground="{TemplateBinding Foreground}"
+ FontSize="{TemplateBinding FontSize}"
+ FontWeight="{TemplateBinding FontWeight}"/>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+
+                            <Setter TargetName="Bd"
+                             Property="Background"
+                             Value="#EAF4EC"/>
+
+                            <Setter TargetName="Bd"
+                             Property="BorderBrush"
+                             Value="#7EA787"/>
+
+                            <Setter Property="Foreground"
+                             Value="#2F4F39"/>
+
+                        </Trigger>
+
+                        <!-- Active -->
+
+                        <Trigger Property="Tag" Value="Active">
+
+                            <Setter TargetName="Bd"
+                             Property="Background"
+                             Value="#5E8D69"/>
+
+                            <Setter TargetName="Bd"
+                             Property="BorderBrush"
+                             Value="#4D7757"/>
+
+                            <Setter Property="Foreground"
+                             Value="White"/>
+
+                            <Setter Property="FontWeight"
+                             Value="Bold"/>
+
+                            <Setter TargetName="Bd"
+                             Property="BorderThickness"
+                             Value="2"/>
+
+                            <Setter TargetName="Bd"
+                             Property="Effect">
+
+                                <Setter.Value>
+
+                                    <DropShadowEffect
+                                 BlurRadius="10"
+                                 ShadowDepth="0"
+                                 Color="#5E8D69"
+                                 Opacity="0.30"/>
+
+                                </Setter.Value>
+
+                            </Setter>
+
+                        </Trigger>
+
+                        <!-- Pressed -->
+
+                        <Trigger Property="IsPressed" Value="True">
+
+                            <Setter TargetName="Bd"
+                             Property="Background"
+                             Value="#4F7658"/>
+
+                            <Setter Property="Foreground"
+                             Value="White"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+
     <Style x:Key="WhiteActionButtonStyle"
        TargetType="Button">
 
@@ -1919,6 +2042,29 @@
             </Trigger>
 
         </Style.Triggers>
+
+    </Style>
+
+
+    <SolidColorBrush x:Key="SiteIconBrush" Color="#00FFFF"/>
+
+    <Style x:Key="SiteCheckBoxStyle"
+       TargetType="CheckBox">
+
+        <Setter Property="Foreground"
+            Value="#1F2937"/>
+
+        <Setter Property="FontSize"
+            Value="15"/>
+
+        <Setter Property="FontWeight"
+            Value="Medium"/>
+
+        <Setter Property="Margin"
+            Value="0,3"/>
+
+        <Setter Property="VerticalAlignment"
+            Value="Center"/>
 
     </Style>
 </ResourceDictionary>

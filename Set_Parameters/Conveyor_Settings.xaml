@@ -2,24 +2,494 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Conveyor_Settings"
-        Height="500" Width="650"
-        Background="#0D3A3A" WindowStartupLocation="CenterScreen">
+        Height="600" Width="680"
+        ResizeMode="NoResize"
+         Icon="../project_small_i.png"
+      WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="8">
 
-        <!-- MAIN ROWS -->
+    <Grid>
+
+        <!-- ================= OUTER CARD ================= -->
+
+        <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
+
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+            </Border.Effect>
+
+            <Grid Margin="22">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- ================= HEADER ================= -->
+
+                <Grid Grid.Row="0"
+                      Margin="0,-45,0,0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ICON -->
+
+                    <Border Grid.Column="0"
+                            Width="40"
+                            Height="40"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/mixer-truck.png"
+                               Width="26"
+                               Height="26"/>
+
+                    </Border>
+
+                    <!-- TITLE -->
+
+                    <TextBlock Grid.Column="1"
+                               Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Conveyor Settings"
+                               Style="{DynamicResource SiteHeaderStyle}"/>
+
+                    <!-- GREEN LINE -->
+
+                    <Grid Grid.ColumnSpan="3"
+                          Margin="0,0,0,25"
+                          VerticalAlignment="Bottom">
+
+                        <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                        <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <!-- ================= FORM ================= -->
+
+                <Grid Grid.Row="1"
+                      Margin="0,-10,0,0">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="54"/>
+                        <RowDefinition Height="54"/>
+                        <RowDefinition Height="54"/>
+                        <RowDefinition Height="54"/>
+                        <RowDefinition Height="54"/>
+                        <RowDefinition Height="54"/>
+                        
+
+                        <!-- Footer -->
+                        <RowDefinition Height="90"/>
+
+                    </Grid.RowDefinitions>
+
+
+                    <!-- ================================================= -->
+                    <!-- 1. Conveyor on delay for material discharge in sec -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="0" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="355"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Address.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Conveyor on delay for material discharge in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <TextBox x:Name="txtDischargeTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="0"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                    <!-- ================================================= -->
+                    <!-- 2. Ascending hooter on delay in sec -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="1" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="355"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/calendar.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Ascending hooter on delay in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                    
+
+
+
+                        <TextBox x:Name="cmbMidPosition"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="10"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="1"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                    <!-- ================================================= -->
+                    <!-- 3. Conveyor on delay while batching in sec -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="2" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="355"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Customer_ID2.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Conveyor on delay while batching in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <TextBox x:Name="txtHoldDelay"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="10"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="2"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                    <!-- ================================================= -->
+                    <!-- 4. Trigger conveyor on while batching bin no -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="3" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="355"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Contact.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Trigger conveyor on while batching bin no"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <TextBox x:Name="txtMixingTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="3"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                    <!-- ================================================= -->
+                    <!-- 5. Trigger conveyor on while reaching actual weight in kg -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="4" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="405"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Delete.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Trigger conveyor on while reaching actual weight in kg"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <TextBox x:Name="txtPreMixTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="0"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="4"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                    <!-- ================================================= -->
+                    <!-- 6. Ascending conveyor material transfer time in sec -->
+                    <!-- ================================================= -->
+
+                    <Grid Grid.Row="5" Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="405"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Pincode.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Ascending conveyor material transfer time in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <TextBox x:Name="txtOffDelayTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="1"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="5"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                  
+
+                    <!-- ================= FOOTER ================= -->
+
+                    <Border Grid.Row="7"
+        Margin="-22,8,-22,-30"
+        CornerRadius="0,0,18,18"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1,1,1,0"
+        Background="#F3F4F6"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+
+                        <Grid Margin="0,12">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- READ FROM PLC -->
+
+                            <Button Grid.Column="1"
+                                    Height="46"
+                                    Style="{StaticResource SaveButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                    <Image Source="/Icons/save.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                    <TextBlock Text="Read from PLC"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="White"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                            <!-- WRITE TO PLC / DB -->
+
+                            <Button Grid.Column="3"
+                                    Height="46"
+                                    Style="{StaticResource WhiteActionButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                    <Image Source="/Icons/save.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                    <TextBlock Text="Write PLC / DB"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="#1F2937"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                            <!-- EXIT -->
+
+                            <Button Grid.Column="5"
+                                    Height="46"
+                                    Style="{StaticResource WhiteActionButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                    <Image Source="/Icons/exit.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                    <TextBlock Text="Exit"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="#1F2937"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+    <!--<Grid Margin="8">
+
+        --><!-- MAIN ROWS --><!--
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- HEADER -->
+        --><!-- HEADER --><!--
         <TextBlock Text="Conveyor Settings"
                    Margin="10,5"
                    Style="{StaticResource HeaderTextStyle}"/>
 
-        <!-- CONTENT -->
+        --><!-- CONTENT --><!--
         <Border Grid.Row="1"
                 Margin="10"
                 Padding="20"
@@ -45,7 +515,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- 1 -->
+                --><!-- 1 --><!--
                 <TextBlock Text="Conveyor on delay for material discharge in sec"
                            Grid.Row="0"
                            VerticalAlignment="Center"
@@ -54,7 +524,7 @@
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 2 -->
+                --><!-- 2 --><!--
                 <TextBlock Text="Ascending hooter on delay in sec"
                            Grid.Row="1"
                            VerticalAlignment="Center"
@@ -63,7 +533,7 @@
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 3 -->
+                --><!-- 3 --><!--
                 <TextBlock Text="Conveyor on delay while batching in sec"
                            Grid.Row="2"
                            VerticalAlignment="Center"
@@ -72,7 +542,7 @@
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 4 -->
+                --><!-- 4 --><!--
                 <TextBlock Text="Trigger conveyor on while batching bin no"
                            Grid.Row="3"
                            VerticalAlignment="Center"
@@ -81,7 +551,7 @@
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 5 -->
+                --><!-- 5 --><!--
                 <TextBlock Text="Trigger conveyor on while reaching actual weight in kg"
                            Grid.Row="4"
                            TextWrapping="Wrap"
@@ -91,7 +561,7 @@
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 6 -->
+                --><!-- 6 --><!--
                 <TextBlock Text="Ascending conveyor material transfer time in sec"
                            Grid.Row="5"
                            VerticalAlignment="Center"
@@ -103,7 +573,7 @@
             </Grid>
         </Border>
 
-        <!-- BUTTONS -->
+        --><!-- BUTTONS --><!--
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -118,5 +588,10 @@
 
         </StackPanel>
 
-    </Grid>
+    </Grid>-->
+    
+    
+    
+    
+    
 </Window>

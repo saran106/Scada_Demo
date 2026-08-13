@@ -2,113 +2,394 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Divert_Concrete"
-        Height="400" Width="400"
-        Background="#0D3A3A"
+        Height="500" Width="600"
+    
             Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="8">
+    <Grid>
 
-        <!-- MAIN ROWS -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <!-- ================= OUTER CARD ================= -->
 
-        <!-- HEADER -->
-        <TextBlock Text="Divert Concrete"
-                   Margin="10,5"
-                   Style="{StaticResource HeaderTextStyle}"/>
+        <Border Margin="12"
+            Style="{DynamicResource SiteOuterBorderStyle}">
 
-        <!-- CONTENT -->
-        <Border Grid.Row="1"
-                Margin="10"
-                Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
-                BorderThickness="2"
-                CornerRadius="6">
+            <Border.Effect>
 
-            <Grid>
+                <DropShadowEffect BlurRadius="18"
+                              ShadowDepth="2"
+                              Color="Black"
+                              Opacity="0.12"/>
 
-                <!-- COLUMN STRUCTURE -->
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
+            </Border.Effect>
 
-                <!-- ROWS -->
+            <Grid Margin="25">
+
+                <!-- ================= ROW DEFINITIONS ================= -->
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="90"/>
+
+                    <RowDefinition Height="*"/>
+
                 </Grid.RowDefinitions>
 
-                <!-- Batch No -->
-                <TextBlock Text="Batch No"
-                           Grid.Row="0"
+                <!-- ================= HEADER ================= -->
+
+                <Grid Grid.Row="0"
+                  Margin="0,-55,0,0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="50"/>
+
+                        <ColumnDefinition Width="Auto"/>
+
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!-- HEADER ICON -->
+
+                    <Border Grid.Column="0"
+                        Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Pincode.png"
+                           Width="24"
+                           Height="24"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <!-- HEADER TITLE -->
+
+                    <TextBlock Grid.Column="1"
+                           Margin="12,0,0,0"
                            VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                           Text="Divert Concrete"
+                           Style="{DynamicResource SiteHeaderStyle}"/>
 
-                <ComboBox Grid.Row="0" Grid.Column="2"
-                          Style="{StaticResource CompactComboBoxSmall}" MinWidth="0" Width="160" Height="34" Margin="0,12,0,4"/>
+                    <!-- GREEN LINE -->
 
-                <!-- Sub Batch -->
-                <TextBlock Text="Sub Batch No"
-                           Grid.Row="1"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                    <Grid Grid.ColumnSpan="3"
+                      VerticalAlignment="Bottom"
+                      Margin="0,0,0,35">
 
-                <ComboBox Grid.Row="1" Grid.Column="2"
-                          Margin="0,10,0,0"
-                          Style="{StaticResource CompactComboBoxSmall}" MinWidth="0" Width="160" Height="34"/>
+                        <Border Height="1.5"
+                            Background="{DynamicResource SiteAccentBrush}"/>
 
-                <!-- Customer -->
-                <TextBlock Text="Customer"
-                           Grid.Row="2"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                        <Ellipse Width="11"
+                             Height="11"
+                             Fill="{DynamicResource SiteAccentBrush}"
+                             HorizontalAlignment="Right"/>
 
-                <ComboBox Grid.Row="2" Grid.Column="2"
-                          Margin="0,10,0,0"
-                          Style="{StaticResource CompactComboBoxSmall}" MinWidth="0" Width="160" Height="34"/>
+                    </Grid>
 
-                <!-- Site -->
-                <TextBlock Text="Site"
-                           Grid.Row="3"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                </Grid>
 
-                <ComboBox Grid.Row="3" Grid.Column="2"
-                          Margin="0,10,0,0"
-                          Style="{StaticResource CompactComboBoxSmall}" MinWidth="0" Width="160" Height="34"/>
+                <!-- ================= FORM ================= -->
+
+                <Grid Grid.Row="1"
+                  Margin="0,-20,0,0">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="1"/>
+
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="1"/>
+
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="1"/>
+
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="1"/>
+
+                        <RowDefinition Height="95"/>
+
+                    </Grid.RowDefinitions>
+
+
+
+                    <!-- ================= BATCH NO ================= -->
+
+                    <Grid Grid.Row="0"
+                      Height="58">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="56"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                            Height="36"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Pincode.png"
+                               Width="20"
+                               Height="20"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               Text="Batch No"
+                               Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <ComboBox Grid.Column="3"
+                              Height="42"
+                              VerticalAlignment="Center"
+                              Style="{DynamicResource SiteComboBoxStyle}" IsEditable="True"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="1"
+                        Height="1"
+                        Background="#ECEFF3"/>
+
+                    <!-- ================= SUB BATCH NO ================= -->
+
+                    <Grid Grid.Row="2"
+                      Height="58">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="56"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+                            Height="36"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Pincode.png"
+                               Width="20"
+                               Height="20"/>
+
+                        </Border>
+
+                        <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               Text="Sub Batch No"
+                               Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <ComboBox Grid.Column="3"
+                              Height="42"
+                              VerticalAlignment="Center"
+                              Style="{DynamicResource SiteComboBoxStyle}" IsEditable="True"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="3"
+                        Height="1"
+                        Background="#ECEFF3"/>
+
+
+                    <!-- ================= CUSTOMER ================= -->
+
+                    <Grid Grid.Row="4"
+                      Height="58">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="56"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ICON -->
+
+                        <Border Width="40"
+                            Height="36"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Customer_ID2.png"
+                               Width="20"
+                               Height="20"/>
+
+                        </Border>
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               Text="Customer"
+                               Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <!-- COMBO -->
+
+                        <ComboBox Grid.Column="3"
+                              Height="42"
+                              VerticalAlignment="Center"
+                              Style="{DynamicResource SiteComboBoxStyle}" IsEditable="True"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="5"
+                        Height="1"
+                        Background="#ECEFF3"/>
+
+                    <!-- ================= SITE ================= -->
+
+                    <Grid Grid.Row="6"
+                      Height="58">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="56"/>
+
+                            <ColumnDefinition Width="180"/>
+
+                            <ColumnDefinition Width="25"/>
+
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- ICON -->
+
+                        <Border Width="40"
+                            Height="36"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                            <Image Source="/Icons/Site.png"
+                               Width="20"
+                               Height="20"/>
+
+                        </Border>
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               Text="Site"
+                               Style="{DynamicResource SiteLabelStyle}"/>
+
+                        <!-- COMBO -->
+
+                        <ComboBox Grid.Column="3"
+                              Height="42"
+                              VerticalAlignment="Center"
+                              Style="{DynamicResource SiteComboBoxStyle}"  IsEditable="True"/>
+
+                    </Grid>
+
+                    <Border Grid.Row="7"
+                        Height="1"
+                        Background="#ECEFF3"/>
+
+
+                    <!-- ================= FOOTER ================= -->
+
+                    <Border Grid.Row="8"
+                        Margin="-25,10,-25,-36"
+                        Background="#F3F4F6"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1,1,1,0"
+                        CornerRadius="0,0,18,18">
+
+                        <Grid Margin="0,12">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="*"/>
+
+                                <ColumnDefinition Width="170"/>
+
+                                <ColumnDefinition Width="20"/>
+
+                                <ColumnDefinition Width="170"/>
+
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <!-- ================= DIVERT ================= -->
+
+                            <Button Grid.Column="1"
+                                Height="46"
+                                Style="{StaticResource SaveButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                    <Image Source="/Icons/Pincode.png"
+                                       Width="18"
+                                       Height="18"
+                                       Margin="0,0,8,0"/>
+
+                                    <TextBlock Text="Divert"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                            <!-- ================= EXIT ================= -->
+
+                            <Button Grid.Column="3"
+                                Height="46"
+                                Style="{StaticResource WhiteActionButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+
+                                    <Image Source="/Icons/exit.png"
+                                       Width="18"
+                                       Height="18"
+                                       Margin="0,0,8,0"/>
+
+                                    <TextBlock Text="Exit"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#1F2937"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
 
             </Grid>
+
         </Border>
-
-        <!-- BUTTONS -->
-        <StackPanel Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Margin="10">
-
-            <Button Content="Divert"
-                    Width="140"
-                    Margin="10"
-                   />
-
-            <Button Content="Exit"
-                    Width="140"
-                    Margin="10"
-                    Style="{StaticResource RedButton}"/>
-
-        </StackPanel>
 
     </Grid>
 </Window>

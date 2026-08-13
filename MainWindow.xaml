@@ -772,18 +772,157 @@ HorizontalScrollBarVisibility="Disabled">
                             </ItemsControl>
 
                         </StackPanel>
-                        <!-- OPTIONS -->
-                        <Border ToolTip="Options" MouseLeftButtonDown="Options_Click">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="⚡" FontSize="18" Foreground="#00FFFF"/>
-                                <TextBlock Text="Options" x:Name="TxtOptions"
-                   Margin="12,0,0,0"
-                   Foreground="White"
-                   Visibility="Collapsed"/>
-                            </StackPanel>
-                        </Border>
 
-                        <!-- DATABASE -->
+                            <!-- =========================================== -->
+                            <!-- OPTIONS -->
+                            <!-- =========================================== -->
+
+                            <StackPanel>
+
+                                <!-- OPTIONS MAIN -->
+                                <Grid>
+
+                                    <!-- MAIN BUTTON -->
+                                    <Border x:Name="OptionsBorder"
+                ToolTip="Options"
+                MouseLeftButtonDown="Options_Click"
+                Padding="6"
+                Cursor="Hand">
+
+                                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                                            <TextBlock Text="⚡"
+                           FontSize="18"
+                           Foreground="{DynamicResource MenuIconBrush}"/>
+
+                                            <TextBlock Text="Options"
+                           x:Name="TxtOptions"
+                           Margin="12,0,0,0"
+                           Style="{DynamicResource miniLabelStyle}"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <!-- POPUP -->
+                                    <Popup x:Name="OptionsPopup"
+               Placement="Right"
+               PlacementTarget="{Binding ElementName=OptionsBorder}"
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               StaysOpen="False"
+               HorizontalOffset="20"
+               VerticalOffset="5">
+
+                                        <Border Background="#1F2F2F"
+                    Padding="10"
+                    CornerRadius="6"
+                    BorderBrush="#444"
+                    BorderThickness="1">
+
+                                            <ItemsControl ItemsSource="{Binding OptionsMenuItems}">
+
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+
+                                                        <TextBlock Text="{Binding Name}"
+                                       Style="{DynamicResource PopupSubMenuTextStyle}"/>
+
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+
+                                            </ItemsControl>
+
+                                        </Border>
+
+                                    </Popup>
+
+                                </Grid>
+
+                                <!-- INLINE SUB MENU -->
+                                <!-- ================= OPTIONS INLINE SUB MENU ================= -->
+
+                                <ItemsControl x:Name="OptionsSubMenu"
+              Margin="20,5,0,5"
+              Visibility="Collapsed">
+
+                                    <ItemsControl.ItemTemplate>
+
+                                        <DataTemplate>
+
+                                            <StackPanel>
+
+                                                <!-- ================= PARENT ITEM ================= -->
+
+                                                <Border Style="{DynamicResource SubMenuContainerStyle}"
+                        MouseLeftButtonDown="OptionsSubMenu_Click">
+
+                                                    <TextBlock Text="{Binding Name}"
+                               Style="{DynamicResource SubMenuTextStyle}"/>
+                                                </Border>
+
+
+                                                <!-- ================= CHILD ITEMS ================= -->
+
+                                                <ItemsControl ItemsSource="{Binding Children}"
+              Margin="15,0,0,0">
+
+                                                    <ItemsControl.Style>
+                                                        <Style TargetType="ItemsControl">
+
+                                                            <Setter Property="Visibility"
+                    Value="Collapsed"/>
+
+                                                            <Style.Triggers>
+
+                                                                <DataTrigger Binding="{Binding IsExpanded}"
+                             Value="True">
+
+                                                                    <Setter Property="Visibility"
+                            Value="Visible"/>
+
+                                                                </DataTrigger>
+
+                                                            </Style.Triggers>
+
+                                                        </Style>
+                                                    </ItemsControl.Style>
+
+                                                    <ItemsControl.ItemTemplate>
+
+                                                        <DataTemplate>
+
+                                                            <Border Style="{DynamicResource SubMenuContainerStyle}"
+                    MouseLeftButtonDown="OptionsSubMenu_Click">
+
+                                                                <TextBlock Text="{Binding Name}"
+                           Style="{DynamicResource SubMenuTextStyle}"/>
+
+                                                            </Border>
+
+                                                        </DataTemplate>
+
+                                                    </ItemsControl.ItemTemplate>
+
+                                                </ItemsControl>
+
+                                            </StackPanel>
+
+                                        </DataTemplate>
+
+                                    </ItemsControl.ItemTemplate>
+
+                                </ItemsControl>
+
+
+
+
+                            </StackPanel>
+
+                            <!-- DATABASE -->
                         <Border ToolTip="Database Handling" MouseLeftButtonDown="DB_Click">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <TextBlock Text="🛢"     FontSize="18"  Foreground="#00FFFF"/>
@@ -1462,7 +1601,7 @@ x:Name="txtICEweighervalue"
                                                     <RowDefinition Height="36"/>
                                                     <RowDefinition Height="36"/>
                                                     <RowDefinition Height="36"/>
-                                                    <RowDefinition Height="42"/>
+                                                    <RowDefinition Height="40"/>
                                                 </Grid.RowDefinitions>
 
                                                 <Grid.ColumnDefinitions>
@@ -5066,32 +5205,49 @@ VerticalAlignment="Center" Canvas.Top="-33">
           Height="100">
 
 
-                    <!-- Fully Flexible Columns -->
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
+                                    <!-- ================= FOOTER GRID COLUMNS ================= -->
+                                    <Grid.ColumnDefinitions>
 
-                    <!-- Flexible Rows -->
-                
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                
+                                        <!-- Recipe Name -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
 
-                    <!-- ================= ROW 1 ================= -->
+                                        <!-- Ordered Qty -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                        <!-- Adjusted Qty -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                        <!-- Customer ID -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                        <!-- Moisture Actual -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                        <!-- Remaining Batches / Total -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                        <!-- Fault / Tolerance Ack / Set -->
+                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.7*"/>
+
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <!-- Flexible Rows -->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <!-- ================= ROW 1 ================= -->
 
                                     <TextBlock Text="Recipe Name"
            Grid.Row="0"
@@ -5151,10 +5307,23 @@ VerticalAlignment="Center" Canvas.Top="-33">
          Grid.Row="0"
          Grid.Column="9"
          Style="{DynamicResource PremiumTextBox}"/>
+
+                                    
+<TextBlock Text="Remaining Batches"
+           Grid.Row="0"
+           Grid.Column="10"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+<TextBox x:Name="txtRemainingBatches"
+         Text="5"
+         Grid.Row="0"
+         Grid.Column="11"
+         Style="{DynamicResource PremiumTextBox}"/>
                                     <!-- Fault Button -->
                                     <Button Content="Fault"
         Grid.Row="0"
-        Grid.Column="10"
+        Grid.Column="12"
         Height="22"
         Margin="5"
         Style="{DynamicResource RedButton}"
@@ -5163,7 +5332,7 @@ VerticalAlignment="Center" Canvas.Top="-33">
                                     <!-- Tolerance Ack Button -->
                     <Button Content="Tolerance Ack"
                Grid.Row="0"
-               Grid.Column="11"
+               Grid.Column="13"
                Margin="5"
                               Height="22"
                Background="#1E6F6F"
@@ -5292,29 +5461,45 @@ VerticalAlignment="Center" Canvas.Top="-33">
          Grid.Column="7"
          Style="{DynamicResource PremiumTextBox}"/>
 
-
                                     <TextBlock Text="Water Correction"
            Grid.Row="2"
            Grid.Column="8"
            VerticalAlignment="Center"
            Style="{DynamicResource MiniCompactLabel}"/>
 
-                                    <TextBox Text="0"
+                                    <TextBox x:Name="txtWaterCorrection"
+         Text="0"
          Grid.Row="2"
          Grid.Column="9"
          Style="{DynamicResource PremiumTextBox}"/>
 
-                                    <Button Content="Set"
-               Grid.Row="2"
-               Grid.Column="10"
-               Grid.ColumnSpan="2"
-               Margin="5"
-                                            Height="22"
-               Background="#D3D3D3"
-               FontWeight="Bold"
-               HorizontalAlignment="Stretch"/>
 
-                </Grid>
+                                   
+
+                                    <!-- Batch No -->
+                                    <TextBlock Text="Batch No"
+           Grid.Row="2"
+           Grid.Column="10"
+           VerticalAlignment="Center"
+           Style="{DynamicResource MiniCompactLabel}"/>
+
+                                    <TextBox Text="74353"
+         Grid.Row="2"
+         Grid.Column="11"
+         Style="{DynamicResource PremiumTextBox}"/>
+
+
+                                    <!-- Set Button -->
+                                    <Button Content="Set"
+        Grid.Row="2"
+        Grid.Column="12"
+        Grid.ColumnSpan="2"
+        Margin="5"
+        Height="22"
+        Background="#D3D3D3"
+        FontWeight="Bold"
+        HorizontalAlignment="Stretch"/>
+                                </Grid>
                             </Viewbox>
 
                         </Border>

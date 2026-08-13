@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Scada_Demo"
           
              
-          StartupUri="Views/Maintenance.xaml">
+          StartupUri="Login/Login.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -8,8 +8,8 @@ mc:Ignorable="d"
         Title="MCI460 Start Batch Transaction"
             Icon="../project_small_i.png"
         Height="790"
-        Width="1110"
-        Background="#0D3A3A"
+        Width="1200"
+Background="{DynamicResource SitePageBackgroundBrush}"
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="12">
@@ -36,23 +36,77 @@ mc:Ignorable="d"
         <!-- HEADER -->
         <!-- ===================================================== -->
 
-        <TextBlock Grid.Row="0"
-                   Text="Start Production"
-                   Style="{StaticResource HeaderTextStyle}"
-                   Margin="20,0,0,12"/>
+        <Grid Grid.Row="0"
+      Margin="0,0,0,14">
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="52"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ICON -->
+            <Border Grid.Column="0"
+            Width="42"
+            Height="42"
+            VerticalAlignment="Center"
+            Style="{DynamicResource SiteIconBoxStyle}">
+
+                <Image Source="/Icons/Product_Name.png"
+               Width="24"
+               Height="24"
+               Stretch="Uniform"/>
+
+            </Border>
+
+            <!-- TITLE -->
+            <TextBlock Grid.Column="1"
+               Text="Start Production"
+               Margin="14,0,0,0"
+               VerticalAlignment="Center"
+               Style="{DynamicResource SiteHeaderStyle}"/>
+
+            <!-- STATUS -->
+            <Border Grid.Column="2"
+            Background="{DynamicResource SiteAccentBrush}"
+            CornerRadius="12"
+            Padding="12,5"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center">
+
+                <TextBlock Text="PRODUCTION"
+                   Foreground="White"
+                   FontSize="11"
+                   FontWeight="Bold"
+                   Margin="0"/>
+
+            </Border>
+
+            <!-- LINE + DOT -->
+            <Grid Grid.ColumnSpan="3"
+          VerticalAlignment="Bottom"
+          Margin="0,0,0,-5">
+
+                <Border Height="1.5"
+                Background="{DynamicResource SiteAccentBrush}"/>
+
+                <Ellipse Width="10"
+                 Height="10"
+                 Fill="{DynamicResource SiteAccentBrush}"
+                 HorizontalAlignment="Right"/>
+
+            </Grid>
+
+        </Grid>
 
         <!-- ===================================================== -->
         <!-- MAIN BORDER -->
         <!-- ===================================================== -->
 
         <Border Grid.Row="1"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
-                BorderThickness="2"
-                CornerRadius="6"
-                Padding="15"
-                Margin="5,0,5,10">
+        Margin="0,0,0,12"
+        Padding="14"
+        Style="{DynamicResource SiteOuterBorderStyle}">
 
             <Grid>
 
@@ -83,10 +137,12 @@ mc:Ignorable="d"
                     <!-- LEFT -->
                     <!-- ============================================= -->
 
-                    <Grid Grid.Column="0"
-          Margin="0,0,15,0">
+                    <Border Grid.Column="0"
+        Padding="16"
+        Style="{DynamicResource SiteOuterBorderStyle}">
 
-                        <Grid.RowDefinitions>
+                        <Grid Margin="0,0,15,0">
+                            <Grid.RowDefinitions>
 
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -94,6 +150,9 @@ mc:Ignorable="d"
                         </Grid.RowDefinitions>
 
 
+                            
+                            
+                            
                         <!-- SCHEDULE -->
 
                         <Grid Margin="0,0,0,12">
@@ -110,14 +169,15 @@ mc:Ignorable="d"
                        Style="{StaticResource CompactLabel}"
                        VerticalAlignment="Center"/>
 
-                            <ComboBox Grid.Column="1"
-          Height="30"
+                                <ComboBox Grid.Column="1"
+          Height="38"
           MinWidth="280"
-          Style="{StaticResource CompactComboBoxSmall}"
+                                          IsEditable="True"
+          Style="{DynamicResource SiteComboBoxStyle}"
           ItemsSource="{Binding ScheduleIds}"
           SelectedItem="{Binding SelectedScheduleId}"/>
 
-                        </Grid>
+                            </Grid>
 
 
                         <!-- AVAILABLE ORDER -->
@@ -136,200 +196,569 @@ mc:Ignorable="d"
                        Style="{StaticResource CompactLabel}"
                        VerticalAlignment="Top"/>
 
-                            <Border Grid.Column="1"
+                                <Border Grid.Column="1"
         Height="130"
         VerticalAlignment="Top"
         Margin="0,18,0,0"
-        BorderBrush="White"
-        BorderThickness="2"
-        Background="#1B1B1B">
+        Background="White"
+        BorderBrush="#DDE3E8"
+        BorderThickness="1"
+        CornerRadius="8">
 
-                                <ListBox
-    Background="#1B1B1B"
-    BorderThickness="0"
-    Foreground="White"
-    ItemsSource="{Binding OrderIds}"
-    SelectedItem="{Binding SelectedOrderId, Mode=TwoWay}"/>
+                                    <ListBox
+        Background="Transparent"
+        BorderThickness="0"
+        Foreground="#1F2937"
+        Padding="4"
+        ItemsSource="{Binding OrderIds}"
+        SelectedItem="{Binding SelectedOrderId, Mode=TwoWay}"/>
 
-                            </Border>
+                                </Border>
+
+                            </Grid>
 
                         </Grid>
-
-                    </Grid>
+                    </Border>
 
 
                     <!-- ============================================= -->
                     <!-- RIGHT -->
                     <!-- ============================================= -->
 
-                    <Grid Grid.Column="2">
+                    <Border Grid.Column="2"
+        Padding="16"
+        Style="{DynamicResource SiteOuterBorderStyle}">
 
-                        <Grid.ColumnDefinitions>
+                        <Grid>
 
-                            <ColumnDefinition Width="170"/>
-                            <ColumnDefinition Width="*"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="63"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
 
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        </Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        <!-- COMMON STYLE -->
-                        <!-- REMOVE FIXED WIDTHS -->
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        <TextBlock Text="Customer ID"
-                   Grid.Row="0"
-                   Style="{StaticResource CompactLabel}"/>
-                        <TextBox
-    Grid.Row="0"
-    Grid.Column="1"
-                             Height="30"
- Width="250"
-    Text="{Binding CustomerID}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        <TextBlock Text="Site"
-                   Grid.Row="1"
-                   Style="{StaticResource CompactLabel}"/>
-                        
-                        <TextBox
-    Grid.Row="1"
-    Grid.Column="1"
-                             Height="30"
- Width="250"
-    Text="{Binding Site}"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                        
-                        
-                        <TextBlock Text="Recipe ID"
-                   Grid.Row="2"
-                   Style="{StaticResource CompactLabel}"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1"/>
 
-                        <TextBox
-    Grid.Row="2"
-    Grid.Column="1"
-    Text="{Binding RecipeID}"
-                             Height="30"
- Width="250"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                        
-                        
-                        <TextBlock Text="Recipe Name"
-                   Grid.Row="3"
-                   Style="{StaticResource CompactLabel}"/>
-                        
-                        <TextBox
-    Grid.Row="3"
-    Grid.Column="1"
-    Text="{Binding RecipeName}"
-                             Height="30"
- Width="250"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                        
-                        <TextBlock Text="Truck No"
-                   Grid.Row="4"
-                   Style="{StaticResource CompactLabel}"/>
+                                <RowDefinition Height="40"/>
 
-                        <ComboBox Grid.Row="4"
-                  Grid.Column="1"
-                  Height="30"
-                  Width="250"
-                  ItemsSource="{Binding TruckNos}"
-    SelectedItem="{Binding SelectedTruckNo}"
-    Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
+                            </Grid.RowDefinitions>
 
 
-                        <TextBlock Text="Driver"
-                   Grid.Row="5"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- CUSTOMER ID -->
+                            <!-- ================================================= -->
 
-                        <ComboBox Grid.Row="5"
-                  Grid.Column="1"
-                  Height="30"
-                  Width="250"
-                  ItemsSource="{Binding Drivers}"
-    SelectedItem="{Binding SelectedDriver}"
-    Style="{StaticResource CompactComboBoxSmall}" HorizontalAlignment="Center" Margin="0,8,0,8"/>
+                            <Grid Grid.Row="0"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Customer_ID2.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Customer ID"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Text="{Binding CustomerID}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
 
 
-                        <TextBlock Text="Production Qty"
-                   Grid.Row="6"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- SITE -->
+                            <!-- ================================================= -->
 
-                        <TextBox Grid.Row="6"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-                
-    Text="{Binding ProductionQty}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                            <Grid Grid.Row="2"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Site.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Site"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Text="{Binding Site}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="3"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
 
 
-                        <TextBlock Text="Returned Qty"
-                   Grid.Row="7"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- RECIPE ID -->
+                            <!-- ================================================= -->
 
-                        <TextBox Grid.Row="7"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-               Text="{Binding ReturnedQty}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                            <Grid Grid.Row="4"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Product_Name.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Recipe ID"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Text="{Binding RecipeID}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="5"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
 
 
-                        <TextBlock Text="Mixer Capacity"
-                   Grid.Row="8"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- RECIPE NAME -->
+                            <!-- ================================================= -->
 
-                        <TextBox Grid.Row="8"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
+                            <Grid Grid.Row="6"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Product_Name.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Recipe Name"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Text="{Binding RecipeName}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="7"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
+
+                            <!-- ================================================= -->
+                            <!-- TRUCK NO -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="8"
+      Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+            Width="32"
+            Height="32"
+            Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/mixer-truck.png"
+               Width="22"
+               Height="22"
+               Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               Text="Truck No"
+               VerticalAlignment="Center"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <ComboBox Grid.Column="3"
+              Height="32"
+              Width="150"
+              IsEditable="True"
+              ItemsSource="{Binding TruckNos}"
+              SelectedItem="{Binding SelectedTruckNo}"
+              Style="{DynamicResource SiteComboBoxStyle}"
+              HorizontalAlignment="Left"
+              Margin="0,4"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="9"
+        Grid.ColumnSpan="4"
+        Background="#ECEFF3"/>
+
+
+                            <!-- ================================================= -->
+                            <!-- DRIVER -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="10"
+      Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+            Width="32"
+            Height="32"
+            Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Contact.png"
+               Width="22"
+               Height="22"
+               Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+               Text="Driver"
+               VerticalAlignment="Center"
+               Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <ComboBox Grid.Column="3"
+              Height="32"
+              Width="150"
+              IsEditable="True"
+              ItemsSource="{Binding Drivers}"
+              SelectedItem="{Binding SelectedDriver}"
+              Style="{DynamicResource SiteComboBoxStyle}"
+              HorizontalAlignment="Left"
+              Margin="0,4"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="11"
+        Grid.ColumnSpan="4"
+        Background="#ECEFF3"/>
+
+
+                            <!-- ================================================= -->
+                            <!-- PRODUCTION QTY -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="12"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Quantity.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Production Qty"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Margin="0,4"
+                 Text="{Binding ProductionQty}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="13"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
+
+
+                            <!-- ================================================= -->
+                            <!-- RETURNED QTY -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="14"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Quantity.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Returned Qty"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Margin="0,4"
+                 Text="{Binding ReturnedQty}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="15"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
+
+
+                            <!-- ================================================= -->
+                            <!-- MIXER CAPACITY -->
+                            <!-- ================================================= -->
+
+                            <Grid Grid.Row="16"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/mixer-truck.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Mixer Capacity"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Margin="0,4"
                  Text="{Binding MixerCapacity}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="17"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
 
 
-                        <TextBlock Text="Mixing Time"
-                   Grid.Row="9"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- MIXING TIME -->
+                            <!-- ================================================= -->
 
-                        <TextBox Grid.Row="9"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
+                            <Grid Grid.Row="18"
+          Grid.ColumnSpan="4">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/calendar.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Mixing Time"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Margin="0,4"
                  Text="{Binding MixingTime}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                            <Border Grid.Row="19"
+            Grid.ColumnSpan="4"
+            Background="#ECEFF3"/>
 
 
-                        <TextBlock Text="Slurry Split in %"
-                   Grid.Row="10"
-                   Style="{StaticResource CompactLabel}"/>
+                            <!-- ================================================= -->
+                            <!-- SLURRY SPLIT -->
+                            <!-- ================================================= -->
 
-                        <TextBox Grid.Row="10"
-                 Grid.Column="1"
-                 Height="30"
-                 Margin="0,4,0,4"
-   Text="{Binding SlurrySplit}"
-    Style="{StaticResource JogTextBoxStyle}"/>
+                            <Grid Grid.Row="20"
+          Grid.ColumnSpan="4">
 
-                    </Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="63"/>
+                                    <ColumnDefinition Width="170"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                Width="32"
+                Height="32"
+                Style="{DynamicResource SiteIconBoxStyle}">
+
+                                    <Image Source="/Icons/Quantity.png"
+                   Width="22"
+                   Height="22"
+                   Stretch="Uniform"/>
+
+                                </Border>
+
+                                <TextBlock Grid.Column="1"
+                   Text="Slurry Split in %"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                                <TextBox Grid.Column="3"
+                 Height="32"
+                 Margin="0,4"
+                 Text="{Binding SlurrySplit}"
+                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                            </Grid>
+
+                        </Grid>
+                    </Border>
 
                 </Grid>
 
@@ -347,209 +776,307 @@ mc:Ignorable="d"
                     <UniformGrid Columns="4">
 
                         <!-- PROD1 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod1"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
 
-                    <!-- PROD2 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod2"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBlock Text="Prod1"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
 
-                    <!-- PROD3 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod3"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
 
-                    <!-- PROD4 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod4"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="10"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        </StackPanel>
 
-                    <!-- PROD5 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod5"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
 
-                    <!-- PROD6 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod6"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        <!-- PROD2 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
 
-                    <!-- PROD7 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod7"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBlock Text="Prod2"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
 
-                    <!-- PROD8 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod8"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
 
-                    <!-- PROD9 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod9"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        </StackPanel>
 
-                    <!-- PROD10 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod10"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
 
-                    <!-- PROD11 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod11"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        <!-- PROD3 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
 
-                    <!-- PROD12 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod12"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBlock Text="Prod3"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
 
-                    <!-- PROD13 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod13"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
 
-                    <!-- PROD14 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod14"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        </StackPanel>
 
-                    <!-- PROD15 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod15"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
 
-                    <!-- PROD16 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod16"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        <!-- PROD4 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
 
-                    <!-- PROD17 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod17"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBlock Text="Prod4"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
 
-                    <!-- PROD18 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod18"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
 
-                    <!-- PROD19 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod19"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+                        </StackPanel>
 
-                    <!-- PROD20 -->
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <TextBlock Text="Prod20"
-      Width="50"
-      Style="{StaticResource CompactLabel}"/>
-                        <TextBox Width="20"
-    Height="34"
-    Style="{StaticResource JogTextBoxStyle}"/>
-                    </StackPanel>
+
+                        <!-- PROD5 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod5"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD6 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod6"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD7 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod7"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD8 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod8"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD9 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod9"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD10 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod10"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD11 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod11"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD12 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod12"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD13 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod13"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD14 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod14"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD15 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod15"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD16 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod16"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD17 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod17"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD18 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod18"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD19 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod19"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <!-- PROD20 -->
+                        <StackPanel Orientation="Horizontal"
+                    Margin="8">
+
+                            <TextBlock Text="Prod20"
+                       Width="50"
+                       Style="{DynamicResource SiteLabelStyle}"/>
+
+                            <TextBox Width="100"
+                     Height="34"
+                     Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                        </StackPanel>
 
                     </UniformGrid>
 
                 </ScrollViewer>
-
             </Grid>
 
         </Border>

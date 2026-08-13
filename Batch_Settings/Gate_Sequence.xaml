@@ -1,4 +1,4 @@
-﻿<Window x:Class="Scada_Demo.Batch_Settings.Gate_Sequence"
+﻿<!--<Window x:Class="Scada_Demo.Batch_Settings.Gate_Sequence"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MC460 Gate Sequence Settings"
@@ -25,7 +25,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- HEADER -->
+            --><!-- HEADER --><!--
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -43,7 +43,7 @@
                            HorizontalAlignment="Center"/>
             </Grid>
 
-            <!-- MAIN CONTENT -->
+            --><!-- MAIN CONTENT --><!--
             <Grid Grid.Row="1" Margin="10">
 
                 <Grid.ColumnDefinitions>
@@ -52,7 +52,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <!-- LEFT LIST -->
+                --><!-- LEFT LIST --><!--
                 <StackPanel>
                     <ListBox
     Height="250"
@@ -62,7 +62,7 @@
     SelectedItem="{Binding SelectedCurrentItem}" />
                 </StackPanel>
 
-                <!-- MIDDLE BUTTONS -->
+                --><!-- MIDDLE BUTTONS --><!--
                 <StackPanel Grid.Column="1"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
@@ -79,7 +79,7 @@
       Command="{Binding RefreshCommand}"/>
                 </StackPanel>
 
-                <!-- RIGHT LIST -->
+                --><!-- RIGHT LIST --><!--
                 <StackPanel Grid.Column="2">
                     <ListBox
     Height="250"
@@ -90,7 +90,7 @@
 
             </Grid>
 
-            <!-- BOTTOM BUTTONS -->
+            --><!-- BOTTOM BUTTONS --><!--
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
@@ -105,6 +105,404 @@
         Style="{DynamicResource RedButton}"
         Command="{Binding ExitCommand}"/>
             </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>-->
+
+
+
+<Window x:Class="Scada_Demo.Batch_Settings.Gate_Sequence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gate Sequence"
+        Width="680"
+        Height="550"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F4F7F6">
+
+    <Border Margin="10"
+        Background="White"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1"
+        CornerRadius="18">
+
+        <Grid Margin="20">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="92"/>
+
+            </Grid.RowDefinitions>
+
+            <!-- ===================================================== -->
+        <!-- HEADER -->
+        <!-- ===================================================== -->
+
+        <!--<Border Grid.Row="0"
+                Background="White"
+                BorderBrush="#E5E7EB"
+                BorderThickness="1"
+                CornerRadius="18"
+                Padding="20">-->
+        
+        
+        
+
+            <Grid  Grid.Row="0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="50"
+                            Height="50"
+                            Background="#EEF8F1"
+                            BorderBrush="#D8EBDD"
+                            BorderThickness="1"
+                            CornerRadius="10">
+
+                        <Image Source="/Icons/Pincode.png"
+                               Width="26"
+                               Height="26"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <StackPanel Grid.Column="2"
+                                VerticalAlignment="Center">
+
+                        <TextBlock Text="Gate Sequence"
+                                   FontSize="25"
+                                   FontWeight="Bold"
+                                   Foreground="#1F2937"/>
+
+                   
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="14"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Border Height="2"
+                            Background="#5F916B"
+                            CornerRadius="1"
+                            VerticalAlignment="Center"/>
+
+                    <Ellipse Grid.Column="1"
+                             Width="12"
+                             Height="12"
+                             Fill="#5F916B"/>
+
+                </Grid>
+
+            </Grid>
+
+        <!--</Border>-->
+
+        <!-- ===================================================== -->
+        <!-- CONTENT -->
+        <!-- ===================================================== -->
+
+        <!--<Border Grid.Row="1"
+                Margin="0,18,0,18"
+                Background="White"
+                BorderBrush="#E5E7EB"
+                BorderThickness="1"
+                CornerRadius="18"
+                Padding="20">-->
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Current Gate Sequence"
+               FontSize="17"
+               FontWeight="SemiBold"
+               Foreground="#1F2937"
+               HorizontalAlignment="Center"/>
+
+                    <Border Grid.Row="2"
+            Background="#FAFBFC"
+            BorderBrush="#DDE3E8"
+            BorderThickness="1"
+            CornerRadius="12"
+            Padding="12">
+
+                        <ListBox ItemsSource="{Binding CurrentItems}"
+                 SelectedItem="{Binding SelectedCurrentItem}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 FontSize="15"
+                 Foreground="#111827"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                            <ListBox.ItemContainerStyle>
+
+                                <Style TargetType="ListBoxItem">
+
+                                    <Setter Property="Foreground" Value="#111827"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+
+                                    <!-- Space -->
+                                    <Setter Property="Padding" Value="6,1"/>
+                                    <Setter Property="Margin" Value="0,3"/>
+
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+
+                                </Style>
+
+                            </ListBox.ItemContainerStyle>
+
+                        </ListBox>
+
+                    </Border>
+
+                </Grid>
+
+                <!-- ===================================================== -->
+                <!-- MIDDLE PANEL -->
+                <!-- ===================================================== -->
+
+                <Grid Grid.Column="1">
+
+                    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                        <!-- MOVE -->
+
+                        <Button Width="70"
+                Height="50"
+                Margin="0,0,0,18"
+                FontSize="22"
+                FontWeight="Bold"
+                Content=">"
+                Command="{Binding MoveCommand}"
+                Style="{StaticResource SaveButtonStyle}"/>
+
+                        <!-- REFRESH -->
+
+                        <Button Width="110"
+                Height="46"
+                Content="Refresh"
+                Command="{Binding RefreshCommand}"
+                Style="{StaticResource WhiteActionButtonStyle}"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <!-- ===================================================== -->
+                <!-- RIGHT PANEL -->
+                <!-- ===================================================== -->
+
+                <Grid Grid.Column="2">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Preferred Gate Sequence"
+               FontSize="17"
+               FontWeight="SemiBold"
+               Foreground="#1F2937"
+               HorizontalAlignment="Center"/>
+
+                    <Border Grid.Row="2"
+            Background="#FAFBFC"
+            BorderBrush="#DDE3E8"
+            BorderThickness="1"
+            CornerRadius="12"
+            Padding="8">
+
+                        <!-- ORIGINAL BINDING KEPT -->
+
+                        <ListBox ItemsSource="{Binding PreferredItems}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 FontSize="15"
+                 Foreground="#111827">
+
+                            <ListBox.ItemContainerStyle>
+
+                                <Style TargetType="ListBoxItem">
+
+                                    <Setter Property="Foreground" Value="#111827"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+
+                                    <!-- Same spacing as left panel -->
+                                    <Setter Property="Padding" Value="6,1"/>
+                                    <Setter Property="Margin" Value="0,1"/>
+
+                                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+
+                                </Style>
+
+                            </ListBox.ItemContainerStyle>
+
+                        </ListBox>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+        <!--</Border>-->
+
+        <!-- ===================================================== -->
+        <!-- FOOTER -->
+        <!-- ===================================================== -->
+
+        <Border Grid.Row="2"
+        Margin="-20,10,-20,-20"
+        Background="#F8F9FB"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1,1,1,0"
+        CornerRadius="0,0,18,18">
+
+            <Grid Margin="18,14">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="185"/>
+
+                    <ColumnDefinition Width="25"/>
+
+                    <ColumnDefinition Width="205"/>
+
+                    <ColumnDefinition Width="25"/>
+
+                    <ColumnDefinition Width="140"/>
+
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!-- READ -->
+
+                <Button Grid.Column="1"
+                Height="46"
+                Command="{Binding ReadFromPlcCommand}"
+                Style="{StaticResource SaveButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                        <TextBlock Text="Read from PLC"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="White"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- WRITE -->
+
+                <Button Grid.Column="3"
+                Height="46"
+                Command="{Binding WriteToPlcCommand}"
+                Style="{StaticResource WhiteActionButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/Pincode.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                        <TextBlock Text="Write PLC / DB"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#1F2937"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- EXIT -->
+
+                <Button Grid.Column="5"
+                Height="46"
+                           Width="135"
+                Command="{Binding ExitCommand}"
+                Style="{StaticResource WhiteActionButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/exit.png"
+                       Width="18"
+                       Height="18"
+                       Margin="0,0,8,0"/>
+
+                        <TextBlock Text="Exit"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#1F2937"/>
+
+                    </StackPanel>
+
+                </Button>
+
+            </Grid>
+
+        </Border>
 
         </Grid>
     </Border>

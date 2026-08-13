@@ -1,4 +1,4 @@
-﻿<Window x:Class="Scada_Demo.Set_Parameters.Skip_Paramter_Settings"
+﻿<!--<Window x:Class="Scada_Demo.Set_Parameters.Skip_Paramter_Settings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Skip_Paramter_Settings"
@@ -7,22 +7,22 @@ Background="#0D3A3A"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="8">
 
-        <!-- MAIN ROWS -->
+        --><!-- MAIN ROWS --><!--
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Header -->
+            --><!-- Header --><!--
             <RowDefinition Height="Auto"/>
-            <!-- Content -->
+            --><!-- Content --><!--
             <RowDefinition Height="Auto"/>
-            <!-- Buttons -->
+            --><!-- Buttons --><!--
         </Grid.RowDefinitions>
 
-        <!-- ================= HEADER ================= -->
+        --><!-- ================= HEADER ================= --><!--
         <TextBlock Text="Skip Parameter Settings"
                    Margin="10,5"
                    Style="{StaticResource HeaderTextStyle}"/>
 
-        <!-- ================= CONTENT ================= -->
+        --><!-- ================= CONTENT ================= --><!--
         <Border Grid.Row="1"
                 Margin="10"
                 Padding="20"
@@ -35,14 +35,14 @@ Background="#0D3A3A"
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
-                    <!-- Label -->
+                    --><!-- Label --><!--
                     <ColumnDefinition Width="20"/>
-                    <!-- Gap -->
+                    --><!-- Gap --><!--
                     <ColumnDefinition Width="2*"/>
-                    <!-- Input -->
+                    --><!-- Input --><!--
                 </Grid.ColumnDefinitions>
 
-                <!-- 🔥 CHANGE HERE -->
+                --><!-- 🔥 CHANGE HERE --><!--
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -53,7 +53,7 @@ Background="#0D3A3A"
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- 1 -->
+                --><!-- 1 --><!--
                 <TextBlock Text="Skip discharge time in sec"
                            Grid.Row="0"
                            VerticalAlignment="Center"
@@ -64,7 +64,7 @@ Background="#0D3A3A"
                          Height="34"/>
 
             
-                <!-- 2 -->
+                --><!-- 2 --><!--
                 <TextBlock Text="Skip up delay time in sec"
                            Grid.Row="2"
                            VerticalAlignment="Center"
@@ -75,7 +75,7 @@ Background="#0D3A3A"
                          Height="34"
                          Text="10"/>
 
-                <!-- 3 -->
+                --><!-- 3 --><!--
                 <TextBlock Text="Skip run time in sec"
                            Grid.Row="3"
                            VerticalAlignment="Center"
@@ -85,7 +85,7 @@ Background="#0D3A3A"
                          Style="{StaticResource JogTextBoxStyle}"
                          Height="34"/>
 
-                <!-- 4 -->
+                --><!-- 4 --><!--
                 <TextBlock Text="Slack steel rope settling time in msec"
                            Grid.Row="4"
                            VerticalAlignment="Center"
@@ -96,7 +96,7 @@ Background="#0D3A3A"
                          Height="34"
                          Text="0"/>
 
-                <!-- 5 -->
+                --><!-- 5 --><!--
                 <TextBlock Text="Slack steel rope alert trigger time in sec"
                            Grid.Row="5"
                            VerticalAlignment="Center"
@@ -112,7 +112,7 @@ Background="#0D3A3A"
             </Grid>
         </Border>
 
-        <!-- ================= BUTTONS ================= -->
+        --><!-- ================= BUTTONS ================= --><!--
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -132,6 +132,443 @@ Background="#0D3A3A"
                     Style="{StaticResource RedButton}"/>
 
         </StackPanel>
+
+    </Grid>
+</Window>-->
+
+
+<Window x:Class="Scada_Demo.Set_Parameters.Skip_Paramter_Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Skip_Paramter_Settings"
+        Height="580" Width="660"
+ ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="8">
+
+<Grid>
+
+    <!-- ================= OUTER CARD ================= -->
+
+    <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+        </Border.Effect>
+
+        <Grid Margin="22">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- ================= HEADER ================= -->
+
+            <Grid Grid.Row="0"
+                      Margin="0,-45,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ICON -->
+
+                <Border Grid.Column="0"
+                            Width="40"
+                            Height="40"
+                            Style="{DynamicResource SiteIconBoxStyle}">
+
+                    <Image Source="/Icons/mixer-truck.png"
+                               Width="26"
+                               Height="26"/>
+
+                </Border>
+
+                <!-- TITLE -->
+
+                <TextBlock Grid.Column="1"
+                               Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Skip Parameter Settings"
+                               Style="{DynamicResource SiteHeaderStyle}"/>
+
+                <!-- GREEN LINE -->
+
+                <Grid Grid.ColumnSpan="3"
+                          Margin="0,0,0,25"
+                          VerticalAlignment="Bottom">
+
+                    <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                    <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"/>
+
+                </Grid>
+
+            </Grid>
+
+            <!-- ================= FORM ================= -->
+
+            <Grid Grid.Row="1"
+                      Margin="0,-10,0,0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="58"/>
+                    <RowDefinition Height="58"/>
+                    <RowDefinition Height="58"/>
+                    <RowDefinition Height="58"/>
+                    <RowDefinition Height="58"/>
+                   
+
+                    <!-- Footer -->
+                    <RowDefinition Height="90"/>
+
+                </Grid.RowDefinitions>
+
+
+                <!-- ================================================= -->
+                <!-- 1. MIXER DISCHARGE TIME -->
+                <!-- ================================================= -->
+
+                <Grid Grid.Row="0" Height="58">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Address.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Skip discharge time in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                    <TextBox x:Name="txtDischargeTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                </Grid>
+
+                <Border Grid.Row="0"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                <!-- ================================================= -->
+                <!-- 2. MID POSITION -->
+                <!-- ================================================= -->
+
+                <Grid Grid.Row="1" Height="58">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/calendar.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Skip up delay time in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                 
+
+
+                       <TextBox x:Name="cmbMidPosition"
+                      Grid.Column="3"
+                      Height="42"
+                      VerticalAlignment="Center"
+                      Style="{DynamicResource SiteTextBoxStyle}"/>
+                    
+                        </Grid>
+
+                <Border Grid.Row="1"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                <!-- ================================================= -->
+                <!-- 3. HOLD DELAY -->
+                <!-- ================================================= -->
+
+                <Grid Grid.Row="2" Height="58">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Customer_ID2.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Skip run time in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                    <TextBox x:Name="txtHoldDelay"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="10"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                </Grid>
+
+                <Border Grid.Row="2"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                <!-- ================================================= -->
+                <!-- 4. MIXING TIME -->
+                <!-- ================================================= -->
+
+                <Grid Grid.Row="3" Height="58">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Contact.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Slack steel rope settling time in msec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                    <TextBox x:Name="txtMixingTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                </Grid>
+
+                <Border Grid.Row="3"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                <!-- ================================================= -->
+                <!-- 5. PRE MIXING -->
+                <!-- ================================================= -->
+
+                <Grid Grid.Row="4" Height="58">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="40"
+                                Height="40"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Style="{DynamicResource SiteIconBoxStyle}">
+
+                        <Image Source="/Icons/Delete.png"
+                                   Width="22"
+                                   Height="22"/>
+
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Slack steel rope alert trigger time in sec"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+                    <TextBox x:Name="txtPreMixTime"
+                                 Grid.Column="3"
+                                 Height="42"
+                                 Text="0"
+                                 VerticalAlignment="Center"
+                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+
+                </Grid>
+
+                <Border Grid.Row="4"
+                            Margin="0,50,0,0"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+                <!-- ================================================= -->
+                <!-- 6. MIXER OFF DELAY TIME -->
+                <!-- ================================================= -->
+
+               
+
+                <!-- ================= FOOTER ================= -->
+
+                <Border Grid.Row="5"
+        Margin="-22,8,-22,-30"
+        CornerRadius="0,0,18,18"
+        BorderBrush="#E5E7EB"
+        BorderThickness="1,1,1,0"
+        Background="#F3F4F6"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+
+                    <Grid Margin="0,12">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- READ FROM PLC -->
+
+                        <Button Grid.Column="1"
+                                    Height="46"
+                                    Style="{StaticResource SaveButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                <Image Source="/Icons/save.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                <TextBlock Text="Read from PLC"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="White"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- WRITE TO PLC / DB -->
+
+                        <Button Grid.Column="3"
+                                    Height="46"
+                                    Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                <Image Source="/Icons/save.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                <TextBlock Text="Write PLC / DB"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="#1F2937"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <!-- EXIT -->
+
+                        <Button Grid.Column="5"
+                                    Height="46"
+                                    Style="{StaticResource WhiteActionButtonStyle}">
+
+                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+
+                                <Image Source="/Icons/exit.png"
+                                           Width="18"
+                                           Height="18"
+                                           Margin="0,0,10,0"/>
+
+                                <TextBlock Text="Exit"
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="#1F2937"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+</Grid>
 
     </Grid>
 </Window>
