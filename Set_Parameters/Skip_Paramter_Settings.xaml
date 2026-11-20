@@ -142,7 +142,8 @@ Background="#0D3A3A"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Skip_Paramter_Settings"
         Height="580" Width="660"
- ResizeMode="NoResize"
+        ResizeMode="NoResize"
+         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="8">
 
@@ -180,18 +181,33 @@ Background="#0D3A3A"
 
                 <!-- ICON -->
 
-                <Border Grid.Column="0"
-                            Width="40"
-                            Height="40"
-                            Style="{DynamicResource SiteIconBoxStyle}">
+                        <Border Width="40"
+Height="40"
 
-                    <Image Source="/Icons/mixer-truck.png"
-                               Width="26"
-                               Height="26"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                </Border>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
 
-                <!-- TITLE -->
+                                            <svgc:SvgViewbox Source="/Icons/Conveyor.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
+                        </Border>
+
+                        <!-- TITLE -->
 
                 <TextBlock Grid.Column="1"
                                Margin="12,0,0,0"
@@ -250,19 +266,33 @@ Background="#0D3A3A"
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+                            <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/Address.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    </Border>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                    <TextBlock Grid.Column="1"
+                                                <svgc:SvgViewbox Source="/Icons/Timer.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Skip discharge time in sec"
                                    Style="{DynamicResource SiteLabelStyle}"/>
@@ -293,19 +323,33 @@ Background="#0D3A3A"
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+                            <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/calendar.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    </Border>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                    <TextBlock Grid.Column="1"
+                                                <svgc:SvgViewbox Source="/Icons/Timer.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Skip up delay time in sec"
                                    Style="{DynamicResource SiteLabelStyle}"/>
@@ -339,19 +383,33 @@ Background="#0D3A3A"
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+                            <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/Customer_ID2.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    </Border>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                    <TextBlock Grid.Column="1"
+                                                <svgc:SvgViewbox Source="/Icons/Timer.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Skip run time in sec"
                                    Style="{DynamicResource SiteLabelStyle}"/>
@@ -383,19 +441,33 @@ Background="#0D3A3A"
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+                            <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/Contact.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    </Border>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                    <TextBlock Grid.Column="1"
+                                                <svgc:SvgViewbox Source="/Icons/Timer.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Slack steel rope settling time in msec"
                                    Style="{DynamicResource SiteLabelStyle}"/>
@@ -426,19 +498,33 @@ Background="#0D3A3A"
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+                            <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/Delete.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    </Border>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                    <TextBlock Grid.Column="1"
+                                                <svgc:SvgViewbox Source="/Icons/Timer.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
+                            </Border>
+
+                            <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Slack steel rope alert trigger time in sec"
                                    Style="{DynamicResource SiteLabelStyle}"/>

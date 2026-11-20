@@ -13,8 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
-using System.Data;
-using Microsoft.Data.SqlClient;
 using Scada_Demo.Database;
 using Scada_Demo.MQTT_Model;
 
@@ -30,7 +28,7 @@ namespace Scada_Demo.Views
             InitializeComponent();
 
             LoadRecipeIds();
-            //LoadRecipeNames();
+            LoadBinNames();
             ResetTabs();
             btnAggregate.Tag = "Active";
             AggregatePanel.Visibility = Visibility.Visible;
@@ -145,73 +143,35 @@ namespace Scada_Demo.Views
             }
         }
 
-        private void LoadRecipeNames(string recipeId)
-        {
-            try
-            {
-                using SqlConnection con = DbConnection.GetConnection();
-                con.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter(
-                @"SELECT RecipeName
-          FROM RecipeMaster
-          WHERE RecipeID=@RecipeID
-          ORDER BY RecipeName", con);
-
-                da.SelectCommand.Parameters.AddWithValue("@RecipeID", recipeId);
-
-                DataTable dt = new();
-                da.Fill(dt);
-
-                cmbRecipeName.ItemsSource = dt.DefaultView;
-                cmbRecipeName.DisplayMemberPath = "RecipeName";
-                cmbRecipeName.SelectedValuePath = "RecipeName";
-                cmbRecipeName.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void cmbRecipeId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbRecipeId.SelectedValue == null)
                 return;
 
-            LoadRecipeNames(cmbRecipeId.SelectedValue.ToString());
-        }
-        private void cmbRecipeName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cmbRecipeId.SelectedValue == null ||
-                cmbRecipeName.SelectedValue == null)
-                return;
-
-            LoadRecipe(
-                cmbRecipeId.SelectedValue.ToString(),
-                cmbRecipeName.SelectedValue.ToString());
+            LoadRecipe(cmbRecipeId.SelectedValue.ToString());
         }
 
-        private void LoadRecipe(string recipeId, string recipeName)
+        private void LoadRecipe(string recipeId)
         {
             try
             {
                 using SqlConnection con = DbConnection.GetConnection();
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand(@"
-        SELECT *
-        FROM RecipeMaster
-        WHERE RecipeID=@RecipeID
-          AND RecipeName=@RecipeName", con);
+                using SqlCommand cmd = new SqlCommand(@"
+                    SELECT *
+                    FROM RecipeMaster
+                    WHERE RecipeID = @RecipeID", con);
 
-                cmd.Parameters.AddWithValue("@RecipeID", recipeId);
-                cmd.Parameters.AddWithValue("@RecipeName", recipeName);
+                cmd.Parameters.Add("@RecipeID", SqlDbType.VarChar, 50).Value = recipeId.Trim();
 
-                SqlDataReader dr = cmd.ExecuteReader();
+                using SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
+                    // Recipe Name is editable text, not part of the key.
+                    txtRecipeName.Text = dr["RecipeName"]?.ToString();
+
                     // Left Panel
                     txtStrength.Text = dr["Strength"].ToString();
                     txtConsistency.Text = dr["Consistency"].ToString();
@@ -251,8 +211,11 @@ namespace Scada_Demo.Views
                     // Silica
                     txtSilica.Text = dr["SilicaWeight"].ToString();
                 }
-
-                dr.Close();
+                else
+                {
+                    txtRecipeName.Clear();
+                    ClearRecipeFields();
+                }
             }
             catch (Exception ex)
             {
@@ -260,10 +223,59 @@ namespace Scada_Demo.Views
             }
         }
 
+        private void ClearRecipeFields()
+        {
+            txtStrength.Clear();
+            txtConsistency.Clear();
+            txtMixerCapacity.Clear();
+            txtMixingTime.Clear();
+            txtMixerDischarge.Clear();
+            txtPreMixingTime.Clear();
+            txtWaterCementRatio.Clear();
+            txtTotalMass.Clear();
+
+            txtAgg1.Clear();
+            txtAgg2.Clear();
+            txtAgg3.Clear();
+            txtAgg4.Clear();
+            txtAgg5.Clear();
+            txtAgg6.Clear();
+
+            txtCem1.Clear();
+            txtCem2.Clear();
+            txtCem3.Clear();
+            txtCem4.Clear();
+            txtCem5.Clear();
+
+            txtWtr1.Clear();
+            txtWtr2.Clear();
+            txtWtr3.Clear();
+
+            txtAdm1.Clear();
+            txtAdm2.Clear();
+            txtAdm3.Clear();
+            txtAdm4.Clear();
+
+            txtSilica.Clear();
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(cmbRecipeId.Text))
+                {
+                    MessageBox.Show("Please select a Recipe ID.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtRecipeName.Text))
+                {
+                    MessageBox.Show("Please enter a Recipe Name.");
+                    txtRecipeName.Focus();
+                    return;
+                }
+
                 using (SqlConnection con = DbConnection.GetConnection())
                 {
                     con.Open();
@@ -309,7 +321,7 @@ namespace Scada_Demo.Views
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@RecipeID", cmbRecipeId.Text.Trim());
-            cmd.Parameters.AddWithValue("@RecipeName", cmbRecipeName.Text.Trim());
+            cmd.Parameters.AddWithValue("@RecipeName", txtRecipeName.Text.Trim());
 
             cmd.Parameters.AddWithValue("@Strength", txtStrength.Text.Trim());
             cmd.Parameters.AddWithValue("@Consistency", txtConsistency.Text.Trim());
@@ -322,29 +334,59 @@ namespace Scada_Demo.Views
             cmd.Parameters.AddWithValue("@WaterCementRatio", GetDecimal(txtWaterCementRatio.Text));
             cmd.Parameters.AddWithValue("@TotalMass", GetDecimal(txtTotalMass.Text));
 
-            cmd.Parameters.AddWithValue("@Agg1", GetDecimal(txtAgg1.Text));
-            cmd.Parameters.AddWithValue("@Agg2", GetDecimal(txtAgg2.Text));
-            cmd.Parameters.AddWithValue("@Agg3", GetDecimal(txtAgg3.Text));
-            cmd.Parameters.AddWithValue("@Agg4", GetDecimal(txtAgg4.Text));
-            cmd.Parameters.AddWithValue("@Agg5", GetDecimal(txtAgg5.Text));
-            cmd.Parameters.AddWithValue("@Agg6", GetDecimal(txtAgg6.Text));
+            cmd.Parameters.AddWithValue("@Agg1", GetBinWeight(txtAgg1, "Aggregate1"));
+            cmd.Parameters.AddWithValue("@Agg2", GetBinWeight(txtAgg2, "Aggregate2"));
+            cmd.Parameters.AddWithValue("@Agg3", GetBinWeight(txtAgg3, "Aggregate3"));
+            cmd.Parameters.AddWithValue("@Agg4", GetBinWeight(txtAgg4, "Aggregate4"));
+            cmd.Parameters.AddWithValue("@Agg5", GetBinWeight(txtAgg5, "Aggregate5"));
+            cmd.Parameters.AddWithValue("@Agg6", GetBinWeight(txtAgg6, "Aggregate6"));
 
-            cmd.Parameters.AddWithValue("@Cem1", GetDecimal(txtCem1.Text));
-            cmd.Parameters.AddWithValue("@Cem2", GetDecimal(txtCem2.Text));
-            cmd.Parameters.AddWithValue("@Cem3", GetDecimal(txtCem3.Text));
-            cmd.Parameters.AddWithValue("@Cem4", GetDecimal(txtCem4.Text));
-            cmd.Parameters.AddWithValue("@Cem5", GetDecimal(txtCem5.Text));
+            cmd.Parameters.AddWithValue("@Cem1", GetBinWeight(txtCem1, "Cement1"));
+            cmd.Parameters.AddWithValue("@Cem2", GetBinWeight(txtCem2, "Cement2"));
+            cmd.Parameters.AddWithValue("@Cem3", GetBinWeight(txtCem3, "Cement3"));
+            cmd.Parameters.AddWithValue("@Cem4", GetBinWeight(txtCem4, "Cement4"));
+            cmd.Parameters.AddWithValue("@Cem5", GetBinWeight(txtCem5, "Cement5"));
 
-            cmd.Parameters.AddWithValue("@Wat1", GetDecimal(txtWtr1.Text));
-            cmd.Parameters.AddWithValue("@Wat2", GetDecimal(txtWtr2.Text));
-            cmd.Parameters.AddWithValue("@Wat3", GetDecimal(txtWtr3.Text));
+            cmd.Parameters.AddWithValue("@Wat1", GetBinWeight(txtWtr1, "Water1"));
+            cmd.Parameters.AddWithValue("@Wat2", GetBinWeight(txtWtr2, "Water2"));
+            cmd.Parameters.AddWithValue("@Wat3", GetBinWeight(txtWtr3, "Water3"));
 
-            cmd.Parameters.AddWithValue("@Adm1", GetDecimal(txtAdm1.Text));
-            cmd.Parameters.AddWithValue("@Adm2", GetDecimal(txtAdm2.Text));
-            cmd.Parameters.AddWithValue("@Adm3", GetDecimal(txtAdm3.Text));
-            cmd.Parameters.AddWithValue("@Adm4", GetDecimal(txtAdm4.Text));
+            cmd.Parameters.AddWithValue("@Adm1", GetBinWeight(txtAdm1, "Admixture1"));
+            cmd.Parameters.AddWithValue("@Adm2", GetBinWeight(txtAdm2, "Admixture2"));
+            cmd.Parameters.AddWithValue("@Adm3", GetBinWeight(txtAdm3, "Admixture3"));
+            cmd.Parameters.AddWithValue("@Adm4", GetBinWeight(txtAdm4, "Admixture4"));
 
-            cmd.Parameters.AddWithValue("@Silica", GetDecimal(txtSilica.Text));
+            cmd.Parameters.AddWithValue("@Silica", GetBinWeight(txtSilica, "Silica1"));
+
+
+            // Aggregate BinCodes
+            cmd.Parameters.AddWithValue("@Aggregate1Name", "Aggregate1");
+            cmd.Parameters.AddWithValue("@Aggregate2Name", "Aggregate2");
+            cmd.Parameters.AddWithValue("@Aggregate3Name", "Aggregate3");
+            cmd.Parameters.AddWithValue("@Aggregate4Name", "Aggregate4");
+            cmd.Parameters.AddWithValue("@Aggregate5Name", "Aggregate5");
+            cmd.Parameters.AddWithValue("@Aggregate6Name", "Aggregate6");
+
+            // Cement BinCodes
+            cmd.Parameters.AddWithValue("@Cement1Name", "Cement1");
+            cmd.Parameters.AddWithValue("@Cement2Name", "Cement2");
+            cmd.Parameters.AddWithValue("@Cement3Name", "Cement3");
+            cmd.Parameters.AddWithValue("@Cement4Name", "Cement4");
+            cmd.Parameters.AddWithValue("@Cement5Name", "Cement5");
+
+            // Water BinCodes
+            cmd.Parameters.AddWithValue("@Water1Name", "Water1");
+            cmd.Parameters.AddWithValue("@Water2Name", "Water2");
+            cmd.Parameters.AddWithValue("@Water3Name", "Water3");
+
+            // Admixture BinCodes
+            cmd.Parameters.AddWithValue("@Admixture1Name", "Admixture1");
+            cmd.Parameters.AddWithValue("@Admixture2Name", "Admixture2");
+            cmd.Parameters.AddWithValue("@Admixture3Name", "Admixture3");
+            cmd.Parameters.AddWithValue("@Admixture4Name", "Admixture4");
+
+            // Silica BinCode
+            cmd.Parameters.AddWithValue("@SilicaName", "Silica1");
 
             cmd.ExecuteNonQuery();
         }
@@ -358,7 +400,7 @@ namespace Scada_Demo.Views
             SilicaPanel.Visibility = Visibility.Collapsed;
         }
 
-       
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -367,6 +409,114 @@ namespace Scada_Demo.Views
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+
+        private Dictionary<string, string> binNames =
+            new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+        private HashSet<string> configuredBins =
+            new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        private void LoadBinNames()
+        {
+            try
+            {
+                using SqlConnection con = DbConnection.GetConnection();
+                con.Open();
+
+                using SqlCommand cmd = new SqlCommand("SP_BinSetup_GetNames", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using SqlDataReader dr = cmd.ExecuteReader();
+
+                binNames.Clear();
+                configuredBins.Clear();
+
+                while (dr.Read())
+                {
+                    string code = dr["BinCode"]?.ToString()?.Trim();
+
+                    string materialName = dr["MaterialName"] == DBNull.Value
+                        ? null
+                        : dr["MaterialName"].ToString().Trim();
+
+                    if (!string.IsNullOrWhiteSpace(code) &&
+                        !string.IsNullOrWhiteSpace(materialName))
+                    {
+                        binNames[code] = materialName;
+                        configuredBins.Add(code);
+                    }
+                }
+
+                // Aggregate
+                SetBinVisibility("Aggregate1", lblAgg1, txtAgg1);
+                SetBinVisibility("Aggregate2", lblAgg2, txtAgg2);
+                SetBinVisibility("Aggregate3", lblAgg3, txtAgg3);
+                SetBinVisibility("Aggregate4", lblAgg4, txtAgg4);
+                SetBinVisibility("Aggregate5", lblAgg5, txtAgg5);
+                SetBinVisibility("Aggregate6", lblAgg6, txtAgg6);
+
+                // Cement
+                SetBinVisibility("Cement1", lblCem1, txtCem1);
+                SetBinVisibility("Cement2", lblCem2, txtCem2);
+                SetBinVisibility("Cement3", lblCem3, txtCem3);
+                SetBinVisibility("Cement4", lblCem4, txtCem4);
+                SetBinVisibility("Cement5", lblCem5, txtCem5);
+
+                // Water
+                SetBinVisibility("Water1", lblWat1, txtWtr1);
+                SetBinVisibility("Water2", lblWat2, txtWtr2);
+                SetBinVisibility("Water3", lblWat3, txtWtr3);
+
+                // Admixture
+                SetBinVisibility("Admixture1", lblAdm1, txtAdm1);
+                SetBinVisibility("Admixture2", lblAdm2, txtAdm2);
+                SetBinVisibility("Admixture3", lblAdm3, txtAdm3);
+                SetBinVisibility("Admixture4", lblAdm4, txtAdm4);
+
+                // Silica
+                bool silicaConfigured = configuredBins.Contains("Silica1");
+                lblSilica.Text = GetBinName("Silica1");
+                lblSilica.Visibility = silicaConfigured ? Visibility.Visible : Visibility.Collapsed;
+                txtSilica.Visibility = silicaConfigured ? Visibility.Visible : Visibility.Collapsed;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to load Bin Names!\\n" + ex.Message);
+            }
+        }
+
+        private void SetBinVisibility(string binCode, TextBlock label, TextBox textBox)
+        {
+            bool isConfigured = configuredBins.Contains(binCode);
+
+            label.Text = GetBinName(binCode);
+
+            // Collapse the complete row, not only its controls.
+            // This removes empty row space for unconfigured bins.
+            if (label.Parent is Grid rowGrid)
+                rowGrid.Visibility = isConfigured ? Visibility.Visible : Visibility.Collapsed;
+
+            label.Visibility = isConfigured ? Visibility.Visible : Visibility.Collapsed;
+            textBox.Visibility = isConfigured ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private decimal GetBinWeight(TextBox textBox, string binCode)
+        {
+            // Unconfigured bins must never retain an old recipe weight.
+            if (!configuredBins.Contains(binCode))
+                return 0m;
+
+            decimal.TryParse(textBox.Text, out decimal value);
+            return value;
+        }
+
+        private string GetBinName(string binCode)
+        {
+            return binNames.TryGetValue(binCode, out string name)
+                ? name
+                : binCode;
         }
     }
 }

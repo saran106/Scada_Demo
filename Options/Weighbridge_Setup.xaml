@@ -99,6 +99,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scada_Demo.Options"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
         Title="Weighbridge_Setup"
         Height="405"
@@ -154,18 +155,32 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <!-- ================= HEADER ICON ================= -->
+                    <Border Width="40"
+Height="40"
+             
+Style="{DynamicResource SiteIconBoxStyle}">
+                        <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                    <Border Grid.Column="0"
-                            Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform">
+                                    <VisualBrush.Visual>
 
-                        <Image Source="/Icons/Pincode.png"
-                               Width="24"
-                               Height="24"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                                        <svgc:SvgViewbox Source="/Icons/Work_Order.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+
+                        </Rectangle>
+
 
                     </Border>
+
 
                     <!-- ================= HEADER TITLE ================= -->
 
@@ -236,16 +251,33 @@
                         <!-- ICON -->
 
                         <Border Width="40"
-                                Height="36"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
+                       VerticalAlignment="Top"
+ HorizontalAlignment="Center"
+ Margin="0,12,0,0"
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Pincode.png"
-                                   Width="20"
-                                   Height="20"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Weight.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
+
 
                         <!-- LABEL -->
 
@@ -290,16 +322,33 @@
                         <!-- ICON -->
 
                         <Border Width="40"
-                                Height="36"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
+                       VerticalAlignment="Top"
+ HorizontalAlignment="Center"
+ Margin="0,12,0,0"
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
 
-                            <Image Source="/Icons/Pincode.png"
-                                   Width="20"
-                                   Height="20"/>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Sliders.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
+
 
                         <!-- LABEL -->
 
@@ -353,51 +402,81 @@
                             <!-- ================= SAVE ================= -->
 
                             <Button Grid.Column="1"
-                                    Height="46"
-                                    Style="{StaticResource SaveButtonStyle}">
+        Height="46"
+        Style="{DynamicResource SaveButtonStyle}">
 
                                 <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center">
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
 
-                                    <Image Source="/Icons/save.png"
-                                           Width="18"
-                                           Height="18"
-                                           Margin="0,0,8,0"/>
+                                    <Rectangle Width="18"
+                   Height="18"
+                   Fill="{DynamicResource SaveIcon}"
+                   Margin="0,0,8,0">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/save.svg"
+                                         Width="18"
+                                         Height="18"
+                                         Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
 
                                     <TextBlock Text="Save"
-                                               FontSize="14"
-                                               FontWeight="SemiBold"
-                                               Foreground="White"/>
+                   FontSize="14"
+                   FontWeight="SemiBold"
+                   Foreground="White"/>
 
                                 </StackPanel>
 
                             </Button>
+
 
                             <!-- ================= EXIT ================= -->
 
                             <Button Grid.Column="3"
-                                    Height="46"
-                                    Style="{StaticResource WhiteActionButtonStyle}">
+        Height="46"
+        Style="{DynamicResource WhiteActionButtonStyle}">
 
                                 <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center">
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
 
-                                    <Image Source="/Icons/exit.png"
-                                           Width="18"
-                                           Height="18"
-                                           Margin="0,0,8,0"/>
+                                    <Rectangle Width="18"
+                   Height="18"
+                   Fill="{DynamicResource ExitIcon}"
+                   Margin="0,0,8,0">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/exit.svg"
+                                         Width="18"
+                                         Height="18"
+                                         Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
 
                                     <TextBlock Text="Exit"
-                                               FontSize="14"
-                                               FontWeight="SemiBold"
-                                               Foreground="#1F2937"/>
+                   FontSize="14"
+                   FontWeight="SemiBold"
+                   Foreground="#1F2937"/>
 
                                 </StackPanel>
 
                             </Button>
-
                         </Grid>
 
                     </Border>

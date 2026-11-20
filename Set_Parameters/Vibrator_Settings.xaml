@@ -120,6 +120,8 @@
         mc:Ignorable="d"
         Title="Vibrator_Settings"  Height="400" Width="650"
          ResizeMode="NoResize"
+          xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="8">
@@ -166,14 +168,30 @@
 
                         <!-- ICON -->
 
-                        <Border Grid.Column="0"
-                       Width="40"
-                       Height="40"
-                       Style="{DynamicResource SiteIconBoxStyle}">
+                        <Border Width="40"
+Grid.Column="0"
+Height="40"
 
-                            <Image Source="/Icons/mixer-truck.png"
-                          Width="26"
-                          Height="26"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Vibrate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
@@ -249,14 +267,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                           Height="40"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Customer_ID2.png"
-                              Width="22"
-                              Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Vibrate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -292,16 +325,32 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                           Height="40"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Contact.png"
-                              Width="22"
-                              Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Vibrate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
+
 
                             <TextBlock Grid.Column="1"
                               VerticalAlignment="Center"

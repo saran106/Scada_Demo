@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Register_New_User"
         Height="780" Width="1005"
-      
+          xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         Background="{DynamicResource SitePageBackgroundBrush}"
             Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
@@ -81,11 +81,37 @@
 
                         <!-- HEADER -->
 
-                        <TextBlock Grid.Row="0"
-                   Grid.ColumnSpan="3"
-                   Text="User Parameters"
-                   Style="{StaticResource SiteHeaderStyle}"
-                   Margin="0,0,0,8"/>
+                        <StackPanel Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Orientation="Horizontal"
+            Margin="0,0,0,8"
+            VerticalAlignment="Center">
+
+                            <Rectangle Width="24"
+               Height="24"
+               Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/CV.svg"
+                                     Width="24"
+                                     Height="24"
+                                     Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+                            <TextBlock Text="User Parameters"
+               Style="{StaticResource SiteHeaderStyleUser}"
+               Margin="8,0,0,0"
+               VerticalAlignment="Center"/>
+
+                        </StackPanel>
 
                         <!-- USER NAME -->
 
@@ -177,9 +203,35 @@
         Style="{DynamicResource SiteOuterBorderStyle}">
 
                         <StackPanel>
-                            <TextBlock Text="Master Segment"
-           Style="{DynamicResource SiteHeaderStyle}"
-           Margin="0,0,0,8"/>
+                            <StackPanel Orientation="Horizontal"
+            VerticalAlignment="Center"
+            Margin="0,0,0,8">
+
+                                <Rectangle Width="24"
+               Height="24"
+               Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/CV.svg"
+                                     Width="24"
+                                     Height="24"
+                                     Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+                                <TextBlock Text="Master Segment"
+               Style="{DynamicResource SiteHeaderStyleUser}"
+               Margin="8,0,0,0"
+               VerticalAlignment="Center"/>
+
+                            </StackPanel>
 
                             <CheckBox Content="Customer"
               Margin="0.8"
@@ -240,9 +292,35 @@
         Style="{DynamicResource SiteOuterBorderStyle}">
 
                         <StackPanel>
-                            <TextBlock Text="Transaction / Options"
-                                       Margin="0,0,0,8"
-                                   Style="{DynamicResource SiteHeaderStyle}"/>
+                            <StackPanel Orientation="Horizontal"
+            VerticalAlignment="Center"
+            Margin="0,0,0,8">
+
+                                <Rectangle Width="24"
+               Height="24"
+               Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/CV.svg"
+                                     Width="24"
+                                     Height="24"
+                                     Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+                                <TextBlock Text="Transaction / Options"
+               Margin="8,0,0,0"
+               Style="{DynamicResource SiteHeaderStyleUser}"
+               VerticalAlignment="Center"/>
+
+                            </StackPanel>
 
                             <CheckBox Content="Start batch"  Margin="0.8"/>
                             <CheckBox Content="Print batch data"  Margin="0.8"/>
@@ -273,10 +351,35 @@
         Style="{DynamicResource SiteOuterBorderStyle}">
 
                 <StackPanel>
-                    <TextBlock Text="Plant Settings Segment"
-                               Margin="0,0,0,16"
-               Style="{DynamicResource SiteHeaderStyle}"/>
+                    <StackPanel Orientation="Horizontal"
+            VerticalAlignment="Center"
+            Margin="0,0,0,16">
 
+                        <Rectangle Width="24"
+               Height="24"
+               Fill="{DynamicResource SiteIconBrush}">
+
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform">
+                                    <VisualBrush.Visual>
+
+                                        <svgc:SvgViewbox Source="/Icons/CV.svg"
+                                     Width="24"
+                                     Height="24"
+                                     Stretch="Uniform"/>
+
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+
+                        </Rectangle>
+
+                        <TextBlock Text="Plant Settings Segment"
+               Margin="8,0,0,0"
+               Style="{DynamicResource SiteHeaderStyleUser}"
+               VerticalAlignment="Center"/>
+
+                    </StackPanel>
                     <StackPanel>
 
                         <CheckBox Content="Gate sequence"

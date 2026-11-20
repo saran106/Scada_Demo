@@ -31,9 +31,11 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
 
-                --><!-- LEFT PANEL -->
+                -->
+<!-- LEFT PANEL -->
 
-                <!-- TITLE --><!--
+<!-- TITLE -->
+<!--
                 <TextBlock Text="Recipe Details"
              Margin="10,5"
                            
@@ -176,7 +178,9 @@
                         </Border>
                 
 
-                --><!-- RIGHT PANEL --><!--
+                -->
+<!-- RIGHT PANEL -->
+<!--
 
                 <Border Grid.Column="2"
                          Grid.Row="1"
@@ -193,7 +197,9 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        --><!-- TAB BUTTONS --><!--
+                        -->
+<!-- TAB BUTTONS -->
+<!--
 
                         <StackPanel Orientation="Horizontal" Margin="5">
 
@@ -224,11 +230,15 @@
 
                         </StackPanel>
 
-                        --><!-- CONTENT --><!--
+                        -->
+<!-- CONTENT -->
+<!--
 
                         <Grid Grid.Row="1">
 
-                            --><!-- AGGREGATE --><!--
+                            -->
+<!-- AGGREGATE -->
+<!--
                             <Grid x:Name="AggregatePanel"
       Margin="2"
       VerticalAlignment="Top">
@@ -245,7 +255,9 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                --><!-- Agg1 --><!--
+                                -->
+<!-- Agg1 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -265,7 +277,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Agg2 --><!--
+                                -->
+<!-- Agg2 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -284,7 +298,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Agg3 --><!--
+                                -->
+<!-- Agg3 -->
+<!--
                                 <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -302,7 +318,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Agg4 --><!--
+                                -->
+<!-- Agg4 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -320,7 +338,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Agg5 --><!--
+                                -->
+<!-- Agg5 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -338,7 +358,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Agg6 --><!--
+                                -->
+<!-- Agg6 -->
+<!--
                                 <Grid Grid.Row="2" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -357,7 +379,9 @@
                                 </Grid>
 
                             </Grid>
-                            --><!-- CEMENT --><!--
+                            -->
+<!-- CEMENT -->
+<!--
 
                             <Grid x:Name="CementPanel"
       Visibility="Collapsed"
@@ -376,7 +400,9 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                --><!-- Cem1 --><!--
+                                -->
+<!-- Cem1 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -394,7 +420,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Cem2 --><!--
+                                -->
+<!-- Cem2 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -412,7 +440,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Cem3 --><!--
+                                -->
+<!-- Cem3 -->
+<!--
                                 <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -430,7 +460,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Cem4 --><!--
+                                -->
+<!-- Cem4 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -448,7 +480,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Cem5 --><!--
+                                -->
+<!-- Cem5 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -468,7 +502,9 @@
 
                             </Grid>
 
-                            --><!-- WATER --><!--
+                            -->
+<!-- WATER -->
+<!--
 
                             <Grid x:Name="WaterPanel"
       Visibility="Collapsed"
@@ -487,7 +523,9 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                --><!-- Wtr1 --><!--
+                                -->
+<!-- Wtr1 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -505,7 +543,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Wtr2 --><!--
+                                -->
+<!-- Wtr2 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -523,7 +563,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Wtr3 --><!--
+                                -->
+<!-- Wtr3 -->
+<!--
                                 <Grid Grid.Row="2" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -543,7 +585,9 @@
 
                             </Grid>
 
-                            --><!-- ADMIX --><!--
+                            -->
+<!-- ADMIX -->
+<!--
 
                             <Grid x:Name="AdmixPanel"
       Visibility="Collapsed"
@@ -561,7 +605,9 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                --><!-- Admix1 --><!--
+                                -->
+<!-- Admix1 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -579,7 +625,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Admix2 --><!--
+                                -->
+<!-- Admix2 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="0" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -597,7 +645,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Admix3 --><!--
+                                -->
+<!-- Admix3 -->
+<!--
                                 <Grid Grid.Row="0" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -615,7 +665,9 @@
                  Style="{StaticResource JogTextBoxStyle}"/>
                                 </Grid>
 
-                                --><!-- Admix4 --><!--
+                                -->
+<!-- Admix4 -->
+<!--
                                 <Grid Grid.Row="1" Grid.Column="2" Margin="0,3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="45"/>
@@ -635,7 +687,9 @@
 
                             </Grid>
 
-                            --><!-- MICRO SILICA --><!--
+                            -->
+<!-- MICRO SILICA -->
+<!--
 
                             <Grid x:Name="SilicaPanel" Visibility="Collapsed" Margin="10">
 
@@ -659,7 +713,9 @@
 
                 </Border>
 
-                --><!-- BUTTONS --><!--
+                -->
+<!-- BUTTONS -->
+<!--
 
                 <StackPanel Grid.Row="2"
                             Grid.ColumnSpan="3"
@@ -689,7 +745,6 @@
     </Grid>
 
 </Window>-->
-
 
 
 <Window x:Class="Scada_Demo.Views.Recipe_Details"
@@ -857,7 +912,7 @@ Style="{DynamicResource SiteIconBoxStyle}">
                             <RowDefinition Height="1"/>
 
                             <RowDefinition Height="48"/>
-                            
+
 
                         </Grid.RowDefinitions>
 
@@ -935,20 +990,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
            Height="24"
            Fill="{DynamicResource SiteIconBrush}">
 
-                                <Rectangle.OpacityMask>
-                                    <VisualBrush Stretch="Uniform">
-                                        <VisualBrush.Visual>
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
 
-                                            <svgc:SvgViewbox Source="/Icons/Recipe.svg"
+                                                <svgc:SvgViewbox Source="/Icons/Recipe.svg"
                                  Width="24"
                                  Height="24"
                                  Stretch="Uniform"/>
 
-                                        </VisualBrush.Visual>
-                                    </VisualBrush>
-                                </Rectangle.OpacityMask>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
 
-                            </Rectangle>
+                                </Rectangle>
 
 
                             </Border>
@@ -958,14 +1013,11 @@ Style="{DynamicResource SiteIconBoxStyle}">
            Text="Recipe Name"
            Style="{DynamicResource SiteLabelStyle}"/>
 
-                            <!-- Recipe Combo -->
-                            <ComboBox x:Name="cmbRecipeName"
-          Grid.Column="3"
-          Height="42"
-          IsEditable="True"
-          IsTextSearchEnabled="False"
-          Style="{DynamicResource SiteComboBoxStyle}"
-          SelectionChanged="cmbRecipeName_SelectionChanged"/>
+                            <!-- Recipe Name: free-text input -->
+                            <TextBox x:Name="txtRecipeName"
+                                     Grid.Column="3"
+                                     Height="42"
+                                     Style="{DynamicResource SiteTextBoxStyle}"/>
 
                         </Grid>
 
@@ -1379,7 +1431,7 @@ Style="{DynamicResource SiteIconBoxStyle}">
 
                         </Grid>
 
-                       
+
 
                     </Grid>
 
@@ -1473,14 +1525,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <!-- Agg1 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="0">
+                                    <Grid Grid.Row="0" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1488,19 +1540,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg1"
+                                                   x:Name="lblAgg1"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg1"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Agg2 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="0">
+                                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1508,19 +1561,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg2"
+                                                   x:Name="lblAgg2"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg2"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Agg3 -->
 
-                                    <Grid Grid.Row="2" Grid.Column="0">
+                                    <Grid Grid.Row="2" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1528,19 +1582,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg3"
+                                                   x:Name="lblAgg3"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg3"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Agg4 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="2">
+                                    <Grid Grid.Row="0" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1548,19 +1603,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg4"
+                                                   x:Name="lblAgg4"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg4"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Agg5 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="2">
+                                    <Grid Grid.Row="1" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1568,19 +1624,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg5"
+                                                   x:Name="lblAgg5"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg5"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Agg6 -->
 
-                                    <Grid Grid.Row="2" Grid.Column="2">
+                                    <Grid Grid.Row="2" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1588,13 +1645,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Agg6"
+                                                   x:Name="lblAgg6"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAgg6"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
@@ -1614,14 +1672,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <!-- Cem1 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="0">
+                                    <Grid Grid.Row="0" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1629,19 +1687,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Cem1"
+                                                   x:Name="lblCem1"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtCem1"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Cem2 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="0">
+                                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1649,19 +1708,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Cem2"
+                                                   x:Name="lblCem2"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtCem2"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Cem3 -->
 
-                                    <Grid Grid.Row="2" Grid.Column="0">
+                                    <Grid Grid.Row="2" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1669,19 +1729,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Cem3"
+                                                   x:Name="lblCem3"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtCem3"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Cem4 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="2">
+                                    <Grid Grid.Row="0" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1689,19 +1750,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Cem4"
+                                                   x:Name="lblCem4"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtCem4"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Cem5 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="2">
+                                    <Grid Grid.Row="1" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1709,13 +1771,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Cem5"
+                                                   x:Name="lblCem5"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtCem5"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
@@ -1735,14 +1798,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <!-- Wat1 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="0">
+                                    <Grid Grid.Row="0" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1750,19 +1813,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Wat1"
+                                                 x:Name="lblWat1"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtWtr1"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Wat2 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="0">
+                                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1770,19 +1834,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Wat2"
+                                                   x:Name="lblWat2"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtWtr2"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Wat3 -->
 
-                                    <Grid Grid.Row="2" Grid.Column="0">
+                                    <Grid Grid.Row="2" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1790,13 +1855,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Wat3"
+                                                   x:Name="lblWat3"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtWtr3"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
@@ -1816,13 +1882,13 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <!-- Adm1 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="0">
+                                    <Grid Grid.Row="0" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1830,19 +1896,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Adm1"
+                                                   x:Name="lblAdm1"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAdm1"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Adm2 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="0">
+                                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1850,19 +1917,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Adm2"
+                                                   x:Name="lblAdm2"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAdm2"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Adm3 -->
 
-                                    <Grid Grid.Row="0" Grid.Column="2">
+                                    <Grid Grid.Row="0" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1870,19 +1938,20 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Adm3"
+                                                   x:Name="lblAdm3"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAdm3"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
                                     <!-- Adm4 -->
 
-                                    <Grid Grid.Row="1" Grid.Column="2">
+                                    <Grid Grid.Row="1" Grid.Column="2" Margin="0,4" Visibility="Collapsed">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="60"/>
@@ -1890,13 +1959,14 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Text="Adm4"
+                                                   x:Name="lblAdm4"
                                                    VerticalAlignment="Center"
-                                                   Style="{DynamicResource SiteLabelStyle}"/>
+                                                   Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                         <TextBox x:Name="txtAdm4"
                                                  Grid.Column="1"
                                                  Height="42"
-                                                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                                                 Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     </Grid>
 
@@ -1915,20 +1985,21 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="58"/>
-                                        <RowDefinition Height="58"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <TextBlock Grid.Row="0"
                                                Text="Silica"
+                                             x:Name="lblSilica"
                                                VerticalAlignment="Center"
-                                               Style="{DynamicResource SiteLabelStyle}"/>
+                                               Style="{DynamicResource SiteLabelStyle}" Visibility="Collapsed"/>
 
                                     <TextBox x:Name="txtSilica"
                                              Grid.Row="0"
                                              Grid.Column="1"
                                              Height="42"
-                                             Style="{DynamicResource SiteTextBoxStyle}"/>
+                                             Style="{DynamicResource SiteTextBoxStyle}" Visibility="Collapsed"/>
 
                                     <TextBlock Grid.Row="1"
                                                Text="Crystaline"

@@ -2067,4 +2067,11 @@
             Value="Center"/>
 
     </Style>
+
+
+
+    <SolidColorBrush x:Key="ExitIcon" Color="#17933A"/>
+
+
+    <SolidColorBrush x:Key="SaveIcon" Color="White"/>
 </ResourceDictionary>

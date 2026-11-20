@@ -37,6 +37,8 @@ namespace Scada_Demo
             DataContext = _viewModel;
 
             AlarmList.ItemsSource = AlarmMessages;
+
+            //AlarmList.ItemsSource = AlarmMessages;
             MasterSubMenu.ItemsSource = MasterMenuItems;
             CalibrationSubMenu.ItemsSource = CalibrationMenuItems;
             BatchSubMenu.ItemsSource = BatchMenuItems;
@@ -110,6 +112,7 @@ namespace Scada_Demo
 
                 txtRemainingBatches.Text = data.Home_Top.BatchRemaining.ToString();
                 txtWaterCorrection.Text = data.Home_Top.WaterCorr.ToString();
+                txtMoisture1.Text = data.Home_Top.Mositure1.ToString();
                 // Model-la Silica illa. Blank-aa vechurukken.
                 txtSILCounter.Text = "";
                 txtSILset_wt.Text = "";
@@ -303,6 +306,11 @@ namespace Scada_Demo
         ViewKey = "Weighbridge_Setup"
     },
 
+    new SubMenuItem
+    {
+        Name = "Reconcilation",
+        ViewKey = "Reconcilation"
+    },
     new SubMenuItem
     {
         Name = "SMS Facilities",
@@ -914,6 +922,7 @@ namespace Scada_Demo
             bool isAuthorized = item.ViewKey switch
             {
                 "Weighbridge_Setup" => true,
+                "Reconcilation" => true,
                 "SMS_Config" => true,
                 "SMS_Mobile_Config" => true,
 
@@ -937,6 +946,13 @@ namespace Scada_Demo
                 case "Weighbridge_Setup":
 
                     OpenWindowOnce<Weighbridge_Setup>();
+
+                    break; 
+                
+                
+                case "Reconcilation":
+
+                    OpenWindowOnce<Reconcilation>();
 
                     break;
 

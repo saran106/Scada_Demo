@@ -309,6 +309,7 @@
                 VerticalAlignment="Center"
                  IsEditable="True"
 IsTextSearchEnabled="False"
+                              SelectionChanged="cmbCustomerID_SelectionChanged"
 Style="{DynamicResource SiteComboBoxStyle}"/>
 
                     </Grid>

@@ -1186,7 +1186,8 @@ Style="{DynamicResource SiteIconBoxStyle}">
                     <!-- ===================================================== -->
                     <!-- CEMENT VIEW -->
                     <!-- ===================================================== -->
-
+ 
+                    
                     <Grid Visibility="{Binding CementVisibility}">
 
                         <Grid.ColumnDefinitions>

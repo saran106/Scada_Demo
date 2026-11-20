@@ -575,7 +575,8 @@
         <Setter Property="Foreground" Value="#0F172A"/>
         <Setter Property="Margin" Value="0,6"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontStyle" Value="Italic"/>
+        <!--<Setter Property="FontStyle" Value="Italic"/>-->
+        <Setter Property="FontFamily" Value="Segoe UI"/>
     </Style>
 
 
@@ -585,7 +586,8 @@
         <Setter Property="Foreground" Value="#0F172A"/>
         <Setter Property="Margin" Value="0,6"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontStyle" Value="Italic"/>
+        <!--<Setter Property="FontStyle" Value="Italic"/>-->
+        <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Margin" Value="0,10,0,2"/>
     </Style>
@@ -778,7 +780,8 @@
        TargetType="TextBlock">
 
         <!--<Setter Property="FontFamily" Value="Georgia"/>-->
-        <Setter Property="FontStyle" Value="Italic"/>
+        <!--<Setter Property="FontStyle" Value="Italic"/>-->
+        <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="20"/>
 
@@ -819,7 +822,8 @@
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
 
         <Setter Property="FontFamily" Value="Segoe UI"/>
-        <Setter Property="FontStyle" Value="Italic"/>
+        <!--<Setter Property="FontStyle" Value="Italic"/>-->
+        <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="13"/>
 
@@ -1312,8 +1316,10 @@
         <Setter Property="VerticalAlignment"
             Value="Center"/>
 
-        <Setter Property="FontStyle"
-            Value="Italic"/>
+        <!--<Setter Property="FontStyle"
+            Value="Italic"/>-->
+
+        <Setter Property="FontFamily" Value="Segoe UI"/>
 
         <Style.Triggers>
 
@@ -1684,8 +1690,9 @@
 
         <Setter Property="FontSize" Value="13.5"/>
         
-        <Setter Property="FontStyle" Value="Italic"/>
+        <!--<Setter Property="FontStyle" Value="Italic"/>-->
 
+        <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontWeight" Value="Bold"/>
 
         <Setter Property="Foreground" Value="#43564B"/>
@@ -1935,6 +1942,20 @@
 
     </Style>
 
+
+    <Style x:Key="SiteHeaderStyleUser"
+       TargetType="TextBlock">
+
+        <Setter Property="FontSize"
+            Value="20"/>
+
+        <Setter Property="FontWeight"
+            Value="Bold"/>
+
+        <Setter Property="Foreground"
+            Value="{DynamicResource SiteTitleBrush}"/>
+
+    </Style>
 
     <Style x:Key="SiteLabelStyle"
        TargetType="TextBlock">
@@ -2506,5 +2527,11 @@
     </Style>
 
     <SolidColorBrush x:Key="SiteIconBrush" Color="#5E8D69"/>
+
+
+    <SolidColorBrush x:Key="ExitIcon" Color="#17933A"/>
+
+
+    <SolidColorBrush x:Key="SaveIcon" Color="White"/>
 
 </ResourceDictionary>

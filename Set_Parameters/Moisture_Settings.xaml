@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Scada_Demo.Set_Parameters"
         mc:Ignorable="d"
         Title="Moisture_Settings"      ResizeMode="NoResize"    Height="540" Width="680"
-        
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         WindowStartupLocation="CenterScreen">
 
     <!--<Grid Margin="8">
@@ -181,14 +181,29 @@
 
                     <!-- ICON -->
 
-                    <Border Grid.Column="0"
-                            Width="40"
-                            Height="40"
-                            Style="{DynamicResource SiteIconBoxStyle}">
+                    <Border Width="40"
+Height="40"
 
-                        <Image Source="/Icons/mixer-truck.png"
-                               Width="26"
-                               Height="26"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                        <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform">
+                                    <VisualBrush.Visual>
+
+                                        <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+
+                        </Rectangle>
+
 
                     </Border>
 
@@ -253,14 +268,28 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
 
-                            <Image Source="/Icons/Address.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
@@ -302,14 +331,28 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
 
-                            <Image Source="/Icons/calendar.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
@@ -347,17 +390,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
 
-                            <Image Source="/Icons/Customer_ID2.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
-
                         <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
                                    Text="Bin Configuration for second mositure"
@@ -391,14 +447,28 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
 
-                            <Image Source="/Icons/Contact.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Weight.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
@@ -434,14 +504,28 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Width="40"
-                                Height="40"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                Style="{DynamicResource SiteIconBoxStyle}">
+Height="40"
 
-                            <Image Source="/Icons/Delete.png"
-                                   Width="22"
-                                   Height="22"/>
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/weight.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 

@@ -153,6 +153,7 @@ namespace Scada_Demo.Views
             txtContact.Clear();
             txtDistance.Clear();
         }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -178,9 +179,9 @@ namespace Scada_Demo.Views
                 // Check whether Site already exists
                 SqlCommand checkCmd = new SqlCommand(
                     @"SELECT SiteID
-                      FROM SiteMaster
-                      WHERE CustomerID=@CustomerID
-                      AND SiteName=@SiteName", con);
+              FROM SiteMaster
+              WHERE CustomerID = @CustomerID
+              AND SiteName = @SiteName", con);
 
                 checkCmd.Parameters.AddWithValue("@CustomerID", customerId);
                 checkCmd.Parameters.AddWithValue("@SiteName", siteName);
@@ -189,20 +190,20 @@ namespace Scada_Demo.Views
 
                 SqlCommand cmd;
 
-                if (result != null)
+                if (result != null && result != DBNull.Value)
                 {
                     // UPDATE
                     cmd = new SqlCommand(
                         @"UPDATE SiteMaster
-                          SET Address1=@Address1,
-                              Address2=@Address2,
-                              Address3=@Address3,
-                              City=@City,
-                              Pincode=@Pincode,
-                              Phone=@Phone,
-                              ContactPerson=@ContactPerson,
-                              Distance=@Distance
-                          WHERE SiteID=@SiteID", con);
+                  SET Address1 = @Address1,
+                      Address2 = @Address2,
+                      Address3 = @Address3,
+                      City = @City,
+                      Pincode = @Pincode,
+                      Phone = @Phone,
+                      ContactPerson = @ContactPerson,
+                      Distance = @Distance
+                  WHERE SiteID = @SiteID", con);
 
                     cmd.Parameters.AddWithValue("@SiteID", Convert.ToInt32(result));
                 }
@@ -211,51 +212,55 @@ namespace Scada_Demo.Views
                     // INSERT
                     cmd = new SqlCommand(
                         @"INSERT INTO SiteMaster
-                        (
-                            CustomerID,
-                            SiteName,
-                            Address1,
-                            Address2,
-                            Address3,
-                            City,
-                            Pincode,
-                            Phone,
-                            ContactPerson,
-                            Distance,
-                            IsActive,
-                            CreatedDate
-                        )
-                        VALUES
-                        (
-                            @CustomerID,
-                            @SiteName,
-                            @Address1,
-                            @Address2,
-                            @Address3,
-                            @City,
-                            @Pincode,
-                            @Phone,
-                            @ContactPerson,
-                            @Distance,
-                            1,
-                            GETDATE()
-                        )", con);
+                (
+                    CustomerID,
+                    SiteName,
+                    Address1,
+                    Address2,
+                    Address3,
+                    City,
+                    Pincode,
+                    Phone,
+                    ContactPerson,
+                    Distance,
+                    IsActive,
+                    CreatedDate
+                )
+                VALUES
+                (
+                    @CustomerID,
+                    @SiteName,
+                    @Address1,
+                    @Address2,
+                    @Address3,
+                    @City,
+                    @Pincode,
+                    @Phone,
+                    @ContactPerson,
+                    @Distance,
+                    1,
+                    GETDATE()
+                )", con);
                 }
 
                 cmd.Parameters.AddWithValue("@CustomerID", customerId);
                 cmd.Parameters.AddWithValue("@SiteName", siteName);
+
                 cmd.Parameters.AddWithValue("@Address1", txtAddress1.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Address2", txtAddress2.Text.Trim());
-               // cmd.Parameters.AddWithValue("@Address3", txtAddress3.Text.Trim());
-                //cmd.Parameters.AddWithValue("@City", txtCity.Text.Trim());
-              //  cmd.Parameters.AddWithValue("@Pincode", txtPincode.Text.Trim());
+
+                // Frontend fields not available - pass SQL NULL
+                cmd.Parameters.AddWithValue("@Address2", DBNull.Value);
+                cmd.Parameters.AddWithValue("@Address3", DBNull.Value);
+                cmd.Parameters.AddWithValue("@City", DBNull.Value);
+                cmd.Parameters.AddWithValue("@Pincode", DBNull.Value);
+
                 cmd.Parameters.AddWithValue("@Phone", txtPhone.Text.Trim());
                 cmd.Parameters.AddWithValue("@ContactPerson", txtContact.Text.Trim());
                 cmd.Parameters.AddWithValue("@Distance", txtDistance.Text.Trim());
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show(result != null
+                MessageBox.Show(result != null && result != DBNull.Value
                     ? "Site Updated Successfully."
                     : "Site Saved Successfully.");
 
@@ -267,6 +272,7 @@ namespace Scada_Demo.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {

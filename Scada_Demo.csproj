@@ -15,6 +15,9 @@
     <None Remove="Icons\Address1.png" />
     <None Remove="Icons\Admixture.svg" />
     <None Remove="Icons\Aggregate.svg" />
+    <None Remove="Icons\Alarm.svg" />
+    <None Remove="Icons\Barcode.svg" />
+    <None Remove="Icons\Bin.svg" />
     <None Remove="Icons\calendar.png" />
     <None Remove="Icons\Calender.svg" />
     <None Remove="Icons\Calibration.svg" />
@@ -22,14 +25,17 @@
     <None Remove="Icons\Cement.svg" />
     <None Remove="Icons\city.png" />
     <None Remove="Icons\City.svg" />
+    <None Remove="Icons\Cloud-DB.svg" />
     <None Remove="Icons\Concrete_truck.svg" />
     <None Remove="Icons\Connection.svg" />
     <None Remove="Icons\Contact.png" />
     <None Remove="Icons\Contact_Letter.svg" />
+    <None Remove="Icons\Conveyor.svg" />
     <None Remove="Icons\Customer.svg" />
     <None Remove="Icons\Customer_Id.png" />
     <None Remove="Icons\Customer_ID2.png" />
     <None Remove="Icons\CV.svg" />
+    <None Remove="Icons\DB.svg" />
     <None Remove="Icons\Delete.png" />
     <None Remove="Icons\Device_Settings.svg" />
     <None Remove="Icons\Distance.png" />
@@ -37,7 +43,9 @@
     <None Remove="Icons\Distance1.png" />
     <None Remove="Icons\Driver.svg" />
     <None Remove="Icons\exit.png" />
+    <None Remove="Icons\Exit.svg" />
     <None Remove="Icons\Filter.svg" />
+    <None Remove="Icons\Graph.svg" />
     <None Remove="Icons\Ice.svg" />
     <None Remove="Icons\ID.svg" />
     <None Remove="Icons\Least.svg" />
@@ -50,12 +58,15 @@
     <None Remove="Icons\mixer-truck.png" />
     <None Remove="Icons\Mixing-time.svg" />
     <None Remove="Icons\Name.svg" />
+    <None Remove="Icons\Note.svg" />
+    <None Remove="Icons\Number.svg" />
     <None Remove="Icons\Order.svg" />
     <None Remove="Icons\Order_Type.svg" />
     <None Remove="Icons\phone.png" />
     <None Remove="Icons\Phone.svg" />
     <None Remove="Icons\Pincode.png" />
     <None Remove="Icons\Pincode.svg" />
+    <None Remove="Icons\Printer.svg" />
     <None Remove="Icons\Product.svg" />
     <None Remove="Icons\Production.svg" />
     <None Remove="Icons\Product_Name.png" />
@@ -64,7 +75,10 @@
     <None Remove="Icons\Ratio.svg" />
     <None Remove="Icons\Recipe.svg" />
     <None Remove="Icons\Recipe_Details.svg" />
+    <None Remove="Icons\Report.svg" />
     <None Remove="Icons\save.png" />
+    <None Remove="Icons\Save.svg" />
+    <None Remove="Icons\Settings.svg" />
     <None Remove="Icons\Silica.svg" />
     <None Remove="Icons\Site.png" />
     <None Remove="Icons\Site.svg" />
@@ -72,12 +86,14 @@
     <None Remove="Icons\Timer.svg" />
     <None Remove="Icons\Types.svg" />
     <None Remove="Icons\Values.svg" />
+    <None Remove="Icons\Vibrate.svg" />
     <None Remove="Icons\Water.svg" />
     <None Remove="Icons\Weight.svg" />
     <None Remove="Icons\Work_Order.svg" />
     <None Remove="login_bg.PNG" />
     <None Remove="Login_bg_new.PNG" />
     <None Remove="project_small_i.png" />
+    <None Remove="Sounds\buzzer.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -106,6 +122,15 @@
     <Resource Include="Icons\Aggregate.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Alarm.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Barcode.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Bin.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\calendar.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -127,6 +152,9 @@
     <Resource Include="Icons\City.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Cloud-DB.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Concrete_truck.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -139,6 +167,9 @@
     <Resource Include="Icons\Contact_Letter.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Conveyor.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Customer.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -146,6 +177,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\CV.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\DB.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Delete.png">
@@ -169,7 +203,13 @@
     <Resource Include="Icons\exit.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Exit.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Filter.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Graph.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Ice.svg">
@@ -208,6 +248,12 @@
     <Resource Include="Icons\Name.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Note.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Number.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Order.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -222,6 +268,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Pincode.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Printer.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Product.svg">
@@ -248,7 +297,16 @@
     <Resource Include="Icons\Recipe_Details.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Report.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\save.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Save.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Settings.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Silica.svg">
@@ -272,6 +330,9 @@
     <Resource Include="Icons\Values.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\Vibrate.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Water.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -288,6 +349,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="project_small_i.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sounds\buzzer.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

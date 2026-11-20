@@ -1,6 +1,7 @@
 ﻿using Scada_Demo.MQTT_Model;
 using System.Windows;
 using Scada_Demo.ViewModels.BatchSettings;
+using Scada_Demo.ViewModels.Transactions;
 
 namespace Scada_Demo.Services
 {
@@ -20,9 +21,10 @@ namespace Scada_Demo.Services
         private readonly JogTimeViewModel _JogTimeViewModel;
         private readonly ToleranceViewModel _ToleranceViewModel;
         private readonly CoarseToFineViewModel _CoarseToFineViewModel;
+        private readonly ManualOperation2ViewModel _ManualOperation2VM;
         public BatchSettingsResponseStore(MaterialInAirViewModel materialInAirViewModel, DischargeDelayViewModel DischargeDelayViewModel
             , EmptyValueViewModel emptyValueViewModel, GateSequenceViewModel gateSequenceViewModel, StepTimeViewModel stepTimeViewModel, JogTimeViewModel jogTimeViewModel, ToleranceViewModel toleranceViewModel
-            , CoarseToFineViewModel coarsetofinemodel)
+            , CoarseToFineViewModel coarsetofinemodel, ManualOperation2ViewModel ManualOperation2VM)
         {
             _MaterialInAirViewModel = materialInAirViewModel;
             _DischargeDelayViewModel = DischargeDelayViewModel;
@@ -32,6 +34,7 @@ namespace Scada_Demo.Services
             _JogTimeViewModel = jogTimeViewModel;
             _ToleranceViewModel = toleranceViewModel;
             _CoarseToFineViewModel = coarsetofinemodel;
+            _ManualOperation2VM= ManualOperation2VM;
         }
 
         public void Update(BatchSettingsModel data)
@@ -83,6 +86,12 @@ namespace Scada_Demo.Services
                 case "CTF":
                     {
                         _CoarseToFineViewModel.MqttReadSuccessStatus(data);
+                        break;
+                    }
+
+                case "ManualOperation":
+                    {
+                        _ManualOperation2VM.MqttReadSuccessStatus(data);
                         break;
                     }
 

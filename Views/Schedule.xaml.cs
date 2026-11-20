@@ -1,20 +1,30 @@
-﻿using Microsoft.Data.SqlClient;
+﻿
+using Microsoft.Data.SqlClient;
 using Scada_Demo.Database;
 using System;
-using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Scada_Demo.Views
 {
     public partial class Schedule : Window
     {
+        private bool _isLoadingSchedule = false;
+
         public Schedule()
         {
             InitializeComponent();
-            LoadAvailableOrders();
+
             LoadScheduleIDs();
+            LoadAvailableOrders();
         }
+
+        // =====================================
+        // LOAD SCHEDULE IDS
+        // =====================================
 
         private void LoadScheduleIDs()
         {
@@ -24,9 +34,11 @@ namespace Scada_Demo.Views
                 con.Open();
 
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT DISTINCT Sch_ID FROM ScheduleMaster ORDER BY Sch_ID", con);
+                    @"SELECT Sch_ID
+                      FROM ScheduleMaster
+                      ORDER BY Sch_ID", con);
 
-                DataTable dt = new();
+                DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 cmbScheduleID.ItemsSource = dt.DefaultView;
@@ -40,58 +52,88 @@ namespace Scada_Demo.Views
             }
         }
 
+        // =====================================
+        // SCHEDULE SELECTION
+        // =====================================
 
-        private void cmbScheduleID_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void cmbScheduleID_SelectionChanged(
+            object sender, SelectionChangedEventArgs e)
         {
+            if (_isLoadingSchedule)
+                return;
+
             if (cmbScheduleID.SelectedValue == null)
                 return;
 
             LoadSchedule(cmbScheduleID.SelectedValue.ToString());
         }
 
+        // =====================================
+        // LOAD EXISTING SCHEDULE
+        // =====================================
 
         private void LoadSchedule(string schId)
         {
             try
             {
-                using SqlConnection con = DbConnection.GetConnection();
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand(
-                    "SELECT * FROM ScheduleMaster WHERE Sch_ID=@Sch_ID ORDER BY Sch_Index", con);
-
-                cmd.Parameters.AddWithValue("@Sch_ID", schId);
-
-                SqlDataReader dr = cmd.ExecuteReader();
+                _isLoadingSchedule = true;
 
                 lstSelectedOrders.Items.Clear();
 
-                bool firstRow = true;
+                using SqlConnection con = DbConnection.GetConnection();
+                con.Open();
 
-                while (dr.Read())
+                using SqlCommand cmd = new SqlCommand(
+                    @"SELECT *
+                      FROM ScheduleMaster
+                      WHERE Sch_ID = @Sch_ID", con);
+
+                cmd.Parameters.AddWithValue("@Sch_ID", schId);
+
+                using SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    if (firstRow)
+                    dpScheduleDate.SelectedDate =
+                        Convert.ToDateTime(dr["Sch_Date"]);
+
+                    cmbScheduleType.Text =
+                        dr["Sch_Type"].ToString();
+
+                    txtTime.Text =
+                        dr["Sch_Start_Time"] == DBNull.Value
+                        ? ""
+                        : Convert.ToDateTime(
+                            dr["Sch_Start_Time"]).ToString("HH:mm");
+
+                    // Comma-separated Order IDs
+                    string orderIds = dr["Order_ID"].ToString();
+
+                    foreach (string id in orderIds.Split(','))
                     {
-                        dpScheduleDate.SelectedDate = Convert.ToDateTime(dr["Sch_Date"]);
+                        string orderId = id.Trim();
 
-                        cmbScheduleType.Text = dr["Sch_Type"].ToString();
-
-                        if (dr["Sch_Start_Time"] != DBNull.Value)
-                            txtTime.Text = Convert.ToDateTime(dr["Sch_Start_Time"]).ToString("HH:mm");
-
-                        firstRow = false;
+                        if (!string.IsNullOrWhiteSpace(orderId))
+                        {
+                            lstSelectedOrders.Items.Add(orderId);
+                        }
                     }
-
-                    lstSelectedOrders.Items.Add(dr["Order_ID"].ToString());
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Load Schedule Failed: " + ex.Message);
+            }
+            finally
+            {
+                _isLoadingSchedule = false;
             }
         }
 
-        // Load Available Orders
+        // =====================================
+        // AVAILABLE ORDERS
+        // =====================================
+
         private void LoadAvailableOrders()
         {
             try
@@ -100,9 +142,11 @@ namespace Scada_Demo.Views
                 con.Open();
 
                 SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT Order_ID FROM OrderMaster ORDER BY Order_ID", con);
+                    @"SELECT Order_ID
+                      FROM OrderMaster
+                      ORDER BY Order_ID", con);
 
-                DataTable dt = new();
+                DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 lstAvailableOrders.ItemsSource = dt.DefaultView;
@@ -116,144 +160,235 @@ namespace Scada_Demo.Views
             }
         }
 
-        // > Button
+        // =====================================
+        // ADD ORDER
+        // =====================================
+
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             if (lstAvailableOrders.SelectedItem == null)
                 return;
 
-            DataRowView row = (DataRowView)lstAvailableOrders.SelectedItem;
-            string orderId = row["Order_ID"].ToString();
+            DataRowView row =
+                (DataRowView)lstAvailableOrders.SelectedItem;
 
-            // Duplicate Check
-            foreach (var item in lstSelectedOrders.Items)
+            string orderId = row["Order_ID"].ToString().Trim();
+
+            // FRONTEND DUPLICATE CHECK
+
+            bool alreadySelected =
+                lstSelectedOrders.Items
+                .Cast<object>()
+                .Any(x => string.Equals(
+                    x.ToString(),
+                    orderId,
+                    StringComparison.OrdinalIgnoreCase));
+
+            if (alreadySelected)
             {
-                if (item.ToString() == orderId)
-                {
-                    MessageBox.Show("Order already selected.");
-                    return;
-                }
+                MessageBox.Show("Order already selected.");
+                return;
             }
 
             lstSelectedOrders.Items.Add(orderId);
+
+            lstAvailableOrders.SelectedIndex = -1;
         }
 
-        // < Button
+        // =====================================
+        // REMOVE ORDER
+        // =====================================
+
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             if (lstSelectedOrders.SelectedItem == null)
                 return;
 
-            lstSelectedOrders.Items.Remove(lstSelectedOrders.SelectedItem);
+            lstSelectedOrders.Items.Remove(
+                lstSelectedOrders.SelectedItem);
         }
 
-        // Exit
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        // =====================================
+        // SAVE / UPDATE
+        // =====================================
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                using SqlConnection con = DbConnection.GetConnection();
-                con.Open();
-
                 string schId = cmbScheduleID.Text.Trim();
 
-                SqlCommand check = new SqlCommand(
-                    "SELECT Sch_ID FROM ScheduleMaster WHERE Sch_ID=@Sch_ID", con);
-
-                check.Parameters.AddWithValue("@Sch_ID", schId);
-
-                object result = check.ExecuteScalar();
-
-                SqlCommand cmd;
-
-                // UPDATE
-                if (result != null)
+                if (string.IsNullOrWhiteSpace(schId))
                 {
-                    cmd = new SqlCommand(
-                    @"UPDATE ScheduleMaster
-              SET Sch_Date=@Sch_Date,
-                  Order_ID=@Order_ID,
-                  Sch_Index=@Sch_Index,
-                  Status=@Status,
-                  Sch_Type=@Sch_Type,
-                  Sch_Start_Time=@Sch_Start_Time
-              WHERE Sch_ID=@Sch_ID", con);
-                }
-                // INSERT
-                else
-                {
-                    cmd = new SqlCommand(
-                    @"INSERT INTO ScheduleMaster
-            (
-                Sch_ID,
-                Sch_Date,
-                Order_ID,
-                Sch_Index,
-                Status,
-                Sch_Type,
-                Sch_Start_Time
-            )
-            VALUES
-            (
-                @Sch_ID,
-                @Sch_Date,
-                @Order_ID,
-                @Sch_Index,
-                @Status,
-                @Sch_Type,
-                @Sch_Start_Time
-            )", con);
+                    MessageBox.Show("Enter Schedule ID.");
+                    return;
                 }
 
-                // Selected Order
-                string orderId = "";
-
-                if (lstSelectedOrders.Items.Count > 0)
-                    orderId = lstSelectedOrders.Items[0].ToString();
-
-                cmd.Parameters.AddWithValue("@Sch_ID", schId);
-                cmd.Parameters.AddWithValue("@Sch_Date", dpScheduleDate.SelectedDate ?? DateTime.Now);
-                cmd.Parameters.AddWithValue("@Order_ID", orderId);
-                cmd.Parameters.AddWithValue("@Sch_Index", 1);
-                cmd.Parameters.AddWithValue("@Status", "N");
-                cmd.Parameters.AddWithValue("@Sch_Type", cmbScheduleType.Text);
-
-                // Time Validation
-                if (string.IsNullOrWhiteSpace(txtTime.Text))
+                if (dpScheduleDate.SelectedDate == null)
                 {
-                    cmd.Parameters.AddWithValue("@Sch_Start_Time", DBNull.Value);
+                    MessageBox.Show("Select Schedule Date.");
+                    return;
                 }
-                else
+
+                if (string.IsNullOrWhiteSpace(cmbScheduleType.Text))
                 {
-                    if (DateTime.TryParse(txtTime.Text.Trim(), out DateTime startTime))
+                    MessageBox.Show("Select Schedule Type.");
+                    return;
+                }
+
+                if (lstSelectedOrders.Items.Count == 0)
+                {
+                    MessageBox.Show("Select at least one Order.");
+                    return;
+                }
+
+                // Final frontend duplicate validation
+
+                List<string> orderList =
+                    lstSelectedOrders.Items
+                    .Cast<object>()
+                    .Select(x => x.ToString().Trim())
+                    .ToList();
+
+                if (orderList.Distinct(
+                    StringComparer.OrdinalIgnoreCase).Count()
+                    != orderList.Count)
+                {
+                    MessageBox.Show("Duplicate Order IDs are not allowed.");
+                    return;
+                }
+
+                // COMMA SEPARATED VALUES
+
+                string orderIds = string.Join(",", orderList);
+
+                // Time validation
+
+                DateTime? startTime = null;
+
+                if (!string.IsNullOrWhiteSpace(txtTime.Text))
+                {
+                    if (!TimeSpan.TryParse(
+                        txtTime.Text.Trim(), out TimeSpan time))
                     {
-                        cmd.Parameters.AddWithValue("@Sch_Start_Time", startTime);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please enter valid time (Example: 08:30 or 08:30 AM)");
+                        MessageBox.Show(
+                            "Enter valid time (Example: 08:30)");
+
                         txtTime.Focus();
                         return;
                     }
+
+                    startTime = DateTime.Today.Add(time);
                 }
+
+                using SqlConnection con = DbConnection.GetConnection();
+                con.Open();
+
+                // CHECK SCH_ID
+
+                using SqlCommand check = new SqlCommand(
+                    @"SELECT COUNT(*)
+                      FROM ScheduleMaster
+                      WHERE Sch_ID = @Sch_ID", con);
+
+                check.Parameters.AddWithValue("@Sch_ID", schId);
+
+                bool exists =
+                    Convert.ToInt32(check.ExecuteScalar()) > 0;
+
+                string query;
+
+                if (exists)
+                {
+                    // UPDATE EXISTING SCHEDULE
+
+                    query = @"
+                        UPDATE ScheduleMaster
+                        SET Sch_Date = @Sch_Date,
+                            Order_ID = @Order_ID,
+                            Sch_Index = 1,
+                            Sch_Type = @Sch_Type,
+                            Sch_Start_Time = @Sch_Start_Time
+                        WHERE Sch_ID = @Sch_ID";
+                }
+                else
+                {
+                    // INSERT NEW SCHEDULE
+
+                    query = @"
+                        INSERT INTO ScheduleMaster
+                        (
+                            Sch_ID,
+                            Sch_Date,
+                            Order_ID,
+                            Sch_Index,
+                            Ordered_Qty,
+                            Load_Send_Qty,
+                            Status,
+                            Sch_Type,
+                            Sch_Start_Time
+                        )
+                        VALUES
+                        (
+                            @Sch_ID,
+                            @Sch_Date,
+                            @Order_ID,
+                            1,
+                            NULL,
+                            NULL,
+                            'N',
+                            @Sch_Type,
+                            @Sch_Start_Time
+                        )";
+                }
+
+                using SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Sch_ID", schId);
+
+                cmd.Parameters.AddWithValue(
+                    "@Sch_Date", dpScheduleDate.SelectedDate.Value);
+
+                cmd.Parameters.AddWithValue("@Order_ID", orderIds);
+
+                cmd.Parameters.AddWithValue(
+                    "@Sch_Type", cmbScheduleType.Text);
+
+                cmd.Parameters.AddWithValue(
+                    "@Sch_Start_Time",
+                    startTime.HasValue
+                    ? startTime.Value
+                    : DBNull.Value);
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show(result != null
+                MessageBox.Show(
+                    exists
                     ? "Schedule Updated Successfully."
                     : "Schedule Saved Successfully.");
+
+                LoadScheduleIDs();
+
+                cmbScheduleID.SelectedValue = schId;
+
+                LoadSchedule(schId);
 
                 LoadAvailableOrders();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                    "Schedule Save Failed: " + ex.Message);
             }
+        }
+
+        // =====================================
+        // EXIT
+        // =====================================
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

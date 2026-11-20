@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Scada_Demo.Behaviors"
         mc:Ignorable="d"
         Title="Manual Operation"
     Icon="../project_small_i.png"
@@ -155,6 +156,138 @@
 
         </Style>
 
+
+        <Style x:Key="LampYellowButtonStyle" TargetType="Button">
+
+            <Setter Property="Width" Value="58"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="#FFC107"/>
+            <Setter Property="BorderBrush" Value="#FFE082"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="0">
+
+                            <Grid>
+
+                                <!-- Reflection -->
+                                <Border Width="20"
+                                Height="4"
+                                CornerRadius="2"
+                                Background="White"
+                                Opacity="0.7"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,3,0,0"/>
+
+                                <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"/>
+
+                            </Grid>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.96" ScaleY="0.96"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.4"/>
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+        <Style x:Key="LampRedButtonStyle1" TargetType="Button">
+
+            <Setter Property="Width" Value="58"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="#E53935"/>
+            <Setter Property="BorderBrush" Value="#FF8A80"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="0">
+
+                            <Grid>
+
+                                <!-- Reflection -->
+                                <Border Width="20"
+                                Height="4"
+                                CornerRadius="2"
+                                Background="White"
+                                Opacity="0.7"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,3,0,0"/>
+
+                                <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"/>
+
+                            </Grid>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.96" ScaleY="0.96"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.4"/>
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+
         <!-- GREEN LAMP -->
         <Style x:Key="LampGreen" TargetType="Ellipse">
             <Setter Property="Width" Value="58"/>
@@ -231,7 +364,7 @@
                 BorderBrush="#D0D0D0"
                 BorderThickness="2"
                 CornerRadius="5"
-                Padding="15" 
+                Padding="15" Margin="0,6,0,-6" 
 >
 
             <Canvas>
@@ -247,20 +380,21 @@
 
                         <!-- GATE 1 -->
                         <Button Content="GATE-1&#10;OPEN"
-                Width="90"
-                Height="70"
-                FontWeight="Bold"
-                FontSize="16"
-                Style="{StaticResource LampGreenButtonStyle}"
-                Canvas.Left="12"
-                Canvas.Top="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="12"
+        Canvas.Top="3"
+        local:ButtonPressBehavior.PressCommand="{Binding Gate1OpenPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding Gate1OpenReleaseCommand}"/>
                         <Ellipse Width="12"
                  Height="12"
                  Fill="Red"
                  Stroke="DarkRed"
-                 Canvas.Left="82"
-                 Canvas.Top="15"/>
+                 Canvas.Left="86"
+                 Canvas.Top="6" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <!-- GATE 2 -->
                         <Button Content="GATE-2&#10;OPEN"
@@ -269,15 +403,15 @@
                 FontWeight="Bold"
                 FontSize="16"
                 Style="{StaticResource LampGreenButtonStyle}"
-                Canvas.Left="14"
-                Canvas.Top="115" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                Canvas.Left="12"
+                Canvas.Top="115" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <Ellipse Width="12"
                  Height="12"
                  Fill="Red"
                  Stroke="DarkRed"
-                 Canvas.Left="82"
-                 Canvas.Top="115"/>
+                 Canvas.Left="87"
+                 Canvas.Top="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <!-- GATE 3 -->
                         <Button Content="GATE-3&#10;OPEN"
@@ -287,14 +421,14 @@
                 FontSize="16"
                 Style="{StaticResource LampGreenButtonStyle}"
                 Canvas.Left="14"
-                Canvas.Top="227"/>
+                Canvas.Top="224" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <Ellipse Width="12"
                  Height="12"
                  Fill="Red"
                  Stroke="DarkRed"
-                 Canvas.Left="82"
-                 Canvas.Top="215"/>
+                 Canvas.Left="88"
+                 Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <!-- GATE 4 -->
                         <Button Content="GATE-4&#10;OPEN"
@@ -303,14 +437,14 @@
                 FontWeight="Bold"
                 FontSize="16"
                 Style="{StaticResource LampGreenButtonStyle}"
-                Canvas.Top="314" Canvas.Left="14"/>
+                Canvas.Top="316" Canvas.Left="14" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <Ellipse Width="12"
                  Height="12"
                  Fill="Red"
                  Stroke="DarkRed"
-                 Canvas.Left="82"
-                 Canvas.Top="315"/>
+                 Canvas.Left="88"
+                 Canvas.Top="319" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                     </Canvas>
                 </Border>
@@ -322,15 +456,15 @@
         FontWeight="Bold"
         FontSize="16"
         Style="{StaticResource LampGreenButtonStyle}"
-        Canvas.Left="35"
-        Canvas.Top="457" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Canvas.Left="37"
+        Canvas.Top="457" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <Ellipse Width="12"
          Height="12"
          Fill="Red"
          Stroke="DarkRed"
-         Canvas.Left="105"
-         Canvas.Top="469" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="108"
+         Canvas.Top="461" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <!-- HOOTER -->
                 <Button Content="HOOTER"
@@ -339,15 +473,17 @@
         FontWeight="Bold"
         FontSize="16"
         Style="{StaticResource LampGreenButtonStyle}"
-        Canvas.Left="35"
-        Canvas.Top="580" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Canvas.Left="39"
+        Canvas.Top="578" HorizontalAlignment="Center" VerticalAlignment="Top"
+         local:ButtonPressBehavior.PressCommand="{Binding HooterPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding HooterReleaseCommand}"/>
 
                 <Ellipse Width="12"
          Height="12"
          Fill="Red"
          Stroke="DarkRed"
-         Canvas.Left="105"
-         Canvas.Top="580" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="110"
+         Canvas.Top="583" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Canvas>
 
         </Border>
@@ -365,29 +501,49 @@
             Height="120" Margin="7,-3,-13,-3">
 
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#10;OPEN"
-                Width="90"
-                Height="70"
-                FontWeight="Bold"
-                FontSize="16"
-                Style="{StaticResource LampGreenButtonStyle}"
-                Canvas.Left="-9.5" Canvas.Top="5"/>
+                <Button Content="ADM-1&#10;DOS"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        TextBlock.TextAlignment="Center"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="-9.5"
+        Canvas.Top="5"
+                        local:ButtonPressBehavior.PressCommand="{Binding ADM1DosPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding ADM1DosReleaseCommand}"/>
 
                 <Ellipse Width="12"
                  Height="12"
                  Fill="Red"
                  Stroke="DarkRed"
-                 Canvas.Left="90"
-                 Canvas.Top="25"/>
-
-                <!-- HOOTER -->
-                <Button Content="HOOTER"
+                 Canvas.Left="64"
+                 Canvas.Top="9" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="ADM-2&#xA;DOS"
                 Width="90"
                 Height="70"
                 FontWeight="Bold"
+                        TextBlock.TextAlignment="Center"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
                 FontSize="16"
                 Style="{StaticResource LampGreenButtonStyle}"
-                Canvas.Left="150" Canvas.Top="5"/>
+                Canvas.Left="150" Canvas.Top="5"
+                        local:ButtonPressBehavior.PressCommand="{Binding ADM2DosPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding ADM2DosReleaseCommand}"/>
+
+
+                <Ellipse Width="12"
+ Height="12"
+ Fill="Red"
+ Stroke="DarkRed"
+ Canvas.Left="224"
+ Canvas.Top="9" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+                <!-- HOOTER -->
 
             </Canvas>
 
@@ -406,13 +562,17 @@ Width="100"
      Height="120" Margin="7,-3,-13,-3">
 
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#10;OPEN"
-         Width="90"
-         Height="70"
-         FontWeight="Bold"
-         FontSize="16"
-         Style="{StaticResource LampGreenButtonStyle}"
-         Canvas.Left="-5" Canvas.Top="5"/>
+                <!-- W-DOS -->
+                <Button Content="W-DOS&#10;"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="-5"
+        Canvas.Top="5"
+        local:ButtonPressBehavior.PressCommand="{Binding WaterDosPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding WaterDosReleaseCommand}"/>
 
                 <Ellipse Width="12"
           Height="12"
@@ -443,14 +603,17 @@ Width="100"
      Height="120" Margin="7,-3,-13,-3">
 
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="CEM-2&#xA;"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
 Canvas.Left="-4"
-Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        
+                            local:ButtonPressBehavior.PressCommand="{Binding Cement2PressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding Cement2ReleaseCommand}"/>
 
 
                 <Ellipse Width="12"
@@ -458,32 +621,37 @@ Height="12"
 Fill="Red"
 Stroke="DarkRed"
 Canvas.Left="68"
-Canvas.Top="39"/>
+Canvas.Top="32" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-                <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
+                <Button Content="CEM-3"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="-4.5"
+        Canvas.Top="133"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+            local:ButtonPressBehavior.PressCommand="{Binding Cement3PressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding Cement3ReleaseCommand}"/>
 
                 <Ellipse Width="12"
 Height="12"
 Fill="Red"
 Stroke="DarkRed"
 Canvas.Left="68"
-Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="140" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="CEM-1&#xA;"
          Width="90"
          Height="70"
          FontWeight="Bold"
          FontSize="16"
          Style="{StaticResource LampGreenButtonStyle}"
-         Canvas.Left="-4" Canvas.Top="-82" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="-4" Canvas.Top="-82" HorizontalAlignment="Center" VerticalAlignment="Top"
+                        local:ButtonPressBehavior.PressCommand="{Binding Cement1PressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding Cement1ReleaseCommand}"/>
 
 
 
@@ -494,7 +662,7 @@ Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
  Fill="Red"
  Stroke="DarkRed"
  Canvas.Left="68"
- Canvas.Top="-59" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ Canvas.Top="-77" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                 <!-- Hopper Bottom -->
                 <Polygon Points="10,75 100,75 88,105 22,105"
@@ -506,6 +674,15 @@ Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
         </Border>
+        <Button Content="ICE&#xA;DIS"
+Width="90"
+Height="70"
+FontWeight="Bold"
+FontSize="16"
+Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-4.5"
+Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="790,266,0,0" local:ButtonPressBehavior.PressCommand="{Binding IceDisPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding IceDisReleaseCommand}"/>
 
         <Border BorderBrush="#4DA6FF"
  BorderThickness="3"
@@ -519,7 +696,7 @@ Width="100"
      Height="120" Margin="7,-3,-13,-3">
 
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="SPARE&#xA;"
 Width="90"
 Height="70"
 FontWeight="Bold"
@@ -533,24 +710,18 @@ Canvas.Top="77" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 Height="12"
 Fill="Red"
 Stroke="DarkRed"
-Canvas.Left="68"
-Canvas.Top="39"/>
-
-
-                <Ellipse Width="12"
-Height="12"
-Fill="Red"
-Stroke="DarkRed"
-Canvas.Left="68"
-Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Left="70"
+Canvas.Top="83" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="ICE&#xA;DOS"
          Width="90"
          Height="70"
          FontWeight="Bold"
          FontSize="16"
          Style="{StaticResource LampGreenButtonStyle}"
-         Canvas.Left="-4" Canvas.Top="-25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="-4" Canvas.Top="-25" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                        local:ButtonPressBehavior.PressCommand="{Binding IceDosPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding IceDosReleaseCommand}"/>
 
 
 
@@ -560,73 +731,55 @@ Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="68"
- Canvas.Top="-59" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ Canvas.Left="70" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-20"/>
 
                 <!-- Hopper Bottom -->
                 <Polygon Points="10,75 100,75 88,105 22,105"
  Fill="Transparent"
  Stroke="#7FB8E6"
- StrokeThickness="3" Canvas.Left="-16" Canvas.Top="77" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ StrokeThickness="3" Canvas.Left="-15" Canvas.Top="76" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Ellipse Width="12"
+Height="12"
+Fill="Red"
+Stroke="DarkRed"
+Canvas.Left="70"
+Canvas.Top="198" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Canvas>
 
 
 
         </Border>
-
-
-        <Button Content="GATE-1&#xA;OPEN"
+        <Button Content="CEM-DIS"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="-4.5"
+        Canvas.Top="133"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="639,370,0,0"
+    local:ButtonPressBehavior.PressCommand="{Binding CementDisPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding CementDisReleaseCommand}"/>
+        <Button Content="SILICA&#xA;DIS"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
 Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="788,266,0,0"/>
-
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="793,370,0,0"/>
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="793,472,0,0"/>
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,370,0,0"/>
-
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,472,0,0"/>
+Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,266,0,0"
+                
+                 local:ButtonPressBehavior.PressCommand="{Binding SilicaDisPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding SilicaDisReleaseCommand}"/>
 
         <Ellipse Width="12"
 Height="12"
 Fill="Red"
 Stroke="DarkRed"
 Canvas.Left="68"
-Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1016,270,0,0"/>
 
         <Border BorderBrush="#4DA6FF"
  BorderThickness="3"
@@ -640,14 +793,14 @@ Width="100"
      Height="120" Margin="7,-3,-13,-3">
 
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="SPARE&#xA;"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4"
-Canvas.Top="77" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Left="-5"
+Canvas.Top="77" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 
                 <Ellipse Width="12"
@@ -655,23 +808,18 @@ Height="12"
 Fill="Red"
 Stroke="DarkRed"
 Canvas.Left="68"
-Canvas.Top="39"/>
-
-
-                <Ellipse Width="12"
-Height="12"
-Fill="Red"
-Stroke="DarkRed"
-Canvas.Left="68"
-Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="82" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <!-- GATE 1 -->
-                <Button Content="GATE-1&#xA;OPEN"
+                <Button Content="SILICA&#xA;DOS"
          Width="90"
          Height="70"
          FontWeight="Bold"
          FontSize="16"
          Style="{StaticResource LampGreenButtonStyle}"
-         Canvas.Left="-4" Canvas.Top="-25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="-5" Canvas.Top="-25" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        
+                        local:ButtonPressBehavior.PressCommand="{Binding SilicaDosPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding SilicaDosReleaseCommand}"/>
 
 
 
@@ -682,46 +830,18 @@ Canvas.Top="156" HorizontalAlignment="Center" VerticalAlignment="Top"/>
  Fill="Red"
  Stroke="DarkRed"
  Canvas.Left="68"
- Canvas.Top="-59" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ Canvas.Top="-20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                 <!-- Hopper Bottom -->
                 <Polygon Points="10,75 100,75 88,105 22,105"
  Fill="Transparent"
  Stroke="#7FB8E6"
- StrokeThickness="3" Canvas.Left="-16" Canvas.Top="77" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ StrokeThickness="3" Canvas.Left="-15" Canvas.Top="76" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Canvas>
 
 
 
         </Border>
-
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,266,0,0"/>
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,370,0,0"/>
-
-        <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="-4.5"
-Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,472,0,0"/>
         <Border Width="120" 
 Height="530"
 BorderBrush="#4DA6FF"
@@ -752,55 +872,64 @@ Canvas.Top="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="182,1
 
 
                 <!-- GATE 2 -->
-                <Button Content="GATE-2&#xA;OPEN"
+                <Button Content="SKIP&#xA;UP"
         Width="90"
         Height="70"
         FontWeight="Bold"
         FontSize="16"
         Style="{StaticResource LampGreenButtonStyle}"
-        Canvas.Left="14"
-        Canvas.Top="127" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Canvas.Left="13"
+        Canvas.Top="123" HorizontalAlignment="Center"                 TextBlock.TextAlignment="Center"
+HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" 
+                       local:ButtonPressBehavior.PressCommand="{Binding SkipUpPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding SkipUpReleaseCommand}"
+                        VerticalAlignment="Top"/>
 
                 <Ellipse Width="12"
          Height="12"
          Fill="Red"
          Stroke="DarkRed"
-         Canvas.Left="82"
-         Canvas.Top="135" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+         Canvas.Left="89"
+         Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <!-- GATE 3 -->
-                <Button Content="GATE-3&#xA;OPEN"
+                <Button Content="SKIP-3&#xA;STOP"
         Width="90"
         Height="70"
         FontWeight="Bold"
         FontSize="16"
-        Style="{StaticResource LampGreenButtonStyle}"
+        Style="{StaticResource LampRedButtonStyle1}"
         Canvas.Left="14"
-        Canvas.Top="214" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-                <Ellipse Width="12"
-         Height="12"
-         Fill="Red"
-         Stroke="DarkRed"
-         Canvas.Left="82"
-         Canvas.Top="220" RenderTransformOrigin="0.608,1.278" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        TextBlock.TextAlignment="Center"
+HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center"
+        Canvas.Top="216" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                        
+                         local:ButtonPressBehavior.PressCommand="{Binding SkipStopPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding SkipStopReleaseCommand}"/>
 
                 <!-- GATE 4 -->
-                <Button Content="GATE-4&#xA;OPEN"
+                <Button Content="SKIP&#xA;DOWN"
         Width="90"
         Height="70"
         FontWeight="Bold"
         FontSize="16"
         Style="{StaticResource LampGreenButtonStyle}"
         Canvas.Left="12"
-        Canvas.Top="333" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        Canvas.Top="333" HorizontalAlignment="Center" TextBlock.TextAlignment="Center"
+HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center"
+                        
+                        local:ButtonPressBehavior.PressCommand="{Binding SkipDownPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding SkipDownReleaseCommand}"/>
 
                 <Ellipse Width="12"
          Height="12"
          Fill="Red"
          Stroke="DarkRed"
-         Canvas.Left="82"
-         Canvas.Top="339" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.542,2.287"/>
+         Canvas.Left="86"
+         Canvas.Top="338" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.542,2.287"/>
 
                 <Ellipse Style="{StaticResource BlinkingLampStyle}"
 HorizontalAlignment="Left"
@@ -816,27 +945,23 @@ VerticalAlignment="Center" Canvas.Left="51" Canvas.Top="41"/>
 
 
         <!-- GATE 1 -->
-        <Button Content="GATE-1&#10;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="1"
-Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,154,0,0"/>
-
-        <Ellipse Width="12"
- Height="12"
- Fill="Red"
- Stroke="DarkRed"
- Canvas.Left="72"
- Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="410,183,0,0"/>
 
         <Canvas Width="100"
         Height="80"
        
         HorizontalAlignment="Left"
         VerticalAlignment="Top" Margin="341,248,0,0">
+
+
+
+            <Border Width="258"
+        Height="203"
+        BorderBrush="#D94FD2"
+        BorderThickness="3"
+        Background="Transparent" Canvas.Left="291" Canvas.Top="217" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+
             <Ellipse Width="74"
 Height="75"
 Stroke="#D8D8D8"
@@ -853,13 +978,6 @@ Fill="#2B2B2B" Canvas.Top="331" HorizontalAlignment="Left" VerticalAlignment="Ce
       StrokeThickness="3"
       Canvas.Left="17"
       Canvas.Top="422"/>
-
-
-            <Border Width="258"
-        Height="203"
-        BorderBrush="#D94FD2"
-        BorderThickness="3"
-        Background="Transparent" Canvas.Left="291" Canvas.Top="217" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
             <Ellipse Width="74"
 Height="75"
@@ -885,6 +1003,14 @@ VerticalAlignment="Center" Canvas.Left="495" Canvas.Top="363"/>
 
 
 
+
+            <Ellipse Style="{StaticResource BlinkingLampStyle}"
+HorizontalAlignment="Left"
+VerticalAlignment="Center" Canvas.Left="495" Canvas.Top="363"/>
+
+
+
+
             <Ellipse Width="74"
 Height="75"
 Stroke="#D8D8D8"
@@ -894,7 +1020,7 @@ Fill="#2B2B2B" Canvas.Top="332" HorizontalAlignment="Left" VerticalAlignment="Ce
 
             <Ellipse Style="{StaticResource BlinkingLampStyle}"
 HorizontalAlignment="Left"
-VerticalAlignment="Center" Canvas.Left="495" Canvas.Top="363"/>
+VerticalAlignment="Top" Canvas.Left="643" Canvas.Top="362"/>
 
 
             <Ellipse Width="248"
@@ -978,52 +1104,64 @@ StrokeThickness="3" Canvas.Left="4.5" Canvas.Top="387.8" RenderTransformOrigin="
                     </TransformGroup>
                 </Line.RenderTransform>
             </Line>
-            <Button Content="GATE-1&#xA;OPEN"
+            <Button Content="M-ON&#xA;"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Top="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="22" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    
+                    local:ButtonPressBehavior.PressCommand="{Binding MixerOnPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding MixerOnReleaseCommand}"/>
 
             <Ellipse Width="12"
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="75"
- Canvas.Top="34" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+ Canvas.Left="71"
+ Canvas.Top="28" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 
-            <Button Content="GATE-1&#xA;OPEN"
+            <Button Content="MIXER-G&#xA;OPEN"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Top="226" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="226" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    
+                    local:ButtonPressBehavior.PressCommand="{Binding MixerGateOpenPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding MixerGateOpenReleaseCommand}"/>
 
             <Ellipse Width="12"
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="75"
- Canvas.Top="232" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+ Canvas.Left="72"
+ Canvas.Top="231" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
-            <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Top="226" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="143"/>
-
+            <Button Content="MIXER&#xA;G-CLOSE"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        TextBlock.TextAlignment="Center"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Top="226"
+        Canvas.Left="143"
+                    
+                    local:ButtonPressBehavior.PressCommand="{Binding MixerGateClosePressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding MixerGateCloseReleaseCommand}"/>
             <Ellipse Width="12"
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="220"
- Canvas.Top="238" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+ Canvas.Left="217"
+ Canvas.Top="232" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.106,0.392"/>
 
             <Ellipse Width="12"
  Height="12"
@@ -1032,37 +1170,43 @@ Canvas.Top="226" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Le
  Canvas.Left="75"
  Canvas.Top="116" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
+            <Button Content="M-DIRECT&#xA;ON"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        TextBlock.TextAlignment="Center"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Top="114"
+                    
+                    
+                   />
+            <Ellipse Width="12"
+ Height="12"
+ Fill="Red"
+ Stroke="DarkRed"
+ Canvas.Left="73"
+ Canvas.Top="118" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.689,1.514"/>
 
-            <Button Content="GATE-1&#xA;OPEN"
+
+            <Button Content="M-OFF&#xA;"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Top="114" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="143"
+                     local:ButtonPressBehavior.PressCommand="{Binding MixerOffPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding MixerOffReleaseCommand}"/>
 
             <Ellipse Width="12"
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="75"
- Canvas.Top="122" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.689,1.514"/>
-
-
-            <Button Content="GATE-1&#xA;OPEN"
-Width="90"
-Height="70"
-FontWeight="Bold"
-FontSize="16"
-Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="143"/>
-
-            <Ellipse Width="12"
- Height="12"
- Fill="Red"
- Stroke="DarkRed"
- Canvas.Left="220"
- Canvas.Top="28" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+ Canvas.Left="217"
+ Canvas.Top="28" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.572,1.592"/>
 
 
             <Ellipse Width="76"
@@ -1100,21 +1244,40 @@ VerticalAlignment="Top" Canvas.Left="39" Canvas.Top="363"/>
 
         <Canvas Canvas.Left="10"
 Canvas.Top="10">
-            <Button Content="GATE-1&#10;OPEN"
+           <!-- W-DIS -->
+<Button Content="W-DIS&#10;"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="486"
+        Canvas.Top="155"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        local:ButtonPressBehavior.PressCommand="{Binding WaterDisPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding WaterDisReleaseCommand}"/>
+
+
+            <Button Content="ADM&#10;DIS"
 Width="90"
 Height="70"
 FontWeight="Bold"
 FontSize="16"
 Style="{StaticResource LampGreenButtonStyle}"
-Canvas.Left="486"
-Canvas.Top="155" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+Canvas.Left="344"
+Canvas.Top="155" HorizontalAlignment="Left" VerticalAlignment="Center"   
+                    
+local:ButtonPressBehavior.PressCommand="{Binding ADMDisPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding ADMDisReleaseCommand}"
+                    />
 
             <Ellipse Width="12"
  Height="12"
  Fill="Red"
  Stroke="DarkRed"
- Canvas.Left="558"
- Canvas.Top="190" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+ Canvas.Left="557"
+ Canvas.Top="160" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         </Canvas>
         <!-- W-DOS -->
@@ -1129,8 +1292,75 @@ Canvas.Top="155" HorizontalAlignment="Left" VerticalAlignment="Center"/>
              Stroke="#7FB8E6"
              StrokeThickness="3" Canvas.Left="333" Canvas.Top="46"/>
         </Canvas>
+        <Button Content="FAULT&#xA;RESET"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampYellowButtonStyle}"
+        Canvas.Left="-4.5"
+        Canvas.Top="133"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="793,472,0,0"
+                
+                local:ButtonPressBehavior.PressCommand="{Binding FaultResetPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding FaultResetReleaseCommand}"/>
+        <Button Content="TOL&#xA;"
+Width="90"
+Height="70"
+FontWeight="Bold"
+FontSize="16"
+Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-4.5"
+Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,472,0,0"
+                
+                
+                local:ButtonPressBehavior.PressCommand="{Binding TolPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding TolReleaseCommand}"/>
 
 
+        <Path Stroke="#FFD600"
+      StrokeThickness="4"
+      Fill="Transparent"
+      Data="M 0,0 L 250,0 L 250,300 L 140,300 L 140,90 L 0,90 Z"
+      Canvas.Left="145"
+      Canvas.Top="10" Margin="790,364,-790,-364"/>
+        <Button Content="AUTO&#xA;START"
+Width="90"
+Height="70"
+FontWeight="Bold"
+FontSize="16"
+Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-4.5"
+Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,370,0,0"/>
+        <Button Content="AUTO/&#xA;MANUAL"
+        Width="90"
+        Height="70"
+        FontWeight="Bold"
+        FontSize="16"
+        Style="{StaticResource LampGreenButtonStyle}"
+        Canvas.Left="-4.5"
+        Canvas.Top="133"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="794,370,0,0"
+        local:ButtonPressBehavior.PressCommand="{Binding AutoManualPressCommand}"
+        local:ButtonPressBehavior.ReleaseCommand="{Binding AutoManualReleaseCommand}"/>
+        <Button Content="AUTO&#xA;OPEN"
+Width="90"
+Height="70"
+FontWeight="Bold"
+FontSize="16"
+Style="{StaticResource LampGreenButtonStyle}"
+Canvas.Left="-4.5"
+Canvas.Top="133" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="943,472,0,0"/>
+        <Ellipse Width="12"
+ Height="12"
+ Fill="Red"
+ Stroke="DarkRed"
+ Canvas.Left="72"
+ Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414,158,0,0"/>
 
         <!-- HOOTER -->
 

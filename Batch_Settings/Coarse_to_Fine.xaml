@@ -145,7 +145,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Coarse To Fine Settings"
-           xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         Width="780"
         Height="550"
         WindowStartupLocation="CenterScreen"

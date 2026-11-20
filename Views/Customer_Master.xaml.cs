@@ -171,14 +171,7 @@ namespace Scada_Demo.Views
             this.Close();
         }
 
-        private void cmbCustomerID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cmbCustomerID.SelectedValue == null)
-                return;
-
-            LoadCustomer(cmbCustomerID.SelectedValue.ToString());
-        }
-
+     
         private void LoadCustomer(string customerId)
         {
             try
@@ -215,6 +208,14 @@ namespace Scada_Demo.Views
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmbCustomerID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbCustomerID.SelectedValue == null)
+                return;
+
+            LoadCustomer(cmbCustomerID.SelectedValue.ToString());
         }
     }
 }

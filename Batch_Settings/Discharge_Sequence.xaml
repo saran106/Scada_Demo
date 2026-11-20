@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
+ 
         --><!-- HEADER --><!--
         <TextBlock Text="Discharge delay sequence in terms of seconds"
                    Style="{DynamicResource HeaderTextStyle}"
@@ -644,8 +644,31 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Width="36" Height="36" VerticalAlignment="Center" Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Pincode.png" Width="20" Height="20" Stretch="Uniform"/>
+                            <!-- ICON -->
+                            <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Maintenance.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Pump Cutoff" Style="{DynamicResource SiteLabelStyle}"/>
                             <TextBox Grid.Column="2" x:Name="PC" Height="40" Text="{Binding PumpCutOff, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource SiteTextBoxStyle}"/>
@@ -661,8 +684,31 @@ Style="{DynamicResource SiteIconBoxStyle}">
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Width="36" Height="36" VerticalAlignment="Center" Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Pincode.png" Width="20" Height="20" Stretch="Uniform"/>
+                            <!-- ICON -->
+                            <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Types.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Hopper Delay" Style="{DynamicResource SiteLabelStyle}"/>
                             <TextBox Grid.Column="2" x:Name="Skip" Height="40" Text="{Binding Skip, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource SiteTextBoxStyle}"/>

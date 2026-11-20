@@ -185,9 +185,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+          xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         Title="Bin Settings"
         Height="715"
         Width="890"
+        Icon="../project_small_i.png"
         Background="{DynamicResource SitePageBackgroundBrush}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -227,15 +229,30 @@
 
                     <!-- ICON -->
 
-                    <Border Grid.Column="0"
-                            Width="42"
-                            Height="36"
-                            Style="{DynamicResource SiteIconBoxStyle}">
+                    <Border Width="40"
 
-                        <Image Source="/Icons/Product_Name.png"
-                               Width="24"
-                               Height="24"
-                               Stretch="Uniform"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                        <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform">
+                                    <VisualBrush.Visual>
+
+                                        <svgc:SvgViewbox Source="/Icons/Bin.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+
+                        </Rectangle>
+
 
                     </Border>
 
@@ -329,11 +346,30 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -344,7 +380,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[0].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -362,11 +398,30 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -377,7 +432,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[1].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -395,11 +450,30 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -410,7 +484,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[2].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -428,11 +502,30 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -443,7 +536,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[3].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -461,11 +554,30 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -476,7 +588,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[4].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -492,13 +604,31 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Aggregate.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
+
                             </Border>
 
                             <TextBlock Grid.Column="1"
@@ -509,7 +639,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[5].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -527,12 +657,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-            Height="40"
-            Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-               Width="22"
-               Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Cement.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -544,7 +691,7 @@
                             <TextBox Grid.Column="3"
              
              Height="36"
-             Style="{DynamicResource SiteTextBoxStyle}"/>
+             Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[6].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -563,14 +710,32 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-            Height="40"
-            Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-               Width="22"
-               Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Cement.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
+
 
                             <TextBlock Grid.Column="1"
                Text="Cement2 Name"
@@ -580,7 +745,7 @@
                             <TextBox Grid.Column="3"
              
              Height="36"
-             Style="{DynamicResource SiteTextBoxStyle}"/>
+             Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[7].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -599,14 +764,32 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-            Height="40"
-            Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-               Width="22"
-               Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Cement.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
+
 
                             <TextBlock Grid.Column="1"
                Text="Cement3 Name"
@@ -616,7 +799,7 @@
                             <TextBox Grid.Column="3"
              
              Height="36"
-             Style="{DynamicResource SiteTextBoxStyle}"/>
+             Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[8].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -635,12 +818,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-            Height="40"
-            Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-               Width="22"
-               Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Cement.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -652,7 +852,7 @@
                             <TextBox Grid.Column="3"
              
              Height="36"
-             Style="{DynamicResource SiteTextBoxStyle}"/>
+             Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[9].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -709,14 +909,32 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Cement.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
+
 
                             <TextBlock Grid.Column="1"
                    Text="Cement5 Name"
@@ -726,7 +944,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[10].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -745,12 +963,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Address.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -762,7 +997,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[11].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -779,16 +1014,33 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Address.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
+
 
                             <TextBlock Grid.Column="1"
                    Text="Water2 Name"
@@ -798,7 +1050,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[12].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -817,12 +1069,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Address.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Water.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -834,8 +1103,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Wtr3"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[13].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -857,12 +1125,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Contact.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Admixture.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -874,8 +1159,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Admix1"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[14].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -894,12 +1178,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Contact.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Admixture.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -911,8 +1212,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Admix2"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[15].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -930,13 +1230,31 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Contact.png"
-                   Width="22"
-                   Height="22"/>
+                            <Border Width="40"
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Admixture.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -948,8 +1266,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Admix3"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[16].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -968,12 +1285,29 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Contact.png"
-                   Width="22"
-                   Height="22"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Admixture.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -985,8 +1319,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Admix4"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[17].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -1004,13 +1337,31 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Width="40"
-                Height="40"
-                Style="{DynamicResource SiteIconBoxStyle}">
 
-                                <Image Source="/Icons/Product_Name.png"
-                   Width="22"
-                   Height="22"/>
+                            <Border Width="40"
+
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                                <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Uniform">
+                                            <VisualBrush.Visual>
+
+                                                <svgc:SvgViewbox Source="/Icons/Silica.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+
+                                </Rectangle>
+
 
                             </Border>
 
@@ -1022,8 +1373,7 @@
                             <TextBox Grid.Column="3"
                  
                  Height="36"
-                 Text="Silica"
-                 Style="{DynamicResource SiteTextBoxStyle}"/>
+                 Style="{DynamicResource SiteTextBoxStyle}" Text="{Binding Bins[18].MaterialName, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </Grid>
 
@@ -1057,6 +1407,7 @@
 
                         <Button Grid.Column="1"
                                 x:Name="btnSave"
+                                Command="{Binding SaveCommand}"
                                 Style="{StaticResource SaveButtonStyle}">
 
                             <StackPanel Orientation="Horizontal"
@@ -1081,6 +1432,7 @@
 
                         <Button Grid.Column="3"
                                 x:Name="btnExit"
+                                Click="btnExit_Click"
                                 Style="{StaticResource WhiteActionButtonStyle}">
 
                             <StackPanel Orientation="Horizontal"

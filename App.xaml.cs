@@ -4,7 +4,9 @@ using Scada_Demo.Services;
 using Scada_Demo.ViewModels.BatchSettings;
 using Scada_Demo.ViewModels.Login;
 using Scada_Demo.ViewModels.User;
+
 using Scada_Demo.ViewModels.Transactions;
+using Scada_Demo.ViewModels.Other_Settings;
 namespace Scada_Demo
 {
     public partial class App : Application
@@ -35,6 +37,12 @@ namespace Scada_Demo
 
         public static RegisterUserViewModel RegisterUserVM { get; private set; }
 
+        public static ManualOperation2ViewModel ManualOperation2VM { get; private set; }
+
+        public static Bin_SetupViewModel BinSetupVM { get; private set; }
+
+
+
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -43,7 +51,7 @@ namespace Scada_Demo
             LoginVM = new LoginViewModel();
             AlarmVM = new AlarmHistoryViewModel();
             ModifyUserVM = new ModifyuserViewModel();
-            StartProductionVM = new Start_ProductionViewModel();
+            StartProductionVM = new Start_ProductionViewModel(Publisher);
             RegisterUserVM = new RegisterUserViewModel();
             MaterialVM = new MaterialInAirViewModel(Publisher);
             DDVM = new DischargeDelayViewModel(Publisher);
@@ -53,9 +61,13 @@ namespace Scada_Demo
             JogTimeVM = new JogTimeViewModel(Publisher);
             TolVM = new ToleranceViewModel(Publisher);
             CoarseToFineVM = new CoarseToFineViewModel(Publisher);
+            ManualOperation2VM = new ManualOperation2ViewModel(Publisher);
+
+            // Other Settings
+            BinSetupVM = new Bin_SetupViewModel();
 
             Store = new BatchSettingsStore();
-            ResponseStore = new BatchSettingsResponseStore(MaterialVM, DDVM, EmptyVM, GateSeqVM, StepTimeVM,JogTimeVM,TolVM, CoarseToFineVM);
+            ResponseStore = new BatchSettingsResponseStore(MaterialVM, DDVM, EmptyVM, GateSeqVM, StepTimeVM,JogTimeVM,TolVM, CoarseToFineVM, ManualOperation2VM);
 
 
             Subscriber = new MqttSubscriberService(Store, ResponseStore);

@@ -5,115 +5,511 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scada_Demo.Options"
         mc:Ignorable="d"
-        Title="Reconcilation" Height="450" Width="520"
-        Background="#0D3A3A"
+        Title="Reconcilation"
+        Height="590"
+        Width="625"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        ResizeMode="NoResize"
+        Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
 
+    <Grid>
 
-    <Grid Margin="10">
+        <!-- ================= OUTER CARD ================= -->
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Border Margin="12"
+                Style="{DynamicResource SiteOuterBorderStyle}">
 
-        <!-- ================= HEADER ================= -->
-        <TextBlock Text="Adjustment"
-                   Margin="10,5"
-                   Style="{StaticResource HeaderTextStyle}"/>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="18"
+                                  ShadowDepth="2"
+                                  Color="Black"
+                                  Opacity="0.12"/>
+            </Border.Effect>
 
-        <!-- ================= CONTENT ================= -->
-        <Border Grid.Row="1"
-                Margin="10"
-                Padding="20"
-                Background="{StaticResource PanelBrush}"
-                BorderBrush="{StaticResource BorderBrushColor}"
-                BorderThickness="2"
-                CornerRadius="6">
+            <Grid Margin="25">
 
-            <Grid>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
+                <!-- ================= ROW DEFINITIONS ================= -->
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Product Name -->
-                <TextBlock Text="Product name"
-                           Grid.Row="0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
 
-                <ComboBox Grid.Row="0" Grid.Column="1"
-                          Style="{StaticResource CompactComboBoxSmall}" Grid.ColumnSpan="2" Margin="20,16,0,0"/>
+                <!-- ================= HEADER ================= -->
 
-                <!-- Adjusted Stock -->
-                <TextBlock Text="Adjusted stock value"
-                           Grid.Row="1"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                <Grid Grid.Row="0"
+                      Margin="0,-55,0,0">
 
-                <TextBox Grid.Row="1" Grid.Column="1"
-                         Margin="20,10,30,0"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="34" Grid.ColumnSpan="2"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Remark -->
-                <TextBlock Text="Remark"
-                           Grid.Row="2"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Top"
-                           Style="{StaticResource CompactLabel}"/>
 
-                <TextBox Grid.Row="2" Grid.Column="2"
-                         Margin="0,10,0,0"
-                         Style="{StaticResource JogTextBoxStyle}"
-                         Height="100"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         VerticalScrollBarVisibility="Auto"/>
+                    <!-- HEADER ICON -->
 
-                <!-- From Date -->
-                <TextBlock Text="From Date"
-                           Grid.Row="3"
-                           Margin="0,10,0,0"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource CompactLabel}"/>
+                    <Border Grid.Column="0"
+                            Style="{DynamicResource SiteIconBoxStyle}">
 
-                <DatePicker Grid.Row="3" Grid.Column="2"
-                            Margin="0,10,0,0"
-                            Height="34"/>
+                        <Image Source="/Icons/Pincode.png"
+                               Width="24"
+                               Height="24"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    </Border>
+
+
+                    <!-- HEADER TITLE -->
+
+                    <TextBlock Grid.Column="1"
+                               Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Adjustment"
+                               Style="{DynamicResource SiteHeaderStyle}"/>
+
+
+                    <!-- GREEN LINE -->
+
+                    <Grid Grid.ColumnSpan="3"
+                          VerticalAlignment="Bottom"
+                          Margin="0,0,0,35">
+
+                        <Border Height="1.5"
+                                Background="{DynamicResource SiteAccentBrush}"/>
+
+                        <Ellipse Width="11"
+                                 Height="11"
+                                 Fill="{DynamicResource SiteAccentBrush}"
+                                 HorizontalAlignment="Right"
+                                 Margin="0,-1,0,0"/>
+
+                    </Grid>
+
+                </Grid>
+
+
+                <!-- ================= CONTENT ================= -->
+
+                <Grid Grid.Row="1"
+                      Margin="0,-20,0,0">
+
+                    <Grid.RowDefinitions>
+
+                        <!-- Product Name -->
+                        <RowDefinition Height="58"/>
+
+                        <!-- Divider -->
+                        <RowDefinition Height="1"/>
+
+                        <!-- Adjusted Stock -->
+                        <RowDefinition Height="58"/>
+
+                        <!-- Divider -->
+                        <RowDefinition Height="1"/>
+
+                        <!-- Remark -->
+                        <RowDefinition Height="125"/>
+
+                        <!-- Divider -->
+                        <RowDefinition Height="1"/>
+
+                        <!-- From Date -->
+                        <RowDefinition Height="58"/>
+
+                        <!-- Footer -->
+                        <RowDefinition Height="95"/>
+
+                    </Grid.RowDefinitions>
+
+
+                    <!-- ================= PRODUCT NAME ================= -->
+
+                    <Grid Grid.Row="0"
+                          Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <!-- ICON -->
+                        <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Name.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
+                        </Border>
+
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Product Name"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+
+                        <!-- COMBOBOX -->
+
+                        <ComboBox Grid.Column="3"
+                                  Height="42"
+                                  VerticalAlignment="Center"
+                                  Style="{DynamicResource SiteComboBoxStyle}"
+                                  IsEditable="True"/>
+
+                    </Grid>
+
+
+                    <!-- DIVIDER -->
+
+                    <Border Grid.Row="1"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+
+                    <!-- ================= ADJUSTED STOCK ================= -->
+
+                    <Grid Grid.Row="2"
+                          Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <!-- ICON -->
+
+                        <Border Width="40"
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Values.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
+                        </Border>
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="Adjusted Stock Value"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+
+                        <!-- TEXTBOX -->
+
+                        <TextBox Grid.Column="3"
+                                 Height="42"
+                                 VerticalAlignment="Center"
+                                 Style="{StaticResource JogTextBoxStyle}"/>
+
+                    </Grid>
+
+
+                    <!-- DIVIDER -->
+
+                    <Border Grid.Row="3"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+
+                    <!-- ================= REMARK ================= -->
+
+                    <Grid Grid.Row="4"
+                          Height="125">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <!-- ICON -->
+ 
+
+                        <!-- ICON -->
+
+                        <Border Width="40"
+Height="40"
+                       VerticalAlignment="Top"
+ HorizontalAlignment="Center"
+ Margin="0,12,0,0"
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Note.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
+                        </Border>
+                        
+
+
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Top"
+                                   Margin="0,17,0,0"
+                                   Text="Remark"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+
+                        <!-- REMARK TEXTBOX -->
+
+                        <TextBox Grid.Column="3"
+                                 Height="105"
+                                 VerticalAlignment="Top"
+                                 Margin="0,10,0,0"
+                                 Style="{StaticResource JogTextBoxStyle}"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"/>
+
+                    </Grid>
+
+
+                    <!-- DIVIDER -->
+
+                    <Border Grid.Row="5"
+                            Height="1"
+                            Background="#ECEFF3"/>
+
+
+                    <!-- ================= FROM DATE ================= -->
+
+                    <Grid Grid.Row="6"
+                          Height="58">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="40"
+Height="40"
+                       VerticalAlignment="Top"
+ HorizontalAlignment="Center"
+ Margin="0,12,0,0"
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/calender.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
+
+                        </Border>
+
+
+
+                        <!-- LABEL -->
+
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Text="From Date"
+                                   Style="{DynamicResource SiteLabelStyle}"/>
+
+
+                        <!-- DATE PICKER -->
+
+                        <DatePicker Grid.Column="3"
+                                    Height="42"
+                                    VerticalAlignment="Center"/>
+
+                    </Grid>
+
+
+                    <!-- ================= FOOTER ================= -->
+
+                    <Border Grid.Row="7"
+                            Margin="-25,10,-25,-36"
+                            Background="#F3F4F6"
+                            BorderBrush="#E5E7EB"
+                            BorderThickness="1,1,1,0"
+                            CornerRadius="0,0,18,18">
+
+                        <Grid Margin="0,12">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="*"/>
+
+                                <ColumnDefinition Width="170"/>
+
+                                <ColumnDefinition Width="20"/>
+
+                                <ColumnDefinition Width="170"/>
+
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+
+                            <!-- ================= SAVE ================= -->
+
+                            <Button Grid.Column="1"
+        Height="46"
+        Style="{DynamicResource SaveButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                                    <Rectangle Width="18"
+                   Height="18"
+                   Fill="{DynamicResource SaveIcon}"
+                   Margin="0,0,8,0">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/save.svg"
+                                         Width="18"
+                                         Height="18"
+                                         Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+                                    <TextBlock Text="Save"
+                   FontSize="14"
+                   FontWeight="SemiBold"
+                   Foreground="White"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                            <!-- ================= EXIT ================= -->
+
+                            <Button Grid.Column="3"
+        Height="46"
+        Style="{StaticResource WhiteActionButtonStyle}">
+
+                                <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                                    <Rectangle Width="18"
+                   Height="18"
+                   Fill="{DynamicResource ExitIcon}"
+                   Margin="0,0,8,0">
+
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform">
+                                                <VisualBrush.Visual>
+
+                                                    <svgc:SvgViewbox Source="/Icons/exit.svg"
+                                         Width="18"
+                                         Height="18"
+                                         Stretch="Uniform"/>
+
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Rectangle.OpacityMask>
+
+                                    </Rectangle>
+
+                                    <TextBlock Text="Exit"
+                   FontSize="14"
+                   FontWeight="SemiBold"
+                   Foreground="#1F2937"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
 
             </Grid>
+
         </Border>
 
-        <!-- ================= BUTTONS ================= -->
-        <StackPanel Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Margin="10">
-
-            <Button Content="Save"
-                    Width="140"
-                    Margin="10"
-                   />
-
-            <Button Content="Exit"
-                    Width="140"
-                    Margin="10"
-                    Style="{StaticResource RedButton}"/>
-
-        </StackPanel>
-
     </Grid>
+
 </Window>

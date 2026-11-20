@@ -26,5 +26,6 @@ namespace Scada_Demo.MQTT_Model
         public HomeTopItem Home_Top_ice { get; set; } = new();
         public int BatchRemaining { get; set; } = new();
         public int WaterCorr { get; set; } = new();
+        public int Mositure1 { get; set; } = new();
     }
 }

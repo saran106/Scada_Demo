@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Alarm History"
         Height="570" Width="850"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
 ResizeMode="NoResize"
             Icon="../project_small_i.png"
         WindowStartupLocation="CenterScreen">
@@ -77,20 +78,32 @@ ResizeMode="NoResize"
                         </Grid.ColumnDefinitions>
 
 
-                        <!-- HEADER ICON -->
+                        <!-- ICON -->
 
-                        <Border Grid.Column="0"
-                Width="40"
-                Height="40"
-                VerticalAlignment="Center"
-                Style="{DynamicResource SiteIconBoxStyle}">
+                        <Border Width="40" Grid.Column="0"
 
-                            <Image Source="/Icons/Address1.png"
-                   Width="22"
-                   Height="22"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Stretch="Uniform"/>
+Height="40"
+
+Style="{DynamicResource SiteIconBoxStyle}">
+                            <Rectangle Width="24"
+  Height="24"
+  Fill="{DynamicResource SiteIconBrush}">
+
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform">
+                                        <VisualBrush.Visual>
+
+                                            <svgc:SvgViewbox Source="/Icons/Alarm.svg"
+                        Width="24"
+                        Height="24"
+                        Stretch="Uniform"/>
+
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+
+                            </Rectangle>
+
 
                         </Border>
 
