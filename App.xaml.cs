@@ -41,6 +41,8 @@ namespace Scada_Demo
 
         public static Bin_SetupViewModel BinSetupVM { get; private set; }
 
+        public static ProductionTransferResponseService TransferResponseService { get; private set; }
+
 
 
         protected override async void OnStartup(StartupEventArgs e)
@@ -62,6 +64,7 @@ namespace Scada_Demo
             TolVM = new ToleranceViewModel(Publisher);
             CoarseToFineVM = new CoarseToFineViewModel(Publisher);
             ManualOperation2VM = new ManualOperation2ViewModel(Publisher);
+            TransferResponseService = new ProductionTransferResponseService(StartProductionVM);
 
             // Other Settings
             BinSetupVM = new Bin_SetupViewModel();
@@ -70,8 +73,11 @@ namespace Scada_Demo
             ResponseStore = new BatchSettingsResponseStore(MaterialVM, DDVM, EmptyVM, GateSeqVM, StepTimeVM,JogTimeVM,TolVM, CoarseToFineVM, ManualOperation2VM);
 
 
-            Subscriber = new MqttSubscriberService(Store, ResponseStore);
-
+            Subscriber = new MqttSubscriberService(
+        Store,
+        ResponseStore,
+        TransferResponseService
+    );
             try
             {
                 await Subscriber.StartAsync();

@@ -22,6 +22,7 @@ namespace Scada_Demo.Services
         private readonly ToleranceViewModel _ToleranceViewModel;
         private readonly CoarseToFineViewModel _CoarseToFineViewModel;
         private readonly ManualOperation2ViewModel _ManualOperation2VM;
+
         public BatchSettingsResponseStore(MaterialInAirViewModel materialInAirViewModel, DischargeDelayViewModel DischargeDelayViewModel
             , EmptyValueViewModel emptyValueViewModel, GateSequenceViewModel gateSequenceViewModel, StepTimeViewModel stepTimeViewModel, JogTimeViewModel jogTimeViewModel, ToleranceViewModel toleranceViewModel
             , CoarseToFineViewModel coarsetofinemodel, ManualOperation2ViewModel ManualOperation2VM)

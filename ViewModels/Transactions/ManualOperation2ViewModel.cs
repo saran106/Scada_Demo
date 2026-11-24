@@ -63,6 +63,7 @@ namespace Scada_Demo.ViewModels.Transactions
         // SKIP
         public ICommand SkipUpPressCommand { get; private set; } = null!;
         public ICommand SkipUpReleaseCommand { get; private set; } = null!;
+        //m8.0
 
         public ICommand SkipStopPressCommand { get; private set; } = null!;
         public ICommand SkipStopReleaseCommand { get; private set; } = null!;
@@ -97,6 +98,28 @@ namespace Scada_Demo.ViewModels.Transactions
         public ICommand AutoManualPressCommand { get; private set; } = null!;
         public ICommand AutoManualReleaseCommand { get; private set; } = null!;
 
+        public ICommand AutoPausePressCommand { get; private set; } = null!;
+        public ICommand AutoPauseReleaseCommand { get; private set; } = null!;
+
+
+        // GATE 1
+        public ICommand Gate1OpenPressCommand { get; }
+        public ICommand Gate1OpenReleaseCommand { get; }
+
+        // GATE 2
+        public ICommand Gate2OpenPressCommand { get; }
+        public ICommand Gate2OpenReleaseCommand { get; }
+
+        // GATE 3
+        public ICommand Gate3OpenPressCommand { get; }
+        public ICommand Gate3OpenReleaseCommand { get; }
+
+        // GATE 4
+        public ICommand Gate4OpenPressCommand { get; }
+        public ICommand Gate4OpenReleaseCommand { get; }
+
+
+
 
         // CONSTRUCTOR
         public ManualOperation2ViewModel(MqttPublishSerice publisher)
@@ -105,6 +128,19 @@ namespace Scada_Demo.ViewModels.Transactions
 
             _publisher = publisher
                 ?? throw new ArgumentNullException(nameof(publisher));
+
+            // GATE 1 to 4
+            (Gate1OpenPressCommand, Gate1OpenReleaseCommand) =
+                CreateCommands("GATE1_OPEN");
+
+            (Gate2OpenPressCommand, Gate2OpenReleaseCommand) =
+                CreateCommands("GATE2_OPEN");
+
+            (Gate3OpenPressCommand, Gate3OpenReleaseCommand) =
+                CreateCommands("GATE3_OPEN");
+
+            (Gate4OpenPressCommand, Gate4OpenReleaseCommand) =
+                CreateCommands("GATE4_OPEN");
 
             // ADMIXTURE
             (ADM1DosPressCommand, ADM1DosReleaseCommand) =
@@ -187,6 +223,8 @@ namespace Scada_Demo.ViewModels.Transactions
             (AutoManualPressCommand, AutoManualReleaseCommand) =
                 CreateCommands("AUTO_MANUAL");
 
+            (AutoPausePressCommand, AutoPauseReleaseCommand) =
+    CreateCommands("AUTO_PAUSE");
             Debug.WriteLine("ALL MANUAL OPERATION COMMANDS CREATED");
         }
 

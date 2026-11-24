@@ -48,7 +48,7 @@ namespace Scada_Demo
             TransSubMenu.ItemsSource = TransactionsMenuItems;
             OptionsSubMenu.ItemsSource = OptionsMenuItems;
             ThemeToggle.Visibility = Visibility.Collapsed;
-           // LightThemeBtn.Visibility = Visibility.Collapsed;
+            // LightThemeBtn.Visibility = Visibility.Collapsed;
 
 
             MasterPopup.DataContext = this;
@@ -70,6 +70,28 @@ namespace Scada_Demo
         {
             Dispatcher.Invoke(() =>
             {
+
+                // ================= MATERIAL BATCHING STATUS =================
+
+                SetMaterialStatus(
+                    brdAggStatus,
+                    txtAggStatus,
+                    data.Home_Top.Agg1Completed);
+
+                SetMaterialStatus(
+                    brdCementStatus,
+                    txtCementStatus,
+                    data.Home_Top.CementCompleted);
+
+                SetMaterialStatus(
+                    brdAdm1Status,
+                    txtAdm1Status,
+                    data.Home_Top.Admix1Completed);
+
+                SetMaterialStatus(
+                    brdAdm2Status,
+                    txtAdm2Status,
+                    data.Home_Top.Admix1Completed);
                 // ================= AGGREGATE =================
                 txtAggCounter.Text = data.Home_Top.Home_Top_aggregate.counter.ToString();
                 txtAggSetWt.Text = data.Home_Top.Home_Top_aggregate.set_wt.ToString();
@@ -113,6 +135,8 @@ namespace Scada_Demo
                 txtRemainingBatches.Text = data.Home_Top.BatchRemaining.ToString();
                 txtWaterCorrection.Text = data.Home_Top.WaterCorr.ToString();
                 txtMoisture1.Text = data.Home_Top.Mositure1.ToString();
+                txtMixerCapacity.Text = (data.Home_Top.MixerCapacity / 100m).ToString("0.00");
+                txtMixerTime.Text = data.Home_Top.MixerTime.ToString("0.##");
                 // Model-la Silica illa. Blank-aa vechurukken.
                 txtSILCounter.Text = "";
                 txtSILset_wt.Text = "";
@@ -123,9 +147,30 @@ namespace Scada_Demo
                 UpdateAlarmListAsync(data);
             });
 
-           
+
         }
 
+        private void SetMaterialStatus(
+    Border badge,
+    TextBlock label,
+    bool completed)
+        {
+            if (completed)
+            {
+                label.Text = "✓ DONE";
+                label.Foreground = Brushes.White;
+                badge.Background = new SolidColorBrush(
+                    Color.FromRgb(46, 139, 65));
+            }
+            else
+            {
+                label.Text = "● WAIT";
+                label.Foreground = new SolidColorBrush(
+                    Color.FromRgb(120, 80, 10));
+                badge.Background = new SolidColorBrush(
+                    Color.FromRgb(255, 220, 140));
+            }
+        }
         private void UpdateAlarmLisst(BatchSettingsModel data)
         {
             AlarmMessages.Clear();
@@ -947,9 +992,9 @@ namespace Scada_Demo
 
                     OpenWindowOnce<Weighbridge_Setup>();
 
-                    break; 
-                
-                
+                    break;
+
+
                 case "Reconcilation":
 
                     OpenWindowOnce<Reconcilation>();

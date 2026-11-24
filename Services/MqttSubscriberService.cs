@@ -11,18 +11,20 @@ namespace Scada_Demo.Services
         private readonly IMqttClient _client;
         private readonly BatchSettingsStore _store;
         private readonly BatchSettingsResponseStore _responseStore;
-
+        private readonly ProductionTransferResponseService _transferResponseService;
         private bool _reconnecting = false;
 
         public MqttSubscriberService(
             BatchSettingsStore store,
-            BatchSettingsResponseStore responseStore)
+            BatchSettingsResponseStore responseStore,
+            ProductionTransferResponseService transferResponseService)
         {
             _store = store;
             _responseStore = responseStore;
 
             var factory = new MqttClientFactory();
             _client = factory.CreateMqttClient();
+            _transferResponseService = transferResponseService;
         }
 
         public async Task StartAsync()
@@ -58,6 +60,7 @@ namespace Scada_Demo.Services
             {
                 await _client.SubscribeAsync("Mimic_Screen/read");
                 await _client.SubscribeAsync("batchsettings/response");
+                await _client.SubscribeAsync("production/transfer/response");
 
                 Console.WriteLine("📡 Subscribed : Mimic_Screen/read");
                 Console.WriteLine("📡 Subscribed : batchsettings/response");
@@ -141,6 +144,11 @@ namespace Scada_Demo.Services
                         "✅ Write Response Updated");
 
                     _responseStore.Update(data);
+                }
+                else if (topic == "production/transfer/response")
+                {
+                    _transferResponseService.HandleResponse(json);
+                    return Task.CompletedTask;
                 }
             }
             catch (Exception ex)

@@ -27,5 +27,15 @@ namespace Scada_Demo.MQTT_Model
         public int BatchRemaining { get; set; } = new();
         public int WaterCorr { get; set; } = new();
         public int Mositure1 { get; set; } = new();
+        public short MixerCapacity { get; set; }
+
+        // PLC material completion status
+        public bool Agg1Completed { get; set; }
+        public bool CementCompleted { get; set; }
+        public bool Admix1Completed { get; set; }
+        public float MixerTime { get; set; }
+
+
+
     }
 }

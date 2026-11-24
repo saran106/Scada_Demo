@@ -1256,7 +1256,8 @@ Style="{DynamicResource SiteIconBoxStyle}">
                      Height="40"
                      HorizontalAlignment="Left"
                      Margin="0,0,10,0"
-                     Text="{Binding txtCem1, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding txtC1, UpdateSourceTrigger=PropertyChanged}"
+                    
                      Style="{DynamicResource SiteTextBoxStyle}"/>
 
                                 <TextBlock Grid.Column="3"
@@ -1320,7 +1321,7 @@ Style="{DynamicResource SiteIconBoxStyle}">
                      Height="40"
                      HorizontalAlignment="Left"
                      Margin="0,0,10,0"
-                     Text="{Binding txtCem2, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding txtC2, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource SiteTextBoxStyle}"/>
 
                                 <TextBlock Grid.Column="3"
@@ -1384,7 +1385,7 @@ Style="{DynamicResource SiteIconBoxStyle}">
                      Height="40"
                      HorizontalAlignment="Left"
                      Margin="0,0,10,0"
-                     Text="{Binding txtCem3, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding txtC3, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource SiteTextBoxStyle}"/>
 
                                 <TextBlock Grid.Column="3"
@@ -1462,7 +1463,7 @@ Style="{DynamicResource SiteIconBoxStyle}">
                      Height="40"
                      HorizontalAlignment="Left"
                      Margin="0,0,10,0"
-                     Text="{Binding txtCem4, UpdateSourceTrigger=PropertyChanged}"
+                   Text="{Binding txtC4, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource SiteTextBoxStyle}"/>
 
                                 <TextBlock Grid.Column="3"

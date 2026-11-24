@@ -366,6 +366,12 @@ namespace Scada_Demo.ViewModels.BatchSettings
                 writeData.Agg98 = Convert.ToInt16(_agg4);
                 // add here remaing Tags.
 
+                // Cement
+                // Cement
+                writeData.Cem100 = Convert.ToInt16(txtC1);
+                writeData.Cem102 = Convert.ToInt16(txtC2);
+                writeData.Cem104 = Convert.ToInt16(txtC3);
+                writeData.Cem4 = Convert.ToInt16(txtC4);
                 // Water
                 writeData.Water386 = Convert.ToInt16(_wtr1);
 
@@ -402,57 +408,62 @@ namespace Scada_Demo.ViewModels.BatchSettings
         {
             try
             {
-
-                //MessageBox.Show(Application.Current.Dispatcher.CheckAccess().ToString());
                 if (data.Type == "MIA")
                 {
-                    if (data.activity == "Read")//Read Response.
+                    if (data.activity == "Read") // Read Response
                     {
-
-
-                        //_agg1 = data.batchSettings_MaterialInAir.Agg92.ToString();
-                        //_agg2 = data.batchSettings_MaterialInAir.Agg94.ToString();
-                        //_agg3 = data.batchSettings_MaterialInAir.Agg96.ToString();
-                        //_agg4 = data.batchSettings_MaterialInAir.Agg98.ToString();
-
+                        // Aggregate
                         txtAgg1 = data.batchSettings_MaterialInAir.Agg92.ToString();
                         txtAgg2 = data.batchSettings_MaterialInAir.Agg94.ToString();
                         txtAgg3 = data.batchSettings_MaterialInAir.Agg96.ToString();
                         txtAgg4 = data.batchSettings_MaterialInAir.Agg98.ToString();
 
+                        // Cement
+                        txtC1 = data.batchSettings_MaterialInAir.Cem100.ToString();
+                        txtC2 = data.batchSettings_MaterialInAir.Cem102.ToString();
+                        txtC3 = data.batchSettings_MaterialInAir.Cem104.ToString();
+                        txtC4 = data.batchSettings_MaterialInAir.Cem4.ToString();
+
+                        // Water
                         txtWTR1 = data.batchSettings_MaterialInAir.Water386.ToString();
 
+                        // Admixture
                         txtAD1 = data.batchSettings_MaterialInAir.Admix108.ToString();
                         txtAD2 = data.batchSettings_MaterialInAir.Admix110.ToString();
 
+                        // Micro Silica / Ice
                         txtICE = data.batchSettings_MaterialInAir.Ice410.ToString();
                     }
-                    else //Write Response.
+                    else // Write Response
                     {
-                        //if(Convert.ToInt16(_agg1) == data.batchSettings_MaterialInAir.Agg92 &&
-                        //    Convert.ToInt16(_agg2) == data.batchSettings_MaterialInAir.Agg94 &&
-                        //    Convert.ToInt16(_agg3) == data.batchSettings_MaterialInAir.Agg96 &&
-                        //    Convert.ToInt16(_agg4) == data.batchSettings_MaterialInAir.Agg98) 
-                        if (
-        Convert.ToInt16(_agg1) == data.batchSettings_MaterialInAir.Agg92 &&
-        Convert.ToInt16(_agg2) == data.batchSettings_MaterialInAir.Agg94 &&
-        Convert.ToInt16(_agg3) == data.batchSettings_MaterialInAir.Agg96 &&
-        Convert.ToInt16(_agg4) == data.batchSettings_MaterialInAir.Agg98 &&
+                        bool isMatch =
+                            Convert.ToInt16(_agg1) == data.batchSettings_MaterialInAir.Agg92 &&
+                            Convert.ToInt16(_agg2) == data.batchSettings_MaterialInAir.Agg94 &&
+                            Convert.ToInt16(_agg3) == data.batchSettings_MaterialInAir.Agg96 &&
+                            Convert.ToInt16(_agg4) == data.batchSettings_MaterialInAir.Agg98 &&
 
-        Convert.ToInt16(_wtr1) == data.batchSettings_MaterialInAir.Water386 &&
+                            // Cement
+                            Convert.ToInt16(txtC1) == data.batchSettings_MaterialInAir.Cem100 &&
+                            Convert.ToInt16(txtC2) == data.batchSettings_MaterialInAir.Cem102 &&
+                            Convert.ToInt16(txtC3) == data.batchSettings_MaterialInAir.Cem104 &&
+                            Convert.ToInt16(txtC4) == data.batchSettings_MaterialInAir.Cem4 &&
 
-        Convert.ToInt16(_ad1) == data.batchSettings_MaterialInAir.Admix108 &&
-        Convert.ToInt16(_ad2) == data.batchSettings_MaterialInAir.Admix110 &&
+                            // Water
+                            Convert.ToInt16(_wtr1) == data.batchSettings_MaterialInAir.Water386 &&
 
-        Convert.ToInt16(_ice) == data.batchSettings_MaterialInAir.Ice410
-    )//Add Remaing Tags
+                            // Admixture
+                            Convert.ToInt16(_ad1) == data.batchSettings_MaterialInAir.Admix108 &&
+                            Convert.ToInt16(_ad2) == data.batchSettings_MaterialInAir.Admix110 &&
+
+                            // Micro Silica / Ice
+                            Convert.ToInt16(_ice) == data.batchSettings_MaterialInAir.Ice410;
+
+                        if (isMatch)
                         {
-                            //Write database table save activity here....   
+                            // Write database table save activity here
                             SaveMaterialInAir();
 
                             MessageBox.Show("Data saved successfully.!");
-
-
                         }
                         else
                         {

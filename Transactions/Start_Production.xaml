@@ -3352,7 +3352,7 @@ Background="{DynamicResource SitePageBackgroundBrush}"
         BorderThickness="1,1,1,0"
         CornerRadius="0,0,18,18">
 
-            <Grid Margin="15,8">
+            <!--<Grid Margin="15,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="320"/>
@@ -3362,14 +3362,14 @@ Background="{DynamicResource SitePageBackgroundBrush}"
                     <ColumnDefinition Width="180"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- STATUS TEXTBOX -->
+                --><!-- STATUS TEXTBOX --><!--
                 <TextBox Grid.Column="1"
                  Width="320"
                  Height="42"
                  VerticalAlignment="Center"
                  Style="{StaticResource JogTextBoxStyle}"/>
 
-                <!-- START -->
+                --><!-- START --><!--
                 <Button Grid.Column="3"
                 Height="45"
                 Margin="0,0,0,0"
@@ -3391,7 +3391,7 @@ Background="{DynamicResource SitePageBackgroundBrush}"
                     </StackPanel>
                 </Button>
 
-                <!-- EXIT -->
+                --><!-- EXIT --><!--
                 <Button Grid.Column="5"
                 Height="45"
                 Click="Exit_Click"
@@ -3409,6 +3409,83 @@ Background="{DynamicResource SitePageBackgroundBrush}"
                            FontSize="16"
                            FontWeight="Bold"
                            Foreground="#1F2937"/>
+                    </StackPanel>
+                </Button>
+
+            </Grid>-->
+
+            <Grid Margin="15,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- TRANSFER TO PLC -->
+                <Button Grid.Column="1"
+        Height="45"
+        Command="{Binding TransferCommand}"
+        Style="{StaticResource TransferButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/Distance1.png"
+               Width="22"
+               Height="22"
+               Margin="0,0,10,0"
+               Stretch="Uniform"/>
+
+                        <TextBlock Text="Transfer to PLC"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Foreground="White"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- START -->
+                <Button Grid.Column="3"
+            Height="45"
+            Command="{Binding StartCommand}"
+            IsEnabled="{Binding IsTransferSuccessful}"
+            Style="{StaticResource SaveButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/save.png"
+                   Width="20"
+                   Height="20"
+                   Margin="0,0,10,0"/>
+
+                        <TextBlock Text="Start"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- EXIT -->
+                <Button Grid.Column="5"
+            Height="45"
+            Click="Exit_Click"
+            Style="{StaticResource WhiteActionButtonStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                        <Image Source="/Icons/exit.png"
+                   Width="20"
+                   Height="20"
+                   Margin="0,0,10,0"/>
+
+                        <TextBlock Text="Exit"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Foreground="#1F2937"/>
                     </StackPanel>
                 </Button>
 
